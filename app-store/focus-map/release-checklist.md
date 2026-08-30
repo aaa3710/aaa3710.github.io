@@ -57,7 +57,7 @@
 - [x] 同sourceのscheme既定Analyze成功
 - [x] 同sourceのDebug／Release Simulator build成功
 - [x] 同sourceの署名なしgeneric iOS Release build成功
-- [x] 文書のみの最終HEAD`e0037a92471036bca5da21f67694d73fde50ea64`でsource／testが変わっていないことを最新監査へ同期
+- [x] 文書のみの最終HEAD`67c08486f72bfc2488319c625d8759b527c492e6`でsource／testが変わっていないことを最新監査へ同期
 
 ## 外部・実機ゲート
 
