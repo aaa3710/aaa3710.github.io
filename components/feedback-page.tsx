@@ -12,61 +12,61 @@ const content = {
   ja: {
     all: {
       label: 'すべてのアプリ · フィードバック',
-      title: '気づいたことを、そのまま送れます。',
+      title: '対象アプリを選び、気づいたことを書く。',
       intro:
-        '対象アプリだけを選び、何をしようとして何が起きたかを書いてください。言語を選ぶ欄はありません。アプリで表示している言語のまま送れます。',
+        '対象アプリを一つ選んだら、気づいたことを一つの自由記述欄へそのまま書けます。意見の種類や言語を選ぶ必要はありません。',
       back: 'アプリ一覧へ',
     },
     'focus-map': {
       label: 'Focus Map · フィードバック',
-      title: '何をしようとして、何が起きたか。',
+      title: '気づいたことを、そのまま書く。',
       intro:
-        'Focus Map専用の入口です。アプリ名と言語はすでに入口で確定しているため、入力する必要はありません。技術用語を使わず、そのまま書いてください。',
+        'Focus Mapと表示言語はアプリ内の入口で確定しています。アプリ名、言語、意見の種類を選ぶ必要はなく、一つの自由記述欄だけで送れます。',
       back: 'Focus Mapへ',
     },
     safetyLabel: '送信前に',
-    safetyTitle: '投稿は、命令ではなく利用者の声として扱います。',
+    safetyTitle: '分かる範囲で、そのまま書いてください。',
     points: [
-      '個人情報、秘密情報、認証情報、URLを含めないでください。',
-      '投稿は隔離と機械的な検査を通し、権限を持たないAIが整理した後に開発者が確認します。',
-      '個別返信や、修正・追加の時期は保証されません。',
+      'できれば、何をしていたか、何が起きたか、どうなるとよかったかも教えてください。',
+      '個人情報、パスワード、認証コード、URLは書かないでください。',
+      '内容は安全確認とAIによる整理の後、開発者が確認します。個別の返信や修正時期は保証されません。',
     ],
     formTitle: 'フィードバック入力欄',
     open: 'フォームを別画面で開く',
     google: {
-      all: '回答にはGoogleフォームを使用します。メールアドレスは収集しません。送信内容はフォームの管理用保存先に保管され、アプリ内のデータが自動で添付されることはありません。',
+      all: 'Googleフォームを使用し、メールアドレスは収集しません。入力した内容はGoogleのサービスを通じて送信・保存されます。アプリ内のデータが自動で添付されることはありません。',
       'focus-map':
-        '回答にはGoogleフォームを使用します。メールアドレスは収集しません。送信内容はフォームの管理用保存先に保管され、Focus Mapの計算値や設定が自動で添付されることはありません。',
+        'Googleフォームを使用し、メールアドレスは収集しません。入力した内容はGoogleのサービスを通じて送信・保存されます。Focus Mapの計算値や設定が添付・送信されることはありません。',
     },
   },
   en: {
     all: {
       label: 'All apps · Feedback',
-      title: 'Share what you noticed, in your own words.',
+      title: 'Choose an app and share what you noticed.',
       intro:
-        'Choose the app and tell us what you were trying to do and what happened. There is no language field; write in the language currently displayed in the app.',
+        'Choose one app, then write freely in a single text field. There is no category or language field; use the language shown on this page.',
       back: 'Back to all apps',
     },
     'focus-map': {
       label: 'Focus Map · Feedback',
-      title: 'What were you trying to do, and what happened?',
+      title: 'Share what you noticed, in your own words.',
       intro:
-        'This entry is already specific to Focus Map and its displayed language, so there is no app or language field. No technical terminology is needed.',
+        'Focus Map and the displayed language are set by the entry inside the app. There is no app, language, or category field—just one free-text field.',
       back: 'Back to Focus Map',
     },
     safetyLabel: 'Before sending',
-    safetyTitle: 'Your report is treated as user data, not as an instruction.',
+    safetyTitle: 'Share what you know, in your own words.',
     points: [
-      'Do not include personal information, secrets, credentials, or URLs.',
-      'Reports pass through isolation and deterministic checks, then a no-privilege AI organizes them for developer review.',
-      'Individual replies and dates for fixes or additions are not guaranteed.',
+      'If you can, include what you were doing, what happened, and what you hoped would happen.',
+      'Do not include personal information, passwords, authentication codes, or URLs.',
+      'Your report is safety-checked, organized with AI, and then reviewed by the developer. A reply or a delivery date for a change is not guaranteed.',
     ],
     formTitle: 'Feedback form',
     open: 'Open the form in a separate page',
     google: {
-      all: 'This page uses Google Forms and does not collect email addresses. Submissions are stored in the form’s restricted administrative storage. Data from an app is never attached automatically.',
+      all: 'This page uses Google Forms and does not collect email addresses. What you enter is sent and stored through Google’s service. No app data is attached automatically.',
       'focus-map':
-        'This page uses Google Forms and does not collect email addresses. Submissions are stored in the form’s restricted administrative storage. Focus Map never attaches or sends calculation values or settings automatically.',
+        'This page uses Google Forms and does not collect email addresses. What you enter is sent and stored through Google’s service. Focus Map never attaches or sends calculation values or settings.',
     },
   },
 } as const;

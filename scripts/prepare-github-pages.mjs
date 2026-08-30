@@ -60,8 +60,6 @@ const indexablePaths = [
   '/en/support/focus-map',
   '/feedback',
   '/en/feedback',
-  '/feedback/focus-map',
-  '/en/feedback/focus-map',
 ];
 
 await writeFile(

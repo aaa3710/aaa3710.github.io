@@ -1,20 +1,13 @@
 import type { Metadata } from 'next';
 import { FeedbackPage } from '@/components/feedback-page';
-import { absoluteSiteUrl } from '@/lib/site';
 
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: 'Focus Map フィードバック',
   description:
-    'Focus Mapの不具合、使いにくさ、機能の提案、計算結果への質問を送れます。',
-  alternates: {
-    canonical: absoluteSiteUrl('/feedback/focus-map/'),
-    languages: {
-      ja: absoluteSiteUrl('/feedback/focus-map/'),
-      en: absoluteSiteUrl('/en/feedback/focus-map/'),
-    },
-  },
+    'Focus Mapを使っていて気づいたことを、一つの自由記述欄から送れます。',
+  robots: { index: false, follow: false },
 };
 
 export default function Page() {

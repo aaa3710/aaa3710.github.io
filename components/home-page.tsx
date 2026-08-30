@@ -66,7 +66,7 @@ const copy = {
     preparing: '準備中',
     feedbackTitle: '使って気づいたことを送る',
     feedbackBody:
-      '対象アプリを選び、技術用語を使わずに書けます。投稿は隔離とAIによる整理を経て、開発者が確認します。',
+      '対象アプリを選び、気づいたことを自由に書けます。内容は安全確認とAIによる整理の後、開発者が確認します。',
     feedbackAction: 'フィードバック入力へ',
   },
   en: {
@@ -130,7 +130,7 @@ const copy = {
     preparing: 'In progress',
     feedbackTitle: 'Share what you noticed',
     feedbackBody:
-      'Choose the app and write without technical terminology. Reports are isolated, organized by AI, and reviewed by the developer.',
+      'Choose the app and write freely in your own words. Reports are safety-checked, organized with AI, and reviewed by the developer.',
     feedbackAction: 'Open feedback',
   },
 } as const;

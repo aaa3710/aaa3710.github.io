@@ -6,8 +6,7 @@ export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: 'App Feedback',
-  description:
-    'Choose an app and report a bug, usability problem, feature idea, or calculation question.',
+  description: 'Choose an app and share what you noticed in one free-text field.',
   alternates: {
     canonical: absoluteSiteUrl('/en/feedback/'),
     languages: {

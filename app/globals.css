@@ -268,16 +268,14 @@ img {
 }
 
 .trust-list li,
-.privacy-feature li,
-.support-checklist li {
+.privacy-feature li {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
 .trust-list svg,
-.privacy-feature li svg,
-.support-checklist svg {
+.privacy-feature li svg {
   flex: 0 0 auto;
   color: #27865b;
 }
@@ -672,8 +670,7 @@ img {
   line-height: 1.65;
 }
 
-.feedback-banner-action,
-.support-feedback-action {
+.feedback-banner-action {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -975,15 +972,6 @@ img {
   min-height: 720px;
 }
 
-.support-feedback-action {
-  min-height: 50px;
-  margin-top: 34px;
-  border-radius: 999px;
-  background: var(--foreground);
-  padding: 0 20px;
-  color: var(--background);
-}
-
 .feedback-page {
   min-height: 760px;
 }
@@ -1116,19 +1104,6 @@ img {
   color: var(--muted-foreground);
   font-size: 1.06rem;
   line-height: 1.9;
-}
-
-.support-checklist {
-  margin: 42px 0 0;
-  padding: 26px 28px;
-  display: grid;
-  gap: 15px;
-  border: 1px solid var(--border);
-  background: rgb(255 253 248 / 62%);
-  list-style: none;
-  color: #4d4a43;
-  font-size: 0.9rem;
-  line-height: 1.6;
 }
 
 .info-sections {

@@ -1,4 +1,4 @@
-import { ArrowLeft, CheckCircle2, MessageSquareText } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { SiteFooter, SiteHeader } from '@/components/site-chrome';
 import { localePath, type Locale } from '@/lib/site';
 
@@ -26,7 +26,7 @@ const info = {
         ],
         [
           '任意のフィードバック',
-          'フィードバックページはGoogleフォームを使用し、メールアドレスを収集しません。送信した本文と任意で入力した端末情報はフォームの管理用保存先に保管され、隔離とAIによる整理を経て開発者が確認します。Focus Map本体が計算値や設定を添付することはありません。',
+          'フィードバックページはGoogleフォームを使用し、メールアドレスを収集しません。自由記述欄に入力した本文はGoogleのサービスを通じて送信・保存され、安全確認とAIによる整理の後に開発者が確認します。Focus Map本体が計算値や設定を添付することはありません。',
         ],
         [
           '変更と問い合わせ',
@@ -39,15 +39,7 @@ const info = {
       label: 'Focus Map · サポート',
       title: '計算の前提を含めて、確認できます。',
       intro:
-        '不具合、使いにくさ、機能の提案、計算結果への質問は、個人情報を含めず専用フォームから送れます。',
-      feedback: 'Focus Mapのフィードバックを送る',
-      checklist: [
-        'iPhoneの機種とiOSバージョン',
-        'Focus Mapのバージョン',
-        '使用した機材・レンズ・撮像面・入力値',
-        '期待した結果と実際の結果',
-        '再現手順。個人情報が写らない場合に限りスクリーンショット',
-      ],
+        'Focus Mapの計算結果に影響する前提と、扱わない範囲を確認できます。アプリ内の入口から送るフィードバックは、一つの自由記述欄へ気づいたことをそのまま書けます。',
       sections: [
         [
           '被写界深度',
@@ -89,7 +81,7 @@ const info = {
         ],
         [
           'Optional feedback',
-          'The feedback page uses Google Forms and does not collect email addresses. Submitted text and optional device information are stored in the form’s restricted administrative storage, isolated, organized by AI, and reviewed by the developer. Focus Map does not attach calculations or settings.',
+          'The feedback page uses Google Forms and does not collect email addresses. Text entered in the free-text field is sent and stored through Google’s service, safety-checked, organized with AI, and then reviewed by the developer. Focus Map does not attach calculation values or settings.',
         ],
         [
           'Changes and questions',
@@ -102,15 +94,7 @@ const info = {
       label: 'Focus Map · Support',
       title: 'Check the calculation assumptions as well as the result.',
       intro:
-        'Use the dedicated form to report a bug, usability problem, feature idea, or calculation question without including personal data.',
-      feedback: 'Send Focus Map feedback',
-      checklist: [
-        'iPhone model and iOS version',
-        'Focus Map version',
-        'equipment, lens, image area, and input values used',
-        'expected and actual result',
-        'reproduction steps, plus a screenshot only when it contains no personal information',
-      ],
+        'Review the assumptions that affect Focus Map results and what the calculations do not cover. Feedback opened from the app uses one free-text field, so you can share what you noticed in your own words.',
       sections: [
         [
           'Depth of field',
@@ -153,26 +137,6 @@ export function InfoPage({ locale, kind }: { locale: Locale; kind: InfoKind }) {
         <p className="section-label">{page.label}</p>
         <h1>{page.title}</h1>
         <p className="info-intro">{page.intro}</p>
-
-        {'checklist' in page ? (
-          <>
-            <a
-              className="support-feedback-action"
-              href={localePath(locale, '/feedback/focus-map/')}
-            >
-              <MessageSquareText aria-hidden="true" size={18} />
-              {page.feedback}
-            </a>
-            <ul className="support-checklist">
-              {page.checklist.map((item) => (
-                <li key={item}>
-                  <CheckCircle2 aria-hidden="true" size={18} />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </>
-        ) : null}
 
         <div className="info-sections">
           {page.sections.map(([title, body]) => (

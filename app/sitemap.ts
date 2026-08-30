@@ -61,17 +61,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.5,
     },
-    {
-      url: absoluteSiteUrl('/feedback/focus-map/'),
-      lastModified,
-      changeFrequency: 'yearly',
-      priority: 0.6,
-    },
-    {
-      url: absoluteSiteUrl('/en/feedback/focus-map/'),
-      lastModified,
-      changeFrequency: 'yearly',
-      priority: 0.5,
-    },
   ];
 }

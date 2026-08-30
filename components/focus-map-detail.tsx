@@ -20,7 +20,6 @@ const content = {
     state: 'App Store公開準備中',
     privacy: 'プライバシーを見る',
     support: '計算の前提とサポート',
-    feedback: '不具合・ご意見を送る',
     sceneLabel: 'こんな判断に',
     sceneTitle: '数字を調べる時間を、構図を考える時間へ。',
     scenes: [
@@ -77,7 +76,6 @@ const content = {
     state: 'Preparing for the App Store',
     privacy: 'Read the privacy policy',
     support: 'Assumptions and support',
-    feedback: 'Send feedback',
     sceneLabel: 'Questions it helps answer',
     sceneTitle:
       'Spend less time looking up numbers and more time on the frame.',
@@ -176,9 +174,6 @@ export function FocusMapDetail({ locale }: { locale: Locale }) {
             </a>
             <a href={localePath(locale, '/support/focus-map/')}>
               {text.support}
-            </a>
-            <a href={localePath(locale, '/feedback/focus-map/')}>
-              {text.feedback}
             </a>
           </div>
         </div>

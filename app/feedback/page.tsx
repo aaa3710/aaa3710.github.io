@@ -6,8 +6,7 @@ export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: 'アプリへのフィードバック',
-  description:
-    '対象アプリを選び、不具合、使いにくさ、機能の提案、計算結果への質問を送れます。',
+  description: '対象アプリを選び、使っていて気づいたことを自由に送れます。',
   alternates: {
     canonical: absoluteSiteUrl('/feedback/'),
     languages: {

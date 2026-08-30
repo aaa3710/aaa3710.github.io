@@ -29,6 +29,6 @@
 
 - 公開サイト: `app/`, `components/`, `public/`
 - GitHub Pages自動公開: `.github/workflows/deploy-pages.yml`
-- 共通／Focus Map専用フィードバック入口: `app/feedback/`, `app/en/feedback/`
+- 公開する共通フィードバック入口と、アプリ内からだけ開く `noindex` のFocus Map専用入口: `app/feedback/`, `app/en/feedback/`
 - Focus Map App Store準備: `app-store/focus-map/`
 - Codexが毎回読む前提: `AGENTS.md`
