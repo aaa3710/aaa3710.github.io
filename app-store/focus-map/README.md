@@ -7,7 +7,7 @@
 ## 現在の状態
 
 - 名前、サブタイトル、プロモーション用テキスト、説明、キーワードの日英案は、現行仕様と再照合済み。事実不一致がないため今回は変更していない。
-- 日本語4枚・英語4枚のスクリーンショットは、Focus Mapのコミット`7ec79a1f906195bea31940fbbfdd321f24ca40b8`にある現行Debug fixtureから再撮影済み。8枚とも形式検査と独立した全数原寸目視に合格した。
+- 日本語4枚・英語4枚のスクリーンショットは、Focus Mapの素材実装基準コミット`7ec79a1f906195bea31940fbbfdd321f24ca40b8`にあるDebug fixtureから再撮影済み。8枚とも形式検査と独立した全数原寸目視に合格した。
 - 日本語25.5秒・英語24.5秒のApp Preview候補も、同じ現行Simulator画面から実録画・検査済み。静止画だけで提出するか候補を採用するかは所有者判断。
 - プライバシー、セルフサポート、フィードバックページはサイトへ公開済み。
 - 監視可能な問い合わせ先、最終URL、公開地域、公開日、価格0円は所有者の最終決定待ち。
@@ -30,6 +30,6 @@
 - スクリーンショット: `Docs/Release/AppStoreSubmission/Screenshots/{ja,en}/`
 - App Preview候補: `Docs/Release/AppStoreSubmission/AppPreviews/{ja,en}/`
 - 最新監査: `Docs/Release/2026-08-31-app-store-assets-audit.md`
-- 対象コミット: `7ec79a1f906195bea31940fbbfdd321f24ca40b8`
+- 素材実装基準コミット: `7ec79a1f906195bea31940fbbfdd321f24ca40b8`
 
-上記はいずれも `/Users/minatosuzuki/work_local/被写界深度計算ツール/` を基準にしたpathです。旧8枚は同じ提出用pathで置換済みで、現行候補へ混ぜません。
+上記はいずれも `/Users/minatosuzuki/work_local/被写界深度計算ツール/` を基準にしたpathです。旧8枚は同じ提出用pathで置換済みで、現行候補へ混ぜません。後続の文書更新commitを含む現在のHEADは固定番号から推定せず、live Git状態と最新監査を照合します。

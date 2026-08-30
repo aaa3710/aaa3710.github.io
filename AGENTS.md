@@ -24,7 +24,7 @@
 - iPhone / iOS 17以降。日本語・英語対応。
 - 被写界深度、連続的なボケ量、撮像面比較、APEX露出、蛇腹伸長の計算を扱う。
 - アカウント、広告、解析SDK、追跡はない。計算値と設定は端末内に保存し、自動送信しない。利用者が選んだ場合だけ外部のフィードバックページを開く。
-- 2026-08-31のFocus Mapコミット`7ec79a1f906195bea31940fbbfdd321f24ca40b8`で、日英スクリーンショット8枚と日英App Preview候補を現行Simulator画面から制作し、形式検査と独立目視を完了した。実素材と最新監査の正本はFocus Map側に置く。
-- 現在コミットでは狭い蛇腹UI回帰1/1とDebug Simulator buildが成功した。2026-08-30以前の全Unit／全UI／Release／Analyze結果は履歴であり、現在HEADの全体試験へ読み替えない。
+- 2026-08-31のFocus Map素材実装基準コミット`7ec79a1f906195bea31940fbbfdd321f24ca40b8`で、日英スクリーンショット8枚と日英App Preview候補を現行Simulator画面から制作し、形式検査と独立目視を完了した。実素材と最新監査の正本はFocus Map側に置き、現在のHEADは作業時にlive確認する。
+- 素材実装基準では狭い蛇腹UI回帰1/1とDebug Simulator buildが成功した。2026-08-30以前の全Unit／全UI／Release／Analyze結果は履歴であり、後続HEADの全体試験へ読み替えない。
 - 実機の物理実寸・触覚・片手操作・VoiceOver実読み上げ、配布署名、Validate App、TestFlight、App Store配布は別ゲートで、未確認のまま通過扱いにしない。
 - App Previewは任意。制作済み候補を採用するか静止画だけにするかは所有者判断とする。

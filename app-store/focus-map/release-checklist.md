@@ -43,13 +43,13 @@
 - [x] 制作を担当していない独立した視点で、画像8枚の順序・文言とPreview全sceneを確認
 - [ ] App Store Connect入力時に、Webサイト、最終binary、Privacy表示、登録文面・素材を一式照合
 
-## 現在HEADの素材証拠
+## 素材実装基準の証拠
 
-- [x] Focus Mapコミット`7ec79a1f906195bea31940fbbfdd321f24ca40b8`に素材・狭い蛇腹修正・恒久回帰を保存
+- [x] Focus Map素材実装基準コミット`7ec79a1f906195bea31940fbbfdd321f24ca40b8`に素材・狭い蛇腹修正・恒久回帰を保存
 - [x] 日英の値・単位・pixel crop・注意書き余白の狭いUI回帰1/1成功（2026-08-31、Simulator）
-- [x] 現行Debug Simulator build成功（2026-08-31）
+- [x] 素材実装基準のDebug Simulator build成功（2026-08-31）
 - [x] スクリーンショットvalidatorとPreview仕様検査成功（2026-08-31）
-- [ ] このコミットを対象にした全Unit／全UI／Release／Analyzeの最終一式
+- [ ] App Store入力前のexact HEADを対象にした全Unit／全UI／Release／Analyzeの最終一式
 - [ ] Apple Distribution署名の配布用Archive／Privacy Report／Validate App
 - [ ] 実機の触覚
 - [ ] 実機の片手操作
@@ -58,4 +58,4 @@
 - [ ] TestFlight配布
 - [ ] App Store配布
 
-2026-08-30のUnit 141/141、UI全体13/13、generic iOS Release成功は直前の全体監査に残る履歴証拠であり、後続の蛇腹表示修正を含む現在コミットの全体試験として流用しません。最新の素材証拠はFocus Map側の `Docs/Release/2026-08-31-app-store-assets-audit.md`、直前の全体監査は `Docs/Release/2026-08-30-final-audit.md` を参照します。Simulator、未署名ビルド、実機、署名済みArchive、TestFlight、App Store配布を相互に代用しません。
+2026-08-30のUnit 141/141、UI全体13/13、generic iOS Release成功は直前の全体監査に残る履歴証拠であり、後続の蛇腹表示修正を含むHEADの全体試験として流用しません。最新の素材証拠はFocus Map側の `Docs/Release/2026-08-31-app-store-assets-audit.md`、直前の全体監査は `Docs/Release/2026-08-30-final-audit.md` を参照します。現在のHEADは作業時にlive Git状態で確認し、Simulator、未署名ビルド、実機、署名済みArchive、TestFlight、App Store配布を相互に代用しません。
