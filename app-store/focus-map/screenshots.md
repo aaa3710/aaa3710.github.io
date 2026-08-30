@@ -1,31 +1,44 @@
 # スクリーンショット構成
 
-AppleはiPhone用に1～10枚を受け付け、PNG/JPEG、アルファなしを求める。1320×2868pxは6.9インチ表示向けの受理サイズの一つ。保存済みの8枚はこの形式条件だけを満たす旧素材であり、内容の正確性を満たさないため提出不可。
+日本語4枚・英語4枚は、Focus Mapのコミット`7ec79a1f906195bea31940fbbfdd321f24ca40b8`にある現行Debug提出fixtureから再撮影済みです。AppleがiPhone 6.9インチ表示向けに受け付ける1320×2868pxのPNGとして、RGB／sRGB、アルファなし、8枚すべて異なるSHA-256であることを検査しました。
 
 ## 日本語・英語の共通順序
 
 1. `01-focus-map.png` — 撮影前に、ピントの範囲を確認
    - 最初の一枚。専門用語より先に、ユーザーが得る答えを示す。
-   - 現行の提出用fixtureから日英とも撮り直す。
+   - 2m、F8、FF換算20µmの合成機材fixture。許容範囲と連続曲線を示す。
 2. `02-apex.png` — 絞り・シャッター速度・ISOの関係
-   - 保存済み画像は2026-08-27再設計前の旧画面。日英とも撮り直す。
-   - 撮り直すまで提出不可。サイトにも旧画面を掲載しない。
+   - 現行の固定4行と中央復帰型入力を示す。
 3. `03-actual-size-sensors.png` — センサーの大きさを図で比較
-   - 保存済み画像は実寸表示ページではない。現行の実寸表示ページを日英とも撮り直す。
-   - 実寸表示の最終主張は、物理カード／定規との実機確認後に確定する。
+   - 現行の実寸表示ページを示す。物理カード／定規との一致は実機ゲートのまま。
 4. `04-bellows.png` — 大判・接写の露出補正
-   - 現行の提出用fixtureから日英とも撮り直し、入力値と結果が読み取れることを確認する。
+   - 蛇腹の説明、3入力、補正結果、下部タブまで同時に読める画面を示す。
 
-## 撮り直し時のルール
+## 現行候補の検査結果
 
-- 日本語と英語で同じ操作状態・同じ並びにする。
-- 実際のアプリ画面だけを使い、存在しない機能や合成UIを入れない。
-- 1枚目は機能一覧ではなく、Focus Mapの固有価値である「範囲と連続曲線」を見せる。
-- 各画像の見出しは、初めて見る人が画面名や専門用語を知らなくても意味が通る文にする。
-- ステータスバー、戻る表示、言語、数値、単位を最終ビルドと照合する。
-- 寸法、RGB、sRGB、アルファなしを再検査する。
-- 旧8枚と異なる画像であることをhashで確認し、新しい8枚すべてを独立した視点で目視する。
+- portrait／light／9:41。01〜03はLarge、04はMedium文字サイズ。
+- 日本語と英語で同じ画面構成と順序を保ち、各言語の文言、値、単位を照合済み。
+- 実際のSimulator画面だけを使い、存在しない機能、生成画像、合成UIを加えていない。
+- 8枚すべてについて、寸法、PNG、RGB／sRGB、アルファ、異なるhashを自動検査済み。
+- 制作時とは別の視点で全8枚を原寸確認し、画面、言語、値、単位、下部タブとの非干渉、順序、自然な日英表現に合格。
 
-現行の撮影fixture、対象Simulator、検査手順は、アプリ側の `Docs/Release/AppStoreSubmission/README.md` を正本とする。
+## SHA-256
+
+| 言語 | 画像 | SHA-256 |
+|---|---|---|
+| ja | `01-focus-map.png` | `cf56a5b49239e3bde1129b9cfe1a750b380a1378ee50fe51ee61bbceaabcbc15` |
+| ja | `02-apex.png` | `b33a536f132687223588e1157381392d88dfdc61087efe5bac8ea20f6b5e0387` |
+| ja | `03-actual-size-sensors.png` | `9ee9486327ffbfd49682808b0fdbeb3d304aa173b0ea6be1c4e266685636d969` |
+| ja | `04-bellows.png` | `a5928098504d0eeeb97dc3ff3b67b123b3910c9b708f91cdd65e3a7e2bb9cf26` |
+| en | `01-focus-map.png` | `76df03f8f06317b00d1de0560194d2d8780ca96fde9e9e79daa619ef4a4efb8c` |
+| en | `02-apex.png` | `a732f6e8cdb2c36c50d9a1cc36b41f1422aa20f7cfb90573dd3dcc1c32cc5290` |
+| en | `03-actual-size-sensors.png` | `b00b87c7f4b99dd1ac16ef2d4e98f351ce504c4bdd0338d3b03ed07e2a0c263a` |
+| en | `04-bellows.png` | `c2e80739f75de66a495d37399878d3569701ca6f6536ee3c419f0d1ffb4ce972` |
+
+実素材、撮影fixture、対象Simulator、検査手順、全hashの正本は、Focus Map側の `Docs/Release/AppStoreSubmission/README.md` と `Docs/Release/2026-08-31-app-store-assets-audit.md` です。
+
+## 証拠の境界
+
+この8枚はiPhone 17 Pro Max Simulator上の現行画面を示します。物理的実寸、実指での片手操作、実機のVoiceOver・触覚・屋外視認性、署名済み候補、TestFlight、App Store配布を示しません。App Store Connectへ登録する直前にも、選択したbinaryと画像の文言・機能が一致することを再照合します。
 
 参考: https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/

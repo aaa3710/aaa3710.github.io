@@ -6,21 +6,30 @@
 
 ## 現在の状態
 
-- 名前、サブタイトル、プロモーション用テキスト、説明、キーワードの日英案は準備済み。
-- 日英各4枚の既存スクリーンショットは形式条件だけを満たす旧素材であり、8枚すべて提出不可。
-- `02-apex.png`は旧APEX画面、`03-actual-size-sensors.png`は実寸表示ページではない。残る画像も現行の正確な画面として一式確認できていないため、現行ビルドから全8枚を撮り直す。
+- 名前、サブタイトル、プロモーション用テキスト、説明、キーワードの日英案は、現行仕様と再照合済み。事実不一致がないため今回は変更していない。
+- 日本語4枚・英語4枚のスクリーンショットは、Focus Mapのコミット`7ec79a1f906195bea31940fbbfdd321f24ca40b8`にある現行Debug fixtureから再撮影済み。8枚とも形式検査と独立した全数原寸目視に合格した。
+- 日本語25.5秒・英語24.5秒のApp Preview候補も、同じ現行Simulator画面から実録画・検査済み。静止画だけで提出するか候補を採用するかは所有者判断。
 - プライバシー、セルフサポート、フィードバックページはサイトへ公開済み。
 - 監視可能な問い合わせ先、最終URL、公開地域、公開日、価格0円は所有者の最終決定待ち。
-- App Previewは未制作かつ任意。全8枚の再撮影と現行画面の確認後、実録画できる場合だけ制作する。
+- App Store Connectへの素材登録、配布用署名、Validate App、TestFlight、提出は未実施。
+
+現在の素材は、iPhone 17 Pro Max Simulatorで表示した現行UIの証拠です。物理的実寸、実指操作、実機のVoiceOver・触覚・片手操作、署名済み候補、TestFlight、App Store配布の証拠ではありません。
 
 ## ファイル
 
 - `metadata.ja.md`: 日本語の入力文面
 - `metadata.en.md`: 英語の入力文面
-- `screenshots.md`: 画像順と撮り直し対象
-- `app-preview.md`: 27秒の撮影台本と技術条件
+- `screenshots.md`: 現行8枚の順序、形式、独立確認、証拠境界
+- `app-preview.md`: 日英の実録画候補、技術条件、採否判断
 - `release-checklist.md`: App Store Connectへ進む前の残作業
 
 ## 現行素材の所在
 
-アプリ側の `Docs/Release/AppStoreSubmission/Screenshots/ja/` と `en/` が素材の置き場ですが、現在の8枚は履歴確認用であり、提出候補ではありません。現行の正確なソースから日英8枚を再撮影し、形式検査と全画像の目視確認を終えた後にだけ正本を更新します。詳細な停止理由と再撮影条件は、アプリ側の `Docs/Release/2026-08-30-final-audit.md` と `Docs/Release/AppStoreSubmission/README.md` を参照します。
+実素材の正本はFocus Map側に置き、このリポジトリへ複製しません。
+
+- スクリーンショット: `Docs/Release/AppStoreSubmission/Screenshots/{ja,en}/`
+- App Preview候補: `Docs/Release/AppStoreSubmission/AppPreviews/{ja,en}/`
+- 最新監査: `Docs/Release/2026-08-31-app-store-assets-audit.md`
+- 対象コミット: `7ec79a1f906195bea31940fbbfdd321f24ca40b8`
+
+上記はいずれも `/Users/minatosuzuki/work_local/被写界深度計算ツール/` を基準にしたpathです。旧8枚は同じ提出用pathで置換済みで、現行候補へ混ぜません。
