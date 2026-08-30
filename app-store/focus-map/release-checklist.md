@@ -49,7 +49,18 @@
 - [x] 日英の値・単位・pixel crop・注意書き余白の狭いUI回帰1/1成功（2026-08-31、Simulator）
 - [x] 素材実装基準のDebug Simulator build成功（2026-08-31）
 - [x] スクリーンショットvalidatorとPreview仕様検査成功（2026-08-31）
-- [ ] App Store入力前のexact HEADを対象にした全Unit／全UI／Release／Analyzeの最終一式
+
+## 現行sourceの全体検証
+
+- [x] sourceコミット`33f4062d371b34a92adf717428d875ac43cdf339`のUnit 141/141成功
+- [x] 同sourceのUI 14/14成功（Clarity 8、グラフ連続drag 4、機材根拠表示2）
+- [x] 同sourceのscheme既定Analyze成功
+- [x] 同sourceのDebug／Release Simulator build成功
+- [x] 同sourceの署名なしgeneric iOS Release build成功
+- [x] 文書のみの最終HEAD`e0037a92471036bca5da21f67694d73fde50ea64`でsource／testが変わっていないことを最新監査へ同期
+
+## 外部・実機ゲート
+
 - [ ] Apple Distribution署名の配布用Archive／Privacy Report／Validate App
 - [ ] 実機の触覚
 - [ ] 実機の片手操作
@@ -58,4 +69,4 @@
 - [ ] TestFlight配布
 - [ ] App Store配布
 
-2026-08-30のUnit 141/141、UI全体13/13、generic iOS Release成功は直前の全体監査に残る履歴証拠であり、後続の蛇腹表示修正を含むHEADの全体試験として流用しません。最新の素材証拠はFocus Map側の `Docs/Release/2026-08-31-app-store-assets-audit.md`、直前の全体監査は `Docs/Release/2026-08-30-final-audit.md` を参照します。現在のHEADは作業時にlive Git状態で確認し、Simulator、未署名ビルド、実機、署名済みArchive、TestFlight、App Store配布を相互に代用しません。
+最新の素材・現行source検証はFocus Map側の `Docs/Release/2026-08-31-app-store-assets-audit.md`、直前の全体監査は `Docs/Release/2026-08-30-final-audit.md` を参照します。commit番号だけを現在証拠として流用せず、作業時のlive Git状態とsource hashを再照合します。Simulator、未署名build、実機、Apple Distribution署名Archive、Privacy Report、Validate App、TestFlight、App Store配布を相互に代用しません。
