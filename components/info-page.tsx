@@ -1,4 +1,4 @@
-import { ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, MessageSquareText } from 'lucide-react';
 import { SiteFooter, SiteHeader } from '@/components/site-chrome';
 import { localePath, type Locale } from '@/lib/site';
 
@@ -14,7 +14,7 @@ const info = {
       sections: [
         [
           '外部との通信',
-          'アカウント、広告、解析SDK、追跡、外部サーバーへの通信はありません。',
+          'アカウント、広告、解析SDK、追跡はありません。計算値や設定を外部サーバーへ自動送信しません。利用者がフィードバックを選んだ場合だけ、外部Webページを開きます。',
         ],
         [
           '端末内に保存するもの',
@@ -23,6 +23,10 @@ const info = {
         [
           '削除',
           '機材や表示プリセットはアプリ内で削除できます。アプリを削除すると、Focus Mapが端末内に保存した設定も削除されます。',
+        ],
+        [
+          '任意のフィードバック',
+          'フィードバックページはGoogleフォームを使用し、メールアドレスを収集しません。送信した本文と任意で入力した端末情報はフォームの管理用保存先に保管され、隔離とAIによる整理を経て開発者が確認します。Focus Map本体が計算値や設定を添付することはありません。',
         ],
         [
           '変更と問い合わせ',
@@ -35,7 +39,8 @@ const info = {
       label: 'Focus Map · サポート',
       title: '計算の前提を含めて、確認できます。',
       intro:
-        '不具合や計算結果について確認するときは、個人情報を含めず、次の情報を揃えてください。監視可能な連絡窓口はApp Store公開前にこのページへ追加します。',
+        '不具合、使いにくさ、機能の提案、計算結果への質問は、個人情報を含めず専用フォームから送れます。',
+      feedback: 'Focus Mapのフィードバックを送る',
       checklist: [
         'iPhoneの機種とiOSバージョン',
         'Focus Mapのバージョン',
@@ -72,7 +77,7 @@ const info = {
       sections: [
         [
           'External communication',
-          'There is no account system, advertising, analytics SDK, tracking, or communication with an external server.',
+          'There is no account system, advertising, analytics SDK, or tracking. Focus Map never transmits calculations or settings to an external server automatically. It opens an external web page only when the user chooses to send feedback.',
         ],
         [
           'Information stored on the device',
@@ -81,6 +86,10 @@ const info = {
         [
           'Deletion',
           'Equipment and display presets can be deleted inside the app. Deleting Focus Map also deletes the settings the app stored locally.',
+        ],
+        [
+          'Optional feedback',
+          'The feedback page uses Google Forms and does not collect email addresses. Submitted text and optional device information are stored in the form’s restricted administrative storage, isolated, organized by AI, and reviewed by the developer. Focus Map does not attach calculations or settings.',
         ],
         [
           'Changes and questions',
@@ -93,7 +102,8 @@ const info = {
       label: 'Focus Map · Support',
       title: 'Check the calculation assumptions as well as the result.',
       intro:
-        'When reporting a problem or asking about a calculation, prepare the following information without including personal data. A monitored contact method will be added here before the App Store release.',
+        'Use the dedicated form to report a bug, usability problem, feature idea, or calculation question without including personal data.',
+      feedback: 'Send Focus Map feedback',
       checklist: [
         'iPhone model and iOS version',
         'Focus Map version',
@@ -145,14 +155,23 @@ export function InfoPage({ locale, kind }: { locale: Locale; kind: InfoKind }) {
         <p className="info-intro">{page.intro}</p>
 
         {'checklist' in page ? (
-          <ul className="support-checklist">
-            {page.checklist.map((item) => (
-              <li key={item}>
-                <CheckCircle2 aria-hidden="true" size={18} />
-                {item}
-              </li>
-            ))}
-          </ul>
+          <>
+            <a
+              className="support-feedback-action"
+              href={localePath(locale, '/feedback/focus-map/')}
+            >
+              <MessageSquareText aria-hidden="true" size={18} />
+              {page.feedback}
+            </a>
+            <ul className="support-checklist">
+              {page.checklist.map((item) => (
+                <li key={item}>
+                  <CheckCircle2 aria-hidden="true" size={18} />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </>
         ) : null}
 
         <div className="info-sections">

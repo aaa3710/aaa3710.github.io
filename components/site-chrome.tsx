@@ -25,6 +25,9 @@ export function SiteHeader({ locale, languageHref }: HeaderProps) {
         aria-label={isEnglish ? 'Main navigation' : '主なページ'}
       >
         <a href={localePath(locale, '/apps/focus-map/')}>Focus Map</a>
+        <a href={localePath(locale, '/feedback/')}>
+          {isEnglish ? 'Feedback' : 'フィードバック'}
+        </a>
         <a href={`${localePath(locale)}#principles`}>
           {isEnglish ? 'Principles' : 'つくり方'}
         </a>
@@ -66,6 +69,9 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         </a>
         <a href={localePath(locale, '/support/focus-map/')}>
           {isEnglish ? 'Support' : 'サポート'}
+        </a>
+        <a href={localePath(locale, '/feedback/')}>
+          {isEnglish ? 'Feedback' : 'フィードバック'}
         </a>
         <a href="#top">
           {isEnglish ? 'Back to top' : '先頭へ'}

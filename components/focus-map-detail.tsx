@@ -20,6 +20,7 @@ const content = {
     state: 'App Store公開準備中',
     privacy: 'プライバシーを見る',
     support: '計算の前提とサポート',
+    feedback: '不具合・ご意見を送る',
     sceneLabel: 'こんな判断に',
     sceneTitle: '数字を調べる時間を、構図を考える時間へ。',
     scenes: [
@@ -50,10 +51,10 @@ const content = {
     localLabel: 'Data & privacy',
     localTitle: '計算は、iPhoneの中だけで。',
     localBody:
-      'アカウント、広告、解析SDK、追跡、外部サーバーへの通信はありません。機材や表示の設定は端末内に保存され、外部へ送信されません。',
+      'アカウント、広告、解析SDK、追跡はありません。計算値や設定は端末内に保存され、自動送信されません。利用者がフィードバックを選んだ場合だけ、入力用の外部Webページを開きます。',
     facts: [
       'アカウント不要',
-      '外部通信なし',
+      '計算・設定の自動送信なし',
       '広告・解析・追跡なし',
       '日本語・英語を切替可能',
     ],
@@ -76,6 +77,7 @@ const content = {
     state: 'Preparing for the App Store',
     privacy: 'Read the privacy policy',
     support: 'Assumptions and support',
+    feedback: 'Send feedback',
     sceneLabel: 'Questions it helps answer',
     sceneTitle:
       'Spend less time looking up numbers and more time on the frame.',
@@ -110,10 +112,10 @@ const content = {
     localLabel: 'Data & privacy',
     localTitle: 'The calculations stay on the iPhone.',
     localBody:
-      'There are no accounts, ads, analytics SDKs, tracking, or external server connections. Equipment and display settings are stored locally and are not transmitted off the device.',
+      'There are no accounts, ads, analytics SDKs, or tracking. Calculations and settings remain on the device and are never transmitted automatically. An external web form opens only when the user chooses to send feedback.',
     facts: [
       'No account',
-      'No network connection',
+      'No automatic transmission of calculations or settings',
       'No ads, analytics, or tracking',
       'Japanese and English in the app',
     ],
@@ -174,6 +176,9 @@ export function FocusMapDetail({ locale }: { locale: Locale }) {
             </a>
             <a href={localePath(locale, '/support/focus-map/')}>
               {text.support}
+            </a>
+            <a href={localePath(locale, '/feedback/focus-map/')}>
+              {text.feedback}
             </a>
           </div>
         </div>

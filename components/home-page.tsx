@@ -4,6 +4,7 @@ import {
   Check,
   Globe2,
   LockKeyhole,
+  MessageSquareText,
   Sparkles,
   WifiOff,
 } from 'lucide-react';
@@ -63,6 +64,10 @@ const copy = {
       'Focus Mapを最初の公開例として仕上げています。ほかのアプリは、実際に確認できる内容が固まるまで名前だけを置きます。',
     ready: '詳しいページへ',
     preparing: '準備中',
+    feedbackTitle: '使って気づいたことを送る',
+    feedbackBody:
+      '対象アプリを選び、技術用語を使わずに書けます。投稿は隔離とAIによる整理を経て、開発者が確認します。',
+    feedbackAction: 'フィードバック入力へ',
   },
   en: {
     eyebrow: 'Make focus decisions faster on iPhone',
@@ -123,6 +128,10 @@ const copy = {
       'Focus Map is the first publishing example. The other apps stay as names only until their confirmed, releasable scope is ready to describe.',
     ready: 'Open the full page',
     preparing: 'In progress',
+    feedbackTitle: 'Share what you noticed',
+    feedbackBody:
+      'Choose the app and write without technical terminology. Reports are isolated, organized by AI, and reviewed by the developer.',
+    feedbackAction: 'Open feedback',
   },
 } as const;
 
@@ -144,8 +153,8 @@ export function HomePage({ locale }: { locale: Locale }) {
         acceptedAnswer: {
           '@type': 'Answer',
           text: isEnglish
-            ? 'No. The current app has no account, ads, analytics, tracking, or external server communication. Settings remain on the iPhone.'
-            : 'いいえ。現行アプリにはアカウント、広告、解析、追跡、外部サーバー通信がなく、設定はiPhone内に保存されます。',
+            ? 'Focus Map does not transmit calculations or settings. Only when a user chooses Send Feedback does it open an external web page, and only the text entered there is submitted.'
+            : 'Focus Mapは計算値や設定を送信しません。「フィードバックを送る」を利用者が選んだ場合だけ外部Webページを開き、そこで入力した内容だけが送信されます。',
         },
       },
       {
@@ -359,6 +368,17 @@ export function HomePage({ locale }: { locale: Locale }) {
             </a>
           ))}
         </div>
+        <a className="feedback-banner" href={localePath(locale, '/feedback/')}>
+          <MessageSquareText aria-hidden="true" />
+          <span>
+            <strong>{text.feedbackTitle}</strong>
+            <small>{text.feedbackBody}</small>
+          </span>
+          <span className="feedback-banner-action">
+            {text.feedbackAction}
+            <ArrowRight aria-hidden="true" size={16} />
+          </span>
+        </a>
       </section>
 
       <SiteFooter locale={locale} />

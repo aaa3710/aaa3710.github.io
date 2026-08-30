@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { absoluteSiteUrl } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date('2026-08-29T00:00:00+09:00');
+  const lastModified = new Date('2026-08-30T00:00:00+09:00');
 
   return [
     {
@@ -48,6 +48,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: absoluteSiteUrl('/en/support/focus-map/'),
       lastModified,
       priority: 0.4,
+    },
+    {
+      url: absoluteSiteUrl('/feedback/'),
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    },
+    {
+      url: absoluteSiteUrl('/en/feedback/'),
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+    {
+      url: absoluteSiteUrl('/feedback/focus-map/'),
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    },
+    {
+      url: absoluteSiteUrl('/en/feedback/focus-map/'),
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.5,
     },
   ];
 }
