@@ -26,7 +26,7 @@ const info = {
         ],
         [
           '自分でフィードバックを送る場合',
-          'フィードバックページはGoogleフォームを使用し、メールアドレスを収集しません。自由記述欄に入力した本文はGoogleのサービスを通じて送信・保存され、安全確認とAIによる整理の後に開発者が確認します。Focus Map本体が計算値や設定を添付することはありません。',
+          'フィードバックページはGoogleフォームを使用し、メールアドレスを収集しません。自由記述欄に入力した本文はGoogleのサービスを通じて送信・保存され、開発者が確認します。今後、必要に応じて安全に分離した環境でAIによる整理を行う場合があります。Focus Map本体が計算値や設定を添付することはありません。',
         ],
         [
           '変更と問い合わせ',
@@ -81,7 +81,7 @@ const info = {
         ],
         [
           'When you choose to send feedback',
-          'The feedback page uses Google Forms and does not collect email addresses. Text entered in the free-text field is sent and stored through Google’s service, safety-checked, organized with AI, and then reviewed by the developer. Focus Map does not attach calculation values or settings.',
+          'The feedback page uses Google Forms and does not collect email addresses. Text entered in the free-text field is sent and stored through Google’s service and reviewed by the developer. In the future, it may be organized with AI in an isolated environment when helpful. Focus Map does not attach calculation values or settings.',
         ],
         [
           'Changes and questions',

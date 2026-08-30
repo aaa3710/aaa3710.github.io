@@ -40,7 +40,7 @@ const content = {
     points: [
       '分かる範囲で、何をしていたか、何が起きたか、どうなるとよかったかもお書きください。',
       '個人情報、パスワード、認証コード、URLは入力しないでください。',
-      '内容は安全に確認し、必要に応じてAIで整理したうえで、開発者が読みます。返信や修正時期はお約束できません。',
+      '内容はGoogleフォームに保存され、開発者が確認します。今後、必要に応じて安全に分離した環境でAIによる整理を行う場合があります。返信や修正時期はお約束できません。',
     ],
     formTitle: '入力する',
     open: 'フォームを別画面で開く',
@@ -70,7 +70,7 @@ const content = {
     points: [
       'If you can, include what you were doing, what happened, and what you hoped would happen.',
       'Do not include personal information, passwords, authentication codes, or URLs.',
-      'Your report is checked for safety, organized with AI when helpful, and then read by the developer. A reply or delivery date cannot be promised.',
+      'Your report is stored in Google Forms and reviewed by the developer. In the future, it may be organized with AI in an isolated environment when helpful. A reply or delivery date cannot be promised.',
     ],
     formTitle: 'Feedback form',
     open: 'Open the form in a separate page',
