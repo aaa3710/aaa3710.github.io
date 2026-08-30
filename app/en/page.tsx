@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import { HomePage } from '@/components/home-page';
+import { PortfolioHomePage } from '@/components/portfolio-home-page';
 import { absoluteSiteUrl } from '@/lib/site';
 
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Apps — Focus Map and small tools for fewer decisions',
+  title: 'Apps — Independent apps for everyday problems',
   description:
-    'The official home of Focus Map and independently made apps designed to keep everyday tasks calm and direct.',
+    'Independent apps that began with small everyday problems and tools I wanted to use myself.',
   alternates: {
     canonical: absoluteSiteUrl('/en/'),
     languages: {
@@ -15,8 +15,20 @@ export const metadata: Metadata = {
       en: absoluteSiteUrl('/en/'),
     },
   },
+  openGraph: {
+    type: 'website',
+    title: 'Apps — Independent apps for everyday problems',
+    description:
+      'Independent apps that began with small everyday problems and tools I wanted to use myself.',
+    url: absoluteSiteUrl('/en/'),
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Apps — Independent apps',
+    description: 'Apps that began with tools I wanted to use myself.',
+  },
 };
 
 export default function Page() {
-  return <HomePage locale="en" />;
+  return <PortfolioHomePage locale="en" />;
 }

@@ -7,7 +7,7 @@ export const dynamic = 'force-static';
 export const metadata: Metadata = {
   title: 'Focus Map サポートと計算の前提',
   description:
-    'Focus Mapの問い合わせに必要な情報と、被写界深度・APEX・蛇腹計算の限界を説明します。',
+    'Focus Mapの計算結果の見方と、現在の計算に含まれないものを説明します。',
   alternates: {
     canonical: absoluteSiteUrl('/support/focus-map/'),
     languages: {
@@ -15,6 +15,13 @@ export const metadata: Metadata = {
       en: absoluteSiteUrl('/en/support/focus-map/'),
     },
   },
+  openGraph: {
+    title: 'Focus Map — 計算結果の見方',
+    description:
+      '撮影前の目安として使うための前提と、計算に含まれないものを説明します。',
+    url: absoluteSiteUrl('/support/focus-map/'),
+  },
+  twitter: { card: 'summary' },
 };
 
 export default function Page() {

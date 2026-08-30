@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import { FocusMapDetail } from '@/components/focus-map-detail';
+import { FocusMapStory } from '@/components/focus-map-story';
 import { absoluteSiteUrl } from '@/lib/site';
 
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Focus Map — Depth of Field & APEX',
+  title: 'Focus Map — Check the focus range before the shot',
   description:
-    'A planned free iPhone app for checking depth of field, continuous blur, physical sensor sizes, and APEX exposure while shooting.',
+    'An iPhone app for quickly checking how far acceptable focus extends from a chosen distance and aperture.',
   alternates: {
     canonical: absoluteSiteUrl('/en/apps/focus-map/'),
     languages: {
@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Focus Map — See the range of acceptable focus',
+    title: 'Focus Map — Spend less time calculating focus',
     description:
-      'An iPhone app for checking depth of field, continuous blur, sensor sizes, and APEX exposure.',
+      'Check the acceptable focus range before shooting with a manual-focus camera or lens.',
     url: absoluteSiteUrl('/en/apps/focus-map/'),
     images: [absoluteSiteUrl('/images/focus-map/og.png')],
   },
@@ -29,5 +29,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <FocusMapDetail locale="en" />;
+  return <FocusMapStory locale="en" />;
 }

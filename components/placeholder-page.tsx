@@ -34,8 +34,8 @@ export function PlaceholderPage({
         <h1>{app.name}</h1>
         <p>
           {isEnglish
-            ? 'This page will be filled only after the app’s releasable scope and actual screens are confirmed.'
-            : '公開できる機能と実際の画面が固まってから、このページの内容を追加します。'}
+            ? 'This introduction will be published once the current features and screens can be described accurately.'
+            : '現在の機能と画面を正確にご案内できるようになってから、紹介を公開します。'}
         </p>
       </section>
       <SiteFooter locale={locale} />

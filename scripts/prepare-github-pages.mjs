@@ -1,4 +1,10 @@
-import { copyFile, mkdir, readdir, writeFile } from 'node:fs/promises';
+import {
+  copyFile,
+  mkdir,
+  readFile,
+  readdir,
+  writeFile,
+} from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -38,6 +44,33 @@ for (const htmlFile of htmlFiles) {
   if (filesBeforePreparation.includes(rscFile)) {
     await copyFile(rscFile, path.join(routeDirectory, 'index.rsc'));
   }
+}
+
+const preparedHtmlFiles = (await collectFiles(clientDirectory)).filter((file) =>
+  file.endsWith('.html'),
+);
+
+for (const htmlFile of preparedHtmlFiles) {
+  const relativePath = path.relative(clientDirectory, htmlFile);
+  const isEnglishRoute =
+    relativePath === 'en.html' || relativePath.startsWith(`en${path.sep}`);
+
+  if (!isEnglishRoute) {
+    continue;
+  }
+
+  const source = await readFile(htmlFile, 'utf8');
+
+  if (source.includes('<html lang="en">')) {
+    continue;
+  }
+
+  if (!source.includes('<html lang="ja">')) {
+    throw new Error(`Could not find document language: ${relativePath}`);
+  }
+
+  const localized = source.replace('<html lang="ja">', '<html lang="en">');
+  await writeFile(htmlFile, localized);
 }
 
 await writeFile(path.join(clientDirectory, '.nojekyll'), '');

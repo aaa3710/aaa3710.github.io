@@ -1,4 +1,5 @@
 import { ArrowUpRight, Globe2 } from 'lucide-react';
+import { DocumentLanguage } from '@/components/document-language';
 import type { Locale } from '@/lib/site';
 import { localePath, sitePath } from '@/lib/site';
 
@@ -12,6 +13,7 @@ export function SiteHeader({ locale, languageHref }: HeaderProps) {
 
   return (
     <header className="site-header">
+      <DocumentLanguage locale={locale} />
       <a
         className="site-mark"
         href={localePath(locale)}
@@ -24,12 +26,11 @@ export function SiteHeader({ locale, languageHref }: HeaderProps) {
         className="site-nav"
         aria-label={isEnglish ? 'Main navigation' : '主なページ'}
       >
-        <a href={localePath(locale, '/apps/focus-map/')}>Focus Map</a>
+        <a href={localePath(locale, '/#apps')}>
+          {isEnglish ? 'Apps' : 'アプリ'}
+        </a>
         <a href={localePath(locale, '/feedback/')}>
           {isEnglish ? 'Feedback' : 'フィードバック'}
-        </a>
-        <a href={`${localePath(locale)}#principles`}>
-          {isEnglish ? 'Principles' : 'つくり方'}
         </a>
         <a
           className="language-button"
@@ -56,19 +57,15 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         </a>
         <p>
           {isEnglish
-            ? 'Small tools made to remove a little friction from everyday decisions.'
-            : '日々の判断を少しだけ短くする、小さな道具をつくっています。'}
+            ? 'Independent apps that began with something I wanted to use myself.'
+            : '自分で使いたいと思ったところから、ひとつずつ作っています。'}
         </p>
       </div>
       <nav
         aria-label={isEnglish ? 'Footer navigation' : 'フッターナビゲーション'}
       >
-        <a href={localePath(locale, '/apps/focus-map/')}>Focus Map</a>
-        <a href={localePath(locale, '/privacy/focus-map/')}>
-          {isEnglish ? 'Privacy' : 'プライバシー'}
-        </a>
-        <a href={localePath(locale, '/support/focus-map/')}>
-          {isEnglish ? 'Support' : 'サポート'}
+        <a href={localePath(locale, '/#apps')}>
+          {isEnglish ? 'Apps' : 'アプリ'}
         </a>
         <a href={localePath(locale, '/feedback/')}>
           {isEnglish ? 'Feedback' : 'フィードバック'}

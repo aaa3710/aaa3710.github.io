@@ -7,31 +7,22 @@ export const dynamic = 'force-static';
 export const metadata: Metadata = {
   metadataBase: new URL(`${canonicalBaseUrl}/`),
   applicationName: 'Apps',
-  title: 'Apps — Focus Map',
+  title: 'Apps — 個人制作アプリ',
   description:
-    'Focus Mapをはじめ、迷わず使い終えられることを大切にした個人制作アプリの公式サイトです。',
+    '日々の小さな困りごとから作り始めた、個人制作アプリの紹介サイトです。',
   icons: { icon: '/favicon.svg' },
   openGraph: {
     type: 'website',
     siteName: 'Apps',
-    title: 'Focus Map — ピントの範囲を、見える形に。',
+    title: 'Apps — 個人制作アプリ',
     description:
-      '被写界深度と連続的なボケ量を、撮影中に読み取りやすい形で確かめるiPhoneアプリ。',
+      '日々の小さな困りごとから作り始めた、個人制作アプリの紹介サイトです。',
     url: absoluteSiteUrl('/'),
-    images: [
-      {
-        url: absoluteSiteUrl('/og.png'),
-        width: 1200,
-        height: 630,
-        alt: 'Focus Map — ピントの範囲を、見える形に。',
-      },
-    ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Focus Map — ピントの範囲を、見える形に。',
-    description: '被写界深度と連続的なボケ量を確かめるiPhoneアプリ。',
-    images: [absoluteSiteUrl('/og.png')],
+    card: 'summary',
+    title: 'Apps — 個人制作アプリ',
+    description: '日々の小さな困りごとから作り始めたアプリを紹介します。',
   },
 };
 

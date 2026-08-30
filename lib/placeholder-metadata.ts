@@ -9,7 +9,7 @@ export function placeholderMetadata(
   const isEnglish = locale === 'en';
 
   return {
-    title: `${name} — ${isEnglish ? 'In progress' : '準備中'}`,
+    title: `${name} — ${isEnglish ? 'Introduction in progress' : '紹介ページ準備中'}`,
     description: isEnglish
       ? `The public page for ${name} is being prepared.`
       : `${name}の公開内容を準備しています。`,

@@ -11,27 +11,38 @@ import { localePath, type Locale } from '@/lib/site';
 const content = {
   ja: {
     all: {
-      label: 'すべてのアプリ · フィードバック',
-      title: '対象アプリを選び、気づいたことを書く。',
+      label: 'アプリへのフィードバック',
+      title: (
+        <>
+          <span className="feedback-title-line">気づいたことを、</span>
+          <span className="feedback-title-line">自由にお送りください。</span>
+        </>
+      ),
       intro:
-        '対象アプリを一つ選んだら、気づいたことを一つの自由記述欄へそのまま書けます。意見の種類や言語を選ぶ必要はありません。',
+        'どのアプリについてかを選び、気づいたことをそのまま書けます。意見の種類や言語を選ぶ必要はありません。',
       back: 'アプリ一覧へ',
     },
     'focus-map': {
-      label: 'Focus Map · フィードバック',
-      title: '気づいたことを、そのまま書く。',
-      intro:
-        'Focus Mapと表示言語はアプリ内の入口で確定しています。アプリ名、言語、意見の種類を選ぶ必要はなく、一つの自由記述欄だけで送れます。',
+      label: 'Focus Mapへのフィードバック',
+      title: (
+        <>
+          <span className="feedback-title-line">
+            Focus Mapで気づいたことを、
+          </span>
+          <span className="feedback-title-line">自由にお送りください。</span>
+        </>
+      ),
+      intro: '気づいたことを、一つの入力欄にそのまま書いて送れます。',
       back: 'Focus Mapへ',
     },
     safetyLabel: '送信前に',
-    safetyTitle: '分かる範囲で、そのまま書いてください。',
+    safetyTitle: '送る前に、ここだけご確認ください。',
     points: [
-      'できれば、何をしていたか、何が起きたか、どうなるとよかったかも教えてください。',
-      '個人情報、パスワード、認証コード、URLは書かないでください。',
-      '内容は安全確認とAIによる整理の後、開発者が確認します。個別の返信や修正時期は保証されません。',
+      '分かる範囲で、何をしていたか、何が起きたか、どうなるとよかったかもお書きください。',
+      '個人情報、パスワード、認証コード、URLは入力しないでください。',
+      '内容は安全に確認し、必要に応じてAIで整理したうえで、開発者が読みます。返信や修正時期はお約束できません。',
     ],
-    formTitle: 'フィードバック入力欄',
+    formTitle: '入力する',
     open: 'フォームを別画面で開く',
     google: {
       all: 'Googleフォームを使用し、メールアドレスは収集しません。入力した内容はGoogleのサービスを通じて送信・保存されます。アプリ内のデータが自動で添付されることはありません。',
@@ -41,25 +52,25 @@ const content = {
   },
   en: {
     all: {
-      label: 'All apps · Feedback',
-      title: 'Choose an app and share what you noticed.',
+      label: 'App feedback',
+      title: 'Share anything you noticed while using an app.',
       intro:
-        'Choose one app, then write freely in a single text field. There is no category or language field; use the language shown on this page.',
+        'Choose the app, then write freely in your own words. You do not need to select a category or language.',
       back: 'Back to all apps',
     },
     'focus-map': {
-      label: 'Focus Map · Feedback',
-      title: 'Share what you noticed, in your own words.',
+      label: 'Feedback for Focus Map',
+      title: 'Share anything you noticed in Focus Map.',
       intro:
-        'Focus Map and the displayed language are set by the entry inside the app. There is no app, language, or category field—just one free-text field.',
+        'Write anything you noticed in the single text field, in your own words.',
       back: 'Back to Focus Map',
     },
     safetyLabel: 'Before sending',
-    safetyTitle: 'Share what you know, in your own words.',
+    safetyTitle: 'A quick note before you send.',
     points: [
       'If you can, include what you were doing, what happened, and what you hoped would happen.',
       'Do not include personal information, passwords, authentication codes, or URLs.',
-      'Your report is safety-checked, organized with AI, and then reviewed by the developer. A reply or a delivery date for a change is not guaranteed.',
+      'Your report is checked for safety, organized with AI when helpful, and then read by the developer. A reply or delivery date cannot be promised.',
     ],
     formTitle: 'Feedback form',
     open: 'Open the form in a separate page',
@@ -129,7 +140,7 @@ export function FeedbackPage({
         </section>
 
         <section
-          className="feedback-form"
+          className={`feedback-form feedback-form-${scope}`}
           aria-labelledby="feedback-form-title"
         >
           <div className="feedback-form-heading">

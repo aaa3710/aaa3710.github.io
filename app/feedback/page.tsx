@@ -14,6 +14,12 @@ export const metadata: Metadata = {
       en: absoluteSiteUrl('/en/feedback/'),
     },
   },
+  openGraph: {
+    title: 'アプリへのフィードバック',
+    description: '対象のアプリを選び、使っていて気づいたことを自由に送れます。',
+    url: absoluteSiteUrl('/feedback/'),
+  },
+  twitter: { card: 'summary' },
 };
 
 export default function Page() {

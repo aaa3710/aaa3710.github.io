@@ -15,6 +15,13 @@ export const metadata: Metadata = {
       en: absoluteSiteUrl('/en/privacy/focus-map/'),
     },
   },
+  openGraph: {
+    title: 'Focus Map Privacy Policy',
+    description:
+      'What the app never sends automatically and which settings stay on the iPhone.',
+    url: absoluteSiteUrl('/en/privacy/focus-map/'),
+  },
+  twitter: { card: 'summary' },
 };
 
 export default function Page() {

@@ -7,7 +7,7 @@ export const dynamic = 'force-static';
 export const metadata: Metadata = {
   title: 'Focus Map Support and Calculation Assumptions',
   description:
-    'Information to include in a support request and the limits of Focus Map’s depth-of-field, APEX, and bellows calculations.',
+    'How to read Focus Map results and what is outside the current calculations.',
   alternates: {
     canonical: absoluteSiteUrl('/en/support/focus-map/'),
     languages: {
@@ -15,6 +15,13 @@ export const metadata: Metadata = {
       en: absoluteSiteUrl('/en/support/focus-map/'),
     },
   },
+  openGraph: {
+    title: 'Focus Map — Understanding the results',
+    description:
+      'The assumptions behind the calculations and what they do not cover.',
+    url: absoluteSiteUrl('/en/support/focus-map/'),
+  },
+  twitter: { card: 'summary' },
 };
 
 export default function Page() {

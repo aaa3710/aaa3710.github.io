@@ -7,17 +7,17 @@ type InfoKind = 'privacy' | 'support';
 const info = {
   ja: {
     privacy: {
-      label: 'Focus Map · プライバシーポリシー',
-      title: '収集しない。送信しない。',
+      label: 'Focus Mapのプライバシー',
+      title: 'アプリがデータを勝手に送ることはありません。',
       intro:
         'Focus Mapは、個人情報、位置情報、写真、連絡先、識別子、利用状況、診断情報を収集しません。',
       sections: [
         [
-          '外部との通信',
+          'アプリからの通信',
           'アカウント、広告、解析SDK、追跡はありません。計算値や設定を外部サーバーへ自動送信しません。利用者がフィードバックを選んだ場合だけ、外部Webページを開きます。',
         ],
         [
-          '端末内に保存するもの',
+          'iPhone内に保存する設定',
           '表示言語、撮影機材、レンズ・センサー・解像度・絞り・距離・許容錯乱円・グラフ表示、実寸表示の校正値を、このiPhone内のアプリ設定として保存します。端末外へ送信せず、第三者へ販売・共有しません。',
         ],
         [
@@ -25,7 +25,7 @@ const info = {
           '機材や表示プリセットはアプリ内で削除できます。アプリを削除すると、Focus Mapが端末内に保存した設定も削除されます。',
         ],
         [
-          '任意のフィードバック',
+          '自分でフィードバックを送る場合',
           'フィードバックページはGoogleフォームを使用し、メールアドレスを収集しません。自由記述欄に入力した本文はGoogleのサービスを通じて送信・保存され、安全確認とAIによる整理の後に開発者が確認します。Focus Map本体が計算値や設定を添付することはありません。',
         ],
         [
@@ -36,43 +36,43 @@ const info = {
       date: '適用予定日: 初回リリース日',
     },
     support: {
-      label: 'Focus Map · サポート',
-      title: '計算の前提を含めて、確認できます。',
+      label: 'Focus Mapのサポート',
+      title: '計算結果の見方と、できないこと。',
       intro:
-        'Focus Mapの計算結果に影響する前提と、扱わない範囲を確認できます。アプリ内の入口から送るフィードバックは、一つの自由記述欄へ気づいたことをそのまま書けます。',
+        'Focus Mapの数値は、撮影前の判断を助けるための目安です。結果に影響する前提と、現在の計算に含まれないものをまとめています。',
       sections: [
         [
-          '被写界深度',
-          '薄レンズかつ撮像面とレンズ面が平行という近似に基づく補助です。回折、収差、手ぶれ、被写体ぶれ、画像処理などは扱いません。',
+          'ピントが合って見える範囲',
+          '薄い一枚のレンズとして考え、レンズとセンサーが平行という近似に基づきます。回折、レンズの収差、手ぶれ、被写体の動き、画像処理などは計算に含みません。',
         ],
         [
-          '露出',
-          'APEXの代数関係に基づく補助です。実際のカメラや露出計との一致を保証しません。',
+          '露出の計算',
+          '絞り、シャッター速度、被写体の明るさ、感度をAPEXという関係で計算します。実際のカメラや露出計と完全に一致することは保証しません。',
         ],
         [
-          '蛇腹伸長',
-          '露出倍率・補正段数・実効F値だけを扱います。ティルト／スイング時の近点・遠点は扱いません。',
+          '大判・接写の露出補正',
+          '蛇腹を伸ばしたときの露出倍率、補正段数、実効F値を扱います。レンズや撮像面を傾けた場合のピント範囲は計算しません。',
         ],
         [
           '重要な撮影',
-          '実写、機材表示、露出計でも確認してください。Focus Mapの計算だけに依存しないでください。',
+          '試し撮り、カメラの表示、露出計でも確認してください。Focus Mapの計算だけに頼らないでください。',
         ],
       ],
     },
   },
   en: {
     privacy: {
-      label: 'Focus Map · Privacy Policy',
-      title: 'Not collected. Not transmitted.',
+      label: 'Focus Map privacy',
+      title: 'The app does not send your data anywhere automatically.',
       intro:
         'Focus Map does not collect personal information, location, photos, contacts, identifiers, usage data, or diagnostics.',
       sections: [
         [
-          'External communication',
+          'Communication from the app',
           'There is no account system, advertising, analytics SDK, or tracking. Focus Map never transmits calculations or settings to an external server automatically. It opens an external web page only when the user chooses to send feedback.',
         ],
         [
-          'Information stored on the device',
+          'Settings stored on your iPhone',
           'Language choice, equipment, lens, sensor, resolution, aperture, distance, circle-of-confusion and graph settings, and physical-display calibration are stored locally in the app settings on this iPhone. They are not transmitted off the device, sold, or shared with third parties.',
         ],
         [
@@ -80,7 +80,7 @@ const info = {
           'Equipment and display presets can be deleted inside the app. Deleting Focus Map also deletes the settings the app stored locally.',
         ],
         [
-          'Optional feedback',
+          'When you choose to send feedback',
           'The feedback page uses Google Forms and does not collect email addresses. Text entered in the free-text field is sent and stored through Google’s service, safety-checked, organized with AI, and then reviewed by the developer. Focus Map does not attach calculation values or settings.',
         ],
         [
@@ -91,22 +91,22 @@ const info = {
       date: 'Effective date: initial release date',
     },
     support: {
-      label: 'Focus Map · Support',
-      title: 'Check the calculation assumptions as well as the result.',
+      label: 'Focus Map support',
+      title: 'How to read the results, and what they do not cover.',
       intro:
-        'Review the assumptions that affect Focus Map results and what the calculations do not cover. Feedback opened from the app uses one free-text field, so you can share what you noticed in your own words.',
+        'Focus Map results are guides for decisions before a photograph. This page summarizes the assumptions that affect the numbers and what is outside the current model.',
       sections: [
         [
-          'Depth of field',
-          'Results are aids based on a thin-lens approximation with parallel lens and image planes. Diffraction, aberrations, camera shake, subject motion, and image processing are outside the model.',
+          'The range that appears acceptably sharp',
+          'The calculation uses a thin-lens approximation with parallel lens and image planes. Diffraction, lens aberrations, camera shake, subject movement, and image processing are outside the model.',
         ],
         [
-          'Exposure',
-          'Results use the APEX algebraic relation and are not guaranteed to match a particular camera or light meter.',
+          'Exposure calculations',
+          'Aperture, shutter speed, scene brightness, and sensitivity are related through APEX. Results are not guaranteed to match a particular camera or light meter exactly.',
         ],
         [
-          'Bellows extension',
-          'The tool covers exposure factor, stop compensation, and effective f-number only. It does not calculate near and far limits with tilt or swing.',
+          'Large-format and close-up compensation',
+          'The bellows tool covers exposure factor, stop compensation, and effective f-number. It does not calculate the focus range when the lens or image plane is tilted.',
         ],
         [
           'Important photographs',
