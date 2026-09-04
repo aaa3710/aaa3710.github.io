@@ -1,6 +1,6 @@
 # Apps website
 
-アプリの公開・運営に関する希望、個人情報の公開範囲、公開用メールの方針は[本人の意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)に集約しています。
+アプリの公開・運営に関する希望、個人情報の公開範囲、公開用メールの方針は[本人の意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)に集約しています。 判断前・新しい意思を受けた時・作業終了前の扱いは[参照・更新手順](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/SKILL.md#本人の意思を参照更新する)を使います。
 
 個人制作アプリを一覧から見つけ、内容を誤解せずに詳しい紹介やApp Storeへ進めるための日英対応サイトです。`ピントと光 — 撮影計算`（英語: `Focus & Light — Photo Tools`）は最初の詳しい紹介例ですが、トップページは全アプリを同じ規則で案内します。
 
