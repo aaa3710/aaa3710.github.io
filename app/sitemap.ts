@@ -1,10 +1,20 @@
 import type { MetadataRoute } from 'next';
 import { absoluteSiteUrl, featuredAppPaths } from '@/lib/site';
+import { tsutawaruPaths } from '@/lib/tsutawaru';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date('2026-09-04T00:00:00+09:00');
 
   return [
+    ...(['ja', 'en'] as const).flatMap((locale) =>
+      (['app', 'support', 'privacy'] as const).map((kind) => ({
+        url: absoluteSiteUrl(
+          `${locale === 'en' ? '/en' : ''}${tsutawaruPaths[kind]}`,
+        ),
+        lastModified: new Date('2026-09-05T00:00:00+09:00'),
+        priority: kind === 'app' ? 0.7 : 0.4,
+      })),
+    ),
     {
       url: absoluteSiteUrl('/'),
       lastModified,

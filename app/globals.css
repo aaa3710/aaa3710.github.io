@@ -1227,6 +1227,81 @@ a.portfolio-card:hover {
   min-height: 720px;
 }
 
+.info-page.tsutawaru-page h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.tsutawaru-status {
+  margin-top: 28px;
+  padding: 16px 20px;
+  border-left: 3px solid var(--foreground);
+  background: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.tsutawaru-status p {
+  margin: 0;
+}
+.public-document {
+  margin-top: 40px;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+.public-document p,
+.public-document li {
+  font-size: 0.96rem;
+}
+.public-document p {
+  margin: 0 0 1.1em;
+}
+.public-document ul {
+  list-style: disc;
+}
+.public-document ol {
+  list-style: decimal;
+}
+.public-document ul,
+.public-document ol {
+  padding-inline-start: 1.5em;
+  margin: 1em 0;
+}
+.public-document li + li {
+  margin-top: 8px;
+}
+.public-document a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.public-document code {
+  font-size: 0.9em;
+}
+.public-document details {
+  border-top: 1px solid var(--border);
+  padding: 20px 0;
+}
+.public-document summary {
+  cursor: pointer;
+}
+.public-document summary h2 {
+  display: inline;
+  font-size: 1.12rem;
+  line-height: 1.6;
+}
+.public-document h3 {
+  margin-top: 30px;
+  font-size: 1rem;
+}
+.public-document-body {
+  padding-top: 8px;
+}
+.public-document summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 6px;
+}
+
 .feedback-page {
   max-width: 980px;
   min-height: 760px;

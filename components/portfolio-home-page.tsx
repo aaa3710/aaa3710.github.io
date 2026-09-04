@@ -6,6 +6,7 @@ import {
   MousePointerClick,
 } from 'lucide-react';
 import { SiteFooter, SiteHeader } from '@/components/site-chrome';
+import { tsutawaru, tsutawaruPaths } from '@/lib/tsutawaru';
 import {
   appPlaceholders,
   featuredApp,
@@ -31,7 +32,7 @@ const copy = {
     appsEyebrow: 'アプリ',
     appsTitle: '現在のアプリ',
     appsBody:
-      '「ピントと光 — 撮影計算」の詳しい紹介を公開しています。ほかのアプリも、内容と画面を正確に案内できる状態になったものから追加します。',
+      '詳しい紹介があるアプリから、使い方や公開準備の状況を確認できます。ほかのアプリも、現在の内容を正確に案内できるものから追加します。',
     focusState: 'App Store公開準備中',
     focusSummary:
       'ピントを置く距離と絞りから、合って見える範囲を確かめるiPhoneアプリ。',
@@ -67,7 +68,7 @@ const copy = {
     appsEyebrow: 'Apps',
     appsTitle: 'Current apps',
     appsBody:
-      'A full introduction to Focus & Light — Photo Tools is available now. Other app pages will be added once their current features and screens are ready to describe accurately.',
+      'Open an app’s introduction for its features, help, and release status. More introductions will be added as each app can be described accurately.',
     focusState: 'Preparing for the App Store',
     focusSummary:
       'An iPhone app that shows how far acceptable focus extends from a chosen distance and aperture.',
@@ -152,6 +153,30 @@ export function PortfolioHomePage({ locale }: { locale: Locale }) {
             <div>
               <h3>{featuredApp.name[locale]}</h3>
               <p>{text.focusSummary}</p>
+            </div>
+            <span className="card-link">
+              {text.ready}
+              <ArrowRight aria-hidden="true" size={16} />
+            </span>
+          </a>
+
+          <a
+            className="portfolio-card portfolio-card-ready"
+            href={localePath(locale, tsutawaruPaths.app)}
+          >
+            <div className="portfolio-card-heading">
+              <MessageSquareText aria-hidden="true" size={48} />
+              <span className="status-pill">
+                {locale === 'ja' ? '公開準備中' : 'Preparing for release'}
+              </span>
+            </div>
+            <div>
+              <h3>{tsutawaru.name[locale]}</h3>
+              <p>
+                {locale === 'ja'
+                  ? '対面の会話を、iPhoneの大きな文字で読みやすく。'
+                  : 'Read face-to-face conversations as large text on iPhone.'}
+              </p>
             </div>
             <span className="card-link">
               {text.ready}

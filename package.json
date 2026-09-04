@@ -6,7 +6,7 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "test": "node --experimental-strip-types --test scripts/public-config.test.mjs",
+    "test": "node --experimental-strip-types --test scripts/public-config.test.mjs scripts/public-document.test.mjs",
     "dev": "vinext dev",
     "build": "vinext build",
     "build:pages": "node scripts/build-pages.mjs",

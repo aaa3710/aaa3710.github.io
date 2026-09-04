@@ -20,7 +20,6 @@ export const appPlaceholders = [
   { slug: 'location-logger', name: 'LocationLogger' },
   { slug: 'card-relay', name: 'CardRelay' },
   { slug: 'wrist-morse', name: 'WristMorse' },
-  { slug: 'tsutawaru-moji', name: 'TsutawaruMoji' },
   { slug: 'genome-notebook', name: 'GenomeNotebook' },
   { slug: 'spatial-fold', name: 'SpatialFold' },
   { slug: 'task-rail', name: 'TaskRail' },

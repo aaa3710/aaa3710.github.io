@@ -1,14 +1,9 @@
-import { PlaceholderPage } from '@/components/placeholder-page';
-import { placeholderMetadata } from '@/lib/placeholder-metadata';
+import { TsutawaruPage } from '@/components/tsutawaru-page';
+import { tsutawaruMetadata } from '@/lib/tsutawaru';
 
 export const dynamic = 'force-static';
-
-export const metadata = placeholderMetadata(
-  'en',
-  'tsutawaru-moji',
-  'TsutawaruMoji',
-);
+export const metadata = tsutawaruMetadata('en', 'app');
 
 export default function Page() {
-  return <PlaceholderPage locale="en" slug="tsutawaru-moji" />;
+  return <TsutawaruPage locale="en" kind="app" />;
 }

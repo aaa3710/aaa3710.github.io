@@ -6,6 +6,7 @@ import {
   submissionNotice,
 } from '@/lib/feedback';
 import { featuredAppPaths, localePath, type Locale } from '@/lib/site';
+import { tsutawaruPaths } from '@/lib/tsutawaru';
 
 const content = {
   ja: {
@@ -82,6 +83,11 @@ export function ContactPage({ locale }: { locale: Locale }) {
               <a href={localePath(locale, featuredAppPaths.support)}>
                 {text.appSupport}
               </a>
+              <a href={localePath(locale, tsutawaruPaths.support)}>
+                {isEnglish
+                  ? 'Support for Tsutawaru Moji'
+                  : '伝わる文字のサポートへ'}
+              </a>
             </p>
           </div>
           <Mail aria-hidden="true" />
@@ -137,6 +143,11 @@ export function ContactPage({ locale }: { locale: Locale }) {
               {isEnglish
                 ? 'Inquiries and reply details cannot be submitted from this page yet. The form will appear here once its content and settings have been checked.'
                 : '現在、このページから問い合わせや返信先を送信することはできません。フォームの内容と設定を確認した後、この場所に表示します。'}
+            </p>
+            <p>
+              {isEnglish
+                ? 'Contact is separate from app Feedback. A message will be required; contact details will be optional for a reply. Contact messages and reply details will not be reused for Feedback AI classification or development issue reports. Replies to ordinary inquiries are not guaranteed; requests under privacy law are handled in accordance with applicable law.'
+                : 'アプリ専用Feedbackとは別の窓口です。本文を必須、返信を希望する場合の連絡先だけを任意とする予定です。本文と返信先をFeedbackのAI分類や開発課題へ流用しません。通常のご連絡への返信は保証しませんが、法令に基づくプライバシー請求には適用法令に従って対応します。'}
             </p>
           </section>
         )}

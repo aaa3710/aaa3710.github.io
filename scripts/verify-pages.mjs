@@ -389,6 +389,158 @@ for (const locale of locales) {
   );
 }
 
+const tsutawaruIndexable = [];
+for (const locale of locales) {
+  const prefix = locale === 'en' ? '/en' : '';
+  const appPath = (kind, language = locale) =>
+    `${language === 'en' ? '/en' : ''}/${kind === 'app' ? 'apps' : kind}/tsutawaru-moji/`;
+  for (const kind of ['app', 'support', 'privacy', 'feedback']) {
+    const routePath = appPath(kind);
+    const present = await exists(pageFile(routePath));
+    check(present, `${routePath}: missing Tsutawaru page`);
+    if (!present) continue;
+    requiredPages += 1;
+    const raw = await readFile(pageFile(routePath), 'utf8');
+    const html = markupOnly(raw);
+    const anchors = tags(html, 'a');
+    const links = tags(html, 'link');
+    const meta = tags(html, 'meta');
+    check(
+      tags(html, 'html')[0]?.lang === locale,
+      `${routePath}: document language mismatch`,
+    );
+    check(
+      decodeHtml(html).includes(
+        locale === 'ja' ? '伝わる文字' : 'Tsutawaru Moji',
+      ),
+      `${routePath}: localized name missing`,
+    );
+    check(
+      (html.match(/<h1\b/g) ?? []).length === 1,
+      `${routePath}: expected one main heading`,
+    );
+    check(
+      anchors.some(
+        (anchor) =>
+          anchor['aria-label'] === 'Language / 言語' &&
+          linksTo([anchor], appPath(kind, locale === 'ja' ? 'en' : 'ja')),
+      ),
+      `${routePath}: counterpart language link missing`,
+    );
+    check(
+      linksTo(anchors, `${prefix}/contact/`),
+      `${routePath}: common Contact missing`,
+    );
+    check(
+      html.includes(
+        locale === 'ja'
+          ? 'まだダウンロードできません'
+          : 'not available to download yet',
+      ),
+      `${routePath}: unreleased app status missing`,
+    );
+    check(
+      html.includes(
+        locale === 'ja'
+          ? '現在は送信できません'
+          : 'Submissions are not available yet',
+      ),
+      `${routePath}: intake status missing`,
+    );
+    check(
+      !/<iframe|<form\b|<input|<textarea/.test(html),
+      `${routePath}: unconfirmed input UI present`,
+    );
+    check(
+      !/docs\.google\.com\/forms|forms\.gle|mailto:|apps\.apple\.com/.test(raw),
+      `${routePath}: unverified form, email or Store URL`,
+    );
+    check(
+      !/公開管理|Release control|\{\{|OWNER INPUT|90日|90 days/.test(raw),
+      `${routePath}: private preface or unadopted retention promise`,
+    );
+    check(
+      tags(html, 'img').length === 0,
+      `${routePath}: unverified app imagery present`,
+    );
+    check(
+      !anchors.some((anchor) =>
+        /focus-exposure-calculator/.test(anchor.href ?? ''),
+      ),
+      `${routePath}: another app route leaked`,
+    );
+    if (kind === 'feedback') {
+      check(
+        metaValues(meta, 'robots').some(
+          (value) => value.includes('noindex') && value.includes('nofollow'),
+        ),
+        `${routePath}: missing noindex/nofollow`,
+      );
+      check(
+        !links.some((link) => link.rel === 'canonical' || link.hreflang),
+        `${routePath}: Feedback must not advertise indexing alternates`,
+      );
+    } else {
+      tsutawaruIndexable.push(absoluteUrl(routePath));
+      check(
+        links.some(
+          (link) =>
+            link.rel === 'canonical' &&
+            sameUrl(link.href, absoluteUrl(routePath)),
+        ),
+        `${routePath}: canonical mismatch`,
+      );
+      for (const language of locales)
+        check(
+          links.some(
+            (link) =>
+              link.hreflang === language &&
+              sameUrl(link.href, absoluteUrl(appPath(kind, language))),
+          ),
+          `${routePath}: hreflang mismatch`,
+        );
+    }
+    if (kind === 'support')
+      check(
+        linksTo(anchors, appPath('feedback')),
+        `${routePath}: dedicated Feedback link missing`,
+      );
+    if (kind === 'app')
+      check(
+        !linksTo(anchors, appPath('feedback')),
+        `${routePath}: introduction must route feedback via Support`,
+      );
+    for (const anchor of anchors) {
+      const target = normalizedLink(anchor.href);
+      if (target?.startsWith('/') && !target.includes('#') && target !== '/')
+        check(
+          publicRouteSet.has(target.endsWith('/') ? target : `${target}/`),
+          `${routePath}: missing internal target ${target}`,
+        );
+    }
+  }
+  const contact = tags(
+    markupOnly(await readFile(pageFile(`${prefix}/contact/`), 'utf8')),
+    'a',
+  );
+  check(
+    linksTo(contact, appPath('support')),
+    `${prefix}/contact/: Tsutawaru support missing`,
+  );
+  check(
+    !linksTo(contact, appPath('feedback')),
+    `${prefix}/contact/: direct Feedback link`,
+  );
+  const home = tags(
+    markupOnly(await readFile(pageFile(`${prefix}/`), 'utf8')),
+    'a',
+  );
+  check(
+    linksTo(home, appPath('app')),
+    `${prefix}/: Tsutawaru introduction missing`,
+  );
+}
+
 const sitemapFile = path.join(clientDirectory, 'sitemap.xml');
 check(await exists(sitemapFile), 'sitemap.xml is missing');
 if (await exists(sitemapFile)) {
@@ -401,7 +553,8 @@ if (await exists(sitemapFile)) {
       .filter((kind) => kind !== 'feedback')
       .map((kind) => absoluteUrl(route(locale, kind))),
   );
-  check(locations.length === 10, 'sitemap must contain exactly 10 URLs');
+  expected.push(...tsutawaruIndexable);
+  check(locations.length === 16, 'sitemap must contain exactly 16 URLs');
   check(
     new Set(locations).size === locations.length,
     'sitemap contains duplicate URLs',
@@ -417,7 +570,7 @@ if (await exists(sitemapFile)) {
   check(
     JSON.stringify([...locations].sort((a, b) => a.localeCompare(b))) ===
       JSON.stringify([...expected].sort((a, b) => a.localeCompare(b))),
-    'sitemap URL set differs from the 10 expected indexable routes',
+    'sitemap URL set differs from the 16 expected indexable routes',
   );
 }
 
@@ -454,7 +607,7 @@ for (const locale of locales) {
   }
 }
 
-const summary = `${requiredPages}/12 required pages; ${publicRouteSet.size} generated public routes; ${htmlFiles.length} HTML files; ${assertions} assertions`;
+const summary = `${requiredPages}/20 required pages; ${publicRouteSet.size} generated public routes; ${htmlFiles.length} HTML files; ${assertions} assertions`;
 if (failures.length) {
   console.error(
     `GitHub Pages verification failed: ${failures.length} failure(s), ${summary}.`,

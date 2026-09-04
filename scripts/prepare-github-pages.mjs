@@ -93,6 +93,12 @@ const indexablePaths = [
   '/en/support/focus-exposure-calculator/',
   '/contact/',
   '/en/contact/',
+  '/apps/tsutawaru-moji/',
+  '/en/apps/tsutawaru-moji/',
+  '/support/tsutawaru-moji/',
+  '/en/support/tsutawaru-moji/',
+  '/privacy/tsutawaru-moji/',
+  '/en/privacy/tsutawaru-moji/',
 ];
 
 await writeFile(
