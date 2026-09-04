@@ -10,7 +10,17 @@ import {
   Smartphone,
 } from 'lucide-react';
 import { SiteFooter, SiteHeader } from '@/components/site-chrome';
-import { localePath, sitePath, type Locale } from '@/lib/site';
+import {
+  featuredApp,
+  featuredAppPaths,
+  localePath,
+  sitePath,
+  type Locale,
+} from '@/lib/site';
+
+// Preserve the existing real captures, but do not display them under a new
+// app name until replacement captures have been independently verified.
+const hasCurrentScreenshots = false;
 
 const content = {
   ja: {
@@ -26,12 +36,12 @@ const content = {
     lead: 'ピントを置く距離と絞りから、どの範囲まで合って見えるかを確かめるiPhoneアプリです。マニュアルフォーカスのカメラやレンズで、撮影前の計算を手早く済ませたいときに使えます。',
     state: 'App Store公開準備中',
     privacy: 'プライバシー',
-    support: '計算結果の見方',
+    support: 'サポート',
     screenNote: '実際のアプリ画面（シミュレーター）',
     originLabel: 'このアプリを作った理由',
     originTitle: '計算を終えて、写真に集中したかった。',
     originBody:
-      'ピント位置と絞りを先に決めておけば、撮影中に考えることを減らせます。ただ、そのたびに被写界深度を手計算するのは面倒でした。そこで、iPhoneですぐに範囲を確認できる、自分でも使いたい道具としてFocus Mapを作り始めました。',
+      'ピント位置と絞りを先に決めておけば、撮影中に考えることを減らせます。ただ、そのたびに被写界深度を手計算するのは面倒でした。そこで、iPhoneですぐに範囲を確認できる、自分でも使いたい道具として「ピントと光 — 撮影計算」を作り始めました。',
     sceneLabel: 'こんなときに',
     sceneTitle: '計算結果を見ながら、機材ごとの距離感をつかむ。',
     scenes: [
@@ -88,18 +98,18 @@ const content = {
     eyebrow: 'iPhone · iOS 17 or later · Preparing for release',
     title:
       'Spend less time calculating focus and more time taking photographs.',
-    lead: 'Choose a focus distance and aperture to see how much of the scene should appear acceptably sharp. Focus Map is designed for quick checks before shooting with manual-focus cameras and lenses.',
+    lead: 'Choose a focus distance and aperture to see how much of the scene should appear acceptably sharp. Focus & Light — Photo Tools is designed for quick checks before shooting with manual-focus cameras and lenses.',
     state: 'Preparing for the App Store',
     privacy: 'Privacy',
-    support: 'Understanding the results',
+    support: 'Support',
     screenNote: 'Actual app screen (Simulator)',
     originLabel: 'Why I made it',
     originTitle:
       'I wanted to finish the calculation and return to the photograph.',
     originBody:
-      'Setting focus and aperture in advance can remove decisions while shooting, but calculating depth of field each time was slow. I began Focus Map as a tool I wanted for myself: a quick way to check the range on an iPhone.',
+      'Setting focus and aperture in advance can remove decisions while shooting, but calculating depth of field each time was slow. I began Focus & Light — Photo Tools as a tool I wanted for myself: a quick way to check the range on an iPhone.',
     sceneLabel: 'Useful moments',
-    sceneTitle: 'A starting point for learning the distance of a lens.',
+    sceneTitle: 'Build a feel for focus distance with each camera and lens.',
     scenes: [
       [
         'Before a quick street shot',
@@ -140,7 +150,8 @@ const content = {
       'Japanese and English',
     ],
     releaseLabel: 'Release status',
-    releaseTitle: 'Focus Map is still being prepared for the App Store.',
+    releaseTitle:
+      'Focus & Light — Photo Tools is still being prepared for the App Store.',
     releaseBody:
       'Automated calculation and interface tests and build checks are in progress. Physical-device checks, including hands-on use and VoiceOver, remain separate, so this page does not present the app as already released.',
     limitsLabel: 'About the results',
@@ -163,10 +174,14 @@ export function FocusMapStory({ locale }: { locale: Locale }) {
     <main id="top" lang={locale}>
       <SiteHeader
         locale={locale}
-        languageHref={isEnglish ? '/apps/focus-map/' : '/en/apps/focus-map/'}
+        languageHref={
+          isEnglish ? featuredAppPaths.app : `/en${featuredAppPaths.app}`
+        }
       />
 
-      <section className="detail-hero section">
+      <section
+        className={`detail-hero section${hasCurrentScreenshots ? '' : ' without-app-screen'}`}
+      >
         <div className="detail-hero-copy">
           <a className="back-link" href={localePath(locale, '/#apps')}>
             <ArrowLeft aria-hidden="true" size={16} />
@@ -174,14 +189,14 @@ export function FocusMapStory({ locale }: { locale: Locale }) {
           </a>
           <div className="detail-identity">
             <img
-              src={sitePath('/images/focus-map/icon.png')}
-              alt="Focus Map"
+              src={sitePath(`${featuredApp.imageDirectory}/icon.png`)}
+              alt={featuredApp.name[locale]}
               width="92"
               height="92"
             />
             <div>
               <p>{text.eyebrow}</p>
-              <strong>Focus Map</strong>
+              <strong>{featuredApp.name[locale]}</strong>
             </div>
           </div>
           <h1>{text.title}</h1>
@@ -190,30 +205,32 @@ export function FocusMapStory({ locale }: { locale: Locale }) {
             <span className="disabled-store-action" aria-disabled="true">
               {text.state}
             </span>
-            <a href={localePath(locale, '/privacy/focus-map/')}>
+            <a href={localePath(locale, featuredAppPaths.privacy)}>
               {text.privacy}
             </a>
-            <a href={localePath(locale, '/support/focus-map/')}>
+            <a href={localePath(locale, featuredAppPaths.support)}>
               {text.support}
             </a>
           </div>
         </div>
-        <div className="detail-visual">
-          <div className="detail-phone phone-frame">
-            <div className="phone-speaker" aria-hidden="true" />
-            <img
-              src={sitePath(`/images/focus-map/${mainScreen}`)}
-              alt={
-                isEnglish
-                  ? 'Focus Map showing an acceptable focus range and blur curve'
-                  : 'Focus Mapで、合って見える範囲とぼけの曲線を表示している画面'
-              }
-              width="1320"
-              height="2868"
-            />
+        {hasCurrentScreenshots ? (
+          <div className="detail-visual">
+            <div className="detail-phone phone-frame">
+              <div className="phone-speaker" aria-hidden="true" />
+              <img
+                src={sitePath(`${featuredApp.imageDirectory}/${mainScreen}`)}
+                alt={
+                  isEnglish
+                    ? 'Focus & Light — Photo Tools showing an acceptable focus range and blur curve'
+                    : '「ピントと光 — 撮影計算」で、合って見える範囲とぼけの曲線を表示している画面'
+                }
+                width="1320"
+                height="2868"
+              />
+            </div>
+            <p className="evidence-note">{text.screenNote}</p>
           </div>
-          <p className="evidence-note">{text.screenNote}</p>
-        </div>
+        ) : null}
       </section>
 
       <section className="origin-section section">
@@ -247,19 +264,23 @@ export function FocusMapStory({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="feature-story section feature-story-main">
-        <div className="feature-screen">
-          <img
-            src={sitePath(`/images/focus-map/${mainScreen}`)}
-            alt={
-              isEnglish
-                ? 'Focus range and continuous blur curve'
-                : 'ピントが合って見える範囲と、ぼけの変化を示す曲線'
-            }
-            width="1320"
-            height="2868"
-          />
-        </div>
+      <section
+        className={`feature-story section feature-story-main${hasCurrentScreenshots ? '' : ' without-app-screen'}`}
+      >
+        {hasCurrentScreenshots ? (
+          <div className="feature-screen">
+            <img
+              src={sitePath(`${featuredApp.imageDirectory}/${mainScreen}`)}
+              alt={
+                isEnglish
+                  ? 'Focus range and continuous blur curve'
+                  : 'ピントが合って見える範囲と、ぼけの変化を示す曲線'
+              }
+              width="1320"
+              height="2868"
+            />
+          </div>
+        ) : null}
         <div className="feature-copy">
           <p className="section-label">{text.focusLabel}</p>
           <h2>{text.focusTitle}</h2>
@@ -267,19 +288,23 @@ export function FocusMapStory({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="feature-story section feature-story-reverse">
-        <div className="feature-screen feature-screen-soft">
-          <img
-            src={sitePath(`/images/focus-map/${sensorScreen}`)}
-            alt={
-              isEnglish
-                ? 'Sensor formats compared at one scale'
-                : 'センサーの大きさを同じ縮尺で比べる画面'
-            }
-            width="1320"
-            height="2868"
-          />
-        </div>
+      <section
+        className={`feature-story section feature-story-reverse${hasCurrentScreenshots ? '' : ' without-app-screen'}`}
+      >
+        {hasCurrentScreenshots ? (
+          <div className="feature-screen feature-screen-soft">
+            <img
+              src={sitePath(`${featuredApp.imageDirectory}/${sensorScreen}`)}
+              alt={
+                isEnglish
+                  ? 'Sensor formats compared at one scale'
+                  : 'センサーの大きさを同じ縮尺で比べる画面'
+              }
+              width="1320"
+              height="2868"
+            />
+          </div>
+        ) : null}
         <div className="feature-copy">
           <p className="section-label">{text.sensorLabel}</p>
           <h2>{text.sensorTitle}</h2>
@@ -336,7 +361,7 @@ export function FocusMapStory({ locale }: { locale: Locale }) {
       </section>
 
       <section className="closing-cta section">
-        <p>Focus Map</p>
+        <p>{featuredApp.name[locale]}</p>
         <h2>{text.closeTitle}</h2>
         <span>{text.closeBody}</span>
         <a href={localePath(locale, '/#apps')}>

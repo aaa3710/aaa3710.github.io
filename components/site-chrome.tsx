@@ -29,8 +29,8 @@ export function SiteHeader({ locale, languageHref }: HeaderProps) {
         <a href={localePath(locale, '/#apps')}>
           {isEnglish ? 'Apps' : 'アプリ'}
         </a>
-        <a href={localePath(locale, '/feedback/')}>
-          {isEnglish ? 'Feedback' : 'フィードバック'}
+        <a href={localePath(locale, '/contact/')}>
+          {isEnglish ? 'Contact' : 'お問い合わせ'}
         </a>
         <a
           className="language-button"
@@ -67,8 +67,8 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         <a href={localePath(locale, '/#apps')}>
           {isEnglish ? 'Apps' : 'アプリ'}
         </a>
-        <a href={localePath(locale, '/feedback/')}>
-          {isEnglish ? 'Feedback' : 'フィードバック'}
+        <a href={localePath(locale, '/contact/')}>
+          {isEnglish ? 'Contact' : 'お問い合わせ'}
         </a>
         <a href="#top">
           {isEnglish ? 'Back to top' : '先頭へ'}

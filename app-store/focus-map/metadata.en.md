@@ -1,33 +1,11 @@
-# Focus Map — English metadata
+# Focus & Light — Photo Tools: English metadata reference
 
-- Name: `Focus Map`
-- Subtitle: `Check Your Focus Range`
-- Promotional text: `Choose a focus distance and aperture, see how far acceptable focus extends, and spend less time calculating before the shot.`
-- Keywords: `depth of field,focus,bokeh,aperture,exposure,APEX,sensor,camera,optics`
+The product metadata source of truth is [AppStoreMetadata.ja-en.md (English)](/Users/minatosuzuki/work_local/被写界深度計算ツール/Docs/Release/AppStoreMetadata.ja-en.md#english) in the app repository. Maintain the description, keywords, release notes, and App Review Notes there only. This file is a reference, not a separate submission draft.
 
-## Description
+## Current adopted values (for comparison)
 
-See how far acceptable focus extends before you take the photograph.
+- Name: `Focus & Light — Photo Tools`
+- Subtitle: `Depth of Field & Exposure`
+- Promotional text: Leave blank.
 
-Focus Map is an iPhone app for checking the focus range from a chosen distance and aperture. It is designed for quick checks before shooting with manual-focus cameras and lenses.
-
-WHAT YOU NEED FIRST
-Near and far limits are shown clearly. This range is called depth of field. A curve shows how blur grows beyond it, and comparison views show what changes with a different aperture or focus distance.
-
-LEARN THE DISTANCE OF NEW EQUIPMENT
-Use the calculation as a reference while developing a feel for a new camera or lens. Save your equipment and commonly used distances on the iPhone.
-
-COMPARE SENSOR SIZES VISUALLY
-Representative formats from smartphones through medium format are drawn at one scale. Supported devices can also show physical size, with width, height, diagonal, and area comparisons.
-
-GO DEEPER WHEN YOU WANT
-Explore how aperture, shutter speed, and ISO relate through the APEX exposure system. A separate tool calculates the exposure change caused by bellows extension in large-format and close-up photography.
-
-YOUR DATA STAYS ON THE IPHONE
-There are no accounts, ads, usage analytics, or tracking. Calculations and settings are never sent anywhere automatically. Japanese and English can be switched inside the app.
-
-Calculations are guides for use before a photograph. The final image also depends on lens behaviour, diffraction, camera shake, subject movement, and image processing.
-
-## What's New — Version 1.0
-
-Initial release. Check the acceptable focus range and blur beyond it, compare sensor sizes, explore exposure relationships, and calculate bellows compensation in Japanese or English.
+These values were adopted on September 4, 2026. Before submission, compare the app repository’s source of truth with the actual App Store Connect entries. For website and in-app URLs, use this folder’s [README.md](README.md#app-storeとアプリへ渡すurl).

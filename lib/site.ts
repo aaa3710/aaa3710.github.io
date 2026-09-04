@@ -1,5 +1,21 @@
 export type Locale = 'ja' | 'en';
 
+export const featuredApp = {
+  slug: 'focus-exposure-calculator',
+  name: {
+    ja: 'ピントと光 — 撮影計算',
+    en: 'Focus & Light — Photo Tools',
+  },
+  imageDirectory: '/images/focus-exposure-calculator',
+} as const;
+
+export const featuredAppPaths = {
+  app: `/apps/${featuredApp.slug}/`,
+  privacy: `/privacy/${featuredApp.slug}/`,
+  support: `/support/${featuredApp.slug}/`,
+  feedback: `/feedback/${featuredApp.slug}/`,
+} as const;
+
 export const appPlaceholders = [
   { slug: 'location-logger', name: 'LocationLogger' },
   { slug: 'card-relay', name: 'CardRelay' },
@@ -42,6 +58,21 @@ export const siteOrigin = (
 ).replace(/\/$/, '');
 
 export const canonicalBaseUrl = `${siteOrigin}${siteBasePath}`;
+
+const supportEmailCandidate = (
+  process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? ''
+).trim();
+
+if (
+  supportEmailCandidate &&
+  !/^[a-z0-9.!$'*+/=_`{|}~-]+@[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/i.test(
+    supportEmailCandidate,
+  )
+) {
+  throw new Error('NEXT_PUBLIC_SUPPORT_EMAIL must be a valid email address.');
+}
+
+export const publicSupportEmail = supportEmailCandidate || null;
 
 export function absoluteSiteUrl(path = '/') {
   const normalized =

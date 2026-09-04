@@ -1,17 +1,21 @@
 # Apps website
 
-個人制作アプリを一覧から見つけ、内容を誤解せずに詳しい紹介やApp Storeへ進めるための日英対応サイトです。Focus Mapは最初の詳しい紹介例ですが、トップページは全アプリを同じ規則で案内します。
+個人制作アプリを一覧から見つけ、内容を誤解せずに詳しい紹介やApp Storeへ進めるための日英対応サイトです。`ピントと光 — 撮影計算`（英語: `Focus & Light — Photo Tools`）は最初の詳しい紹介例ですが、トップページは全アプリを同じ規則で案内します。
 
-## 現在公開する内容
+命名相談・公開準備は共通の [app-design-philosophy](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/SKILL.md) と [命名節「名前は、単独で用途と価値を伝える」](/Users/minatosuzuki/work_local/アプリ開発共通事項/思想/アプリ設計全体思想.md#名前は単独で用途と価値を伝える) を入口にします。製品metadataの内容正本は個別アプリ側に置き、このrepoは公開サイトと日英URLを保守します。
 
-- 全アプリを同じ大きさで案内するトップページと、Focus Mapの詳細ページ
+## 現在のサイト構成
+
+- 全アプリを同じ大きさで案内するトップページと、`ピントと光 — 撮影計算`の詳細ページ
 - 日本語・英語
 - プライバシーポリシー
 - サポートと計算の前提
-- 全アプリ共通の公開フィードバックページと、アプリ内からだけ開くFocus Map専用ページ
+- 業務・運営・プライバシー請求・その他のための共通Contactと、個別アプリ／Supportから開くアプリ専用Feedback
 - ほかのアプリの準備中ページ
 - 検索向けのサイトマップ、robots.txt、共有用画像
 - GitHub Pages向けの自動公開設定
+
+旧名が写る4画面のWeb用実画像は、加工せずファイルを保持し、現在のサイトUIには表示しません。改名後の実画面への差し替えは公開前確認に残します。
 
 一般向け文面は、機能名や開発工程ではなく、使う場面と得られる変化から始めます。専門的な計算や限界は省かず、必要になった人が詳しいページで確認できる順序にします。変更後は日本語・英語とスマートフォン・デスクトップを初見の読者として再確認します。
 
@@ -25,11 +29,45 @@ npm run dev
 ## 検証
 
 ```bash
+npm run format -- --check
 npm run lint
-npm run build
+npm test
 npm run build:pages
+npm run verify:pages
 ```
 
 GitHub Pagesでは、ログイン後に確認するアカウント名の `<アカウント名>.github.io` リポジトリを使い、`dist/client/` の静的ファイルをGitHub Actionsから公開します。このルート形式にすることで、画像や共有URLをサブディレクトリに依存させません。
 
-フィードバックページは匿名のGoogleフォームを埋め込みます。公開用の回答者URLだけを `lib/feedback.ts` で管理し、フォーム編集URL、回答本文、認証情報はGitへ保存しません。Webサイト共通入口だけを公開導線とサイトマップへ載せ、対象アプリを選択します。アプリ専用入口ではアプリ名・言語を質問せず、対象アプリからだけ開く非掲載ページとして `noindex, nofollow` を指定します。
+## 問い合わせ経路と公開設定
+
+実Googleフォームは未改修・未確認です。既定ではFeedback／Contactとも埋め込みと外部フォームリンクを表示せず、「準備中のため現在は送信できない」ことを日本語・英語で明示します。フォーム経由の受付・返信が可能になったとは扱いません。
+
+必須同意チェックボックスは保守的な提案であり、未採用です。専用Feedbackの自由記述1欄を標準として維持し、追加同意の採否未決定と実フォーム未確認を含め、受付フラグは `false`（未設定）のままにします。AIによる処理の現在状態は管理側の実証照合待ちで、稼働中とも未運用とも断定しません。受付無効時のサイトにはAIの将来利用文も表示しません。
+
+有効化後のアプリ専用Feedbackは匿名のGoogleフォームです。アプリと言語は入口で確定し、カテゴリ、端末、OSを尋ねず、大きな自由記述1欄だけにします。原則として個別返信は行わず、個人情報、秘密、パスワードや認証コード、URLを送らないよう案内します。個別アプリとそのSupportから到達できますが、サイトマップへは載せず `noindex, nofollow` を指定します。Google側の技術情報処理と回答保持の説明、匿名のため個別の回答を特定できない場合があることも専用ページで明示します。返信を伴うプライバシー請求は共通Contactへ統合し、別窓口は増やしません。
+
+共通Contactは業務・運営・プライバシー請求・その他の連絡用です。アプリの不具合・要望は受け付けず、各アプリのSupportを経由して専用Feedbackへ案内します。有効化後は本文を必須、返信を希望する人の連絡先だけ任意とし、本文と任意の連絡先は対応・返信のためだけに使い、不要になった時点で削除する方針を示します。業務等の任意問い合わせへの返信は保証しませんが、法令に基づくプライバシー権利請求は適用法令に従って対応します。不要な個人情報、秘密、パスワード、認証コード、非公開共有リンクは禁止し、用件に必要な公開ページURLは許容します。匿名・URL禁止のFeedbackとは利用目的、入力制限、返信の扱いを分けます。Googleフォームの公開用回答者URLだけを `lib/feedback.ts` で管理し、フォーム編集URL、回答本文、認証情報はGitへ保存しません。
+
+| GitHub Actionsのrepository variable | ビルド時の環境変数               | 有効化条件                                                                                  |
+| ----------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------- |
+| `APP_FEEDBACK_READY`                | `NEXT_PUBLIC_APP_FEEDBACK_READY` | 日本語・英語両方の専用Feedbackを実編集し、質問項目・説明・設定を照合した後だけ文字列 `true` |
+| `CONTACT_READY`                     | `NEXT_PUBLIC_CONTACT_READY`      | 日本語・英語両方のContactを実編集し、質問項目・説明・設定を照合した後だけ文字列 `true`      |
+| `PUBLIC_SUPPORT_EMAIL`              | `NEXT_PUBLIC_SUPPORT_EMAIL`      | 採用が決まった共通公開サポートメールの実値を設定した場合だけ表示                            |
+
+受付フラグは `lib/feedback.ts` で文字列 `true` と厳密比較します。未設定やそれ以外の値では無効のままです。追加同意の採否とAI処理の実証照合を含む説明・設定の確定、Googleフォーム4件（Feedback／Contact各日英）の実編集、回答者の下書き自動保存の無効化、両窓口で異なる入力制限・返信契約の日英照合、受付フラグ有効化は、まとめてサイトのローカル実装とは別の外部ゲートです。
+
+送信ボタンを押していなければ開発者へ回答としては届きませんが、Googleの下書き保存や通常のWeb処理は別です。Googleアカウントでログイン中の回答途中データは、設定によって30日間下書き保存されるため、「閉じれば一切送信されない」とは説明しません。[Google公式の下書き自動保存の説明](https://support.google.com/docs/answer/10952360?hl=en)（2026-09-04確認）
+
+公開サポートメールは必須と断定せず、採用して実値を設定した場合だけSupportへ表示します。未設定時に仮アドレスや準備中表示は出しません。App Store提出前には、Support URLから容易に実際の連絡手段へ進めるかを改めて確認します。
+
+## 公開URL
+
+公開slugは `focus-exposure-calculator` です。旧 `focus-map` URLはリダイレクトなしで削除します。
+
+| 用途      | 日本語                                                          | English                                                            |
+| --------- | --------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Marketing | `https://aaa3710.github.io/apps/focus-exposure-calculator/`     | `https://aaa3710.github.io/en/apps/focus-exposure-calculator/`     |
+| Support   | `https://aaa3710.github.io/support/focus-exposure-calculator/`  | `https://aaa3710.github.io/en/support/focus-exposure-calculator/`  |
+| Privacy   | `https://aaa3710.github.io/privacy/focus-exposure-calculator/`  | `https://aaa3710.github.io/en/privacy/focus-exposure-calculator/`  |
+| Feedback  | `https://aaa3710.github.io/feedback/focus-exposure-calculator/` | `https://aaa3710.github.io/en/feedback/focus-exposure-calculator/` |
+| Contact   | `https://aaa3710.github.io/contact/`                            | `https://aaa3710.github.io/en/contact/`                            |

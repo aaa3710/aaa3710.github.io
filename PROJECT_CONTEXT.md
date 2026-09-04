@@ -7,7 +7,7 @@
 ## 現在の公開順序
 
 1. トップページでは全アプリを同じ一覧規則で扱い、詳しい紹介があるものだけ次へ進める。
-2. Focus Mapの公式ページ、プライバシー、サポート、App Store素材を最初の完成例として仕上げる。
+2. `ピントと光 — 撮影計算`（英語: `Focus & Light — Photo Tools`）の公式ページ、プライバシー、サポート、App Store素材を最初の完成例として仕上げる。公開slugは `focus-exposure-calculator` に統一し、内部履歴と素材では従来の `Focus Map` を必要に応じて維持する。
 3. ほかのアプリは名前と準備中表示だけを置く。
 4. 各アプリの制作背景と、公開可能な機能・現行画面が確定した時点で、同じ公開確認を通して中身を追加する。
 
@@ -20,6 +20,7 @@
 
 ## 文面の基準
 
+- 命名相談・公開準備は共通の [app-design-philosophy](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/SKILL.md) と [命名節「名前は、単独で用途と価値を伝える」](/Users/minatosuzuki/work_local/アプリ開発共通事項/思想/アプリ設計全体思想.md#名前は単独で用途と価値を伝える) を使う。製品metadataの内容正本は個別アプリ側とし、認知側には独立した原稿を作らない。
 - 「誰に、どんな場面で、何が短くなるか」を先に書く。
 - 初めて読む人が知らない専門用語や内部の検証工程を、大見出しや主要ナビにしない。
 - 制作背景はアプリ管理側の `app_profiles/`、機能事実は各アプリの現行仕様へ戻って照合する。
@@ -33,6 +34,25 @@
 
 - 公開サイト: `app/`, `components/`, `public/`
 - GitHub Pages自動公開: `.github/workflows/deploy-pages.yml`
-- 公開する共通フィードバック入口と、アプリ内からだけ開く `noindex` のFocus Map専用入口: `app/feedback/`, `app/en/feedback/`
+- 業務・運営・プライバシー請求・その他を扱う共通Contactのページ: `app/contact/`, `app/en/contact/`
+- 個別アプリとそのSupportから開く `noindex, nofollow` の専用Feedback: `app/feedback/focus-exposure-calculator/`, `app/en/feedback/focus-exposure-calculator/`
 - Focus Map App Store準備: `app-store/focus-map/`
 - Codexが毎回読む前提: `AGENTS.md`
+
+## 問い合わせ導線の境界
+
+- アプリ専用Feedbackは匿名・原則個別返信なしとし、入口でアプリと言語を確定する。カテゴリ、端末、OSを再入力させず、大きな自由記述1欄だけを使う。
+- Feedbackでは、個人情報、秘密、パスワードや認証コード、URLを送らないよう明示する。
+- 共通Contactは業務・運営・プライバシー請求・その他の連絡を扱う。返信を伴うプライバシー請求もここへ統合し、新窓口は増やさない。アプリの不具合・要望は各アプリのSupportを経由して専用Feedbackへ案内する。有効化後は本文を必須、返信を希望する人の連絡先だけ任意とし、対応・返信のためだけに使って不要になった時点で削除する方針を示す。匿名Feedbackとはプライバシー説明と処理目的を分ける。
+- Contactの業務等の任意問い合わせには返信を保証しないが、法令に基づくプライバシー権利請求は適用法令に従って対応する。不要な個人情報、秘密、パスワード、認証コード、非公開共有リンクは禁止し、用件に必要な公開ページURLだけは許容する。匿名FeedbackではURL禁止を維持する。
+- 実Googleフォームは未改修・未確認で、既定ではFeedback／Contactとも送信できない。日本語・英語両方のフォームを実編集・設定照合した後だけ `NEXT_PUBLIC_APP_FEEDBACK_READY` / `NEXT_PUBLIC_CONTACT_READY` を文字列 `true` で有効化する。それまでは埋め込み・外部フォームリンクを表示せず、準備中で送信できないことを日英で明記する。現時点の受付・返信可能を完了扱いしない。
+- 専用Feedbackは自由記述1欄を標準とし、必須同意チェックボックス案は未採用。追加同意の採否とAI処理の現在状態は管理側の実証照合待ちで、実フォーム未確認とあわせて受付フラグを `false`（未設定）に保つ。受付無効時はAIの将来利用文を表示しない。
+- 送信ボタン未押下なら開発者へ回答として届かないことと、Googleの下書き保存・通常Web処理は分ける。ログイン時に回答途中の下書きが30日保存され得るため、全4フォームの回答者下書き自動保存を無効化してから有効化する。「閉じれば一切送信されない」とは説明しない。
+- Supportはセルフヘルプ、アプリ専用Feedback、採用して実値を設定した場合だけ表示する共通公開サポートメールで構成する。公開メールは一律の必須要件と断定せず、任意の審査リスク低減策として扱う。
+- App Store提出前には、Support URLから容易に実際の連絡手段へ進めることを再確認する。初回配布は日本だけとし、EUでtraderとして配布する場合に必要となるメール、電話番号、住所または私書箱等は、現時点で公開しない。
+
+## このサイト変更の外部ゲート
+
+- 共通公開サポートメールを採用するか決め、採用時だけ実値を設定する。あわせて提出前にSupport URLの実連絡導線を再確認する。
+- 追加同意の採否とAI処理の実証照合を含めて説明・設定を確定し、既存のGoogleフォーム4件をFeedback／Contactそれぞれの確定内容へ実編集する。回答者下書き自動保存をすべて無効化し、各用途の日英両フォームの質問項目・入力制限・返信契約・説明・設定を照合した後、対応する受付フラグを有効化する。GitHub Actionsではrepository variables `APP_FEEDBACK_READY` / `CONTACT_READY` を `NEXT_PUBLIC_APP_FEEDBACK_READY` / `NEXT_PUBLIC_CONTACT_READY` へ渡す。
+- GitHubへpushした後、日本語・英語のMarketing／Support／Privacy／Feedback／Contact URLと旧slugの不在を確認する。

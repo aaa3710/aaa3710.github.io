@@ -84,15 +84,15 @@ if (!origin.startsWith('https://')) {
 
 const indexablePaths = [
   '/',
-  '/en',
-  '/apps/focus-map',
-  '/en/apps/focus-map',
-  '/privacy/focus-map',
-  '/en/privacy/focus-map',
-  '/support/focus-map',
-  '/en/support/focus-map',
-  '/feedback',
-  '/en/feedback',
+  '/en/',
+  '/apps/focus-exposure-calculator/',
+  '/en/apps/focus-exposure-calculator/',
+  '/privacy/focus-exposure-calculator/',
+  '/en/privacy/focus-exposure-calculator/',
+  '/support/focus-exposure-calculator/',
+  '/en/support/focus-exposure-calculator/',
+  '/contact/',
+  '/en/contact/',
 ];
 
 await writeFile(

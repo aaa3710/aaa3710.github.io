@@ -1,16 +1,23 @@
 import { ArrowLeft } from 'lucide-react';
 import { SiteFooter, SiteHeader } from '@/components/site-chrome';
-import { localePath, type Locale } from '@/lib/site';
+import { formReadiness } from '@/lib/feedback';
+import {
+  featuredApp,
+  featuredAppPaths,
+  localePath,
+  publicSupportEmail,
+  type Locale,
+} from '@/lib/site';
 
 type InfoKind = 'privacy' | 'support';
 
 const info = {
   ja: {
     privacy: {
-      label: 'Focus Mapのプライバシー',
+      label: 'ピントと光 — 撮影計算のプライバシー',
       title: 'アプリがデータを勝手に送ることはありません。',
       intro:
-        'Focus Mapは、個人情報、位置情報、写真、連絡先、識別子、利用状況、診断情報を収集しません。',
+        '「ピントと光 — 撮影計算」本体は、個人情報、位置情報、写真、連絡先、識別子、利用状況、診断情報を収集しません。',
       sections: [
         [
           'アプリからの通信',
@@ -18,28 +25,40 @@ const info = {
         ],
         [
           'iPhone内に保存する設定',
-          '表示言語、撮影機材、レンズ・センサー・解像度・絞り・距離・許容錯乱円・グラフ表示、実寸表示の校正値を、このiPhone内のアプリ設定として保存します。端末外へ送信せず、第三者へ販売・共有しません。',
+          '表示言語、撮影機材、レンズ・センサー・解像度・絞り・距離・許容錯乱円・グラフ表示、実寸表示の校正値を、このiPhone内のアプリ設定として保存します。アプリが独自に自動送信・同期したり、販売したりすることはありません。利用者がiCloudバックアップなどのOS機能を有効にしている場合は、Appleの仕組みでバックアップ対象になり得ます。',
         ],
         [
           '削除',
-          '機材や表示プリセットはアプリ内で削除できます。アプリを削除すると、Focus Mapが端末内に保存した設定も削除されます。',
+          '機材や表示プリセットはアプリ内で削除できます。アプリを削除すると、このiPhone内でアプリが保持する設定も削除されます。iOSの「Appを取り除く」はデータを残す別の操作です。また、端末のバックアップや、利用者が自分で送信したフィードバックはアプリ内の削除操作の対象外です。',
         ],
         [
           '自分でフィードバックを送る場合',
-          'フィードバックページはGoogleフォームを使用し、メールアドレスを収集しません。自由記述欄に入力した本文はGoogleのサービスを通じて送信・保存され、開発者が確認します。今後、必要に応じて安全に分離した環境でAIによる整理を行う場合があります。Focus Map本体が計算値や設定を添付することはありません。',
+          formReadiness['app-feedback']
+            ? 'アプリ専用フィードバックはGoogleフォームを使用し、氏名やメールアドレスを収集しません。自由記述欄へ入力した本文はGoogleのサービスを通じて送信・保存され、開発者が確認します。回答は不具合・意見の確認と改善に必要な間だけ保持し、不要になれば削除します。AIによる整理を行う場合は、説明を更新し、必要な同意を得た範囲で行います。過去の回答を自動で流用しません。アプリ本体が計算値や設定を添付することはありません。'
+            : '専用フィードバックフォームは準備中で、このサイトからは送信できません。公開前に、氏名・メールアドレスを収集しない自由記述1欄の設定と説明を確認します。アプリ本体が計算値や設定を添付することはありません。',
+        ],
+        [
+          '同意と削除の依頼',
+          formReadiness.contact
+            ? '送信ボタンを押さなければ、開発者へ回答としては届きません。Google側での下書き保存や通常のWeb情報処理は別です。投稿済みの回答の削除など、プライバシーに関する依頼はお問い合わせ窓口へお送りください。おおよその送信日時と個人情報を含まない本文の一部から回答を確実に特定できた場合に対応します。匿名回答は特定できない場合があります。返信が必要な場合だけ連絡先を任意で入力できます。'
+            : 'プライバシーや投稿済み回答の削除に関するお問い合わせ窓口も準備中で、現在はこのサイトから依頼を送信できません。なお、Googleフォームの送信ボタンを押さなければ開発者へ回答としては届きませんが、Google側での下書き保存や通常のWeb情報処理は別です。',
+        ],
+        [
+          '外部Webページ',
+          'このサイトはGitHub Pages、アプリ専用フィードバックとお問い合わせはGoogle Formsを利用しています。ページを開くと、各事業者がIPアドレス、ブラウザや端末の情報など通常の接続情報を、それぞれのプライバシーポリシーに従って取り扱う場合があります。',
         ],
         [
           '変更と問い合わせ',
-          '機能やデータの扱いを変更した場合は、この文面とApp Store上の情報を更新します。監視可能な問い合わせ窓口は、App Store公開前にこのページへ追加します。',
+          '機能やデータの扱いを変更した場合は、この文面とApp Store上の情報を更新します。アプリの不具合・改善案は専用フィードバック、プライバシーやデータの扱いに関する連絡は別のお問い合わせ窓口で扱います。各窓口の受付状況はリンク先で案内します。',
         ],
       ],
-      date: '適用予定日: 初回リリース日',
+      date: '適用日: 初回リリース日',
     },
     support: {
-      label: 'Focus Mapのサポート',
+      label: 'ピントと光 — 撮影計算のサポート',
       title: '計算結果の見方と、できないこと。',
       intro:
-        'Focus Mapの数値は、撮影前の判断を助けるための目安です。結果に影響する前提と、現在の計算に含まれないものをまとめています。',
+        '「ピントと光 — 撮影計算」の数値は、撮影前の判断を助けるための目安です。結果に影響する前提と、現在の計算に含まれないものをまとめています。',
       sections: [
         [
           'ピントが合って見える範囲',
@@ -55,46 +74,58 @@ const info = {
         ],
         [
           '重要な撮影',
-          '試し撮り、カメラの表示、露出計でも確認してください。Focus Mapの計算だけに頼らないでください。',
+          '試し撮り、カメラの表示、露出計でも確認してください。このアプリの計算だけに頼らないでください。',
         ],
       ],
     },
   },
   en: {
     privacy: {
-      label: 'Focus Map privacy',
+      label: 'Focus & Light — Photo Tools privacy',
       title: 'The app does not send your data anywhere automatically.',
       intro:
-        'Focus Map does not collect personal information, location, photos, contacts, identifiers, usage data, or diagnostics.',
+        'Focus & Light — Photo Tools does not collect personal information, location, photos, contacts, identifiers, usage data, or diagnostics.',
       sections: [
         [
           'Communication from the app',
-          'There is no account system, advertising, analytics SDK, or tracking. Focus Map never transmits calculations or settings to an external server automatically. It opens an external web page only when the user chooses to send feedback.',
+          'There is no account system, advertising, analytics SDK, or tracking. The app never transmits calculations or settings to an external server automatically. It opens an external web page only when the user chooses to send feedback.',
         ],
         [
           'Settings stored on your iPhone',
-          'Language choice, equipment, lens, sensor, resolution, aperture, distance, circle-of-confusion and graph settings, and physical-display calibration are stored locally in the app settings on this iPhone. They are not transmitted off the device, sold, or shared with third parties.',
+          'Language choice, equipment, lens, sensor, resolution, aperture, distance, circle-of-confusion and graph settings, and physical-display calibration are stored locally in the app settings on this iPhone. The app does not independently transmit, sync, or sell them. If you enable an OS feature such as iCloud Backup, Apple may include them in a backup.',
         ],
         [
           'Deletion',
-          'Equipment and display presets can be deleted inside the app. Deleting Focus Map also deletes the settings the app stored locally.',
+          'Equipment and display presets can be deleted inside the app. Deleting the app deletes the settings it holds on this iPhone. Offloading an app is a separate iOS action that keeps its data. App controls also do not delete device backups or feedback that you chose to submit.',
         ],
         [
           'When you choose to send feedback',
-          'The feedback page uses Google Forms and does not collect email addresses. Text entered in the free-text field is sent and stored through Google’s service and reviewed by the developer. In the future, it may be organized with AI in an isolated environment when helpful. Focus Map does not attach calculation values or settings.',
+          formReadiness['app-feedback']
+            ? 'The app-specific feedback page uses Google Forms and does not collect names or email addresses. Text entered in the free-text field is sent and stored through Google’s service and reviewed by the developer. Responses are retained only while needed to review issues and feedback and improve the app, then deleted. Before any AI-assisted organization, the explanation will be updated and any required consent obtained. Previous responses will not be reused automatically. The app does not attach calculation values or settings.'
+            : 'The app-specific feedback form is being prepared, and submissions are not available from this site yet. Before it is enabled, its explanation and single free-text field will be checked to ensure it does not collect names or email addresses. The app does not attach calculation values or settings.',
+        ],
+        [
+          'Consent and deletion requests',
+          formReadiness.contact
+            ? 'Until you press Submit, the developer does not receive your text as a response. Google’s draft saving and ordinary web processing are separate. Use Contact for privacy requests, including deletion of a previous response. A request can be handled if the response can be identified reliably from its approximate submission time and a non-sensitive text fragment. An anonymous response may not be identifiable. Add contact details only if you would like a reply.'
+            : 'The contact route for privacy questions and deletion of previous responses is also being prepared, so requests cannot be sent from this site yet. Until you press Submit on a Google Form, the developer does not receive your text as a response; Google’s draft saving and ordinary web processing are separate.',
+        ],
+        [
+          'External web pages',
+          'This site uses GitHub Pages, while app-specific feedback and contact use Google Forms. When you open those pages, each provider may process ordinary connection information, such as your IP address and browser or device information, under its own privacy policy.',
         ],
         [
           'Changes and questions',
-          'If features or data practices change, this policy and the App Store disclosure will be updated. A monitored contact method will be added here before the App Store release.',
+          'If features or data practices change, this policy and the App Store disclosure will be updated. App feedback handles bugs and suggestions; the separate Contact route handles privacy and data matters. Each linked page shows whether submissions are available.',
         ],
       ],
       date: 'Effective date: initial release date',
     },
     support: {
-      label: 'Focus Map support',
+      label: 'Focus & Light — Photo Tools support',
       title: 'How to read the results, and what they do not cover.',
       intro:
-        'Focus Map results are guides for decisions before a photograph. This page summarizes the assumptions that affect the numbers and what is outside the current model.',
+        'Focus & Light — Photo Tools results are guides for decisions before a photograph. This page summarizes the assumptions that affect the numbers and what is outside the current model.',
       sections: [
         [
           'The range that appears acceptably sharp',
@@ -110,7 +141,7 @@ const info = {
         ],
         [
           'Important photographs',
-          'Also verify with a test image, equipment display, and light meter. Do not rely on the Focus Map calculation alone.',
+          'Also verify with a test image, equipment display, and light meter. Do not rely on this app’s calculation alone.',
         ],
       ],
     },
@@ -126,17 +157,37 @@ export function InfoPage({ locale, kind }: { locale: Locale; kind: InfoKind }) {
       <SiteHeader
         locale={locale}
         languageHref={
-          isEnglish ? `/${kind}/focus-map/` : `/en/${kind}/focus-map/`
+          isEnglish ? featuredAppPaths[kind] : `/en${featuredAppPaths[kind]}`
         }
       />
       <article className="info-page section">
-        <a className="back-link" href={localePath(locale, '/apps/focus-map/')}>
+        <a
+          className="back-link"
+          href={localePath(locale, featuredAppPaths.app)}
+        >
           <ArrowLeft aria-hidden="true" size={16} />
-          Focus Map
+          {featuredApp.name[locale]}
         </a>
         <p className="section-label">{page.label}</p>
         <h1>{page.title}</h1>
         <p className="info-intro">{page.intro}</p>
+
+        {kind === 'support' ? (
+          <p className="info-contact">
+            <a href={localePath(locale, featuredAppPaths.feedback)}>
+              {formReadiness['app-feedback']
+                ? isEnglish
+                  ? 'Send a bug report or suggestion'
+                  : '不具合・要望を送る'
+                : isEnglish
+                  ? 'Feedback information'
+                  : 'フィードバックのご案内'}
+            </a>
+            {publicSupportEmail ? (
+              <a href={`mailto:${publicSupportEmail}`}>{publicSupportEmail}</a>
+            ) : null}
+          </p>
+        ) : null}
 
         <div className="info-sections">
           {page.sections.map(([title, body]) => (
@@ -146,6 +197,42 @@ export function InfoPage({ locale, kind }: { locale: Locale; kind: InfoKind }) {
             </section>
           ))}
         </div>
+
+        {kind === 'privacy' ? (
+          <p className="policy-links">
+            <a
+              href="https://policies.google.com/privacy"
+              rel="noreferrer"
+              target="_blank"
+            >
+              {isEnglish
+                ? 'Google Privacy Policy'
+                : 'Google プライバシーポリシー'}
+            </a>
+            <a
+              href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement"
+              rel="noreferrer"
+              target="_blank"
+            >
+              {isEnglish
+                ? 'GitHub General Privacy Statement'
+                : 'GitHub 一般プライバシーステートメント'}
+            </a>
+          </p>
+        ) : null}
+
+        {kind === 'privacy' ? (
+          <p className="info-contact">
+            <a href={localePath(locale, featuredAppPaths.support)}>
+              {isEnglish ? 'App support' : 'アプリのサポートへ'}
+            </a>
+            <a href={localePath(locale, '/contact/')}>
+              {isEnglish
+                ? 'Contact about privacy or data handling'
+                : 'プライバシー・データ取扱いを問い合わせる'}
+            </a>
+          </p>
+        ) : null}
 
         {'date' in page ? <p className="policy-date">{page.date}</p> : null}
       </article>

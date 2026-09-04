@@ -1,8 +1,8 @@
 import type { MetadataRoute } from 'next';
-import { absoluteSiteUrl } from '@/lib/site';
+import { absoluteSiteUrl, featuredAppPaths } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date('2026-08-30T00:00:00+09:00');
+  const lastModified = new Date('2026-09-04T00:00:00+09:00');
 
   return [
     {
@@ -18,45 +18,45 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: absoluteSiteUrl('/apps/focus-map/'),
+      url: absoluteSiteUrl(featuredAppPaths.app),
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: absoluteSiteUrl('/en/apps/focus-map/'),
+      url: absoluteSiteUrl(`/en${featuredAppPaths.app}`),
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: absoluteSiteUrl('/privacy/focus-map/'),
+      url: absoluteSiteUrl(featuredAppPaths.privacy),
       lastModified,
       priority: 0.5,
     },
     {
-      url: absoluteSiteUrl('/en/privacy/focus-map/'),
+      url: absoluteSiteUrl(`/en${featuredAppPaths.privacy}`),
       lastModified,
       priority: 0.4,
     },
     {
-      url: absoluteSiteUrl('/support/focus-map/'),
+      url: absoluteSiteUrl(featuredAppPaths.support),
       lastModified,
       priority: 0.5,
     },
     {
-      url: absoluteSiteUrl('/en/support/focus-map/'),
+      url: absoluteSiteUrl(`/en${featuredAppPaths.support}`),
       lastModified,
       priority: 0.4,
     },
     {
-      url: absoluteSiteUrl('/feedback/'),
+      url: absoluteSiteUrl('/contact/'),
       lastModified,
       changeFrequency: 'yearly',
       priority: 0.6,
     },
     {
-      url: absoluteSiteUrl('/en/feedback/'),
+      url: absoluteSiteUrl('/en/contact/'),
       lastModified,
       changeFrequency: 'yearly',
       priority: 0.5,

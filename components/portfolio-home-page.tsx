@@ -6,7 +6,14 @@ import {
   MousePointerClick,
 } from 'lucide-react';
 import { SiteFooter, SiteHeader } from '@/components/site-chrome';
-import { appPlaceholders, localePath, sitePath, type Locale } from '@/lib/site';
+import {
+  appPlaceholders,
+  featuredApp,
+  featuredAppPaths,
+  localePath,
+  sitePath,
+  type Locale,
+} from '@/lib/site';
 
 const copy = {
   ja: {
@@ -20,11 +27,11 @@ const copy = {
     ),
     lead: '日々の中で「こんな道具があれば」と思ったことから、個人で作っているアプリを紹介しています。公開準備が整ったものから、詳しい使い方と入手先を掲載します。',
     appsAction: 'アプリを見る',
-    feedbackAction: '気づいたことを送る',
+    feedbackAction: 'お問い合わせ',
     appsEyebrow: 'アプリ',
     appsTitle: '現在のアプリ',
     appsBody:
-      'Focus Mapの詳しい紹介を公開しています。ほかのアプリも、内容と画面を正確に案内できる状態になったものから追加します。',
+      '「ピントと光 — 撮影計算」の詳しい紹介を公開しています。ほかのアプリも、内容と画面を正確に案内できる状態になったものから追加します。',
     focusState: 'App Store公開準備中',
     focusSummary:
       'ピントを置く距離と絞りから、合って見える範囲を確かめるiPhoneアプリ。',
@@ -46,21 +53,21 @@ const copy = {
         '計算の前提や未確認のことは、確かめられる場所に明記します。',
       ],
     ],
-    feedbackTitle: '使っていて気づいたことを、お聞かせください。',
+    feedbackTitle: '業務・運営・その他のご連絡はこちら。',
     feedbackBody:
-      '対象のアプリを選び、自由に書けます。分類や言語を選ぶ必要はありません。',
-    feedbackButton: 'フィードバックを送る',
+      'アプリの不具合や要望は、各アプリのサポートから専用フィードバックへお進みください。',
+    feedbackButton: 'お問い合わせへ',
   },
   en: {
     eyebrow: 'Independent apps',
     title: 'Small everyday problems, turned into useful apps.',
     lead: 'These apps began with moments when I wished a better tool existed. Full guides and download links are added as each app is ready to present accurately.',
     appsAction: 'Browse the apps',
-    feedbackAction: 'Share feedback',
+    feedbackAction: 'Contact',
     appsEyebrow: 'Apps',
     appsTitle: 'Current apps',
     appsBody:
-      'A full introduction to Focus Map is available now. Other app pages will be added once their current features and screens are ready to describe accurately.',
+      'A full introduction to Focus & Light — Photo Tools is available now. Other app pages will be added once their current features and screens are ready to describe accurately.',
     focusState: 'Preparing for the App Store',
     focusSummary:
       'An iPhone app that shows how far acceptable focus extends from a chosen distance and aperture.',
@@ -82,10 +89,10 @@ const copy = {
         'Assumptions and unverified details are stated where you can find them.',
       ],
     ],
-    feedbackTitle: 'Tell me what you noticed while using an app.',
+    feedbackTitle: 'For business, site administration, or other inquiries.',
     feedbackBody:
-      'Choose the app and write freely. You do not need to select a category or language.',
-    feedbackButton: 'Send feedback',
+      'For app bugs or feature requests, use the app-specific feedback link on its support page.',
+    feedbackButton: 'Open contact page',
   },
 } as const;
 
@@ -108,7 +115,7 @@ export function PortfolioHomePage({ locale }: { locale: Locale }) {
           </a>
           <a
             className="secondary-action"
-            href={localePath(locale, '/feedback/')}
+            href={localePath(locale, '/contact/')}
           >
             {text.feedbackAction}
           </a>
@@ -131,11 +138,11 @@ export function PortfolioHomePage({ locale }: { locale: Locale }) {
         <div className="portfolio-grid">
           <a
             className="portfolio-card portfolio-card-ready"
-            href={localePath(locale, '/apps/focus-map/')}
+            href={localePath(locale, featuredAppPaths.app)}
           >
             <div className="portfolio-card-heading">
               <img
-                src={sitePath('/images/focus-map/icon.png')}
+                src={sitePath(`${featuredApp.imageDirectory}/icon.png`)}
                 alt=""
                 width="64"
                 height="64"
@@ -143,7 +150,7 @@ export function PortfolioHomePage({ locale }: { locale: Locale }) {
               <span className="status-pill">{text.focusState}</span>
             </div>
             <div>
-              <h3>Focus Map</h3>
+              <h3>{featuredApp.name[locale]}</h3>
               <p>{text.focusSummary}</p>
             </div>
             <span className="card-link">
@@ -185,7 +192,7 @@ export function PortfolioHomePage({ locale }: { locale: Locale }) {
       </section>
 
       <section className="feedback-section section">
-        <a className="feedback-banner" href={localePath(locale, '/feedback/')}>
+        <a className="feedback-banner" href={localePath(locale, '/contact/')}>
           <MessageSquareText aria-hidden="true" />
           <span>
             <strong>{text.feedbackTitle}</strong>
