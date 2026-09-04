@@ -57,6 +57,8 @@
 
 許可はこの既存サイトと4フォームに限る。別repoのpush、新サービス・課金、新規メール、個人メール・住所・電話の公開、AI／scheduler有効化、App Store Connect入力・upload・TestFlight・審査・アプリ公開は含まない。認証引継ぎ、新たな規約同意、秘密・個人情報の公開、不可逆削除、未確定の法的処理や権限拡大が必要な箇所だけ直前確認する。
 
+現状: 公開前確認は完了したが、`main`へのpushは自動安全審査が当該サイトタスク内の直接ユーザー許可を要求し、実行前に停止した。本番反映・受付変数変更は未実施。元タスクの許可は確認済みだが審査上の承認へ引き継がれないため、このサイトタスクへの直接入力または承認状態の変化まで再試行せず、別経路・別タスクでも公開を迂回しない。フォーム担当の準備通知だけではこの停止条件を解除しない。
+
 - 共通公開サポートメールを採用するか決め、採用時だけ実値を設定する。あわせて提出前にSupport URLの実連絡導線を再確認する。
 - 追加同意の採否とAI処理の実証照合を含めて説明・設定を確定し、既存のGoogleフォーム4件をFeedback／Contactそれぞれの確定内容へ実編集する。回答者下書き自動保存をすべて無効化し、各用途の日英両フォームの質問項目・入力制限・返信契約・説明・設定を照合した後、対応する受付フラグを有効化する。GitHub Actionsではrepository variables `APP_FEEDBACK_READY` / `CONTACT_READY` を `NEXT_PUBLIC_APP_FEEDBACK_READY` / `NEXT_PUBLIC_CONTACT_READY` へ渡す。
 - GitHubへpushした後、日本語・英語のMarketing／Support／Privacy／Feedback／Contact URLと旧slugの不在を確認する。
