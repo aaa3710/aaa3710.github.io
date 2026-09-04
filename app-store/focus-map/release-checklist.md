@@ -23,7 +23,7 @@ Contactでは業務等の任意問い合わせの返信非保証と、法令に�
 - [ ] 再開後、4フォームの実設定（メール収集、ログイン要否、公開回答概要、共同編集権限、回答者下書き自動保存等）を確認し、保持・削除、AI処理、同意方式、Privacy／App Privacyの説明と一致させる
 - [ ] 日英Supportから該当Feedback／共通Contactへ到達し、管理担当が最小限の合成入力でフォーム送信 → 所有者の受信・通知 → 試験回答の削除を確認する。これは受信経路の証拠であり、返信手段の確認とは分ける。匿名Feedbackの原則個別返信なしは維持する
 - [ ] Contactの必要な返信・法定請求対応の手段を、実メールを送らずに確認する。実返信が必要になった場合は、親タスクを通じた所有者の送信元判断と、相手に見えるアドレス・表示名・Reply-Toを踏まえた別途の送信許可を得るまで、返信・試験送信を行わない
-- [ ] GitHubへpush後、新しい日英Marketing／Support／Privacy／Feedback／Contact URLと旧slugの不在を確認
+- [x] 2026-09-04、`107f949`をGitHubへpushしPages公開成功。新しい日英Marketing／Support／Privacy／Feedback／Contact URLと旧slug・旧共通Feedbackの転送なし404を確認（実受付は無効のまま）
 - [ ] 確認済みの公開URLをApp Store ConnectのMarketing URL / Privacy Policy URL / Support URLへ入力
 - [ ] App Store公開後、サイトの準備中表示をApp Storeリンクへ変更
 
