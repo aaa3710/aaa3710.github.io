@@ -1,5 +1,7 @@
 # ピントと光 — 撮影計算 / Focus & Light — Photo Tools: App Store公開準備
 
+本人の意思は[本人の意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)を参照する。公開用メールの現在方針は同正本に従い、過去の採否未定・任意提案を現在の本人判断にしない。
+
 このフォルダは、App Store Connect向けメタデータ正本への参照、公開URL、画像の状態、App Previewの撮影計画、公開前の所有者判断を一か所で確認するための索引です。製品メタデータの内容正本は個別アプリ側の [AppStoreMetadata.ja-en.md](/Users/minatosuzuki/work_local/被写界深度計算ツール/Docs/Release/AppStoreMetadata.ja-en.md) とし、認知側に独立した入力原稿を置きません。
 
 制作背景はアプリ管理側の `app_profiles/focus-map.md`、機能と画面は内部名Focus Mapのアプリ側にある現行仕様を参照します。公開文面は利用場面から始め、専門用語と開発工程を初見の入口へ置きません。ディレクトリ名、Bundle ID、素材名、過去のcommit記述は履歴と実装の識別子なので、公開名に合わせて一括置換しません。
@@ -15,7 +17,7 @@
 - Contactでは業務等の任意問い合わせへの返信を保証しない一方、法令に基づくプライバシー権利請求は適用法令に従って対応する。不要な個人情報、秘密、パスワード、認証コード、非公開共有リンクは禁止し、用件に必要な公開ページURLは許容する。専用Feedbackは匿名・URL禁止を維持する。
 - 実Googleフォーム4件の改修・設定照合は未完了。Feedback／Contactは既定で準備中とし、埋め込み・外部フォームリンクを出さず、現在は送信できないことを日英で明記する。フォーム経由の受付・返信可能は未完了。部分的な準備状況は [PROJECT_CONTEXT](../../PROJECT_CONTEXT.md#このサイト変更の外部ゲート) を参照する。
 - 専用Feedbackの自由記述1欄を標準とし、必須同意チェックボックス案は未採用。追加同意の採否未決定、AI処理の現在状態の実証照合待ち、実フォーム未確認を含め、受付フラグは `false`（未設定）に保つ。受付無効時はAIの将来利用文を表示しない。
-- Supportはセルフヘルプ、専用Feedback、採用時だけ表示する共通公開サポートメールで構成する。公開メールの採否と実値は未確定で、仮の連絡先は公開しない。
+- Supportはセルフヘルプ、専用Feedback、採用時だけ表示する共通公開サポートメールで構成する。公開メールの方針は[本人の意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)に従う。実値は未設定で、仮の連絡先は公開しない。
 - 価格は0円、初回配布地域は日本のみ、Bundle IDは`com.minatosuzuki.FocusMap`のままとする。
 - 公開日は未確定。App Store Connectへの最終入力・提出は所有者が手動で行う。
 - App Store Connectへの素材登録、配布用署名、Validate App、TestFlight、提出は未実施。
@@ -37,7 +39,7 @@
 
 ## この変更の外部ゲート
 
-- 共通公開サポートメールを採用するか決め、採用時だけ実値を設定する。メール単独がAppleの一律必須要件とは書かず、任意の審査リスク低減策として扱い、提出前にSupport URLから容易に実際の連絡手段へ進めるか再確認する。
+- 公開用メールは[本人の意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)に従い、管理側で必要性が確認された場合だけ具体化する。提出前のSupport URLの実連絡導線確認は別に行う。
 - 追加同意の採否とAI処理の実証照合を含めて説明・設定を確定し、既存のGoogleフォーム4件を実編集する。回答者下書き自動保存をすべて無効化し、各用途の日英両フォームの質問項目・入力制限・返信契約・説明・設定を照合した後、対応する受付フラグを有効化する。専用Feedbackは自由記述1欄のみを標準、共通Contactは本文必須・返信希望者の連絡先のみ任意とし、両者の利用目的とプライバシー説明を分ける。GitHub Actionsのrepository variables `APP_FEEDBACK_READY` / `CONTACT_READY` がそれぞれ `NEXT_PUBLIC_APP_FEEDBACK_READY` / `NEXT_PUBLIC_CONTACT_READY` へ渡り、文字列 `true` の場合だけ埋め込みと外部フォームリンクを表示する。
 - GitHubへpushした後、上記の日英URLが表示できること、canonical／hreflang／内部リンクが揃うこと、旧slugが存在しないことを確認する。
 
