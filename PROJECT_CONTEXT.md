@@ -53,6 +53,12 @@
 
 ## このサイト変更の外部ゲート
 
+2026-09-04の所有者指示により、Codexの残作業とサイト＋フォームの実窓口確認は**明示的な再開待ち**。今は記録保存だけとし、調査、フォーム編集・送信、画面操作、実装、ビルド、push、公開を開始しない。他タスクへの実行依頼も行わない。受付フラグは未設定（無効）を維持する。
+
 - 共通公開サポートメールを採用するか決め、採用時だけ実値を設定する。あわせて提出前にSupport URLの実連絡導線を再確認する。
 - 追加同意の採否とAI処理の実証照合を含めて説明・設定を確定し、既存のGoogleフォーム4件をFeedback／Contactそれぞれの確定内容へ実編集する。回答者下書き自動保存をすべて無効化し、各用途の日英両フォームの質問項目・入力制限・返信契約・説明・設定を照合した後、対応する受付フラグを有効化する。GitHub Actionsではrepository variables `APP_FEEDBACK_READY` / `CONTACT_READY` を `NEXT_PUBLIC_APP_FEEDBACK_READY` / `NEXT_PUBLIC_CONTACT_READY` へ渡す。
 - GitHubへpushした後、日本語・英語のMarketing／Support／Privacy／Feedback／Contact URLと旧slugの不在を確認する。
+
+再開後は [公開前チェックリスト](app-store/focus-map/release-checklist.md#サイトと連絡先) に従い、実ページ・4フォームの実設定・最小限の合成入力によって、送信から所有者の受信・通知、必要な返信や法定請求対応、削除まで確認する。ローカルサイトのテスト成功だけでは実窓口の完了にしない。新名称の実画面差し替えと公開URL照合も未完了。公開メールの要否は一律に決めず、再開時のApple要件と実窓口で判定する。実回答や認証情報は記録しない。
+
+関連するアプリ側の監査正本: [2026-09-04-release-safety-audit.md](/Users/minatosuzuki/work_local/被写界深度計算ツール/Docs/Release/2026-09-04-release-safety-audit.md)。本記録は同タスクから受領した引き継ぎであり、今回の追加検証結果ではない。
