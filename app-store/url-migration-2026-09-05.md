@@ -21,7 +21,15 @@
 
 ## 本番の結果
 
-公開処理と公開URLの検証後に、commit・Actions結果・到達性をここへ記録する。
+2026-09-05、`182639bd2666d79fd08b3bbe63cc274d0440de78` を既存GitHub Pagesへpushし、[Actions run 33953638860](https://github.com/aaa3710/aaa3710.github.io/actions/runs/33953638860) は成功した。
+
+- 新ページ34件＋旧URL25件、計59経路のHTTP 200を本番で確認。HTML転送先・手動リンク、言語、canonical／hreflang／OG、robots指定と全ページのリンクが検証済みローカル出力と一致。
+- サイトマップ16件はすべて `/apps/` 配下。Feedbackと旧URLを含まない。robots.txtも一致。
+- 廃止済み旧 `focus-map`／旧共通Feedbackの10経路は404。今回未公開のLocationLogger Support／Privacy／Feedback日英6経路も404を維持。
+- 本番の旧 `/feedback/tsutawaru-moji/` をブラウザで開き、新 `/apps/feedback/tsutawaru-moji/` への自動移動を確認。英語切替後も `/apps/en/feedback/tsutawaru-moji/` へ到達。390pxで横はみ出しなし、ブラウザ警告・エラー0。
+- 実フォームへの埋込・送信リンクは無効のまま。公開メール、フォーム設定、ASCとアプリ配布は変更していない。
+
+今回のURL移行と関連正本の更新は完了。後続の別件の製品公開は、その時点の確定内容・公開許可と別途照合する。
 
 ## 関連する正本
 
