@@ -99,6 +99,12 @@ const indexablePaths = [
   '/en/support/tsutawaru-moji/',
   '/privacy/tsutawaru-moji/',
   '/en/privacy/tsutawaru-moji/',
+  '/apps/location-logger/',
+  '/en/apps/location-logger/',
+  '/support/location-logger/',
+  '/en/support/location-logger/',
+  '/privacy/location-logger/',
+  '/en/privacy/location-logger/',
 ];
 
 await writeFile(

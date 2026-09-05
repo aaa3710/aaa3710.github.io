@@ -119,3 +119,49 @@ test('Tsutawaru has no form URL or readiness environment override', async () => 
     /process\.env|NEXT_PUBLIC_.*READY|docs\.google\.com\/forms|<iframe|<form\b|mailto:/,
   );
 });
+
+test('LocationLogger snapshots preserve the current privacy and support boundaries', async () => {
+  const snapshot = JSON.parse(
+    await readFile(
+      new URL('../lib/location-logger-public.generated.json', import.meta.url),
+      'utf8',
+    ),
+  );
+  for (const locale of ['ja', 'en'])
+    for (const kind of ['app', 'support', 'privacy']) {
+      const record = snapshot.documents[locale][kind];
+      assert.match(record.sha256, /^[a-f0-9]{64}$/);
+      assert.doesNotMatch(
+        record.body,
+        /\{\{|<!--|mailto:|docs\.google\.com\/forms|forms\.gle/,
+      );
+      const document = parsePublicDocument(record.body);
+      assert.ok(document.sections.length >= 2);
+    }
+  const ja = snapshot.documents.ja;
+  const en = snapshot.documents.en;
+  assert.match(ja.privacy.body, /アプリ内の一括削除操作はありません/);
+  assert.match(en.privacy.body, /no in-app bulk deletion control/);
+  assert.match(ja.privacy.body, /本人認証が必要/);
+  assert.match(en.privacy.body, /Shortcuts require authentication/);
+  assert.match(ja.privacy.body, /OSバックアップの対象外/);
+  assert.match(en.privacy.body, /excluded from operating-system backups/);
+  assert.match(ja.app.body, /Apple地図を併記/);
+  assert.match(en.app.body, /corresponding Apple map/);
+});
+
+test('LocationLogger has no form URL or readiness environment override', async () => {
+  const config = await readFile(
+    new URL('../lib/location-logger.ts', import.meta.url),
+    'utf8',
+  );
+  const component = await readFile(
+    new URL('../components/location-logger-page.tsx', import.meta.url),
+    'utf8',
+  );
+  assert.match(config, /feedbackReady: false/);
+  assert.doesNotMatch(
+    config + component,
+    /process\.env|NEXT_PUBLIC_.*READY|docs\.google\.com\/forms|<iframe|<form\b|mailto:/,
+  );
+});

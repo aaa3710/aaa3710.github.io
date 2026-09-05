@@ -23,7 +23,7 @@
 
 ## ローカル確認
 
-### 伝わる文字のローカル準備（未公開）
+### 伝わる文字の公開内容
 
 日英の紹介・Support・Privacy・専用Feedbackを追加し、一覧と共通Contactから接続しています。App Store未配信・受付準備中を明記し、実フォーム、公開メール、旧buildの画像は追加していません。`NEXT_PUBLIC_APP_FEEDBACK_READY` は既存の撮影計算アプリ用で、伝わる文字には流用しません。伝わる文字はフォーム未登録で、環境変数による有効化経路もありません。
 
@@ -35,7 +35,19 @@ node --experimental-strip-types scripts/sync-tsutawaru-copy.mjs \
   a112293d335cb855b051bfba2501243057250e18 --check
 ```
 
-更新時は採用commitを指定し、`--check` を外して生成します。管理側の受付条件は `0dfec49f6bcbff649ad893af2f3a3c80832dc816` を参照し、90日保持案は未採用のままです。[予定URL・検証・公開前条件](app-store/tsutawaru-moji/site-verification-2026-09-05.md)を参照してください。以下の既存サイト公開記録を、新規ページの公開証拠として扱わないでください。
+更新時は採用commitを指定し、`--check` を外して生成します。管理側の受付条件は `0dfec49f6bcbff649ad893af2f3a3c80832dc816` を参照し、90日保持案は未採用のままです。[URL・検証・公開条件](app-store/tsutawaru-moji/site-verification-2026-09-05.md)を参照してください。
+
+### LocationLoggerのローカル準備（未公開）
+
+日英の紹介・Support・Privacyと、送信できない専用Feedback案内を追加しています。製品本文の正本はLocationLogger本体の `Docs/AppStoreMetadata-*.md`、`Docs/Support-*.md`、`Docs/PrivacyPolicy-*.md` です。サイトには6原稿の本文とSHA-256を生成データとして保持し、本文をサイト側だけで修正しません。
+
+```bash
+node --experimental-strip-types scripts/sync-location-logger-copy.mjs \
+  '/Users/minatosuzuki/work_local/LocationLogger' \
+  c0532a568e760eb98f87a5aeceb28770ea795789 --check
+```
+
+専用FeedbackはフォームURLも環境変数による有効化経路も持ちません。初回配信予定地域はLocationLoggerに限り日本ですが、App Store Connect操作や配布許可ではありません。[予定URL・検証・公開前条件](app-store/location-logger/site-verification-2026-09-05.md)を参照してください。
 
 ### 開発サーバー
 

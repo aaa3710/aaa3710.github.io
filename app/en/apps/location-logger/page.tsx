@@ -1,14 +1,10 @@
-import { PlaceholderPage } from '@/components/placeholder-page';
-import { placeholderMetadata } from '@/lib/placeholder-metadata';
+import { LocationLoggerPage } from '@/components/location-logger-page';
+import { locationLoggerMetadata } from '@/lib/location-logger';
 
 export const dynamic = 'force-static';
 
-export const metadata = placeholderMetadata(
-  'en',
-  'location-logger',
-  'LocationLogger',
-);
+export const metadata = locationLoggerMetadata('en', 'app');
 
 export default function Page() {
-  return <PlaceholderPage locale="en" slug="location-logger" />;
+  return <LocationLoggerPage locale="en" kind="app" />;
 }

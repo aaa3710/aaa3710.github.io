@@ -55,7 +55,7 @@ export function PublicDocument({
   kind,
 }: {
   body: string;
-  kind: 'support' | 'privacy';
+  kind: 'app' | 'support' | 'privacy';
 }) {
   const document = parsePublicDocument(body);
   return (
@@ -64,7 +64,7 @@ export function PublicDocument({
       {document.sections.map((section, index) => (
         <details
           key={section.title}
-          open={index < (kind === 'support' ? 2 : 1)}
+          open={index < (kind === 'privacy' ? 1 : 2)}
         >
           <summary>
             <h2>{section.title}</h2>

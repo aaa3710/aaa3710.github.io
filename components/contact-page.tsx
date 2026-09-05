@@ -7,6 +7,7 @@ import {
 } from '@/lib/feedback';
 import { featuredAppPaths, localePath, type Locale } from '@/lib/site';
 import { tsutawaruPaths } from '@/lib/tsutawaru';
+import { locationLoggerPaths } from '@/lib/location-logger';
 
 const content = {
   ja: {
@@ -87,6 +88,11 @@ export function ContactPage({ locale }: { locale: Locale }) {
                 {isEnglish
                   ? 'Support for Tsutawaru Moji'
                   : '伝わる文字のサポートへ'}
+              </a>
+              <a href={localePath(locale, locationLoggerPaths.support)}>
+                {isEnglish
+                  ? 'Support for LocationLogger'
+                  : 'LocationLoggerのサポートへ'}
               </a>
             </p>
           </div>

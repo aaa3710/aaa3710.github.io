@@ -17,7 +17,6 @@ export const featuredAppPaths = {
 } as const;
 
 export const appPlaceholders = [
-  { slug: 'location-logger', name: 'LocationLogger' },
   { slug: 'card-relay', name: 'CardRelay' },
   { slug: 'wrist-morse', name: 'WristMorse' },
   { slug: 'genome-notebook', name: 'GenomeNotebook' },

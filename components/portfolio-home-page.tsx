@@ -2,11 +2,13 @@ import {
   ArrowRight,
   CircleHelp,
   Layers3,
+  MapPinned,
   MessageSquareText,
   MousePointerClick,
 } from 'lucide-react';
 import { SiteFooter, SiteHeader } from '@/components/site-chrome';
 import { tsutawaru, tsutawaruPaths } from '@/lib/tsutawaru';
+import { locationLogger, locationLoggerPaths } from '@/lib/location-logger';
 import {
   appPlaceholders,
   featuredApp,
@@ -176,6 +178,30 @@ export function PortfolioHomePage({ locale }: { locale: Locale }) {
                 {locale === 'ja'
                   ? '対面の会話を、iPhoneの大きな文字で読みやすく。'
                   : 'Read face-to-face conversations as large text on iPhone.'}
+              </p>
+            </div>
+            <span className="card-link">
+              {text.ready}
+              <ArrowRight aria-hidden="true" size={16} />
+            </span>
+          </a>
+
+          <a
+            className="portfolio-card portfolio-card-ready"
+            href={localePath(locale, locationLoggerPaths.app)}
+          >
+            <div className="portfolio-card-heading">
+              <MapPinned aria-hidden="true" size={48} />
+              <span className="status-pill">
+                {locale === 'ja' ? '公開準備中' : 'Preparing for release'}
+              </span>
+            </div>
+            <div>
+              <h3>{locationLogger.name[locale]}</h3>
+              <p>
+                {locale === 'ja'
+                  ? 'iPhoneとApple Watchへ届いた位置を、端末内に記録。'
+                  : 'Keep locations delivered to iPhone and Apple Watch on your devices.'}
               </p>
             </div>
             <span className="card-link">
