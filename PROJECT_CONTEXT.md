@@ -11,7 +11,7 @@
 1. トップページでは全アプリを同じ一覧規則で扱い、詳しい紹介があるものだけ次へ進める。
 2. `ピントと光 — 撮影計算`（英語: `Focus & Light — Photo Tools`）の公式ページ、プライバシー、サポート、App Store素材を最初の完成例として仕上げる。公開slugは `focus-exposure-calculator` に統一し、内部履歴と素材では従来の `Focus Map` を必要に応じて維持する。
 3. `伝わる文字 / Tsutawaru Moji` は本体の確定公開原稿から日英の紹介・Support・Privacy・Feedbackを整備し、2026-09-05に実受付を無効のまま本番公開した。[検証と公開条件](app-store/tsutawaru-moji/site-verification-2026-09-05.md)を参照する。
-4. `LocationLogger` は本体の現在のApp Store原稿・Support・Privacyを内容正本として、日英の紹介・Support・Privacy・受付停止中Feedbackをローカル整備する。配信地域は全アプリ共通の既定に従い日本のみ。[ローカル検証と公開前条件](app-store/location-logger/site-verification-2026-09-05.md)を参照する。
+4. `LocationLogger` は本体の現在のApp Store原稿・Support・Privacyを内容正本として、日英の紹介・Support・Privacy・専用Feedbackをローカル整備する。Feedbackは専用の日英URLと受付フラグがすべて検証済みの場合だけ表示し、既定では停止する。配信地域は全アプリ共通の既定に従い日本のみ。[ローカル検証と公開前条件](app-store/location-logger/site-verification-2026-09-05.md)を参照する。
 5. それ以外のアプリは名前と準備中表示だけを置く。
 6. 各アプリの制作背景と、公開可能な機能・現行画面が確定した時点で、同じ公開確認を通して中身を追加する。
 
@@ -40,7 +40,7 @@
 - 公開サイト: `app/`, `components/`, `public/`
 - GitHub Pages自動公開: `.github/workflows/deploy-pages.yml`
 - 業務・運営・プライバシー請求・その他を扱う共通Contactのページ: `app/contact/`, `app/en/contact/`
-- 個別アプリとそのSupportから開く `noindex, nofollow` の専用Feedback: `app/feedback/focus-exposure-calculator/`, `app/en/feedback/focus-exposure-calculator/`
+- 個別アプリとそのSupportから開く `noindex, nofollow` の専用Feedback: `app/feedback/focus-exposure-calculator/`, `app/en/feedback/focus-exposure-calculator/`, `app/feedback/location-logger/`, `app/en/feedback/location-logger/`
 - Focus Map App Store準備: `app-store/focus-map/`
 - Codexが毎回読む前提: `AGENTS.md`
 
@@ -54,6 +54,7 @@
 - Contactの業務等の任意問い合わせには返信を保証しないが、法令に基づくプライバシー権利請求は適用法令に従って対応する。不要な個人情報、秘密、パスワード、認証コード、非公開共有リンクは禁止し、用件に必要な公開ページURLだけは許容する。匿名FeedbackではURL禁止を維持する。
 - 開発者メールをWebに掲載しないことと、返信相手に送信元アドレス・表示名・Reply-Toが見えないことは別である。フォーム採用だけで個人メールの非開示を保証しない。公開メールは未設定、返信用送信元は未確定のままとし、受信フォームの確認と返信手段の確認を分ける。
 - 実Googleフォーム4件の改修・設定照合は未完了で、既定ではFeedback／Contactとも送信できない。日本語・英語両方のフォームを実編集・設定照合した後だけ `NEXT_PUBLIC_APP_FEEDBACK_READY` / `NEXT_PUBLIC_CONTACT_READY` を文字列 `true` で有効化する。それまでは埋め込み・外部フォームリンクを表示せず、準備中で送信できないことを日英で明記する。現時点の受付・返信可能を完了扱いしない。
+- LocationLoggerは既存4フォームへ接続せず、専用の `NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_READY` と日英URLを使う。フラグが文字列 `true` であり、日英両方が異なる正規のGoogleフォーム公開回答者URLで、撮影計算アプリ用Feedback／共通ContactのURLでもない場合だけ表示する。未設定・片言語不足・不正URL・流用はfail closedとし、現在は実URL未設定・受付無効である。
 - 専用Feedbackは自由記述1欄を標準とし、必須同意チェックボックス案は未採用。Googleフォームへの入力・送信で同意を得たいという本人の希望と、有効な同意成立や国外提供の法的条件は分ける。実フォームの説明・設定・適用要件とAI処理の現在状態を照合するまで受付フラグを `false`（未設定）に保ち、AIが未稼働の間は稼働中と表示しない。
 - 送信ボタン未押下なら開発者へ回答として届かないことと、Googleの下書き保存・通常Web処理は分ける。ログイン時に回答途中の下書きが30日保存され得るため、全4フォームの回答者下書き自動保存を無効化してから有効化する。「閉じれば一切送信されない」とは説明しない。
 - Supportはセルフヘルプ、アプリ専用Feedback、採用して実値を設定した場合だけ表示する共通公開サポートメールで構成する。公開用メールの新規作成の判断は[本人の意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)に従う。

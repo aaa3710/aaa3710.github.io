@@ -1,5 +1,10 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { contactFormUrl, feedbackFormUrl } from '../lib/feedback.ts';
+import {
+  locationLoggerFeedbackUrl,
+  resolveLocationLoggerFeedbackConfig,
+} from '../lib/location-logger-feedback.ts';
 
 let importVersion = 0;
 
@@ -68,6 +73,89 @@ test('form readiness is independent and requires the exact true value', async ()
     contact: true,
     'app-feedback': false,
   });
+});
+
+const locationLoggerJa =
+  'https://docs.google.com/forms/d/e/LOCATION_LOGGER_JA_TEST/viewform';
+const locationLoggerEn =
+  'https://docs.google.com/forms/d/e/LOCATION_LOGGER_EN_TEST/viewform';
+
+function locationLoggerEnvironment(overrides = {}) {
+  return {
+    NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_READY: 'true',
+    NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_JA: locationLoggerJa,
+    NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_EN: locationLoggerEn,
+    ...overrides,
+  };
+}
+
+test('LocationLogger Feedback stays disconnected unless exact readiness is set', () => {
+  for (const ready of [undefined, '', 'false', 'TRUE', '1']) {
+    const config = resolveLocationLoggerFeedbackConfig(
+      locationLoggerEnvironment({
+        NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_READY: ready,
+        NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_JA: 'not-a-url',
+      }),
+    );
+    assert.deepEqual(config, {
+      ready: false,
+      urls: { ja: null, en: null },
+    });
+    assert.equal(locationLoggerFeedbackUrl('ja', false, config), null);
+    assert.equal(locationLoggerFeedbackUrl('en', true, config), null);
+  }
+});
+
+test('LocationLogger Feedback requires two distinct validated responder URLs', () => {
+  for (const overrides of [
+    { NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_JA: undefined },
+    { NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_EN: undefined },
+    { NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_JA: 'not-a-url' },
+    {
+      NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_JA:
+        'http://docs.google.com/forms/d/e/LOCATION_LOGGER_JA_TEST/viewform',
+    },
+    {
+      NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_JA:
+        'https://forms.gle/LOCATION_LOGGER_JA_TEST',
+    },
+    {
+      NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_JA: `${locationLoggerJa}?embedded=true`,
+    },
+    { NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_EN: locationLoggerJa },
+    {
+      NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_JA: feedbackFormUrl('ja'),
+    },
+    {
+      NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_EN: contactFormUrl('en'),
+    },
+  ]) {
+    assert.throws(
+      () =>
+        resolveLocationLoggerFeedbackConfig(
+          locationLoggerEnvironment(overrides),
+        ),
+      /LocationLogger|requires valid/,
+    );
+  }
+});
+
+test('LocationLogger Feedback connects only its matching localized forms', () => {
+  const config = resolveLocationLoggerFeedbackConfig(
+    locationLoggerEnvironment(),
+  );
+  assert.deepEqual(config, {
+    ready: true,
+    urls: { ja: locationLoggerJa, en: locationLoggerEn },
+  });
+  assert.equal(
+    locationLoggerFeedbackUrl('ja', false, config),
+    locationLoggerJa,
+  );
+  assert.equal(
+    locationLoggerFeedbackUrl('en', true, config),
+    `${locationLoggerEn}?embedded=true`,
+  );
 });
 
 test('localized names and public paths share the same app identity', async () => {

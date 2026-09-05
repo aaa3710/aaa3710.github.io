@@ -41,7 +41,7 @@ node --experimental-strip-types scripts/sync-tsutawaru-copy.mjs \
 
 ### LocationLoggerのローカル準備（未公開）
 
-日英の紹介・Support・Privacyと、送信できない専用Feedback案内を追加しています。製品本文の正本はLocationLogger本体の `Docs/AppStoreMetadata-*.md`、`Docs/Support-*.md`、`Docs/PrivacyPolicy-*.md` です。サイトには6原稿の本文とSHA-256を生成データとして保持し、本文をサイト側だけで修正しません。
+日英の紹介・Support・Privacyと、専用Feedback案内を追加しています。製品本文の正本はLocationLogger本体の `Docs/AppStoreMetadata-*.md`、`Docs/Support-*.md`、`Docs/PrivacyPolicy-*.md` です。サイトには6原稿の本文とSHA-256を生成データとして保持し、本文をサイト側だけで修正しません。
 
 ```bash
 node --experimental-strip-types scripts/sync-location-logger-copy.mjs \
@@ -49,7 +49,7 @@ node --experimental-strip-types scripts/sync-location-logger-copy.mjs \
   c0532a568e760eb98f87a5aeceb28770ea795789 --check
 ```
 
-専用FeedbackはフォームURLも環境変数による有効化経路も持ちません。配信地域は全アプリ共通の既定に従い日本ですが、App Store Connect操作や配布許可ではありません。[予定URL・検証・公開前条件](app-store/location-logger/site-verification-2026-09-05.md)を参照してください。
+専用FeedbackはLocationLogger専用の日英URLと受付フラグを別設定として持ち、既定では送信できません。日英両フォームの実設定・受付試験を確認した後だけ3つの設定を同時に入れます。片言語不足、不正URL、同一フォーム、撮影計算アプリ用Feedback／共通Contactの流用ではbuildを失敗させます。配信地域は全アプリ共通の既定に従い日本ですが、App Store Connect操作や配布許可ではありません。[予定URL・検証・公開前条件](app-store/location-logger/site-verification-2026-09-05.md)を参照してください。
 
 ### 開発サーバー
 
@@ -80,13 +80,16 @@ GitHub Pagesでは、ログイン後に確認するアカウント名の `<ア�
 
 共通Contactは業務・運営・プライバシー請求・その他の返信が必要な連絡用です。アプリの不具合・要望は受け付けず、各アプリのSupportを経由して専用Feedbackへ案内します。有効化後は本文を必須、返信を希望する人の連絡先だけ任意とします。業務等の任意問い合わせへの返信は保証しませんが、法令に基づくプライバシー権利請求は適用法令に従って対応します。不要な個人情報、秘密、パスワード、認証コード、非公開共有リンクは禁止し、用件に必要な公開ページURLは許容します。匿名・URL禁止のFeedbackとは利用目的、入力制限、返信の扱いを分けます。Googleフォームの公開用回答者URLだけを `lib/feedback.ts` で管理し、フォーム編集URL、回答本文、認証情報はGitへ保存しません。
 
-| GitHub Actionsのrepository variable | ビルド時の環境変数               | 有効化条件                                                                                  |
-| ----------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------- |
-| `APP_FEEDBACK_READY`                | `NEXT_PUBLIC_APP_FEEDBACK_READY` | 日本語・英語両方の専用Feedbackを実編集し、質問項目・説明・設定を照合した後だけ文字列 `true` |
-| `CONTACT_READY`                     | `NEXT_PUBLIC_CONTACT_READY`      | 日本語・英語両方のContactを実編集し、質問項目・説明・設定を照合した後だけ文字列 `true`      |
-| `PUBLIC_SUPPORT_EMAIL`              | `NEXT_PUBLIC_SUPPORT_EMAIL`      | 採用が決まった共通公開サポートメールの実値を設定した場合だけ表示                            |
+| GitHub Actionsのrepository variable | ビルド時の環境変数                            | 有効化条件                                                                                  |
+| ----------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `APP_FEEDBACK_READY`                | `NEXT_PUBLIC_APP_FEEDBACK_READY`              | 日本語・英語両方の専用Feedbackを実編集し、質問項目・説明・設定を照合した後だけ文字列 `true` |
+| `CONTACT_READY`                     | `NEXT_PUBLIC_CONTACT_READY`                   | 日本語・英語両方のContactを実編集し、質問項目・説明・設定を照合した後だけ文字列 `true`      |
+| `LOCATION_LOGGER_FEEDBACK_READY`    | `NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_READY`  | LocationLogger日英両フォームの実設定と受付試験を確認した後だけ文字列 `true`                 |
+| `LOCATION_LOGGER_FEEDBACK_URL_JA`   | `NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_JA` | 確認済み日本語フォームの公開回答者URL                                                       |
+| `LOCATION_LOGGER_FEEDBACK_URL_EN`   | `NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_EN` | 確認済み英語フォームの公開回答者URL                                                         |
+| `PUBLIC_SUPPORT_EMAIL`              | `NEXT_PUBLIC_SUPPORT_EMAIL`                   | 採用が決まった共通公開サポートメールの実値を設定した場合だけ表示                            |
 
-受付フラグは `lib/feedback.ts` で文字列 `true` と厳密比較します。未設定やそれ以外の値では無効のままです。追加同意の採否とAI処理の実証照合を含む説明・設定の確定、Googleフォーム4件（Feedback／Contact各日英）の実編集、回答者の下書き自動保存の無効化、両窓口で異なる入力制限・返信契約の日英照合、受付フラグ有効化は、まとめてサイトのローカル実装とは別の外部ゲートです。
+受付フラグは文字列 `true` と厳密比較します。未設定やそれ以外の値では無効のままです。LocationLoggerは `lib/location-logger-feedback.ts` で専用設定を解決し、無効時はURLを出力しません。有効時は日英両方の `https://docs.google.com/forms/d/e/.../viewform` 公開回答者URLが必須です。追加同意の採否とAI処理の実証照合を含む説明・設定の確定、実フォームの編集、回答者の下書き自動保存の無効化、入力制限・返信契約の日英照合、受付フラグ有効化は、まとめてサイトのローカル実装とは別の外部ゲートです。
 
 送信ボタンを押していなければ開発者へ回答としては届きませんが、Googleの下書き保存や通常のWeb処理は別です。Googleアカウントでログイン中の回答途中データは、設定によって30日間下書き保存されるため、「閉じれば一切送信されない」とは説明しません。[Google公式の下書き自動保存の説明](https://support.google.com/docs/answer/10952360?hl=en)（2026-09-04確認）
 

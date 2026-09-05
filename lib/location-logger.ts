@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
+import { locationLoggerFeedbackConfig } from './location-logger-feedback';
 import { absoluteSiteUrl, type Locale } from './site';
 
 export const locationLogger = {
   slug: 'location-logger',
   name: { ja: 'LocationLogger', en: 'LocationLogger' },
-  feedbackReady: false,
+  feedbackReady: locationLoggerFeedbackConfig.ready,
 } as const;
 
 export const locationLoggerPaths = {
@@ -37,8 +38,8 @@ export function locationLoggerMetadata(
   const title = `${locationLogger.name[locale]} | ${label}`;
   const description =
     locale === 'ja'
-      ? 'iPhoneとApple Watchへ届いた位置を端末内へ記録するアプリ。App Store公開と問い合わせ受付は準備中です。'
-      : 'An app that stores locations delivered to iPhone and Apple Watch on your devices. App Store release and support intake are being prepared.';
+      ? 'iPhoneとApple Watchへ届いた位置を端末内へ記録するアプリ。App Store公開とサポート情報を案内します。'
+      : 'An app that stores locations delivered to iPhone and Apple Watch on your devices. App Store release and support information are provided here.';
   if (kind === 'feedback')
     return { title, description, robots: { index: false, follow: false } };
   const localized = (language: Locale) =>

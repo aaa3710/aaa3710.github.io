@@ -14,6 +14,12 @@ const formReadiness = {
   feedback: process.env.NEXT_PUBLIC_APP_FEEDBACK_READY === 'true',
   contact: process.env.NEXT_PUBLIC_CONTACT_READY === 'true',
 };
+const locationLoggerFeedbackReady =
+  process.env.NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_READY === 'true';
+const locationLoggerFeedbackUrls = {
+  ja: process.env.NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_JA?.trim() ?? '',
+  en: process.env.NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_EN?.trim() ?? '',
+};
 const slug = 'focus-exposure-calculator';
 const locales = ['ja', 'en'];
 const kinds = ['home', 'app', 'privacy', 'support', 'feedback', 'contact'];
@@ -591,19 +597,65 @@ for (const locale of locales) {
     );
     check(
       html.includes(
-        locale === 'ja'
-          ? '現在は送信できません'
-          : 'Submissions are not available yet',
+        locationLoggerFeedbackReady
+          ? locale === 'ja'
+            ? '専用フィードバックは送信できます'
+            : 'Dedicated feedback is available'
+          : locale === 'ja'
+            ? '現在は送信できません'
+            : 'Submissions are not available yet',
       ),
       `${routePath}: intake status missing`,
     );
+    if (kind === 'feedback' && locationLoggerFeedbackReady) {
+      const expectedForm = locationLoggerFeedbackUrls[locale];
+      const otherForm =
+        locationLoggerFeedbackUrls[locale === 'ja' ? 'en' : 'ja'];
+      check(
+        tags(html, 'iframe').some(
+          (iframe) => iframe.src === `${expectedForm}?embedded=true`,
+        ),
+        `${routePath}: matching embedded form missing`,
+      );
+      check(
+        anchors.some((anchor) => anchor.href === expectedForm),
+        `${routePath}: matching external form link missing`,
+      );
+      check(
+        !otherForm || !raw.includes(otherForm),
+        `${routePath}: other locale form leaked`,
+      );
+      check(
+        !Object.values(formUrls).some((urls) =>
+          Object.values(urls).some((url) => raw.includes(url)),
+        ),
+        `${routePath}: Focus or Contact form reused`,
+      );
+      check(
+        !/<form\b|<input|<textarea/.test(html),
+        `${routePath}: unexpected local input UI present`,
+      );
+      check(
+        decodeHtml(html).includes(
+          locale === 'ja'
+            ? 'AI処理の現在の稼働は確認済みではなく'
+            : 'Current AI operation has not been verified',
+        ),
+        `${routePath}: unverified AI status boundary missing`,
+      );
+    } else {
+      check(
+        !/<iframe|<form\b|<input|<textarea/.test(html),
+        `${routePath}: unconfirmed input UI present`,
+      );
+      check(
+        !/docs\.google\.com\/forms|forms\.gle/.test(raw),
+        `${routePath}: unverified form URL present`,
+      );
+    }
     check(
-      !/<iframe|<form\b|<input|<textarea/.test(html),
-      `${routePath}: unconfirmed input UI present`,
-    );
-    check(
-      !/docs\.google\.com\/forms|forms\.gle|mailto:|apps\.apple\.com/.test(raw),
-      `${routePath}: unverified form, email or Store URL`,
+      !/mailto:|apps\.apple\.com/.test(raw),
+      `${routePath}: unverified email or Store URL`,
     );
     check(
       tags(html, 'img').length === 0,

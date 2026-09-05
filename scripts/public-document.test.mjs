@@ -150,18 +150,24 @@ test('LocationLogger snapshots preserve the current privacy and support boundari
   assert.match(en.app.body, /corresponding Apple map/);
 });
 
-test('LocationLogger has no form URL or readiness environment override', async () => {
+test('LocationLogger Feedback uses its dedicated fail-closed configuration', async () => {
   const config = await readFile(
     new URL('../lib/location-logger.ts', import.meta.url),
+    'utf8',
+  );
+  const feedbackConfig = await readFile(
+    new URL('../lib/location-logger-feedback.ts', import.meta.url),
     'utf8',
   );
   const component = await readFile(
     new URL('../components/location-logger-page.tsx', import.meta.url),
     'utf8',
   );
-  assert.match(config, /feedbackReady: false/);
+  assert.match(config, /feedbackReady: locationLoggerFeedbackConfig\.ready/);
+  assert.match(feedbackConfig, /NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_READY/);
+  assert.match(component, /locationLoggerFeedbackUrl/);
   assert.doesNotMatch(
-    config + component,
-    /process\.env|NEXT_PUBLIC_.*READY|docs\.google\.com\/forms|<iframe|<form\b|mailto:/,
+    config + feedbackConfig + component,
+    /LOCATION_LOGGER_(?:JA|EN)_TEST|1FAIpQL[^'"\s]+|mailto:/,
   );
 });
