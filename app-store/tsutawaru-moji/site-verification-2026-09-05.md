@@ -65,7 +65,13 @@ originは `https://aaa3710.github.io`。以下の日本語pathと、先頭に `/
 
 公開本文の差分は日英Support各1段落だけで、同じ端末番号が表示された場合に両iPhoneでアプリを完全終了・再起動して再接続し、共有終了だけでは番号が変わらないと案内する。日英Privacy本文はbyte単位で不変。生成データではsource commit、日英Supportの本文とhash、非公開管理コメント変更に伴う日英Privacyのsource hashが更新されるが、Privacyの公開本文は変わらない。READMEの固定commitと本記録以外に、他アプリのsource・文面・route・受付設定は含めない。
 
-主worktreeで確認済みの同期4/4、format、lint、単体14/14、静的build 41route、生成検証28/28ページ・40route・80 HTML・932assertionsと、日英Supportの限定ブラウザ表示を証拠として参照する。本限定branchでは同期4/4と差分境界だけを再確認し、同じ全テストは再実行しない。push、deploy、本番公開、受付設定変更は行わない。
+主worktreeで確認済みの同期4/4、format、lint、単体14/14、静的build 41route、生成検証28/28ページ・40route・80 HTML・932assertionsと、日英Supportの限定ブラウザ表示を証拠として参照する。本限定branchでは公開直前に同期4/4、format、lint、単体12/12、静的build 35route、生成検証20/20ページ・34route・68 HTML・697assertionsを再実行し、すべて成功した。
+
+## build26公開結果
+
+2026-09-05、所有者から日英Support各1段落の公開について具体的な明示許可を受領。GitHubのログイン先が `aaa3710`、remoteが `aaa3710/aaa3710.github.io`、本番 `origin/main` が基準commit `3f2b6a3` のままであることを確認し、限定commit `ffb67cbefffa6ceb11f7189a7eedec1f80bfe965` をforceなしでmainへpushした。[GitHub Pages run 33942669841](https://github.com/aaa3710/aaa3710.github.io/actions/runs/33942669841) は40秒で成功した。
+
+本番の[日本語Support](https://aaa3710.github.io/support/tsutawaru-moji/)と[English Support](https://aaa3710.github.io/en/support/tsutawaru-moji/)で、同じ端末番号が表示された場合に両iPhoneのアプリを完全終了・再起動して再接続し、共有終了だけでは番号が変わらないとする各段落を確認した。日英とも受付準備中・送信不可表示を維持する。repository／environment variables、実フォーム、Feedback／Contact受付、公開メール、AI／scheduler、App Store Connect、アプリ配布は変更していない。
 
 ## 横断学習の扱い
 
