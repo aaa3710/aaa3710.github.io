@@ -12,7 +12,7 @@ import snapshot from '@/lib/tsutawaru-public.generated.json';
 
 const copy = {
   ja: {
-    headline: '会話を、読みやすい文字に。',
+    headline: '話した言葉を、大きく見やすく',
     lead: '対面の会話をiPhoneの大きな文字で表示します。押している間だけ、またはタップで開始・終了。読みやすい文字サイズや向きを選べます。',
     release: 'App Store公開準備中です。まだダウンロードできません。',
     intake:
