@@ -10,7 +10,7 @@
 
 1. トップページでは全アプリを同じ一覧規則で扱い、詳しい紹介があるものだけ次へ進める。
 2. `ピントと光 — 撮影計算`（英語: `Focus & Light — Photo Tools`）の公式ページ、プライバシー、サポート、App Store素材を最初の完成例として仕上げる。公開slugは `focus-exposure-calculator` に統一し、内部履歴と素材では従来の `Focus Map` を必要に応じて維持する。
-3. `伝わる文字 / Tsutawaru Moji` は本体の確定公開原稿から日英の紹介・Support・Privacy・Feedbackを整備する。2026-09-05に既存サイトへのpush・本番公開を直接許可され、実受付を無効のまま公開する。[検証と公開条件](app-store/tsutawaru-moji/site-verification-2026-09-05.md)を参照する。
+3. `伝わる文字 / Tsutawaru Moji` は本体の確定公開原稿から日英の紹介・Support・Privacy・Feedbackを整備し、2026-09-05に実受付を無効のまま本番公開した。[検証と公開条件](app-store/tsutawaru-moji/site-verification-2026-09-05.md)を参照する。
 4. それ以外のアプリは名前と準備中表示だけを置く。
 5. 各アプリの制作背景と、公開可能な機能・現行画面が確定した時点で、同じ公開確認を通して中身を追加する。
 

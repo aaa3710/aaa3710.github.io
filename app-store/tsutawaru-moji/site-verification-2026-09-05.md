@@ -1,6 +1,6 @@
 # 伝わる文字 日英サイトのローカル整備
 
-2026-09-05。**ローカル実装を検証済み。受付無効のまま本番公開を開始。** 本体担当からの明示依頼に基づく。既存撮影計算サイトの2026-09-04公開証拠を本アプリへ流用しない。
+2026-09-05。**ローカル実装を検証し、受付無効のまま本番公開済み。** 本体担当からの明示依頼に基づく。既存撮影計算サイトの2026-09-04公開証拠を本アプリへ流用しない。
 
 ## 正本と実装範囲
 
@@ -12,9 +12,9 @@
 - Feedbackは環境変数による有効化経路を持たない。Focus専用 `NEXT_PUBLIC_APP_FEEDBACK_READY` や共通Contact設定を流用しない。1欄自由記述・署名不要・原則返信なしの予定と、現在送信不可を区別する。
 - Contactは共通窓口を維持。本文必須・返信先任意、Feedback AI分類／開発課題と分離、通常返信非保証と法定請求対応を分ける。新たな窓口や私用連絡先を増やさない。
 
-## 予定URL（この記録は公開済み証拠ではない）
+## 公開URL
 
-originは `https://aaa3710.github.io`。以下の日本語pathと、先頭に `/en` を付けた英語pathを本体担当と合意済み。
+originは `https://aaa3710.github.io`。以下の日本語pathと、先頭に `/en` を付けた英語pathを公開した。
 
 | 用途        | 日本語path                  | English path                   |
 | ----------- | --------------------------- | ------------------------------ |
@@ -42,13 +42,22 @@ originは `https://aaa3710.github.io`。以下の日本語pathと、先頭に `/
 - ブラウザ補助実行: wrapperのregistry取得が制限されたため新規installせず既存CLIを使用。最初の検査補助が `require is not defined` で止まり、不要なNodeファイルAPIを除去後に実行。初回作業sessionは後続時点で利用不能だったため、新しい作業sessionで最終24条件を実施。これらをページ自体の不具合やApple runtime failureへ混ぜない。
 - 画面画像は `output/playwright/tsutawaru-2026-09-05/` にローカル保持、Git対象外。実データ、認証、Forms回答を使用していない。
 
-## 公開・受付前に残る判断
+## 公開後も残る受付・配布判断
 
 2026-09-05、所有者がこのタスクでも既存サイト `aaa3710/aaa3710.github.io` へのpush・本番公開と、確認済みフォームだけの受付設定変更を直接許可した。公開前に、Chrome上の所有者 `aaa3710` と対象repository、repository／environment variablesが0件であることを確認。用途別の日英一式で完了通知を受領したフォームは0件のため、Feedback／Contact受付と公開メールは無効のまま反映する。原稿の公開前一次資料照合、本体の実機・実API・BYOK／Privacy／暗号輸出等の最終判定は別ゲート。Store配信操作の許可は得ていない。
 
 受付には、専用日英Formの新規作成許可と実設定、保持期間・削除・Google国外処理の事前情報、共通Contactの公表事項・返信元・必要な請求対応を確定する必要がある。90日案や同意checkboxを勝手に採用しない。個人Googleアカウントであること、外部連携履歴なしは確認済み事項として再質問しない。作成、synthetic送信・受信・削除、受付開始は今回行わず、ready通知前に有効化しない。
 
-今回のApple lane 0、xcodebuild 0、xcrun 0、Apple test 0、Apple build 0、fresh 0、Apple retry 0、Apple failure 0、status64 0、status69 0、Apple起動失敗0、host終了0、Apple assertion／crash検出0。Apple実行由来の新規IPSは0（実行なし）で、Mac全体のIPS増減は未調査。Simulator 0、物理端末0、実API0、実Form0、実回答0、メール0、外部AI0、ASC操作0、push0、公開0。本体／管理側テストは加算していない。
+本番公開前のローカル作業では、Apple lane 0、xcodebuild 0、xcrun 0、Apple test 0、Apple build 0、fresh 0、Apple retry 0、Apple failure 0、status64 0、status69 0、Apple起動失敗0、host終了0、Apple assertion／crash検出0。Apple実行由来の新規IPSは0（実行なし）で、Mac全体のIPS増減は未調査。Simulator 0、物理端末0、実API0、実Form0、実回答0、メール0、外部AI0、ASC操作0、push0、公開0。本体／管理側テストは加算していない。
+
+## 本番公開結果
+
+2026-09-05 09:08 JST、`59ce57e → ac51025`を `aaa3710/aaa3710.github.io` の `main`へpushした。[GitHub Pages run 33931964811](https://github.com/aaa3710/aaa3710.github.io/actions/runs/33931964811) は48秒で成功した。
+
+- 日本語トップ、伝わる文字の日英紹介・Support・Privacy・Feedback、共通Contact日英の11URLがHTTP 200。
+- 日英トップで伝わる文字の一覧導線、日英Support／Privacyの見出しと本文、`Language / 言語` の対向リンクを実ブラウザで確認。
+- 日英Feedbackは受付準備中・送信不可の表示を維持。Feedback日英とContact日英にGoogle Formリンク、`iframe`、入力`form`がないことを確認。
+- repository／environment variablesは0件のまま。Feedback／Contact受付、公開メール、実Form操作、実回答、メール、AI／scheduler、App Store Connect、アプリ配布は変更していない。
 
 ## 横断学習の扱い
 
