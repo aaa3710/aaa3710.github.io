@@ -1,3 +1,4 @@
+import { localizedAppRoute } from '@/lib/app-routes';
 import type { Metadata } from 'next';
 import { absoluteSiteUrl, type Locale } from '@/lib/site';
 
@@ -15,10 +16,10 @@ export function placeholderMetadata(
       : `${name}の公開内容を準備しています。`,
     robots: { index: false, follow: true },
     alternates: {
-      canonical: absoluteSiteUrl(`${isEnglish ? '/en' : ''}/apps/${slug}/`),
+      canonical: absoluteSiteUrl(localizedAppRoute(locale, `/apps/${slug}/`)),
       languages: {
         ja: absoluteSiteUrl(`/apps/${slug}/`),
-        en: absoluteSiteUrl(`/en/apps/${slug}/`),
+        en: absoluteSiteUrl(`/apps/en/${slug}/`),
       },
     },
     openGraph: { images: [] },

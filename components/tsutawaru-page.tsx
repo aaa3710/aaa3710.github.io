@@ -1,3 +1,4 @@
+import { localizedAppRoute } from '@/lib/app-routes';
 import { ArrowLeft } from 'lucide-react';
 import { SiteFooter, SiteHeader } from '@/components/site-chrome';
 import { PublicDocument } from '@/components/public-document';
@@ -118,12 +119,18 @@ export function TsutawaruPage({
     <main id="top" lang={locale}>
       <SiteHeader
         locale={locale}
-        languageHref={`${locale === 'ja' ? '/en' : ''}${tsutawaruPaths[kind]}`}
+        languageHref={localizedAppRoute(
+          locale === 'ja' ? 'en' : 'ja',
+          tsutawaruPaths[kind],
+        )}
       />
       <article className="info-page section tsutawaru-page">
         <a
           className="back-link"
-          href={localePath(locale, kind === 'app' ? '/' : tsutawaruPaths.app)}
+          href={localePath(
+            locale,
+            kind === 'app' ? '/apps/' : tsutawaruPaths.app,
+          )}
         >
           <ArrowLeft aria-hidden="true" size={16} />
           {kind === 'app'
@@ -155,7 +162,7 @@ export function TsutawaruPage({
             </a>
           )}
           {kind !== 'app' && (
-            <a href={localePath(locale, '/contact/')}>{text.contact}</a>
+            <a href={localePath(locale, '/apps/contact/')}>{text.contact}</a>
           )}
         </div>
         {kind === 'app' ? (

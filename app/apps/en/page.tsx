@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   description:
     'Independent apps that began with small everyday problems and tools I wanted to use myself.',
   alternates: {
-    canonical: absoluteSiteUrl('/en/'),
+    canonical: absoluteSiteUrl('/apps/en/'),
     languages: {
-      ja: absoluteSiteUrl('/'),
-      en: absoluteSiteUrl('/en/'),
+      ja: absoluteSiteUrl('/apps/'),
+      en: absoluteSiteUrl('/apps/en/'),
     },
   },
   openGraph: {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Apps — Independent apps for everyday problems',
     description:
       'Independent apps that began with small everyday problems and tools I wanted to use myself.',
-    url: absoluteSiteUrl('/en/'),
+    url: absoluteSiteUrl('/apps/en/'),
   },
   twitter: {
     card: 'summary',

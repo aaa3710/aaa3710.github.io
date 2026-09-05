@@ -2,13 +2,13 @@
 
 アプリの公開・運営に関する希望、個人情報の公開範囲、公開用メールの方針は[本人の意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)に集約しています。 判断前・新しい意思を受けた時・作業終了前の扱いは[参照・更新手順](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/SKILL.md#本人の意思を参照更新する)を使います。
 
-個人制作アプリを一覧から見つけ、内容を誤解せずに詳しい紹介やApp Storeへ進めるための日英対応サイトです。`ピントと光 — 撮影計算`（英語: `Focus & Light — Photo Tools`）は最初の詳しい紹介例ですが、トップページは全アプリを同じ規則で案内します。
+個人制作アプリを一覧から見つけ、内容を誤解せずに詳しい紹介やApp Storeへ進めるための日英対応サイトです。`ピントと光 — 撮影計算`（英語: `Focus & Light — Photo Tools`）は最初の詳しい紹介例ですが、`/apps/` の一覧は全アプリを同じ規則で案内します。
 
 命名相談・公開準備は共通の [app-design-philosophy](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/SKILL.md) と [命名節「名前は、単独で用途と価値を伝える」](/Users/minatosuzuki/work_local/アプリ開発共通事項/思想/アプリ設計全体思想.md#名前は単独で用途と価値を伝える) を入口にします。製品metadataの内容正本は個別アプリ側に置き、このrepoは公開サイトと日英URLを保守します。
 
 ## 現在のサイト構成
 
-- 全アプリを同じ大きさで案内するトップページと、`ピントと光 — 撮影計算`の詳細ページ
+- 全アプリを同じ大きさで案内する `/apps/` の一覧と、`ピントと光 — 撮影計算`の詳細ページ
 - 日本語・英語
 - プライバシーポリシー
 - サポートと計算の前提
@@ -54,7 +54,7 @@ npm run build:pages
 npm run verify:pages
 ```
 
-GitHub Pagesでは、ログイン後に確認するアカウント名の `<アカウント名>.github.io` リポジトリを使い、`dist/client/` の静的ファイルをGitHub Actionsから公開します。このルート形式にすることで、画像や共有URLをサブディレクトリに依存させません。
+GitHub Pagesでは、ログイン後に確認するアカウント名の `<アカウント名>.github.io` リポジトリを使い、`dist/client/` の静的ファイルをGitHub Actionsから公開します。全アプリのページは `/apps/` 配下に置き、共有アセットとrobots.txt／sitemap.xmlは大元に残します。
 
 ## 問い合わせ経路と公開設定
 
@@ -78,14 +78,31 @@ GitHub Pagesでは、ログイン後に確認するアカウント名の `<ア�
 
 公開サポートメールは必須と断定せず、採用して実値を設定した場合だけSupportへ表示します。未設定時に仮アドレスや準備中表示は出しません。App Store提出前には、Support URLから容易に実際の連絡手段へ進めるかを改めて確認します。
 
+## URL構成
+
+本人の希望は[意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md#アプリ関連Webページの共通階層)を参照します。今後の趣味・記事などに大元を使えるよう、アプリの紹介・Support・Privacy・Feedback・運営のContactを共通階層へ揃えました。英語も必ず `/apps/` から始まります。
+
+| 用途                | 日本語                   | English                     |
+| ------------------- | ------------------------ | --------------------------- |
+| アプリ一覧          | `/apps/`                 | `/apps/en/`                 |
+| 紹介                | `/apps/<slug>/`          | `/apps/en/<slug>/`          |
+| Support             | `/apps/support/<slug>/`  | `/apps/en/support/<slug>/`  |
+| Privacy             | `/apps/privacy/<slug>/`  | `/apps/en/privacy/<slug>/`  |
+| Feedback            | `/apps/feedback/<slug>/` | `/apps/en/feedback/<slug>/` |
+| アプリ運営のContact | `/apps/contact/`         | `/apps/en/contact/`         |
+
+大元 `/` と `/en/` は当面アプリ一覧へ案内します。公開済みの旧URL25件は、固定の新URLへの即時HTML転送と手動リンクを持ち、`noindex, nofollow` とします。HTTP 301ではありません。廃止済みの `focus-map` と旧共通Feedbackは復活させません。転送は `build:pages` の出力に生成するため、確認は開発サーバーではなく `dist/client/` の静的サーバーで行います。
+
+原稿の内容正本は各アプリ、公開URLと移行の検証記録は[URL移行記録](app-store/url-migration-2026-09-05.md)で管理します。過去の公開検証記録は当時の証拠として保持します。
+
 ## 公開URL
 
-2026-09-04に既存GitHub Pagesへ反映し、下記の日英URLの表示を確認しました。問い合わせ受付は両用途とも無効、公開メールは未設定です。公開slugは `focus-exposure-calculator` です。旧 `focus-map` URLと旧共通Feedback URLはリダイレクトなしの404を確認済みです。詳細は [公開検証記録](app-store/focus-map/site-verification-2026-09-04.md) を参照します。
+以下は共通階層への移行後に採用するURLです。実際の公開状態は[移行記録](app-store/url-migration-2026-09-05.md)を参照します。旧 `focus-map` と旧共通Feedbackは引き続き404とします。
 
-| 用途      | 日本語                                                          | English                                                            |
-| --------- | --------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Marketing | `https://aaa3710.github.io/apps/focus-exposure-calculator/`     | `https://aaa3710.github.io/en/apps/focus-exposure-calculator/`     |
-| Support   | `https://aaa3710.github.io/support/focus-exposure-calculator/`  | `https://aaa3710.github.io/en/support/focus-exposure-calculator/`  |
-| Privacy   | `https://aaa3710.github.io/privacy/focus-exposure-calculator/`  | `https://aaa3710.github.io/en/privacy/focus-exposure-calculator/`  |
-| Feedback  | `https://aaa3710.github.io/feedback/focus-exposure-calculator/` | `https://aaa3710.github.io/en/feedback/focus-exposure-calculator/` |
-| Contact   | `https://aaa3710.github.io/contact/`                            | `https://aaa3710.github.io/en/contact/`                            |
+| 用途      | 日本語                                                               | English                                                                 |
+| --------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Marketing | `https://aaa3710.github.io/apps/focus-exposure-calculator/`          | `https://aaa3710.github.io/apps/en/focus-exposure-calculator/`          |
+| Support   | `https://aaa3710.github.io/apps/support/focus-exposure-calculator/`  | `https://aaa3710.github.io/apps/en/support/focus-exposure-calculator/`  |
+| Privacy   | `https://aaa3710.github.io/apps/privacy/focus-exposure-calculator/`  | `https://aaa3710.github.io/apps/en/privacy/focus-exposure-calculator/`  |
+| Feedback  | `https://aaa3710.github.io/apps/feedback/focus-exposure-calculator/` | `https://aaa3710.github.io/apps/en/feedback/focus-exposure-calculator/` |
+| Contact   | `https://aaa3710.github.io/apps/contact/`                            | `https://aaa3710.github.io/apps/en/contact/`                            |

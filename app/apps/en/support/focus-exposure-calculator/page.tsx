@@ -1,12 +1,14 @@
+import { localizedAppRoute } from '@/lib/app-routes';
 import type { Metadata } from 'next';
 import { InfoPage } from '@/components/info-page';
 import { absoluteSiteUrl, featuredApp, featuredAppPaths } from '@/lib/site';
 
 export const dynamic = 'force-static';
 
-const title = `${featuredApp.name.ja} | プライバシーポリシー`;
-const description = `${featuredApp.name.ja}が収集しないデータと、端末内に保存する設定について説明します。`;
-const url = absoluteSiteUrl(featuredAppPaths.privacy);
+const title = `${featuredApp.name.en} | Support`;
+const description =
+  'Information about results, calculation assumptions, and the feedback channel for bugs and requests.';
+const url = absoluteSiteUrl(localizedAppRoute('en', featuredAppPaths.support));
 
 export const metadata: Metadata = {
   title,
@@ -14,8 +16,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: url,
     languages: {
-      ja: url,
-      en: absoluteSiteUrl(`/en${featuredAppPaths.privacy}`),
+      ja: absoluteSiteUrl(featuredAppPaths.support),
+      en: url,
     },
   },
   openGraph: {
@@ -27,5 +29,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <InfoPage locale="ja" kind="privacy" />;
+  return <InfoPage locale="en" kind="support" />;
 }

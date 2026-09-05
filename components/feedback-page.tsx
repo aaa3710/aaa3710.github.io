@@ -1,3 +1,4 @@
+import { localizedAppRoute } from '@/lib/app-routes';
 import {
   ArrowLeft,
   ExternalLink,
@@ -75,7 +76,7 @@ export function FeedbackPage({ locale }: { locale: Locale }) {
         languageHref={
           isEnglish
             ? featuredAppPaths.feedback
-            : `/en${featuredAppPaths.feedback}`
+            : localizedAppRoute('en', featuredAppPaths.feedback)
         }
       />
 
@@ -141,7 +142,7 @@ export function FeedbackPage({ locale }: { locale: Locale }) {
               />
               <p>{text.google}</p>
               <p className="info-contact">
-                <a href={localePath(locale, '/contact/')}>
+                <a href={localePath(locale, '/apps/contact/')}>
                   {isEnglish
                     ? 'Privacy questions and deletion requests'
                     : 'プライバシー・削除の問い合わせ'}

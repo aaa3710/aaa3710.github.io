@@ -62,11 +62,10 @@ async function collectFiles(directory) {
 }
 
 function route(locale, kind) {
-  const prefix = locale === 'en' ? '/en' : '';
+  const prefix = locale === 'en' ? '/apps/en' : '/apps';
   if (kind === 'home') return `${prefix}/`;
   if (kind === 'contact') return `${prefix}/contact/`;
-  const segment = kind === 'app' ? 'apps' : kind;
-  return `${prefix}/${segment}/${slug}/`;
+  return `${prefix}/${kind === 'app' ? '' : `${kind}/`}${slug}/`;
 }
 
 function absoluteUrl(routePath) {
@@ -185,6 +184,91 @@ for (const file of htmlFiles) {
       ? '/'
       : `/${relativePath.replace(/(?:\/index)?\.html$/, '')}/`;
   publicRouteSet.add(routePath);
+}
+
+// Check the migration independently from the generator: every former entry
+// must lead directly to its counterpart, and current navigation avoids aliases.
+const redirects = new Map([
+  ['/', '/apps/'],
+  ['/en/', '/apps/en/'],
+]);
+for (const locale of locales) {
+  const oldPrefix = locale === 'en' ? '/en' : '';
+  const newPrefix = locale === 'en' ? '/apps/en' : '/apps';
+  redirects.set(`${oldPrefix}/contact/`, `${newPrefix}/contact/`);
+  for (const app of ['focus-exposure-calculator', 'tsutawaru-moji']) {
+    for (const kind of ['support', 'privacy', 'feedback'])
+      redirects.set(
+        `${oldPrefix}/${kind}/${app}/`,
+        `${newPrefix}/${kind}/${app}/`,
+      );
+  }
+}
+for (const app of [
+  'focus-exposure-calculator',
+  'tsutawaru-moji',
+  'location-logger',
+  'card-relay',
+  'wrist-morse',
+  'genome-notebook',
+  'spatial-fold',
+  'task-rail',
+  'mastery-steps',
+])
+  redirects.set(`/en/apps/${app}/`, `/apps/en/${app}/`);
+for (const [before, after] of redirects) {
+  check(
+    publicRouteSet.has(after) && !redirects.has(after),
+    `${before}: destination missing or another redirect`,
+  );
+  for (const file of [
+    pageFile(before),
+    ...(before === '/'
+      ? []
+      : [path.join(clientDirectory, `${before.slice(0, -1)}.html`)]),
+  ]) {
+    if (!(await exists(file))) {
+      check(false, `${before}: redirect file missing: ${file}`);
+      continue;
+    }
+    const html = markupOnly(await readFile(file, 'utf8'));
+    const meta = tags(html, 'meta');
+    check(
+      meta.some(
+        (tag) =>
+          tag['http-equiv'] === 'refresh' && tag.content === `0;url=${after}`,
+      ),
+      `${before}: incorrect redirect`,
+    );
+    check(
+      metaValues(meta, 'robots').includes('noindex, nofollow'),
+      `${before}: redirect must stay out of search`,
+    );
+    check(linksTo(tags(html, 'a'), after), `${before}: missing fallback link`);
+    check(
+      !tags(html, 'link').some(
+        (tag) => tag.rel === 'canonical' || tag.hreflang,
+      ),
+      `${before}: redirect advertises indexing alternates`,
+    );
+  }
+}
+for (const routePath of publicRouteSet) {
+  if (redirects.has(routePath)) continue;
+  check(
+    routePath.startsWith('/apps/'),
+    `${routePath}: app content outside /apps/`,
+  );
+  const html = markupOnly(await readFile(pageFile(routePath), 'utf8'));
+  for (const anchor of tags(html, 'a')) {
+    const target = normalizedLink(anchor.href);
+    if (!target) continue;
+    const localTarget = target.slice(basePath.length);
+    check(
+      publicRouteSet.has(localTarget) && !redirects.has(localTarget),
+      `${routePath}: internal link is missing or uses a legacy URL: ${target}`,
+    );
+  }
 }
 
 for (const locale of locales) {
@@ -391,9 +475,9 @@ for (const locale of locales) {
 
 const tsutawaruIndexable = [];
 for (const locale of locales) {
-  const prefix = locale === 'en' ? '/en' : '';
+  const prefix = locale === 'en' ? '/apps/en' : '/apps';
   const appPath = (kind, language = locale) =>
-    `${language === 'en' ? '/en' : ''}/${kind === 'app' ? 'apps' : kind}/tsutawaru-moji/`;
+    `${language === 'en' ? '/apps/en' : '/apps'}/${kind === 'app' ? '' : `${kind}/`}tsutawaru-moji/`;
   for (const kind of ['app', 'support', 'privacy', 'feedback']) {
     const routePath = appPath(kind);
     const present = await exists(pageFile(routePath));

@@ -1,3 +1,4 @@
+import { localizedAppRoute } from '@/lib/app-routes';
 import {
   ArrowLeft,
   ArrowRight,
@@ -175,7 +176,9 @@ export function FocusMapStory({ locale }: { locale: Locale }) {
       <SiteHeader
         locale={locale}
         languageHref={
-          isEnglish ? featuredAppPaths.app : `/en${featuredAppPaths.app}`
+          isEnglish
+            ? featuredAppPaths.app
+            : localizedAppRoute('en', featuredAppPaths.app)
         }
       />
 
@@ -183,7 +186,7 @@ export function FocusMapStory({ locale }: { locale: Locale }) {
         className={`detail-hero section${hasCurrentScreenshots ? '' : ' without-app-screen'}`}
       >
         <div className="detail-hero-copy">
-          <a className="back-link" href={localePath(locale, '/#apps')}>
+          <a className="back-link" href={localePath(locale, '/apps/#apps')}>
             <ArrowLeft aria-hidden="true" size={16} />
             {text.back}
           </a>
@@ -364,7 +367,7 @@ export function FocusMapStory({ locale }: { locale: Locale }) {
         <p>{featuredApp.name[locale]}</p>
         <h2>{text.closeTitle}</h2>
         <span>{text.closeBody}</span>
-        <a href={localePath(locale, '/#apps')}>
+        <a href={localePath(locale, '/apps/#apps')}>
           {text.back}
           <ArrowRight aria-hidden="true" size={16} />
         </a>

@@ -1,3 +1,4 @@
+import { localizedAppRoute } from './app-routes.ts';
 export type Locale = 'ja' | 'en';
 
 export const featuredApp = {
@@ -11,9 +12,9 @@ export const featuredApp = {
 
 export const featuredAppPaths = {
   app: `/apps/${featuredApp.slug}/`,
-  privacy: `/privacy/${featuredApp.slug}/`,
-  support: `/support/${featuredApp.slug}/`,
-  feedback: `/feedback/${featuredApp.slug}/`,
+  privacy: `/apps/privacy/${featuredApp.slug}/`,
+  support: `/apps/support/${featuredApp.slug}/`,
+  feedback: `/apps/feedback/${featuredApp.slug}/`,
 } as const;
 
 export const appPlaceholders = [
@@ -44,12 +45,8 @@ export function sitePath(path: string) {
   return `${siteBasePath}${normalized}`;
 }
 
-export function localePath(locale: Locale, path = '/') {
-  const normalized =
-    path === '/' ? '' : path.startsWith('/') ? path : `/${path}`;
-  return sitePath(
-    locale === 'en' ? `/en${normalized || '/'}` : normalized || '/',
-  );
+export function localePath(locale: Locale, path = '/apps/') {
+  return sitePath(localizedAppRoute(locale, path));
 }
 
 export const siteOrigin = (

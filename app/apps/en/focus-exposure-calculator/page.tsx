@@ -1,3 +1,4 @@
+import { localizedAppRoute } from '@/lib/app-routes';
 import type { Metadata } from 'next';
 import { FocusMapStory } from '@/components/focus-map-story';
 import { absoluteSiteUrl, featuredApp, featuredAppPaths } from '@/lib/site';
@@ -7,7 +8,7 @@ export const dynamic = 'force-static';
 const title = featuredApp.name.en;
 const description =
   'An iPhone app for quickly checking how far acceptable focus extends from a chosen distance and aperture.';
-const url = absoluteSiteUrl(`/en${featuredAppPaths.app}`);
+const url = absoluteSiteUrl(localizedAppRoute('en', featuredAppPaths.app));
 const image = absoluteSiteUrl(`${featuredApp.imageDirectory}/og-en.png`);
 
 export const metadata: Metadata = {

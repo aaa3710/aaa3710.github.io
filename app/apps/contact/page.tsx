@@ -5,11 +5,11 @@ import { absoluteSiteUrl } from '@/lib/site';
 
 export const dynamic = 'force-static';
 
-const title = 'Contact';
+const title = 'お問い合わせ';
 const description = formReadiness.contact
-  ? 'For business, administration, privacy requests, and other inquiries. For app bugs and requests, visit the support page for that app.'
-  : 'The contact channel for business, administration, privacy requests, and other inquiries is being prepared. Messages cannot be sent yet.';
-const url = absoluteSiteUrl('/en/contact/');
+  ? '業務・運営・プライバシー請求・その他のご連絡を受け付けます。アプリの不具合や要望は、各アプリのサポートをご確認ください。'
+  : '業務・運営・プライバシー請求・その他のお問い合わせ窓口は準備中です。現在は送信できません。';
+const url = absoluteSiteUrl('/apps/contact/');
 
 export const metadata: Metadata = {
   title,
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: url,
     languages: {
-      ja: absoluteSiteUrl('/contact/'),
-      en: url,
+      ja: url,
+      en: absoluteSiteUrl('/apps/en/contact/'),
     },
   },
   openGraph: {
@@ -30,5 +30,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ContactPage locale="en" />;
+  return <ContactPage locale="ja" />;
 }

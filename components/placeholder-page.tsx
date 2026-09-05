@@ -20,7 +20,7 @@ export function PlaceholderPage({
     <main id="top" lang={locale}>
       <SiteHeader
         locale={locale}
-        languageHref={isEnglish ? `/apps/${slug}/` : `/en/apps/${slug}/`}
+        languageHref={isEnglish ? `/apps/${slug}/` : `/apps/en/${slug}/`}
       />
       <section className="placeholder-page section">
         <a className="back-link" href={localePath(locale)}>

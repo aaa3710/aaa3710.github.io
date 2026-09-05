@@ -65,7 +65,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
     <main id="top" lang={locale}>
       <SiteHeader
         locale={locale}
-        languageHref={isEnglish ? '/contact/' : '/en/contact/'}
+        languageHref={isEnglish ? '/apps/contact/' : '/apps/en/contact/'}
       />
 
       <article className="feedback-page section">

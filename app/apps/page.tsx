@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   description:
     '自分で使いたいと思ったところから作り始めた、個人制作アプリの紹介サイトです。',
   alternates: {
-    canonical: absoluteSiteUrl('/'),
+    canonical: absoluteSiteUrl('/apps/'),
     languages: {
-      ja: absoluteSiteUrl('/'),
-      en: absoluteSiteUrl('/en/'),
+      ja: absoluteSiteUrl('/apps/'),
+      en: absoluteSiteUrl('/apps/en/'),
     },
   },
   openGraph: {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Apps — 毎日の小さな困りごとから生まれたアプリ',
     description:
       '自分で使いたいと思ったところから作り始めた、個人制作アプリの紹介サイトです。',
-    url: absoluteSiteUrl('/'),
+    url: absoluteSiteUrl('/apps/'),
   },
   twitter: {
     card: 'summary',

@@ -28,14 +28,16 @@
 
 公開slugは `focus-exposure-calculator` です。旧 `focus-map` URLはリダイレクトなしの404を確認済みです。App Store Connectへの入力は別の許可後に各ローカリゼーションのMarketing／Support／Privacy URLを使い、アプリ内Feedbackも同じ言語のURLを使います。
 
-| 用途                 | 日本語                                                          | English                                                            |
-| -------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Marketing URL        | `https://aaa3710.github.io/apps/focus-exposure-calculator/`     | `https://aaa3710.github.io/en/apps/focus-exposure-calculator/`     |
-| Support URL          | `https://aaa3710.github.io/support/focus-exposure-calculator/`  | `https://aaa3710.github.io/en/support/focus-exposure-calculator/`  |
-| Privacy Policy URL   | `https://aaa3710.github.io/privacy/focus-exposure-calculator/`  | `https://aaa3710.github.io/en/privacy/focus-exposure-calculator/`  |
-| アプリ内Feedback URL | `https://aaa3710.github.io/feedback/focus-exposure-calculator/` | `https://aaa3710.github.io/en/feedback/focus-exposure-calculator/` |
+2026-09-05の共通階層への移行に合わせ、採用URLを下表へ更新しました。公開状態と旧URLの転送検証は[移行記録](../url-migration-2026-09-05.md)を参照します。
 
-共通Contactは `https://aaa3710.github.io/contact/` と `https://aaa3710.github.io/en/contact/` です。業務・運営・プライバシー請求・その他に使い、アプリの不具合・要望の送信先としてApp Storeやアプリへ設定しません。Contactからの不具合・要望は各Supportを経由して専用Feedbackへ案内します。
+| 用途                 | 日本語                                                               | English                                                                 |
+| -------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Marketing URL        | `https://aaa3710.github.io/apps/focus-exposure-calculator/`          | `https://aaa3710.github.io/apps/en/focus-exposure-calculator/`          |
+| Support URL          | `https://aaa3710.github.io/apps/support/focus-exposure-calculator/`  | `https://aaa3710.github.io/apps/en/support/focus-exposure-calculator/`  |
+| Privacy Policy URL   | `https://aaa3710.github.io/apps/privacy/focus-exposure-calculator/`  | `https://aaa3710.github.io/apps/en/privacy/focus-exposure-calculator/`  |
+| アプリ内Feedback URL | `https://aaa3710.github.io/apps/feedback/focus-exposure-calculator/` | `https://aaa3710.github.io/apps/en/feedback/focus-exposure-calculator/` |
+
+共通Contactは `https://aaa3710.github.io/apps/contact/` と `https://aaa3710.github.io/apps/en/contact/` です。業務・運営・プライバシー請求・その他に使い、アプリの不具合・要望の送信先としてApp Storeやアプリへ設定しません。Contactからの不具合・要望は各Supportを経由して専用Feedbackへ案内します。
 
 ## この変更の外部ゲート
 

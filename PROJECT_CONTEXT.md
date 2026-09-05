@@ -6,9 +6,15 @@
 
 アプリを日常的に宣伝し続けるのではなく、検索、AI検索、App Storeから必要な人が正確な情報へ到達できる恒久的な入口をつくる。
 
+## アプリ共通階層への移行
+
+2026-09-05、本人の希望に従い、全アプリの紹介・Support・Privacy・Feedback・アプリ運営のContactを、日本語 `/apps/`、英語 `/apps/en/` に統一する。構造は [README](README.md#url構成)、公開と正本への反映結果は [移行記録](app-store/url-migration-2026-09-05.md)を参照する。
+
+本人は続けて本番サイトの変更と正本への反映を含む残作業の完了を明示的に依頼した。公開済み `741c747` を起点としてURL移行を分離し、別件の未公開製品ページ・名称・アイコン変更を混在させない。従来URLは固定先へのHTML転送で互換性を保つ。大元の `/` は当面アプリ一覧へ案内し、将来はほかの活動の入口へ変更できる。受付フラグと公開メールの設定は変更しない。
+
 ## 現在の公開順序
 
-1. トップページでは全アプリを同じ一覧規則で扱い、詳しい紹介があるものだけ次へ進める。
+1. アプリ一覧では全アプリを同じ一覧規則で扱い、詳しい紹介があるものだけ次へ進める。
 2. `ピントと光 — 撮影計算`（英語: `Focus & Light — Photo Tools`）の公式ページ、プライバシー、サポート、App Store素材を最初の完成例として仕上げる。公開slugは `focus-exposure-calculator` に統一し、内部履歴と素材では従来の `Focus Map` を必要に応じて維持する。
 3. `伝わる文字 / Tsutawaru Moji` は本体の確定公開原稿から日英の紹介・Support・Privacy・Feedbackを整備し、2026-09-05に実受付を無効のまま本番公開した。[検証と公開条件](app-store/tsutawaru-moji/site-verification-2026-09-05.md)を参照する。
 4. それ以外のアプリは名前と準備中表示だけを置く。
@@ -37,8 +43,8 @@
 
 - 公開サイト: `app/`, `components/`, `public/`
 - GitHub Pages自動公開: `.github/workflows/deploy-pages.yml`
-- 業務・運営・プライバシー請求・その他を扱う共通Contactのページ: `app/contact/`, `app/en/contact/`
-- 個別アプリとそのSupportから開く `noindex, nofollow` の専用Feedback: `app/feedback/focus-exposure-calculator/`, `app/en/feedback/focus-exposure-calculator/`
+- 業務・運営・プライバシー請求・その他を扱う共通Contactのページ: `app/apps/contact/`, `app/apps/en/contact/`
+- 個別アプリとそのSupportから開く `noindex, nofollow` の専用Feedback: `app/apps/feedback/focus-exposure-calculator/`, `app/apps/en/feedback/focus-exposure-calculator/`
 - Focus Map App Store準備: `app-store/focus-map/`
 - Codexが毎回読む前提: `AGENTS.md`
 

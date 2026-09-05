@@ -1,3 +1,4 @@
+import { localizedAppRoute } from '@/lib/app-routes';
 import { ArrowLeft } from 'lucide-react';
 import { SiteFooter, SiteHeader } from '@/components/site-chrome';
 import { formReadiness } from '@/lib/feedback';
@@ -157,7 +158,9 @@ export function InfoPage({ locale, kind }: { locale: Locale; kind: InfoKind }) {
       <SiteHeader
         locale={locale}
         languageHref={
-          isEnglish ? featuredAppPaths[kind] : `/en${featuredAppPaths[kind]}`
+          isEnglish
+            ? featuredAppPaths[kind]
+            : localizedAppRoute('en', featuredAppPaths[kind])
         }
       />
       <article className="info-page section">
@@ -226,7 +229,7 @@ export function InfoPage({ locale, kind }: { locale: Locale; kind: InfoKind }) {
             <a href={localePath(locale, featuredAppPaths.support)}>
               {isEnglish ? 'App support' : 'アプリのサポートへ'}
             </a>
-            <a href={localePath(locale, '/contact/')}>
+            <a href={localePath(locale, '/apps/contact/')}>
               {isEnglish
                 ? 'Contact about privacy or data handling'
                 : 'プライバシー・データ取扱いを問い合わせる'}
