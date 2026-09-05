@@ -97,7 +97,7 @@ GitHub Pagesでは、ログイン後に確認するアカウント名の `<ア�
 
 公開サポートメールは必須と断定せず、採用して実値を設定した場合だけSupportへ表示します。未設定時に仮アドレスや準備中表示は出しません。App Store提出前には、Support URLから容易に実際の連絡手段へ進めるかを改めて確認します。
 
-## URL構成（2026-09-05ローカル実装・未公開）
+## URL構成
 
 本人の希望は[意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md#アプリ関連Webページの共通階層)を参照します。今後の趣味・記事などに大元を使えるよう、アプリの紹介・Support・Privacy・Feedback・運営のContactを共通階層へ揃えました。英語も必ず `/apps/` から始まります。
 
@@ -110,18 +110,18 @@ GitHub Pagesでは、ログイン後に確認するアカウント名の `<ア�
 | Feedback            | `/apps/feedback/<slug>/` | `/apps/en/feedback/<slug>/` |
 | アプリ運営のContact | `/apps/contact/`         | `/apps/en/contact/`         |
 
-大元 `/` と `/en/` は当面アプリ一覧へ案内します。旧URL31件は、固定の新URLへの即時HTML転送と手動リンクを持ち、`noindex, nofollow` とします。HTTP 301ではありません。廃止済みの `focus-map` と旧共通Feedbackは復活させません。転送は `build:pages` の出力に生成するため、確認は開発サーバーではなく `dist/client/` の静的サーバーで行います。
+大元 `/` と `/en/` は当面アプリ一覧へ案内します。公開済みの旧URL25件（別件の未公開LocationLoggerページを含むローカル出力では31件）は、固定の新URLへの即時HTML転送と手動リンクを持ち、`noindex, nofollow` とします。HTTP 301ではありません。廃止済みの `focus-map` と旧共通Feedbackは復活させません。転送は `build:pages` の出力に生成するため、確認は開発サーバーではなく `dist/client/` の静的サーバーで行います。
 
-製品原稿の出典・SHAはそのまま保ち、原稿内の旧リンクは表示時に新URLへ変換します。アプリ本体・管理台帳の旧URLは互換転送で到達性を維持し、本番移行を確認した後に各担当が次回更新へ採用できます。実装の証拠・未公開の境界は[作業記録](PROJECT_CONTEXT.md#アプリ共通階層への移行)を参照してください。
+原稿の内容正本は各アプリ、公開URLと移行の検証記録は[URL移行記録](app-store/url-migration-2026-09-05.md)で管理します。過去の公開検証記録は当時の証拠として保持します。
 
-### 移行前の公開URL（当時の検証履歴）
+## 公開URL
 
-2026-09-04に既存GitHub Pagesへ反映し、下記の日英URLの表示を確認しました。問い合わせ受付は両用途とも無効、公開メールは未設定です。公開slugは `focus-exposure-calculator` です。旧 `focus-map` URLと旧共通Feedback URLはリダイレクトなしの404を確認済みです。詳細は [公開検証記録](app-store/focus-map/site-verification-2026-09-04.md) を参照します。
+以下は共通階層への移行後の公開済みURLです。公開・転送の検証結果は[移行記録](app-store/url-migration-2026-09-05.md)を参照します。旧 `focus-map` と旧共通Feedbackは引き続き404とします。
 
-| 用途      | 日本語                                                          | English                                                            |
-| --------- | --------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Marketing | `https://aaa3710.github.io/apps/focus-exposure-calculator/`     | `https://aaa3710.github.io/en/apps/focus-exposure-calculator/`     |
-| Support   | `https://aaa3710.github.io/support/focus-exposure-calculator/`  | `https://aaa3710.github.io/en/support/focus-exposure-calculator/`  |
-| Privacy   | `https://aaa3710.github.io/privacy/focus-exposure-calculator/`  | `https://aaa3710.github.io/en/privacy/focus-exposure-calculator/`  |
-| Feedback  | `https://aaa3710.github.io/feedback/focus-exposure-calculator/` | `https://aaa3710.github.io/en/feedback/focus-exposure-calculator/` |
-| Contact   | `https://aaa3710.github.io/contact/`                            | `https://aaa3710.github.io/en/contact/`                            |
+| 用途      | 日本語                                                               | English                                                                 |
+| --------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Marketing | `https://aaa3710.github.io/apps/focus-exposure-calculator/`          | `https://aaa3710.github.io/apps/en/focus-exposure-calculator/`          |
+| Support   | `https://aaa3710.github.io/apps/support/focus-exposure-calculator/`  | `https://aaa3710.github.io/apps/en/support/focus-exposure-calculator/`  |
+| Privacy   | `https://aaa3710.github.io/apps/privacy/focus-exposure-calculator/`  | `https://aaa3710.github.io/apps/en/privacy/focus-exposure-calculator/`  |
+| Feedback  | `https://aaa3710.github.io/apps/feedback/focus-exposure-calculator/` | `https://aaa3710.github.io/apps/en/feedback/focus-exposure-calculator/` |
+| Contact   | `https://aaa3710.github.io/apps/contact/`                            | `https://aaa3710.github.io/apps/en/contact/`                            |
