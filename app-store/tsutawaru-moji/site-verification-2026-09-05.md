@@ -4,7 +4,7 @@
 
 ## 正本と実装範囲
 
-- 本体の [公開原稿](/Users/minatosuzuki/work_local/会話用音声文字起こし/Docs/Public/) 4件の最終採用commitは `a112293d335cb855b051bfba2501243057250e18`。初回採用 `ce0e5d1d10e591be2dd6cbd8446f2e9b72d472c4` から、日英Support／Privacyの各1段落末尾だけが変わったことを照合した。18歳未満の保護者許可、13歳未満の音声・個人情報をOpenAIへ送らないこと（成人による録音も同じ）を取り込んだ。本体 `33dfde2b08547a1ee61fe17a0a2ae76ff836da14` は前段build23の証拠であり、最新本体は同意版2・build24へ更新中との担当報告。サイト側で本体の最新検証成立を宣言しない。
+- 本体の [公開原稿](/Users/minatosuzuki/work_local/会話用音声文字起こし/Docs/Public/) 4件の現在のローカル採用commitは `0350e3df114f3672442545f58ee89cb9553d7695`。本体担当からアプリ1.1／build26不変、repo cleanとの引継ぎを受け、サイト側でもcommitとclean状態をlive確認した。前回の本番採用 `a112293d335cb855b051bfba2501243057250e18` から公開本文として変わったのは、近距離共有で同じ端末番号が表示された場合に両iPhoneでアプリを完全終了・再起動して再接続し、共有終了だけでは番号が変わらないと案内する日英Support各1段落だけ。日英Privacy本文は不変。サイト側で本体のApple検証成立を宣言しない。
 - 受付条件: 管理repo `0dfec49f6bcbff649ad893af2f3a3c80832dc816` の [専用Form準備](/Users/minatosuzuki/work_local/アプリ管理/feedback/tsutawaru-moji-form-preparation.md) と [配布台帳](/Users/minatosuzuki/work_local/アプリ管理/publishing/tsutawaru-moji-app-store.md)。原文90日保持は未採用案で、公開本文へ入れない。
 - 製品内容の正本は本体に維持。`scripts/sync-tsutawaru-copy.mjs` は指定commitの4原稿だけを読み、管理コメントを除いた `lib/tsutawaru-public.generated.json` とsource hashを生成する。手修正しない。通常buildは兄弟repoにも外部サイトにも原稿取得を依存しない。
 - 日英8routeを同じcomponentで実装。紹介は実装済み機能に絞り、Support／PrivacyはHTMLを実行しない限定Markdown表示で全本文を保持。見出しごとに開ける。旧build8画像、架空Storeリンク、公開メール、実Google Formは追加していない。
@@ -49,6 +49,12 @@ originは `https://aaa3710.github.io`。以下の日本語pathと、先頭に `/
 受付には、専用日英Formの新規作成許可と実設定、保持期間・削除・Google国外処理の事前情報、共通Contactの公表事項・返信元・必要な請求対応を確定する必要がある。90日案や同意checkboxを勝手に採用しない。個人Googleアカウントであること、外部連携履歴なしは確認済み事項として再質問しない。作成、synthetic送信・受信・削除、受付開始は今回行わず、ready通知前に有効化しない。
 
 2026-09-05の全アプリ共通方針更新後も、日本語の本番紹介・Feedbackを実ブラウザで再表示し、本体公開原稿commit `a112293d335cb855b051bfba2501243057250e18` とサイト生成データの4/4一致、Feedback／Contact受付停止を再確認した。AI半自動整理、有用な報告の概ね1か月以内の改善反映目標、周期削除を既定にしない方針は、実フォームの説明・設定・適用要件と日英Privacyの整合を確認してから公開文面へ反映する。現在の公開FeedbackページはAI未運用・受付停止を明記しており、未稼働処理を稼働済みとは表示していない。専用フォームを共通Contactへ転用せず、未確認受付を有効化しない。
+
+## build26公開原稿のローカル反映
+
+2026-09-05、本体commit `0350e3df114f3672442545f58ee89cb9553d7695` の4原稿を既存同期scriptでローカル生成データへ反映した。管理コメントは公開本文へ取り込まず、前回採用との差分は日英Support各1段落の追加だけ、日英Privacy本文はbyte単位で不変と確認した。受付停止、フォーム未接続、AI・保持・同意説明、他アプリ文面は変更していない。
+
+同期4/4、format、lint、単体14/14、静的build 41route、生成検証28/28ページ・40route・80 HTML・932assertionsが成功した。日英Supportの生成HTMLで追加段落を確認し、ローカル実ブラウザでも「近くのiPhoneと共有」／「Share with Nearby iPhones」を開いて全文と追加位置を確認した。新しいApple build、Simulator、物理端末、実APIは実行していない。本節はローカル準備の記録であり、push・deploy・本番公開・受付変更の証拠ではない。
 
 本番公開前のローカル作業では、Apple lane 0、xcodebuild 0、xcrun 0、Apple test 0、Apple build 0、fresh 0、Apple retry 0、Apple failure 0、status64 0、status69 0、Apple起動失敗0、host終了0、Apple assertion／crash検出0。Apple実行由来の新規IPSは0（実行なし）で、Mac全体のIPS増減は未調査。Simulator 0、物理端末0、実API0、実Form0、実回答0、メール0、外部AI0、ASC操作0、push0、公開0。本体／管理側テストは加算していない。
 
