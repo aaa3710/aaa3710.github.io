@@ -58,10 +58,13 @@ export function PublicDocument({
   kind: 'app' | 'support' | 'privacy';
 }) {
   const document = parsePublicDocument(body);
+  const sections = document.sections.filter(
+    (section) => kind !== 'app' || !['名前', 'Name'].includes(section.title),
+  );
   return (
     <div className="public-document">
       <Blocks blocks={document.introduction} />
-      {document.sections.map((section, index) => (
+      {sections.map((section, index) => (
         <details
           key={section.title}
           open={index < (kind === 'privacy' ? 1 : 2)}

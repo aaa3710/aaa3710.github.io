@@ -200,7 +200,7 @@ export function PortfolioHomePage({ locale }: { locale: Locale }) {
               <h3>{locationLogger.name[locale]}</h3>
               <p>
                 {locale === 'ja'
-                  ? 'iPhoneとApple Watchへ届いた位置を、端末内に記録。'
+                  ? '通った道を地図で見返す'
                   : 'Keep locations delivered to iPhone and Apple Watch on your devices.'}
               </p>
             </div>

@@ -92,7 +92,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
               <a href={localePath(locale, locationLoggerPaths.support)}>
                 {isEnglish
                   ? 'Support for LocationLogger'
-                  : 'LocationLoggerのサポートへ'}
+                  : '道の記録のサポートへ'}
               </a>
             </p>
           </div>

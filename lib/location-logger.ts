@@ -4,7 +4,7 @@ import { absoluteSiteUrl, type Locale } from './site';
 
 export const locationLogger = {
   slug: 'location-logger',
-  name: { ja: 'LocationLogger', en: 'LocationLogger' },
+  name: { ja: '道の記録', en: 'LocationLogger' },
   feedbackReady: locationLoggerFeedbackConfig.ready,
 } as const;
 
@@ -23,7 +23,7 @@ export function locationLoggerMetadata(
 ): Metadata {
   const label = {
     ja: {
-      app: 'iPhoneとApple Watchの位置記録',
+      app: '通った道を地図で見返す',
       support: 'サポート',
       privacy: 'プライバシー',
       feedback: 'フィードバック',

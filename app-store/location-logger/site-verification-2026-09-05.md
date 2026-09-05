@@ -1,8 +1,18 @@
-# LocationLogger 日英サイトのローカル整備
+# 道の記録 / LocationLogger 日英サイトのローカル整備
 
 2026-09-05。**ローカル実装。未push・未公開、受付無効。** LocationLogger担当からの明示依頼に基づく。既存アプリの公開証拠を本アプリへ流用しない。
 
-## 正本と実装範囲
+## 名称反映（2026-09-05）
+
+本体確定commit `a850c9e3edff1e2b9c45fc2ba5e71de1e3412a2a` の6原稿を既存同期経路で同期6/6一致を確認した。英語3原稿は前回から不変。
+
+本人の採用名「道の記録」と補足「通った道を地図で見返す」を、日本語の一覧、紹介見出し・metadata、Support／Privacy／Feedback、共通Contactの導線へローカル反映した。先行した[名称調査](/Users/minatosuzuki/work_local/LocationLogger/Docs/2026-09-05-name-review.md)は具体的衝突なしの一次スクリーニングであり、非侵害保証・商標登録可能性・App Store名称確保・リリース承認とは分ける。英語名、URL slug、内部識別子、過去検証の当時値を維持する。公開直前の再検索と最終表示確認は同記録に従う。
+
+横断学習は特定project固有の採用名反映。本人意思の正本は管理のOWNER_INTENT、製品原稿は本体Docs、サイトの生成コピーは既存同期経路を維持する。
+
+名称変更後の検証: 原稿同期6/6、単体17/17、lint・変更sourceのformat・whitespace、静的build（41 prerender / 40 Pages route）、生成検証28/28ページ・80 HTML・944 assertionsが成功。日本語原稿の「名前」節追加で概要が初期表示から閉じる回帰を実ブラウザで発見し、紹介の重複する名前節だけを表示対象から外した後、単体・build・生成検証を再実施して成功。最終画面は日本語紹介・Support・Feedbackを390×844、英語紹介を1440×900で確認し、名称・指定補足・概要初期表示・日英切替・SupportからFeedback導線・受付停止を確認した。横幅超過なし、browser error 0。依存ツールのDEP0205警告は従前どおりで、実VoiceOver・実フォーム・公開は未実施。
+
+## 名称変更前の整備記録と実装範囲
 
 - 本体commit `b7241ea86b357212b78defc38db7bd536846c831` の `Docs/AppStoreMetadata-ja.md` / `-en.md`、`Support-ja.md` / `-en.md`、`PrivacyPolicy-ja.md` / `-en.md` を内容正本とする。サイト側の生成データにはcommit、6原稿の本文とSHA-256を保持し、`scripts/sync-location-logger-copy.mjs` で確定原稿との一致を確認する。旧採用commit `c0532a5` からApp Store原稿2本は不変、Support／Privacy日英4本だけを更新した。
 - 本体側の2.5(21)、Feedback追加テスト7/7、iPhone＋同梱Watchの開発署名付きRelease、runtimeWarnings空、日英同梱policyとDocs byte一致はLocationLogger担当から受領した別証拠であり、サイトbuildへ加算しない。これは配布署名・Archive・Validate・実機適合の証拠ではない。正本は本体の `Docs/2026-09-05-build21-feedback-verification.md` と `Docs/2026-09-05-release-risk-audit.md`。
@@ -50,7 +60,7 @@ originは `https://aaa3710.github.io`。本作業では公開していない。
 
 ## 公開前に残る条件
 
-- 本体commit `b7241ea` とサイト生成データの6原稿は照合済み。公開直前にも本体正本の更新有無を確認する。
+- 本体commit `a850c9e3edff1e2b9c45fc2ba5e71de1e3412a2a` とサイト生成データの6原稿を採用する。公開直前にも本体正本の更新有無を確認する。
 - 配信地域は全アプリ共通の既定に従い日本のみ。ただし、この記録はApp Store Connect入力、提出、アプリ公開の許可ではない。
 - 公開前に日英8routeを初見の読者として再確認し、実Support URLから実際の連絡手段へ容易に到達できる状態を別に完成させる。共通Contactも現在送信不可であり、公開ページがあるだけでは実窓口完成にならない。
 - LocationLogger専用Feedbackフォームの作成・設定・受付試験は未実施。日英それぞれの公開回答者URLを確認し、匿名の自由記述1欄、説明、入力上限、下書き自動保存OFF、受付状態を照合するまでは3つのrepository variableを設定しない。

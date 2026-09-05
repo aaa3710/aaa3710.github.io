@@ -129,7 +129,7 @@ test('LocationLogger snapshots preserve the current privacy and support boundari
   );
   assert.equal(
     snapshot.sourceCommit,
-    'b7241ea86b357212b78defc38db7bd536846c831',
+    'a850c9e3edff1e2b9c45fc2ba5e71de1e3412a2a',
   );
   for (const locale of ['ja', 'en'])
     for (const kind of ['app', 'support', 'privacy']) {

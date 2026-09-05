@@ -568,7 +568,9 @@ for (const locale of locales) {
       `${routePath}: document language mismatch`,
     );
     check(
-      decodeHtml(html).includes('LocationLogger'),
+      decodeHtml(html).includes(
+        locale === 'ja' ? '道の記録' : 'LocationLogger',
+      ),
       `${routePath}: app name missing`,
     );
     check(

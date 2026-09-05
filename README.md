@@ -41,14 +41,14 @@ node --experimental-strip-types scripts/sync-tsutawaru-copy.mjs \
 
 更新時は採用commitを指定し、`--check` を外して生成します。管理側の受付条件は `0dfec49f6bcbff649ad893af2f3a3c80832dc816` を参照します。90日保持案を含む周期削除は採用せず、法令上の請求や誤送信された機微情報への必要な措置は別に扱います。[URL・検証・公開条件](app-store/tsutawaru-moji/site-verification-2026-09-05.md)を参照してください。
 
-### LocationLoggerのローカル準備（未公開）
+### 道の記録のローカル準備（未公開）
 
 日英の紹介・Support・Privacyと、専用Feedback案内を追加しています。製品本文の正本はLocationLogger本体の `Docs/AppStoreMetadata-*.md`、`Docs/Support-*.md`、`Docs/PrivacyPolicy-*.md` です。サイトには6原稿の本文とSHA-256を生成データとして保持し、本文をサイト側だけで修正しません。
 
 ```bash
 node --experimental-strip-types scripts/sync-location-logger-copy.mjs \
   '/Users/minatosuzuki/work_local/LocationLogger' \
-  b7241ea86b357212b78defc38db7bd536846c831 --check
+  a850c9e3edff1e2b9c45fc2ba5e71de1e3412a2a --check
 ```
 
 専用FeedbackはLocationLogger専用の日英URLと受付フラグを別設定として持ち、既定では送信できません。日英両フォームの実設定・受付試験を確認した後だけ3つの設定を同時に入れます。片言語不足、不正URL、同一フォーム、撮影計算アプリ用Feedback／共通Contactの流用ではbuildを失敗させます。配信地域は全アプリ共通の既定に従い日本ですが、App Store Connect操作や配布許可ではありません。[予定URL・検証・公開前条件](app-store/location-logger/site-verification-2026-09-05.md)を参照してください。
