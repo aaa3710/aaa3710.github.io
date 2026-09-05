@@ -2,7 +2,7 @@ import { localizedAppRoute } from '@/lib/app-routes';
 import { ArrowLeft } from 'lucide-react';
 import { SiteFooter, SiteHeader } from '@/components/site-chrome';
 import { PublicDocument } from '@/components/public-document';
-import { localePath, type Locale } from '@/lib/site';
+import { localePath, sitePath, type Locale } from '@/lib/site';
 import {
   tsutawaru,
   tsutawaruPaths,
@@ -139,6 +139,9 @@ export function TsutawaruPage({
               : 'All apps'
             : name}
         </a>
+        {kind === 'app' && (
+          <img src={sitePath('/images/tsutawaru-moji/icon.png')} alt="" width="96" height="96" style={{ borderRadius: '22%', marginBottom: '1rem' }} />
+        )}
         <p className="section-label">{name}</p>
         <h1>{title}</h1>
         <div className="tsutawaru-status">

@@ -173,7 +173,7 @@ export function PortfolioHomePage({ locale }: { locale: Locale }) {
             href={localePath(locale, tsutawaruPaths.app)}
           >
             <div className="portfolio-card-heading">
-              <MessageSquareText aria-hidden="true" size={48} />
+              <img src={sitePath('/images/tsutawaru-moji/icon.png')} alt="" width="64" height="64" />
               <span className="status-pill">
                 {locale === 'ja' ? '公開準備中' : 'Preparing for release'}
               </span>
