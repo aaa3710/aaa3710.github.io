@@ -6,9 +6,23 @@
 
 アプリを日常的に宣伝し続けるのではなく、検索、AI検索、App Storeから必要な人が正確な情報へ到達できる恒久的な入口をつくる。
 
+## アプリ共通階層への移行
+
+2026-09-05、本人意思の正本「アプリ関連Webページの共通階層」を適用。日本語は `/apps/`、英語は `/apps/en/` に全アプリの紹介・Support・Privacy・Feedback・アプリ運営のContactを集約した。URL規則は [README](README.md#url構成2026-09-05ローカル実装未公開)を参照する。リポジトリ・GitHubアカウント・アプリslugを変更せず、大元は当面アプリ一覧へのHTML案内だけとする。趣味や記事の制作は今回追加しない。
+
+- 状態: ローカル実装。今回の階層移行は未push・未公開。以前の個別公開の許可・結果は下記の履歴として扱う。
+- 40ページを新階層に配置。旧URL31件は固定先への即時HTML転送と手動リンクを持ち、`noindex, nofollow`。HTTP 301ではなく、ビルド後の静的出力で生成する。旧slug `focus-map` と旧共通Feedbackを復活させない。
+- ナビゲーション、言語切替、canonical、hreflang、OG、サイトマップは新URLへ直接接続。Feedbackと旧URLはサイトマップに載せない。原稿内リンクは表示時に変換し、本体原稿の生成スナップショットとSHAは変更しない。
+- 依存: 本体の `FocusMap/App/AppLanguage.swift`、`TsutawaruMoji/Models/AppPublicLinks.swift`、`LocationLogger/FeedbackDestination.swift` には旧URLがある。公開時の転送で既存binaryの到達性を保ち、本番確認後に各担当が次回更新で新URLを採用する。アプリの再buildやASC設定変更はこのWeb移行の前提にしない。
+- ローカル証拠: 型検査・lint・18テスト成功、静的build成功。28主要ページを含む40ページ、31転送、サイトマップ22件を生成済み。1937項目の出力検証で、全現行ページの内部リンクが新URLへ直結すること、旧URLの転送・手動リンク・検索除外を確認。
+- 初見表示確認: 既存文面・実素材を保ち、日本語／英語の一覧を390px・1440pxで目視。旧 `/feedback/tsutawaru-moji/` → 新Feedback → 英語Feedbackのブラウザ遷移成功。390pxの英語一覧・Feedbackとも横はみ出しなし、ブラウザの警告・エラー0。画面証拠はローカル `output/playwright/`（Git対象外）。
+- 公開元との差分: 作業前のlocal HEAD `c8749d3` と追跡済みorigin/mainは8件／2件の分岐があり、道の記録の未公開ページ等を含む。今回の変更と一括でpushせず、公開時は最新remoteを照合し、公開済み内容から今回のURL移行を分離して準備する。未公開製品内容の公開許可をこの移行へ混ぜない。
+- 初回の標準sandboxでのbuildは一時的な127.0.0.1待受がEPERMとなり、ローカル待受を許可した実行で成功。実フォームの受付・公開メール・外部サービス設定は変更していない。
+- 公開前: この移行のpush・公開許可、既存未公開commitの含有範囲、GitHubアカウント・差分・受付設定を照合し、公開後に日英の新URLと旧URLからの遷移を実サイトで確認する。
+
 ## 現在の公開順序
 
-1. トップページでは全アプリを同じ一覧規則で扱い、詳しい紹介があるものだけ次へ進める。
+1. アプリ一覧では全アプリを同じ一覧規則で扱い、詳しい紹介があるものだけ次へ進める。
 2. `ピントと光 — 撮影計算`（英語: `Focus & Light — Photo Tools`）の公式ページ、プライバシー、サポート、App Store素材を最初の完成例として仕上げる。公開slugは `focus-exposure-calculator` に統一し、内部履歴と素材では従来の `Focus Map` を必要に応じて維持する。
 3. `伝わる文字 / Tsutawaru Moji` は本体の確定公開原稿から日英の紹介・Support・Privacy・Feedbackを整備し、2026-09-05に実受付を無効のまま本番公開した。[検証と公開条件](app-store/tsutawaru-moji/site-verification-2026-09-05.md)を参照する。
 4. `道の記録`（英語名・内部名: `LocationLogger`、補足: `通った道を地図で見返す`）は本体の現在のApp Store原稿・Support・Privacyを内容正本として、日英の紹介・Support・Privacy・専用Feedbackをローカル整備する。Feedbackは専用の日英URLと受付フラグがすべて検証済みの場合だけ表示し、既定では停止する。配信地域は全アプリ共通の既定に従い日本のみ。[ローカル検証と公開前条件](app-store/location-logger/site-verification-2026-09-05.md)を参照する。
@@ -39,8 +53,8 @@
 
 - 公開サイト: `app/`, `components/`, `public/`
 - GitHub Pages自動公開: `.github/workflows/deploy-pages.yml`
-- 業務・運営・プライバシー請求・その他を扱う共通Contactのページ: `app/contact/`, `app/en/contact/`
-- 個別アプリとそのSupportから開く `noindex, nofollow` の専用Feedback: `app/feedback/focus-exposure-calculator/`, `app/en/feedback/focus-exposure-calculator/`, `app/feedback/location-logger/`, `app/en/feedback/location-logger/`
+- 業務・運営・プライバシー請求・その他を扱う共通Contactのページ: `app/apps/contact/`, `app/apps/en/contact/`
+- 個別アプリとそのSupportから開く `noindex, nofollow` の専用Feedback: `app/apps/feedback/focus-exposure-calculator/`, `app/apps/en/feedback/focus-exposure-calculator/`, `app/apps/feedback/location-logger/`, `app/apps/en/feedback/location-logger/`
 - Focus Map App Store準備: `app-store/focus-map/`
 - Codexが毎回読む前提: `AGENTS.md`
 

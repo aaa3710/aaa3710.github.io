@@ -105,20 +105,26 @@ export function PortfolioHomePage({ locale }: { locale: Locale }) {
 
   return (
     <main id="top" lang={locale}>
-      <SiteHeader locale={locale} languageHref={isEnglish ? '/' : '/en/'} />
+      <SiteHeader
+        locale={locale}
+        languageHref={isEnglish ? '/apps/' : '/apps/en/'}
+      />
 
       <section className="portfolio-hero section" aria-labelledby="page-title">
         <p className="section-label">{text.eyebrow}</p>
         <h1 id="page-title">{text.title}</h1>
         <p>{text.lead}</p>
         <div className="portfolio-actions">
-          <a className="primary-action" href={localePath(locale, '/#apps')}>
+          <a
+            className="primary-action"
+            href={localePath(locale, '/apps/#apps')}
+          >
             {text.appsAction}
             <ArrowRight aria-hidden="true" size={17} />
           </a>
           <a
             className="secondary-action"
-            href={localePath(locale, '/contact/')}
+            href={localePath(locale, '/apps/contact/')}
           >
             {text.feedbackAction}
           </a>
@@ -243,7 +249,10 @@ export function PortfolioHomePage({ locale }: { locale: Locale }) {
       </section>
 
       <section className="feedback-section section">
-        <a className="feedback-banner" href={localePath(locale, '/contact/')}>
+        <a
+          className="feedback-banner"
+          href={localePath(locale, '/apps/contact/')}
+        >
           <MessageSquareText aria-hidden="true" />
           <span>
             <strong>{text.feedbackTitle}</strong>

@@ -1,3 +1,4 @@
+import { localizedAppRoute } from '@/lib/app-routes';
 import type { Metadata } from 'next';
 import { InfoPage } from '@/components/info-page';
 import { absoluteSiteUrl, featuredApp, featuredAppPaths } from '@/lib/site';
@@ -6,7 +7,7 @@ export const dynamic = 'force-static';
 
 const title = `${featuredApp.name.en} | Privacy Policy`;
 const description = `What ${featuredApp.name.en} does not collect and which settings remain locally on the iPhone.`;
-const url = absoluteSiteUrl(`/en${featuredAppPaths.privacy}`);
+const url = absoluteSiteUrl(localizedAppRoute('en', featuredAppPaths.privacy));
 
 export const metadata: Metadata = {
   title,

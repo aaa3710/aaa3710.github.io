@@ -1,3 +1,4 @@
+import { localizedAppRoute } from '@/lib/app-routes';
 import type { Metadata } from 'next';
 import { FocusMapStory } from '@/components/focus-map-story';
 import { absoluteSiteUrl, featuredApp, featuredAppPaths } from '@/lib/site';
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     canonical: url,
     languages: {
       ja: url,
-      en: absoluteSiteUrl(`/en${featuredAppPaths.app}`),
+      en: absoluteSiteUrl(localizedAppRoute('en', featuredAppPaths.app)),
     },
   },
   openGraph: {

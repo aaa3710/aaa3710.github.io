@@ -1,3 +1,5 @@
+import { migrateLegacyAppRoute } from './app-routes.ts';
+
 // A deliberately small Markdown subset for reviewed, app-owned public copy.
 // No HTML, images, executable URLs, or hidden release-control comments.
 export type PublicBlock =
@@ -66,7 +68,7 @@ export function publicLink(href: string): string {
     ) {
       throw new Error('Unexpected first-party public route');
     }
-    return url.pathname;
+    return migrateLegacyAppRoute(url.pathname);
   }
   if (
     ![

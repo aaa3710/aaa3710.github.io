@@ -28,6 +28,8 @@
 
 公開slugは `focus-exposure-calculator` です。旧 `focus-map` URLはリダイレクトなしの404を確認済みです。App Store Connectへの入力は別の許可後に各ローカリゼーションのMarketing／Support／Privacy URLを使い、アプリ内Feedbackも同じ言語のURLを使います。
 
+2026-09-05追記: 下表は移行前の公開URLです。全アプリの `/apps/` 集約は[新URL構成](../../README.md#url構成2026-09-05ローカル実装未公開)としてローカル準備済み・未公開です。新URLをASC等へ採用する前に本番到達性を確認してください。
+
 | 用途                 | 日本語                                                          | English                                                            |
 | -------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------ |
 | Marketing URL        | `https://aaa3710.github.io/apps/focus-exposure-calculator/`     | `https://aaa3710.github.io/en/apps/focus-exposure-calculator/`     |

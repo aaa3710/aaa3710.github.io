@@ -1,3 +1,4 @@
+import { localizedAppRoute } from '@/lib/app-routes';
 import { ArrowLeft, ExternalLink, ShieldCheck } from 'lucide-react';
 import { PublicDocument } from '@/components/public-document';
 import { SiteFooter, SiteHeader } from '@/components/site-chrome';
@@ -94,14 +95,17 @@ export function LocationLoggerPage({
     <main id="top" lang={locale}>
       <SiteHeader
         locale={locale}
-        languageHref={`${locale === 'ja' ? '/en' : ''}${locationLoggerPaths[kind]}`}
+        languageHref={localizedAppRoute(
+          locale === 'ja' ? 'en' : 'ja',
+          locationLoggerPaths[kind],
+        )}
       />
       <article className="info-page section tsutawaru-page">
         <a
           className="back-link"
           href={localePath(
             locale,
-            kind === 'app' ? '/' : locationLoggerPaths.app,
+            kind === 'app' ? '/apps/' : locationLoggerPaths.app,
           )}
         >
           <ArrowLeft aria-hidden="true" size={16} />
@@ -138,7 +142,7 @@ export function LocationLoggerPage({
             </a>
           )}
           {kind !== 'app' && (
-            <a href={localePath(locale, '/contact/')}>{text.contact}</a>
+            <a href={localePath(locale, '/apps/contact/')}>{text.contact}</a>
           )}
         </div>
         {kind === 'feedback' && formUrl && embeddedUrl ? (

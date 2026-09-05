@@ -2,7 +2,7 @@
 
 アプリの公開・運営に関する希望、個人情報の公開範囲、公開用メールの方針は[本人の意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)に集約しています。 判断前・新しい意思を受けた時・作業終了前の扱いは[参照・更新手順](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/SKILL.md#本人の意思を参照更新する)を使います。
 
-個人制作アプリを一覧から見つけ、内容を誤解せずに詳しい紹介やApp Storeへ進めるための日英対応サイトです。`ピントと光 — 撮影計算`（英語: `Focus & Light — Photo Tools`）は最初の詳しい紹介例ですが、トップページは全アプリを同じ規則で案内します。
+個人制作アプリを一覧から見つけ、内容を誤解せずに詳しい紹介やApp Storeへ進めるための日英対応サイトです。`ピントと光 — 撮影計算`（英語: `Focus & Light — Photo Tools`）は最初の詳しい紹介例ですが、`/apps/` の一覧は全アプリを同じ規則で案内します。
 
 担当は[担当境界の正本](/Users/minatosuzuki/work_local/アプリ開発共通事項/README.md#関連projectとの責任境界)、命名は[本人の命名方針](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md#全アプリ共通の命名方針)に従います。このrepoはWebサイトとApp Storeの公開表現・表示構成・素材計画を担当します。機能事実・実画面の証拠は各アプリの正本を参照し、提出の採用値・外部gateは管理台帳へ照合します。
 
@@ -10,7 +10,7 @@
 
 ## 現在のサイト構成
 
-- 全アプリを同じ大きさで案内するトップページと、`ピントと光 — 撮影計算`の詳細ページ
+- 全アプリを同じ大きさで案内する `/apps/` の一覧と、`ピントと光 — 撮影計算`の詳細ページ
 - 日本語・英語
 - プライバシーポリシー
 - サポートと計算の前提
@@ -70,7 +70,7 @@ npm run build:pages
 npm run verify:pages
 ```
 
-GitHub Pagesでは、ログイン後に確認するアカウント名の `<アカウント名>.github.io` リポジトリを使い、`dist/client/` の静的ファイルをGitHub Actionsから公開します。このルート形式にすることで、画像や共有URLをサブディレクトリに依存させません。
+GitHub Pagesでは、ログイン後に確認するアカウント名の `<アカウント名>.github.io` リポジトリを使い、`dist/client/` の静的ファイルをGitHub Actionsから公開します。リポジトリはそのまま使い、全アプリのページを `/apps/` 配下に置きます。共有アセットとrobots.txt／sitemap.xmlは大元に残します。
 
 ## 問い合わせ経路と公開設定
 
@@ -97,7 +97,24 @@ GitHub Pagesでは、ログイン後に確認するアカウント名の `<ア�
 
 公開サポートメールは必須と断定せず、採用して実値を設定した場合だけSupportへ表示します。未設定時に仮アドレスや準備中表示は出しません。App Store提出前には、Support URLから容易に実際の連絡手段へ進めるかを改めて確認します。
 
-## 公開URL
+## URL構成（2026-09-05ローカル実装・未公開）
+
+本人の希望は[意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md#アプリ関連Webページの共通階層)を参照します。今後の趣味・記事などに大元を使えるよう、アプリの紹介・Support・Privacy・Feedback・運営のContactを共通階層へ揃えました。英語も必ず `/apps/` から始まります。
+
+| 用途                | 日本語                   | English                     |
+| ------------------- | ------------------------ | --------------------------- |
+| アプリ一覧          | `/apps/`                 | `/apps/en/`                 |
+| 紹介                | `/apps/<slug>/`          | `/apps/en/<slug>/`          |
+| Support             | `/apps/support/<slug>/`  | `/apps/en/support/<slug>/`  |
+| Privacy             | `/apps/privacy/<slug>/`  | `/apps/en/privacy/<slug>/`  |
+| Feedback            | `/apps/feedback/<slug>/` | `/apps/en/feedback/<slug>/` |
+| アプリ運営のContact | `/apps/contact/`         | `/apps/en/contact/`         |
+
+大元 `/` と `/en/` は当面アプリ一覧へ案内します。旧URL31件は、固定の新URLへの即時HTML転送と手動リンクを持ち、`noindex, nofollow` とします。HTTP 301ではありません。廃止済みの `focus-map` と旧共通Feedbackは復活させません。転送は `build:pages` の出力に生成するため、確認は開発サーバーではなく `dist/client/` の静的サーバーで行います。
+
+製品原稿の出典・SHAはそのまま保ち、原稿内の旧リンクは表示時に新URLへ変換します。アプリ本体・管理台帳の旧URLは互換転送で到達性を維持し、本番移行を確認した後に各担当が次回更新へ採用できます。実装の証拠・未公開の境界は[作業記録](PROJECT_CONTEXT.md#アプリ共通階層への移行)を参照してください。
+
+### 移行前の公開URL（当時の検証履歴）
 
 2026-09-04に既存GitHub Pagesへ反映し、下記の日英URLの表示を確認しました。問い合わせ受付は両用途とも無効、公開メールは未設定です。公開slugは `focus-exposure-calculator` です。旧 `focus-map` URLと旧共通Feedback URLはリダイレクトなしの404を確認済みです。詳細は [公開検証記録](app-store/focus-map/site-verification-2026-09-04.md) を参照します。
 

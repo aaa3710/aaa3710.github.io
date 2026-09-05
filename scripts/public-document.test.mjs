@@ -1,12 +1,38 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
+import { localizedAppRoute, migrateLegacyAppRoute } from '../lib/app-routes.ts';
 import {
   publicBody,
   parsePublicDocument,
   publicLink,
   inlineTokens,
 } from '../lib/public-document.ts';
+
+test('new and legacy app links reach one namespace without consuming unrelated paths', () => {
+  assert.equal(localizedAppRoute('ja'), '/apps/');
+  assert.equal(localizedAppRoute('en'), '/apps/en/');
+  assert.equal(
+    localizedAppRoute('en', '/apps/feedback/tsutawaru-moji/'),
+    '/apps/en/feedback/tsutawaru-moji/',
+  );
+  for (const [before, after] of [
+    ['/', '/apps/'],
+    ['/en/', '/apps/en/'],
+    ['/en/apps/tsutawaru-moji/', '/apps/en/tsutawaru-moji/'],
+    ['/feedback/tsutawaru-moji/', '/apps/feedback/tsutawaru-moji/'],
+    ['/en/privacy/location-logger/', '/apps/en/privacy/location-logger/'],
+    ['/apps/contact/', '/apps/contact/'],
+    ['/apps/en/contact/', '/apps/en/contact/'],
+    ['/blog/hobby/', '/blog/hobby/'],
+    ['/images/icon.png', '/images/icon.png'],
+  ])
+    assert.equal(migrateLegacyAppRoute(before), after);
+  assert.equal(
+    publicLink('https://aaa3710.github.io/apps/en/support/tsutawaru-moji/'),
+    '/apps/en/support/tsutawaru-moji/',
+  );
+});
 
 test('release-control comments are removed, never rendered as hidden HTML', () => {
   assert.equal(
@@ -29,7 +55,7 @@ test('public parser preserves headings, paragraphs, lists, and inline formatting
     inlineTokens(
       'Read `Settings` and [Support](https://aaa3710.github.io/en/support/tsutawaru-moji/).',
     )[3].href,
-    '/en/support/tsutawaru-moji/',
+    '/apps/en/support/tsutawaru-moji/',
   );
 });
 test('unsupported public markup and unresolved values fail closed', () => {
@@ -45,7 +71,10 @@ test('unsupported public markup and unresolved values fail closed', () => {
   }
 });
 test('only reviewed HTTPS destinations are permitted and local routes stay local', () => {
-  assert.equal(publicLink('https://aaa3710.github.io/contact/'), '/contact/');
+  assert.equal(
+    publicLink('https://aaa3710.github.io/contact/'),
+    '/apps/contact/',
+  );
   assert.equal(
     publicLink('https://developers.openai.com/api/docs/guides/your-data'),
     'https://developers.openai.com/api/docs/guides/your-data',

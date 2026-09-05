@@ -1,3 +1,4 @@
+import { localizedAppRoute } from '@/lib/app-routes';
 import type { Metadata } from 'next';
 import { InfoPage } from '@/components/info-page';
 import { absoluteSiteUrl, featuredApp, featuredAppPaths } from '@/lib/site';
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     canonical: url,
     languages: {
       ja: url,
-      en: absoluteSiteUrl(`/en${featuredAppPaths.support}`),
+      en: absoluteSiteUrl(localizedAppRoute('en', featuredAppPaths.support)),
     },
   },
   openGraph: {

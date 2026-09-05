@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: 'Apps — 個人制作アプリ',
     description:
       '日々の小さな困りごとから作り始めた、個人制作アプリの紹介サイトです。',
-    url: absoluteSiteUrl('/'),
+    url: absoluteSiteUrl('/apps/'),
   },
   twitter: {
     card: 'summary',

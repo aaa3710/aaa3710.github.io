@@ -1,3 +1,4 @@
+import { localizedAppRoute } from '@/lib/app-routes';
 import type { Metadata } from 'next';
 import { absoluteSiteUrl, type Locale } from './site';
 
@@ -9,9 +10,9 @@ export const tsutawaru = {
 } as const;
 export const tsutawaruPaths = {
   app: '/apps/tsutawaru-moji/',
-  support: '/support/tsutawaru-moji/',
-  privacy: '/privacy/tsutawaru-moji/',
-  feedback: '/feedback/tsutawaru-moji/',
+  support: '/apps/support/tsutawaru-moji/',
+  privacy: '/apps/privacy/tsutawaru-moji/',
+  feedback: '/apps/feedback/tsutawaru-moji/',
 } as const;
 export type TsutawaruPageKind = keyof typeof tsutawaruPaths;
 
@@ -41,7 +42,7 @@ export function tsutawaruMetadata(
   if (kind === 'feedback')
     return { title, description, robots: { index: false, follow: false } };
   const localized = (language: Locale) =>
-    absoluteSiteUrl(`${language === 'en' ? '/en' : ''}${tsutawaruPaths[kind]}`);
+    absoluteSiteUrl(localizedAppRoute(language, tsutawaruPaths[kind]));
   return {
     title,
     description,

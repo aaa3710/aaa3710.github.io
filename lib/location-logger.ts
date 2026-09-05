@@ -1,3 +1,4 @@
+import { localizedAppRoute } from '@/lib/app-routes';
 import type { Metadata } from 'next';
 import { locationLoggerFeedbackConfig } from './location-logger-feedback';
 import { absoluteSiteUrl, type Locale } from './site';
@@ -10,9 +11,9 @@ export const locationLogger = {
 
 export const locationLoggerPaths = {
   app: '/apps/location-logger/',
-  support: '/support/location-logger/',
-  privacy: '/privacy/location-logger/',
-  feedback: '/feedback/location-logger/',
+  support: '/apps/support/location-logger/',
+  privacy: '/apps/privacy/location-logger/',
+  feedback: '/apps/feedback/location-logger/',
 } as const;
 
 export type LocationLoggerPageKind = keyof typeof locationLoggerPaths;
@@ -43,9 +44,7 @@ export function locationLoggerMetadata(
   if (kind === 'feedback')
     return { title, description, robots: { index: false, follow: false } };
   const localized = (language: Locale) =>
-    absoluteSiteUrl(
-      `${language === 'en' ? '/en' : ''}${locationLoggerPaths[kind]}`,
-    );
+    absoluteSiteUrl(localizedAppRoute(language, locationLoggerPaths[kind]));
   return {
     title,
     description,

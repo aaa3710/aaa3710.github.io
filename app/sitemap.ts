@@ -1,3 +1,4 @@
+import { localizedAppRoute } from '@/lib/app-routes';
 import type { MetadataRoute } from 'next';
 import { absoluteSiteUrl, featuredAppPaths } from '@/lib/site';
 import { tsutawaruPaths } from '@/lib/tsutawaru';
@@ -10,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...(['ja', 'en'] as const).flatMap((locale) =>
       (['app', 'support', 'privacy'] as const).map((kind) => ({
         url: absoluteSiteUrl(
-          `${locale === 'en' ? '/en' : ''}${locationLoggerPaths[kind]}`,
+          localizedAppRoute(locale, locationLoggerPaths[kind]),
         ),
         lastModified: new Date('2026-09-05T00:00:00+09:00'),
         priority: kind === 'app' ? 0.7 : 0.4,
@@ -18,21 +19,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
     ...(['ja', 'en'] as const).flatMap((locale) =>
       (['app', 'support', 'privacy'] as const).map((kind) => ({
-        url: absoluteSiteUrl(
-          `${locale === 'en' ? '/en' : ''}${tsutawaruPaths[kind]}`,
-        ),
+        url: absoluteSiteUrl(localizedAppRoute(locale, tsutawaruPaths[kind])),
         lastModified: new Date('2026-09-05T00:00:00+09:00'),
         priority: kind === 'app' ? 0.7 : 0.4,
       })),
     ),
     {
-      url: absoluteSiteUrl('/'),
+      url: absoluteSiteUrl('/apps/'),
       lastModified,
       changeFrequency: 'monthly',
       priority: 1,
     },
     {
-      url: absoluteSiteUrl('/en/'),
+      url: absoluteSiteUrl('/apps/en/'),
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -44,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: absoluteSiteUrl(`/en${featuredAppPaths.app}`),
+      url: absoluteSiteUrl(localizedAppRoute('en', featuredAppPaths.app)),
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.7,
@@ -55,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
-      url: absoluteSiteUrl(`/en${featuredAppPaths.privacy}`),
+      url: absoluteSiteUrl(localizedAppRoute('en', featuredAppPaths.privacy)),
       lastModified,
       priority: 0.4,
     },
@@ -65,18 +64,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
-      url: absoluteSiteUrl(`/en${featuredAppPaths.support}`),
+      url: absoluteSiteUrl(localizedAppRoute('en', featuredAppPaths.support)),
       lastModified,
       priority: 0.4,
     },
     {
-      url: absoluteSiteUrl('/contact/'),
+      url: absoluteSiteUrl('/apps/contact/'),
       lastModified,
       changeFrequency: 'yearly',
       priority: 0.6,
     },
     {
-      url: absoluteSiteUrl('/en/contact/'),
+      url: absoluteSiteUrl('/apps/en/contact/'),
       lastModified,
       changeFrequency: 'yearly',
       priority: 0.5,

@@ -26,10 +26,10 @@ export function SiteHeader({ locale, languageHref }: HeaderProps) {
         className="site-nav"
         aria-label={isEnglish ? 'Main navigation' : '主なページ'}
       >
-        <a href={localePath(locale, '/#apps')}>
+        <a href={localePath(locale, '/apps/#apps')}>
           {isEnglish ? 'Apps' : 'アプリ'}
         </a>
-        <a href={localePath(locale, '/contact/')}>
+        <a href={localePath(locale, '/apps/contact/')}>
           {isEnglish ? 'Contact' : 'お問い合わせ'}
         </a>
         <a
@@ -64,10 +64,10 @@ export function SiteFooter({ locale }: { locale: Locale }) {
       <nav
         aria-label={isEnglish ? 'Footer navigation' : 'フッターナビゲーション'}
       >
-        <a href={localePath(locale, '/#apps')}>
+        <a href={localePath(locale, '/apps/#apps')}>
           {isEnglish ? 'Apps' : 'アプリ'}
         </a>
-        <a href={localePath(locale, '/contact/')}>
+        <a href={localePath(locale, '/apps/contact/')}>
           {isEnglish ? 'Contact' : 'お問い合わせ'}
         </a>
         <a href="#top">
