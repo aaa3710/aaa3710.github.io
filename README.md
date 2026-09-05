@@ -46,7 +46,7 @@ node --experimental-strip-types scripts/sync-tsutawaru-copy.mjs \
 ```bash
 node --experimental-strip-types scripts/sync-location-logger-copy.mjs \
   '/Users/minatosuzuki/work_local/LocationLogger' \
-  c0532a568e760eb98f87a5aeceb28770ea795789 --check
+  b7241ea86b357212b78defc38db7bd536846c831 --check
 ```
 
 専用FeedbackはLocationLogger専用の日英URLと受付フラグを別設定として持ち、既定では送信できません。日英両フォームの実設定・受付試験を確認した後だけ3つの設定を同時に入れます。片言語不足、不正URL、同一フォーム、撮影計算アプリ用Feedback／共通Contactの流用ではbuildを失敗させます。配信地域は全アプリ共通の既定に従い日本ですが、App Store Connect操作や配布許可ではありません。[予定URL・検証・公開前条件](app-store/location-logger/site-verification-2026-09-05.md)を参照してください。

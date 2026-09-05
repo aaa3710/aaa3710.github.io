@@ -661,6 +661,24 @@ for (const locale of locales) {
       tags(html, 'img').length === 0,
       `${routePath}: unverified app imagery present`,
     );
+    if (kind === 'support')
+      check(
+        decodeHtml(html).includes(
+          locale === 'ja'
+            ? '位置記録や端末情報を自動で付けることはありません'
+            : 'will not automatically attach location records or device information',
+        ),
+        `${routePath}: voluntary Feedback boundary missing`,
+      );
+    if (kind === 'privacy')
+      check(
+        decodeHtml(html).includes(
+          locale === 'ja'
+            ? '利用者が自分で送信する報告の取扱いは別です'
+            : 'separate from handling a report you choose to send',
+        ),
+        `${routePath}: location records and voluntary report boundary missing`,
+      );
     if (kind === 'feedback') {
       check(
         metaValues(meta, 'robots').some(

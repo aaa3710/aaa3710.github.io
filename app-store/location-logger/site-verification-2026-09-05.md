@@ -4,8 +4,8 @@
 
 ## 正本と実装範囲
 
-- 本体commit `c0532a568e760eb98f87a5aeceb28770ea795789` の `Docs/AppStoreMetadata-ja.md` / `-en.md`、`Support-ja.md` / `-en.md`、`PrivacyPolicy-ja.md` / `-en.md` を内容正本とする。サイト側の生成データにはcommit、6原稿の本文とSHA-256を保持し、`scripts/sync-location-logger-copy.mjs` で確定原稿との一致を確認する。
-- 本体側の2.4(20)、XCTest 177/177、iPhone＋同梱Watch Release、runtimeWarnings空、日英同梱policyとDocs byte一致はLocationLogger担当から受領した別証拠であり、サイトbuildへ加算しない。監査正本は本体の `Docs/2026-09-05-release-risk-audit.md`。
+- 本体commit `b7241ea86b357212b78defc38db7bd536846c831` の `Docs/AppStoreMetadata-ja.md` / `-en.md`、`Support-ja.md` / `-en.md`、`PrivacyPolicy-ja.md` / `-en.md` を内容正本とする。サイト側の生成データにはcommit、6原稿の本文とSHA-256を保持し、`scripts/sync-location-logger-copy.mjs` で確定原稿との一致を確認する。旧採用commit `c0532a5` からApp Store原稿2本は不変、Support／Privacy日英4本だけを更新した。
+- 本体側の2.5(21)、Feedback追加テスト7/7、iPhone＋同梱Watchの開発署名付きRelease、runtimeWarnings空、日英同梱policyとDocs byte一致はLocationLogger担当から受領した別証拠であり、サイトbuildへ加算しない。これは配布署名・Archive・Validate・実機適合の証拠ではない。正本は本体の `Docs/2026-09-05-build21-feedback-verification.md` と `Docs/2026-09-05-release-risk-audit.md`。
 - 日英の紹介・Support・Privacy・Feedback計8routeを追加。一覧から紹介、共通ContactからSupport、Supportから専用Feedbackへ進む。紹介や共通ナビから専用Feedbackへ直結させない。
 - 紹介はApp Store原稿、Support／Privacyは各全文を限定Markdown表示する。地図併記、住所表示のApple送信、Shortcutsの現地iPhone本人認証、内部記録のOSバックアップ対象外、アプリ内一括削除操作がない現在境界を日英とも保持する。
 - 実画面・地図・位置記録の画像は追加していない。座標、住所、移動履歴、実データ、識別子、認証情報をサイトrepoへ取り込んでいない。
@@ -19,7 +19,7 @@
 - 有用な報告は概ね1か月以内の改善反映を目標として案内するが、全件採用・全件返信・期限内の修正や公開を保証しない。回答は周期だけを理由に削除せず、法令上の請求や誤送信された機微情報への必要な措置は別に扱う。
 - Googleフォーム送信で同意を得たい本人の希望は法的結論と分け、追加チェックを既定にしない。受付開始前に実際の説明・設定・適用要件を管理側で照合する。
 - 全アプリのアイコンは100% Codex制作との本人申告を現在方針として扱う。個々の成果物の制作証拠や、具体的な外部素材・権利問題の証拠が出た場合の確認は別に扱う。
-- LocationLogger本体の公開原稿6本はサイト実装時点で変更されていないため、生成データをcommit `c0532a5` のまま維持する。本体担当がFeedback導線に合わせた新しい正本commitを確定した後、公開前に6原稿を再照合し、変更があれば明示同期する。
+- LocationLogger本体のFeedback導線に合わせた正本commit `b7241ea` から6原稿を同期した。Support／Privacyでは、端末内の位置記録を開発者へ送らないことと、利用者が任意に送る報告の取扱いを区別し、専用Feedback／AI整理／別Contactが準備中である現在境界を日英で保持する。
 
 ## 予定URL
 
@@ -46,10 +46,11 @@ originは `https://aaa3710.github.io`。本作業では公開していない。
 - 専用接続設定の追加後、format、lint、単体17/17を成功。無効状態では静的build 41route、生成検証28/28ページ・40route・80 HTML・940assertionsを成功し、フォームURLと入力UIが出ないことを確認した。
 - 実在しない日英の合成回答者URLを使った有効状態でも、静的build 41route、生成検証28/28ページ・40route・80 HTML・948assertionsを成功。各言語に対応する外部リンクと埋め込みだけが出て、他言語、撮影計算アプリ用Feedback、共通Contactのフォームを流用しないこと、AI稼働未確認表示、位置記録や端末情報を自動添付しない表示を確認した。実Googleフォームへのアクセス・送信は行っていない。
 - 最終成果物を受付無効状態へ戻し、日英Feedbackを実ブラウザの390×844とデスクトップ幅で確認した。見出し、長文、言語切替、内部導線、送信不可表示に欠落や横方向の崩れはなく、browser error 0。実VoiceOverと英語母語話者査読は行っていない。
+- 本体commit `b7241ea` の6原稿を同期6/6一致。旧採用commitからApp Store原稿日英は不変、Support／Privacy日英4本だけが更新されたことを確認した。単体17/17、静的build 41route、生成検証28/28ページ・40route・80 HTML・944assertionsに成功。日本語Supportと英語PrivacyのContact節を390×844の実ブラウザで確認し、新しい任意報告・位置記録非送信・受付／AI準備中・別Contactの文面に欠落や横方向の崩れはなく、browser error 0だった。
 
 ## 公開前に残る条件
 
-- 本体commit `c0532a5` とサイト生成データの6原稿は照合済み。本体担当の新しい正本commit確定後に6原稿を再照合し、公開直前にも更新の有無を確認する。
+- 本体commit `b7241ea` とサイト生成データの6原稿は照合済み。公開直前にも本体正本の更新有無を確認する。
 - 配信地域は全アプリ共通の既定に従い日本のみ。ただし、この記録はApp Store Connect入力、提出、アプリ公開の許可ではない。
 - 公開前に日英8routeを初見の読者として再確認し、実Support URLから実際の連絡手段へ容易に到達できる状態を別に完成させる。共通Contactも現在送信不可であり、公開ページがあるだけでは実窓口完成にならない。
 - LocationLogger専用Feedbackフォームの作成・設定・受付試験は未実施。日英それぞれの公開回答者URLを確認し、匿名の自由記述1欄、説明、入力上限、下書き自動保存OFF、受付状態を照合するまでは3つのrepository variableを設定しない。

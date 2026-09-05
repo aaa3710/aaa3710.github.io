@@ -127,6 +127,10 @@ test('LocationLogger snapshots preserve the current privacy and support boundari
       'utf8',
     ),
   );
+  assert.equal(
+    snapshot.sourceCommit,
+    'b7241ea86b357212b78defc38db7bd536846c831',
+  );
   for (const locale of ['ja', 'en'])
     for (const kind of ['app', 'support', 'privacy']) {
       const record = snapshot.documents[locale][kind];
@@ -148,6 +152,23 @@ test('LocationLogger snapshots preserve the current privacy and support boundari
   assert.match(en.privacy.body, /excluded from operating-system backups/);
   assert.match(ja.app.body, /Apple地図を併記/);
   assert.match(en.app.body, /corresponding Apple map/);
+  assert.match(
+    ja.support.body,
+    /位置記録や端末情報を自動で付けることはありません/,
+  );
+  assert.match(
+    en.support.body,
+    /will not automatically attach location records or device information/,
+  );
+  assert.match(ja.support.body, /概ね1か月以内の改善反映を目指します/);
+  assert.match(en.support.body, /within about one month/);
+  assert.match(ja.privacy.body, /利用者が自分で送信する報告の取扱いは別/);
+  assert.match(
+    en.privacy.body,
+    /separate from handling a report you choose to send/,
+  );
+  assert.match(ja.privacy.body, /共通お問い合わせ窓口/);
+  assert.match(en.privacy.body, /separate common contact channel/);
 });
 
 test('LocationLogger Feedback uses its dedicated fail-closed configuration', async () => {
