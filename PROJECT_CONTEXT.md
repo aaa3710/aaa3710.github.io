@@ -24,7 +24,7 @@
 
 ## 文面の基準
 
-- 命名相談・公開準備は共通の [app-design-philosophy](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/SKILL.md) と [命名節「名前は、単独で用途と価値を伝える」](/Users/minatosuzuki/work_local/アプリ開発共通事項/思想/アプリ設計全体思想.md#名前は単独で用途と価値を伝える) を使う。製品metadataの内容正本は個別アプリ側とし、認知側には独立した原稿を作らない。
+- 担当は[担当境界の正本](/Users/minatosuzuki/work_local/アプリ開発共通事項/README.md#関連projectとの責任境界)、命名は[本人の命名方針](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md#全アプリ共通の命名方針)に従う。公開表現・表示構成・素材計画は認知の担当とし、機能事実・実画面は各アプリ、提出の採用値・外部gateは管理台帳を参照する。既存原稿と素材の保存場所は維持し、別repoの正本を認知担当が変更する場合は[project間の連携手順](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/references/project-coordination.md)でactive編集との競合を先に確認する。独立原稿を二重に保守しない。
 - 「誰に、どんな場面で、何が短くなるか」を先に書く。
 - 初めて読む人が知らない専門用語や内部の検証工程を、大見出しや主要ナビにしない。
 - 制作背景はアプリ管理側の `app_profiles/`、機能事実は各アプリの現行仕様へ戻って照合する。

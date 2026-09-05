@@ -2,7 +2,7 @@
 
 本人の意思は[本人の意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)を参照する。公開用メールの現在方針は同正本に従い、過去の採否未定・任意提案を現在の本人判断にしない。
 
-このフォルダは、App Store Connect向けメタデータ正本への参照、公開URL、画像の状態、App Previewの撮影計画、公開前の所有者判断を一か所で確認するための索引です。製品メタデータの内容正本は個別アプリ側の [AppStoreMetadata.ja-en.md](/Users/minatosuzuki/work_local/被写界深度計算ツール/Docs/Release/AppStoreMetadata.ja-en.md) とし、認知側に独立した入力原稿を置きません。
+このフォルダは、App Storeの公開表現・表示構成・素材計画を認知担当が整える入口です。公開URL、画像の状態、App Previewの撮影計画と既存正本を参照します。製品メタデータの既存正本は個別アプリ側の [AppStoreMetadata.ja-en.md](/Users/minatosuzuki/work_local/被写界深度計算ツール/Docs/Release/AppStoreMetadata.ja-en.md) に保持し、独立した入力原稿を二重に作りません。保存場所と編集担当を区別し、正本の変更前には [READMEの連携手順](../../README.md) でactive編集との競合を確認します。名称の決定、提出の採用値・外部gateは管理台帳を参照します。
 
 制作背景はアプリ管理側の `app_profiles/focus-map.md`、機能と画面は内部名Focus Mapのアプリ側にある現行仕様を参照します。公開文面は利用場面から始め、専門用語と開発工程を初見の入口へ置きません。ディレクトリ名、Bundle ID、素材名、過去のcommit記述は履歴と実装の識別子なので、公開名に合わせて一括置換しません。
 

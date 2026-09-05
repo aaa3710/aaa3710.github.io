@@ -4,7 +4,9 @@
 
 個人制作アプリを一覧から見つけ、内容を誤解せずに詳しい紹介やApp Storeへ進めるための日英対応サイトです。`ピントと光 — 撮影計算`（英語: `Focus & Light — Photo Tools`）は最初の詳しい紹介例ですが、トップページは全アプリを同じ規則で案内します。
 
-命名相談・公開準備は共通の [app-design-philosophy](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/SKILL.md) と [命名節「名前は、単独で用途と価値を伝える」](/Users/minatosuzuki/work_local/アプリ開発共通事項/思想/アプリ設計全体思想.md#名前は単独で用途と価値を伝える) を入口にします。製品metadataの内容正本は個別アプリ側に置き、このrepoは公開サイトと日英URLを保守します。
+担当は[担当境界の正本](/Users/minatosuzuki/work_local/アプリ開発共通事項/README.md#関連projectとの責任境界)、命名は[本人の命名方針](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md#全アプリ共通の命名方針)に従います。このrepoはWebサイトとApp Storeの公開表現・表示構成・素材計画を担当します。機能事実・実画面の証拠は各アプリの正本を参照し、提出の採用値・外部gateは管理台帳へ照合します。
+
+既存原稿・素材の保存場所と編集担当は区別します。認知担当が別repoの既存正本を変更する場合は、[project間の連携手順](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/references/project-coordination.md)でactive編集との競合を先に確認します。原稿や素材を移動せず、同じ内容の独立原稿を二重に保守しません。以下の確定commitからの取込と同期経路は維持します。
 
 ## 現在のサイト構成
 
@@ -29,7 +31,7 @@
 
 日英の紹介・Support・Privacy・専用Feedbackを追加し、一覧と共通Contactから接続しています。App Store未配信・受付準備中を明記し、実フォーム、公開メール、旧buildの画像は追加していません。`NEXT_PUBLIC_APP_FEEDBACK_READY` は既存の撮影計算アプリ用で、伝わる文字には流用しません。伝わる文字はフォーム未登録で、環境変数による有効化経路もありません。
 
-製品本文の正本は本体 `Docs/Public/` です。確定commit `0350e3df114f3672442545f58ee89cb9553d7695` の4原稿を、管理コメントを除いた出典付き生成データとして保持します。本文をサイト側だけで修正せず、本体で確定後に次の明示操作で同期してください。ビルドは兄弟repoやネットワークから原稿を取得しません。
+製品本文の正本は本体 `Docs/Public/` です。確定commit `0350e3df114f3672442545f58ee89cb9553d7695` の4原稿を、管理コメントを除いた出典付き生成データとして保持します。本文を生成データ側だけで修正せず、担当者が既存正本で確定した後に次の明示操作で同期してください。ビルドは兄弟repoやネットワークから原稿を取得しません。
 
 ```bash
 node --experimental-strip-types scripts/sync-tsutawaru-copy.mjs \
