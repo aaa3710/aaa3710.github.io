@@ -4,7 +4,7 @@
 
 ## 正本と実装範囲
 
-- 本体の [公開原稿](/Users/minatosuzuki/work_local/会話用音声文字起こし/Docs/Public/) 4件の最終採用commitは `a112293d335cb855b051bfba2501243057250e18`。初回採用 `ce0e5d1d10e591be2dd6cbd8446f2e9b72d472c4` から、日英Support／Privacyの各1段落末尾だけが変わったことを照合した。18歳未満の保護者許可、13歳未満の音声・個人情報をOpenAIへ送らないこと（成人による録音も同じ）を取り込んだ。本体 `33dfde2b08547a1ee61fe17a0a2ae76ff836da14` は前段build23の証拠であり、最新本体は同意版2・build24へ更新中との担当報告。サイト側で本体の最新検証成立を宣言しない。
+- 本体の [公開原稿](/Users/minatosuzuki/work_local/会話用音声文字起こし/Docs/Public/) 4件の現在のローカル採用commitは `0350e3df114f3672442545f58ee89cb9553d7695`。本体担当からアプリ1.1／build26不変、repo cleanとの引継ぎを受け、サイト側でもcommitとclean状態をlive確認した。前回の本番採用 `a112293d335cb855b051bfba2501243057250e18` から公開本文として変わったのは、近距離共有で同じ端末番号が表示された場合に両iPhoneでアプリを完全終了・再起動して再接続し、共有終了だけでは番号が変わらないと案内する日英Support各1段落だけ。日英Privacy本文は不変。サイト側で本体のApple検証成立を宣言しない。
 - 受付条件: 管理repo `0dfec49f6bcbff649ad893af2f3a3c80832dc816` の [専用Form準備](/Users/minatosuzuki/work_local/アプリ管理/feedback/tsutawaru-moji-form-preparation.md) と [配布台帳](/Users/minatosuzuki/work_local/アプリ管理/publishing/tsutawaru-moji-app-store.md)。原文90日保持は未採用案で、公開本文へ入れない。
 - 製品内容の正本は本体に維持。`scripts/sync-tsutawaru-copy.mjs` は指定commitの4原稿だけを読み、管理コメントを除いた `lib/tsutawaru-public.generated.json` とsource hashを生成する。手修正しない。通常buildは兄弟repoにも外部サイトにも原稿取得を依存しない。
 - 日英8routeを同じcomponentで実装。紹介は実装済み機能に絞り、Support／PrivacyはHTMLを実行しない限定Markdown表示で全本文を保持。見出しごとに開ける。旧build8画像、架空Storeリンク、公開メール、実Google Formは追加していない。
@@ -58,6 +58,14 @@ originは `https://aaa3710.github.io`。以下の日本語pathと、先頭に `/
 - 日英トップで伝わる文字の一覧導線、日英Support／Privacyの見出しと本文、`Language / 言語` の対向リンクを実ブラウザで確認。
 - 日英Feedbackは受付準備中・送信不可の表示を維持。Feedback日英とContact日英にGoogle Formリンク、`iframe`、入力`form`がないことを確認。
 - repository／environment variablesは0件のまま。Feedback／Contact受付、公開メール、実Form操作、実回答、メール、AI／scheduler、App Store Connect、アプリ配布は変更していない。
+
+## build26公開原稿の限定公開候補
+
+本番基準 `3f2b6a38a199df04952e427a4e55994154f36a7a` から、伝わる文字だけの公開候補をローカルbranch `codex/tsutawaru-build26-public` に切り出した。本体commit `0350e3df114f3672442545f58ee89cb9553d7695` の4原稿を既存同期scriptで取り込み、管理コメントは公開本文へ含めていない。
+
+公開本文の差分は日英Support各1段落だけで、同じ端末番号が表示された場合に両iPhoneでアプリを完全終了・再起動して再接続し、共有終了だけでは番号が変わらないと案内する。日英Privacy本文はbyte単位で不変。生成データではsource commit、日英Supportの本文とhash、非公開管理コメント変更に伴う日英Privacyのsource hashが更新されるが、Privacyの公開本文は変わらない。READMEの固定commitと本記録以外に、他アプリのsource・文面・route・受付設定は含めない。
+
+主worktreeで確認済みの同期4/4、format、lint、単体14/14、静的build 41route、生成検証28/28ページ・40route・80 HTML・932assertionsと、日英Supportの限定ブラウザ表示を証拠として参照する。本限定branchでは同期4/4と差分境界だけを再確認し、同じ全テストは再実行しない。push、deploy、本番公開、受付設定変更は行わない。
 
 ## 横断学習の扱い
 

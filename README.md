@@ -27,12 +27,12 @@
 
 日英の紹介・Support・Privacy・専用Feedbackを追加し、一覧と共通Contactから接続しています。App Store未配信・受付準備中を明記し、実フォーム、公開メール、旧buildの画像は追加していません。`NEXT_PUBLIC_APP_FEEDBACK_READY` は既存の撮影計算アプリ用で、伝わる文字には流用しません。伝わる文字はフォーム未登録で、環境変数による有効化経路もありません。
 
-製品本文の正本は本体 `Docs/Public/` です。確定commit `a112293d335cb855b051bfba2501243057250e18` の4原稿を、管理コメントを除いた出典付き生成データとして保持します。本文をサイト側だけで修正せず、本体で確定後に次の明示操作で同期してください。ビルドは兄弟repoやネットワークから原稿を取得しません。
+製品本文の正本は本体 `Docs/Public/` です。確定commit `0350e3df114f3672442545f58ee89cb9553d7695` の4原稿を、管理コメントを除いた出典付き生成データとして保持します。本文をサイト側だけで修正せず、本体で確定後に次の明示操作で同期してください。ビルドは兄弟repoやネットワークから原稿を取得しません。
 
 ```bash
 node --experimental-strip-types scripts/sync-tsutawaru-copy.mjs \
   '/Users/minatosuzuki/work_local/会話用音声文字起こし' \
-  a112293d335cb855b051bfba2501243057250e18 --check
+  0350e3df114f3672442545f58ee89cb9553d7695 --check
 ```
 
 更新時は採用commitを指定し、`--check` を外して生成します。管理側の受付条件は `0dfec49f6bcbff649ad893af2f3a3c80832dc816` を参照し、90日保持案は未採用のままです。[予定URL・検証・公開前条件](app-store/tsutawaru-moji/site-verification-2026-09-05.md)を参照してください。以下の既存サイト公開記録を、新規ページの公開証拠として扱わないでください。
