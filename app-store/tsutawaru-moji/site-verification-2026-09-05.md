@@ -48,6 +48,8 @@ originは `https://aaa3710.github.io`。以下の日本語pathと、先頭に `/
 
 受付には、専用日英Formの新規作成許可と実設定、保持期間・削除・Google国外処理の事前情報、共通Contactの公表事項・返信元・必要な請求対応を確定する必要がある。90日案や同意checkboxを勝手に採用しない。個人Googleアカウントであること、外部連携履歴なしは確認済み事項として再質問しない。作成、synthetic送信・受信・削除、受付開始は今回行わず、ready通知前に有効化しない。
 
+2026-09-05の全アプリ共通方針更新後も、日本語の本番紹介・Feedbackを実ブラウザで再表示し、本体公開原稿commit `a112293d335cb855b051bfba2501243057250e18` とサイト生成データの4/4一致、Feedback／Contact受付停止を再確認した。AI半自動整理、有用な報告の概ね1か月以内の改善反映目標、周期削除を既定にしない方針は、実フォームの説明・設定・適用要件と日英Privacyの整合を確認してから公開文面へ反映する。現在の公開FeedbackページはAI未運用・受付停止を明記しており、未稼働処理を稼働済みとは表示していない。専用フォームを共通Contactへ転用せず、未確認受付を有効化しない。
+
 本番公開前のローカル作業では、Apple lane 0、xcodebuild 0、xcrun 0、Apple test 0、Apple build 0、fresh 0、Apple retry 0、Apple failure 0、status64 0、status69 0、Apple起動失敗0、host終了0、Apple assertion／crash検出0。Apple実行由来の新規IPSは0（実行なし）で、Mac全体のIPS増減は未調査。Simulator 0、物理端末0、実API0、実Form0、実回答0、メール0、外部AI0、ASC操作0、push0、公開0。本体／管理側テストは加算していない。
 
 ## 本番公開結果

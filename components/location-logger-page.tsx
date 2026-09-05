@@ -21,9 +21,9 @@ const copy = {
     contact: '業務・運営・プライバシーの連絡先',
     pendingTitle: 'フォームはまだ利用できません。',
     pending:
-      '専用フォームの説明、保存・削除、実際の設定と受付試験が確認されるまで受付を開始しません。',
+      '専用フォームの説明、情報の取扱い、実際の設定と受付試験が確認されるまで受付を開始しません。',
     feedbackBody:
-      '不具合や要望を自由な文章一欄で伝える専用窓口を準備しています。アプリ名、言語、種類、端末、OS、氏名、メールアドレスの再入力は求めず、原則として個別返信は行わない予定です。',
+      '不具合、困りごと、要望を自由な文章一欄で伝える専用窓口を準備しています。アプリ名、言語、種類、端末、OS、氏名、メールアドレスの再入力は求めません。有用な報告は概ね1か月以内に改善へ反映することを目指しますが、全件採用、個別返信、期限内の修正や公開は保証しません。AIによる半自動整理はまだ稼働していません。',
     safety:
       '位置、座標、住所、移動履歴、書き出しファイル、個人情報、秘密、パスワード、認証コード、URLを送らないでください。',
   },
@@ -39,9 +39,9 @@ const copy = {
     contact: 'Business, administration, and privacy contact',
     pendingTitle: 'The form is not available yet.',
     pending:
-      'Intake will remain closed until the form explanation, retention, deletion, actual settings, and an acceptance test have been checked.',
+      'Intake will remain closed until the form explanation, data handling, actual settings, and an acceptance test have been checked.',
     feedbackBody:
-      'A dedicated channel with one free-text field is being prepared for bugs and suggestions. It will not ask you to re-enter the app, language, category, device, OS, name, or email address. Individual replies are not normally planned.',
+      'A dedicated channel with one free-text field is being prepared for bugs, issues, and requests. It will not ask you to re-enter the app, language, category, device, OS, name, or email address. Useful reports will be targeted for improvement within about one month, but adoption, individual replies, or fixes and releases within that period are not guaranteed. AI-assisted organization is not operating yet.',
     safety:
       'Do not send locations, coordinates, addresses, travel history, exported files, personal information, secrets, passwords, authentication codes, or URLs.',
   },
