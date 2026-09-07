@@ -64,9 +64,9 @@ npm run verify:pages
 
 ## 限定Sitesへの反映
 
-[本人限定Sites](https://focus-map-apps.minato-yokohama.chatgpt.site/apps/)は表示改修版のversion 2まで反映済みです。WordPress由来の最新版はローカルで完成していますが、その送信はpushの明示指示不足という自動承認レビューで停止しています。
+[本人限定Sites](https://focus-map-apps.minato-yokohama.chatgpt.site/apps/)には、本人の明示承認を受け、WordPress由来の最新版（version 3）を反映済みです。公開用153ファイルのみを送り、本人1名だけの閲覧範囲を維持しています。
 
-再開時は `site-output/` の検証済みファイルを、Sites専用の一時checkoutの `out/` にコピーします。設定の静的出力先も `out` とし、Sites公式package-site.shで配信用archiveを作ります。Sitesの既存mainを親にし、fast-forwardで送信してから実HEADを確認し、そのSHAとarchiveを同じversionに保存します。本人限定の公開範囲を確認してdeployします。
+次回の反映時は `site-output/` の検証済みファイルを、Sites専用の一時checkoutの `out/` にコピーします。設定の静的出力先も `out` とし、Sites公式package-site.shで配信用archiveを作ります。Sitesの既存mainを親にし、fast-forwardで送信してから実HEADを確認し、そのSHAとarchiveを同じversionに保存します。本人限定の公開範囲を確認してdeployします。
 
 元のリポジトリ全体やその履歴はSitesへ送りません。WordPressのDB・内部運用資料・認証情報も対象外です。今回のGitHub本番へのpushは未実行です。自動同期・定期公開は開始していません。
 

@@ -48,18 +48,18 @@ WordPress Studio → 公開対象のみ静的出力 → 同じ出力を本人限
 
 ## 外部への反映状態
 
-本人限定Sitesは表示改修版のversion 2を保存・deploy済み。sourceは `e9f5b67ea6b4edb58b1ae7ee45489c3d3cea3a39`。公開範囲は本人1名のみ、外部ユーザー・グループなしを確認した。
+本人は「最新版の公開用ファイルと設定153件を本人限定Sitesへpushしてよいですか」に「よいです」と明示承認した。以前の自動承認レビューによる停止は、この追加承認を受けて解消した。
 
-WordPress由来の最新版はローカルで完成し、GitHub本番は今回未更新。最新版をSitesソースへpushする操作は、自動承認レビューがAGENTS.mdの「pushは明示指示時だけ」に照らし、今回の承諾では不足と判定して拒否した。回避や再送は行っていない。
+公開範囲が本人1名のみ、外部ユーザー0、workspace/tenantグループ0であることを再確認。既存Sites側のHEADを取得し、fast-forwardで送信した。内部資料・元GitHub履歴・認証情報・WordPress DBは送信対象に含めていない。
 
-送信準備済みの成果物:
+- source SHA: `1f0ccb45c2dcaca2e4e941d012ec99d059c04d07`（push成功後に実HEADを再取得）
+- version: 3、`appgprj_6a92f2401bd48191960707846113f805~appgver_ae616259c7108191996e17ae808d6679`
+- deployment: `appgdep_6a9e702c23a8819180804c9a1e0a2786`
+- 結果: 2026-09-07 08:05 UTCに `succeeded`
+- URL: <https://focus-map-apps.minato-yokohama.chatgpt.site/apps/>
+- archive: 公開用の静的152ファイルとhosting設定1件、6,144,000 bytes、`sha256:3957ae48594f394721ba78721c892fd28dcabed8ee85c4be56a78cac250f8a47`
 
-- 一時checkout: `/private/tmp/apps-wordpress-sites-20260907/`
-- source SHA: `1f0ccb45c2dcaca2e4e941d012ec99d059c04d07`
-- 配信用archive: `/private/tmp/apps-wordpress-sites-20260907.tar.gz`（Sites公式package-site.shで検証済み）
-- 送信対象: 公開用の静的152ファイルとhosting設定1件。約6MB。元repoの内部資料、元Git履歴、認証情報、WordPress DBは含めない。
-
-再開に必要なのは「この静的確認版を本人限定Sitesへpushしてよい」という明示指示。承認後に公開範囲とリモートHEADを再確認し、fast-forwardで送信、実HEADを再取得して同じarchiveと保存・deployする。GitHub本番反映は別の公開操作として扱う。
+`site-output/`、`dist/client/`、Sites専用checkoutの `out/` は同一manifest・同一内容であることを再確認した。Sites公式package-site.shで同じsourceを包装し、保存したversionを本人限定deployした。既存のSitesタブを再読み込みし、WordPressで手編集した「気になるアプリを選んで、機能や使い方をご覧ください。」と新しいページ構成の反映をブラウザで確認した。GitHub本番は今回未更新であり、本番反映は別の公開操作として扱う。
 
 ## 残る素材
 

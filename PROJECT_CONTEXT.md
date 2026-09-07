@@ -2,7 +2,7 @@
 
 2026-09-07: 表示共通化とWordPress Studioへの移行を実施。日英40ページをブロック編集でき、公式Studio MCPの接続、実際の編集保存、静的出力、復元を検証した。Web編集原本はMac内のWordPress、配信物は `site-output/`。旧React原稿からのビルド・同期は通常運用に使わない。[使い方](wordpress/README.md)と[改修・検証記録](website-refinement-2026-09-07.md)を参照。
 
-本人限定Sitesは表示改修版のversion 2まで更新済み。WordPressから出した最新版は完成物を準備したが、Sites用リポジトリへのpushは自動承認レビューが明示指示不足として拒否した。再送は行っていない。GitHub本番は今回未更新。常駐同期・定期公開は開始していない。
+本人限定SitesはWordPress由来の最新版（version 3）まで反映済み。公開用153ファイルの送信について本人の明示承認を受け、既存Sitesへfast-forwardで送信し、保存・本人限定deployの成功を確認した。GitHub本番は今回未更新。常駐同期・定期公開は開始していない。
 
 本人の意思は[本人の意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)を参照する。公開用メールの現在方針は同正本に従い、過去の採否未定・任意提案を現在の本人判断にしない。
 
