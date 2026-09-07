@@ -72,8 +72,8 @@ test('form readiness is independent and requires the exact true value', async ()
 
 test('localized names and public paths share the same app identity', async () => {
   const { featuredApp, featuredAppPaths } = await readSite(undefined);
-  assert.equal(featuredApp.name.ja, 'ピントと光 — 撮影計算');
-  assert.equal(featuredApp.name.en, 'Focus & Light — Photo Tools');
+  assert.equal(featuredApp.name.ja, '撮影のものさし');
+  assert.equal(featuredApp.name.en, 'Photo Yardstick');
   for (const name of Object.values(featuredApp.name)) {
     assert.ok([...name].length <= 30);
     assert.ok(!name.includes('&amp;'));

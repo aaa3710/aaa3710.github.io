@@ -42,7 +42,7 @@ const content = {
     originLabel: 'このアプリを作った理由',
     originTitle: '計算を終えて、写真に集中したかった。',
     originBody:
-      'ピント位置と絞りを先に決めておけば、撮影中に考えることを減らせます。ただ、そのたびに被写界深度を手計算するのは面倒でした。そこで、iPhoneですぐに範囲を確認できる、自分でも使いたい道具として「ピントと光 — 撮影計算」を作り始めました。',
+      'ピント位置と絞りを先に決めておけば、撮影中に考えることを減らせます。ただ、そのたびに被写界深度を手計算するのは面倒でした。そこで、iPhoneですぐに範囲を確認できる、自分でも使いたい道具として「撮影のものさし」を作り始めました。',
     sceneLabel: 'こんなときに',
     sceneTitle: '計算結果を見ながら、機材ごとの距離感をつかむ。',
     scenes: [
@@ -99,7 +99,7 @@ const content = {
     eyebrow: 'iPhone · iOS 17 or later · Preparing for release',
     title:
       'Spend less time calculating focus and more time taking photographs.',
-    lead: 'Choose a focus distance and aperture to see how much of the scene should appear acceptably sharp. Focus & Light — Photo Tools is designed for quick checks before shooting with manual-focus cameras and lenses.',
+    lead: 'Choose a focus distance and aperture to see how much of the scene should appear acceptably sharp. Photo Yardstick is designed for quick checks before shooting with manual-focus cameras and lenses.',
     state: 'Preparing for the App Store',
     privacy: 'Privacy',
     support: 'Support',
@@ -108,7 +108,7 @@ const content = {
     originTitle:
       'I wanted to finish the calculation and return to the photograph.',
     originBody:
-      'Setting focus and aperture in advance can remove decisions while shooting, but calculating depth of field each time was slow. I began Focus & Light — Photo Tools as a tool I wanted for myself: a quick way to check the range on an iPhone.',
+      'Setting focus and aperture in advance can remove decisions while shooting, but calculating depth of field each time was slow. I began Photo Yardstick as a tool I wanted for myself: a quick way to check the range on an iPhone.',
     sceneLabel: 'Useful moments',
     sceneTitle: 'Build a feel for focus distance with each camera and lens.',
     scenes: [
@@ -151,8 +151,7 @@ const content = {
       'Japanese and English',
     ],
     releaseLabel: 'Release status',
-    releaseTitle:
-      'Focus & Light — Photo Tools is still being prepared for the App Store.',
+    releaseTitle: 'Photo Yardstick is still being prepared for the App Store.',
     releaseBody:
       'Automated calculation and interface tests and build checks are in progress. Physical-device checks, including hands-on use and VoiceOver, remain separate, so this page does not present the app as already released.',
     limitsLabel: 'About the results',
@@ -224,8 +223,8 @@ export function FocusMapStory({ locale }: { locale: Locale }) {
                 src={sitePath(`${featuredApp.imageDirectory}/${mainScreen}`)}
                 alt={
                   isEnglish
-                    ? 'Focus & Light — Photo Tools showing an acceptable focus range and blur curve'
-                    : '「ピントと光 — 撮影計算」で、合って見える範囲とぼけの曲線を表示している画面'
+                    ? 'Photo Yardstick showing an acceptable focus range and blur curve'
+                    : '「撮影のものさし」で、合って見える範囲とぼけの曲線を表示している画面'
                 }
                 width="1320"
                 height="2868"

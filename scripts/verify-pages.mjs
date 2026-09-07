@@ -18,8 +18,8 @@ const slug = 'focus-exposure-calculator';
 const locales = ['ja', 'en'];
 const kinds = ['home', 'app', 'privacy', 'support', 'feedback', 'contact'];
 const names = {
-  ja: 'ピントと光 — 撮影計算',
-  en: 'Focus & Light — Photo Tools',
+  ja: '撮影のものさし',
+  en: 'Photo Yardstick',
 };
 const formUrls = {
   feedback: {

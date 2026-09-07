@@ -4,8 +4,8 @@ export type Locale = 'ja' | 'en';
 export const featuredApp = {
   slug: 'focus-exposure-calculator',
   name: {
-    ja: 'ピントと光 — 撮影計算',
-    en: 'Focus & Light — Photo Tools',
+    ja: '撮影のものさし',
+    en: 'Photo Yardstick',
   },
   imageDirectory: '/images/focus-exposure-calculator',
 } as const;
