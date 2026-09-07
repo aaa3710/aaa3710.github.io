@@ -10,7 +10,7 @@
 - 「共通デザイン」でサイト全体の色や書体を変更します。
 - 「ローカルで確認」で仕上がりを確認します。片方の言語を編集すると、対応する他方に確認表示が付きます。
 
-保存先はこのMac内です。[確認版を書き出す.command](確認版を書き出す.command)で配信用ファイルを作成し、確認した同じファイルを本人限定SitesとGitHub Pagesへ反映します。外部への反映は公開操作として分けています。[編集原本をバックアップ.command](編集原本をバックアップ.command)で本文・画像・デザインをまとめて保存できます。
+保存先はこのMac内です。WordPressの「ローカルで確認」で仕上がりを見て、Codexへ **「現在のWordPressを公開して」** と伝えてください。Codexが書き出し・検証・GitHub Pagesへの公開まで行います。本人による書き出しやSitesの確認は不要です。保存だけでは一般公開されません。[編集原本をバックアップ.command](編集原本をバックアップ.command)で本文・画像・デザインをまとめて保存できます。
 
 使い方と保守手順は[WordPress運用](wordpress/README.md)、実装・検証・公開の現在地は[改修記録](website-refinement-2026-09-07.md)を参照してください。
 
@@ -58,7 +58,7 @@ npm run dev
 | Feedback            | `/apps/feedback/<slug>/` | `/apps/en/feedback/<slug>/` |
 | アプリ運営のContact | `/apps/contact/`         | `/apps/en/contact/`         |
 
-大元 `/` と `/en/` は当面アプリ一覧へ案内します。公開済みの旧URL25件（別件の未公開LocationLoggerページを含むローカル出力では31件）は、固定の新URLへの即時HTML転送と手動リンクを持ち、`noindex, nofollow` とします。HTTP 301ではありません。廃止済みの `focus-map` と旧共通Feedbackは復活させません。転送もWordPressからの静的書き出しに含め、確認版と本番に同じファイルを使います。
+大元 `/` と `/en/` は当面アプリ一覧へ案内します。旧URL31件は、固定の新URLへの即時HTML転送と手動リンクを持ち、`noindex, nofollow` とします。HTTP 301ではありません。廃止済みの `focus-map` と旧共通Feedbackは復活させません。転送もWordPressからの静的書き出しに含め、確認版と本番に同じファイルを使います。
 
 アプリの機能事実・プライバシーの内容正本は各アプリ、Webの文章・配置の編集原本はWordPress、公開URLと移行の検証記録は[URL移行記録](app-store/url-migration-2026-09-05.md)で管理します。過去の公開検証記録は当時の証拠として保持します。
 

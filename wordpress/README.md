@@ -7,8 +7,7 @@
 1. 日本語または英語の「編集」を開き、文章・画像・節の順序を変更して保存する。
 2. もう片方の言語を照合し、「日英を確認済みにする」を押す。
 3. 「ローカルで確認」でページを確認する。全ページに共通する色・書体は「共通デザイン」で変更する。
-4. [確認版を書き出す.command](../確認版を書き出す.command)を実行する。公開対象だけを書き出し、URL・導線・日本語・フォーム停止などを検査する。
-5. Codexへ確認版の反映を指示する。確認用Sitesと公開用GitHub Pagesには同じ書き出しを使う。
+4. Codexへ **「現在のWordPressを公開して」** と伝える。書き出し・検証・GitHub Pagesへの公開はCodexが行います。保存だけでは一般公開されません。
 
 画像の追加・交換、通常のブロックの追加・移動はWordPressで行えます。PHP、会員ログイン、サーバー内検索、動的フォーム等を必要とするプラグイン機能はGitHub Pages上では動きません。そのような機能や未対応の外部資源が混ざると、書き出しを停止し、前の配信物を保持します。
 
@@ -28,6 +27,15 @@
 Webの文章・配置はWordPressが原本です。機能事実・実画面・プライバシー上の仕様は引き続き各アプリの正本へ照合します。旧 `app/` と生成JSONは初回移行元として保持しますが、二つのWeb原稿を並行保守しません。`build:legacy` と `sync-*-copy.mjs` は移行元の検証用であり、通常の編集・配信に使いません。
 
 テーマコードの更新は `node scripts/wordpress-install-code.mjs` で行います。この操作はコードだけをコピーし、本文DB・画像・保存済み共通スタイルを上書きしません。`wordpress/bootstrap.php` は初回移行専用で、移行済みの原本への再投入を拒否します。
+
+## Codexが「公開して」と依頼された時
+
+1. 本人意思の正本と現在のWordPress原本、Git差分、公開先の最新履歴を確認する。過去のSitesや古い書き出しを現在の原本と取り違えない。別の公開修正がある場合は原本と照合して後退を防ぐ。
+2. `scripts/studio.sh site start --path work/wordpress/site --skip-browser --skip-log-details` で原本を起動し、`npm run wordpress:export` でその時点の公開対象を新しく書き出す。保存前の編集や下書きは含まれない。
+3. 書き出した日英の表示・390px前後とデスクトップ・主要導線・受付停止・原本との一致を確認する。編集中に内容が変わった場合は混在した版を公開しない。
+4. `node scripts/wordpress-promote.mjs <今回検証した出力ディレクトリ>` で採用し、GitHub Actionsと同じformat・lint・test・build・verifyを通す。配信対象は静的ファイルだけで、WordPress DB・管理画面・認証情報を含めない。
+5. 差分を確認しコミットする。「公開して」の対象範囲で既存の `aaa3710/aaa3710.github.io` のmainへ通常pushし、Actionsのbuild・deploy成功と実公開URLを確認する。force pushしない。公開指示を再確認しない。
+6. 今回の出力・commit・配信結果をPROJECT_CONTEXTへ記録し、公開URLを本人へ返す。公開完了前に完了と報告しない。Sitesの送信・deployは不要。
 
 ## バックアップと復元
 
@@ -66,7 +74,9 @@ npm run verify:pages
 
 `studio site status --format json` は管理者パスワードも返すため、その生出力を表示・記録しません。管理画面はローカルのStudio自動ログイン経路を使用し、認証情報をGitや会話へ保存しません。
 
-## 限定Sitesへの反映
+## 旧Sites確認版（通常運用では更新しない）
+
+Sitesは現在の編集内容と同期しません。通常の確認・公開には使わず、削除や閲覧範囲変更は行っていません。以下は以前の反映手順の記録です。
 
 [本人限定Sites](https://focus-map-apps.minato-yokohama.chatgpt.site/apps/)には、本人の明示承認を受け、WordPress由来の最新版（version 3）を反映済みです。公開用153ファイルのみを送り、本人1名だけの閲覧範囲を維持しています。
 

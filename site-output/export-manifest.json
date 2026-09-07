@@ -216,8 +216,8 @@
     },
     {
       "path": "apps.html",
-      "bytes": 38258,
-      "sha256": "774125d94bc4f338f029d1024fea0e5539ceea337579adc7605cb6771efd0f92"
+      "bytes": 38344,
+      "sha256": "6b5444a269a3adb9aa6f9a6b224c3e8a49354f2f3b709fbea69368fea9c4fdd0"
     },
     {
       "path": "apps/card-relay.html",
@@ -241,8 +241,8 @@
     },
     {
       "path": "apps/en.html",
-      "bytes": 36364,
-      "sha256": "2cc783f98d44fa058862368af192a7226087f3ecd54ecf839db80cda6bb29a7c"
+      "bytes": 36369,
+      "sha256": "c05a13a0836225247f06ad04807caf0dc88502e0094c75a9a62f8576fb5928f3"
     },
     {
       "path": "apps/en/card-relay.html",
@@ -316,8 +316,8 @@
     },
     {
       "path": "apps/en/index.html",
-      "bytes": 36364,
-      "sha256": "2cc783f98d44fa058862368af192a7226087f3ecd54ecf839db80cda6bb29a7c"
+      "bytes": 36369,
+      "sha256": "c05a13a0836225247f06ad04807caf0dc88502e0094c75a9a62f8576fb5928f3"
     },
     {
       "path": "apps/en/location-logger.html",
@@ -431,13 +431,13 @@
     },
     {
       "path": "apps/en/wrist-morse.html",
-      "bytes": 24402,
-      "sha256": "d2cc56a4d5badd6bc4f3c30bb76685312f0a600393920d561a4f34c7d8564b22"
+      "bytes": 24787,
+      "sha256": "cbbc036cd2c8c599581d50bd2b8708714ad6cee3e0891fcdf3fd95b730a8f13e"
     },
     {
       "path": "apps/en/wrist-morse/index.html",
-      "bytes": 24402,
-      "sha256": "d2cc56a4d5badd6bc4f3c30bb76685312f0a600393920d561a4f34c7d8564b22"
+      "bytes": 24787,
+      "sha256": "cbbc036cd2c8c599581d50bd2b8708714ad6cee3e0891fcdf3fd95b730a8f13e"
     },
     {
       "path": "apps/feedback/focus-exposure-calculator.html",
@@ -491,8 +491,8 @@
     },
     {
       "path": "apps/index.html",
-      "bytes": 38258,
-      "sha256": "774125d94bc4f338f029d1024fea0e5539ceea337579adc7605cb6771efd0f92"
+      "bytes": 38344,
+      "sha256": "6b5444a269a3adb9aa6f9a6b224c3e8a49354f2f3b709fbea69368fea9c4fdd0"
     },
     {
       "path": "apps/location-logger.html",
@@ -606,13 +606,13 @@
     },
     {
       "path": "apps/wrist-morse.html",
-      "bytes": 24734,
-      "sha256": "5c0e69c663145069df111418ba59bd5dcaf4fd4504e31035406a02ca655fe108"
+      "bytes": 26030,
+      "sha256": "bc842a8ea7405ab8606a09bbb9fe14658329e62b75faada6afded5efed14d859"
     },
     {
       "path": "apps/wrist-morse/index.html",
-      "bytes": 24734,
-      "sha256": "5c0e69c663145069df111418ba59bd5dcaf4fd4504e31035406a02ca655fe108"
+      "bytes": 26030,
+      "sha256": "bc842a8ea7405ab8606a09bbb9fe14658329e62b75faada6afded5efed14d859"
     },
     {
       "path": "contact.html",

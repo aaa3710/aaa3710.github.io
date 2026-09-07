@@ -126,7 +126,7 @@ add_action('admin_post_apps_pair_checked', function () {
 function apps_editor_page() {
     echo '<div class="wrap"><h1>Webサイトを編集</h1><p>文章・画像・節の順序は各ページで、全体の色や文字は「共通デザイン」で編集できます。保存はこのMac内です。</p>';
     echo '<p><a class="button" href="' . esc_url(admin_url('site-editor.php?path=%2Fwp_global_styles')) . '">共通デザイン</a> <a class="button" href="' . esc_url(home_url('/apps/')) . '" target="_blank" rel="noopener">ローカルで確認</a></p>';
-    echo '<p>片方の言語を変更すると、もう片方に「確認が必要」と表示します。公開反映は確認版を書き出してから行います。</p><table class="widefat striped"><thead><tr><th>ページ</th><th>日本語</th><th>English</th><th>日英の照合</th></tr></thead><tbody>';
+    echo '<p>片方の言語を変更すると、もう片方に「確認が必要」と表示します。「ローカルで確認」で仕上がりを見たら、Codexに「現在のWordPressを公開して」と伝えてください。書き出しと公開はCodexが行います。保存だけでは一般公開されません。</p><table class="widefat striped"><thead><tr><th>ページ</th><th>日本語</th><th>English</th><th>日英の照合</th></tr></thead><tbody>';
     foreach (get_posts(['post_type' => 'page', 'post_status' => 'publish', 'numberposts' => -1, 'orderby' => 'menu_order title', 'order' => 'ASC']) as $page) {
         $route = apps_route($page->ID);
         if (!str_starts_with($route, '/apps/') || apps_english($route)) continue;

@@ -22,5 +22,5 @@ if (check.status !== 0)
   throw new Error('Verification failed; previous snapshot retained');
 await replaceArtifact(source, path.join(root, 'site-output'));
 console.log(
-  'Prepared the same public snapshot for Sites and GitHub Pages. No remote deployment was performed.',
+  'Prepared the reviewed WordPress snapshot for GitHub Pages. No remote deployment was performed.',
 );
