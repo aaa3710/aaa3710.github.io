@@ -2,14 +2,22 @@ import { spawnSync } from 'node:child_process';
 import { writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { exportWordPress } from './wordpress-export.mjs';
+import { requireSameArtifact, verifyArtifact } from './wordpress-artifact.mjs';
 const root = path.resolve(import.meta.dirname, '..');
 const site = path.join(root, 'work/wordpress/site');
+const checking = process.argv[2] === '--check-against';
+if (checking && !process.argv[3])
+  throw new Error('Specify the reviewed WordPress export to compare');
+const reviewed = checking ? path.resolve(process.argv[3]) : null;
+if (reviewed) await verifyArtifact(reviewed);
 const stamp = new Date()
   .toISOString()
   .replaceAll(':', '-')
   .replace(/\.\d+Z$/, 'Z');
 const output = path.resolve(
-  process.argv[2] || path.join(root, 'work/wordpress/exports', stamp),
+  checking
+    ? path.join(root, 'work/wordpress/exports', stamp + '-check')
+    : process.argv[2] || path.join(root, 'work/wordpress/exports', stamp),
 );
 function wp(args) {
   const r = spawnSync(
@@ -48,9 +56,14 @@ if (check.status !== 0)
   throw new Error(
     'Static verification failed. The current published snapshot was not changed.',
   );
-await mkdir(path.join(root, 'work/wordpress'), { recursive: true });
-await writeFile(
-  path.join(root, 'work/wordpress/latest-export.json'),
-  JSON.stringify({ directory: output, ...result }, null, 2) + '\n',
-);
-console.log(`確認版を書き出しました: ${output}`);
+if (reviewed) {
+  const count = await requireSameArtifact(reviewed, output);
+  console.log(`現在のWordPressと公開候補の${count}ファイルが一致しました。`);
+} else {
+  await mkdir(path.join(root, 'work/wordpress'), { recursive: true });
+  await writeFile(
+    path.join(root, 'work/wordpress/latest-export.json'),
+    JSON.stringify({ directory: output, ...result }, null, 2) + '\n',
+  );
+  console.log(`確認版を書き出しました: ${output}`);
+}

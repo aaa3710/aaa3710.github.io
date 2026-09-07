@@ -20,6 +20,17 @@ const check = spawnSync(
 );
 if (check.status !== 0)
   throw new Error('Verification failed; previous snapshot retained');
+const current = spawnSync(
+  process.execPath,
+  [
+    path.join(root, 'scripts/wordpress-snapshot.mjs'),
+    '--check-against',
+    source,
+  ],
+  { cwd: root, stdio: 'inherit' },
+);
+if (current.status !== 0)
+  throw new Error('WordPress comparison failed; previous snapshot retained');
 await replaceArtifact(source, path.join(root, 'site-output'));
 console.log(
   'Prepared the reviewed WordPress snapshot for GitHub Pages. No remote deployment was performed.',

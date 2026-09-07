@@ -28,13 +28,24 @@ Webの文章・配置はWordPressが原本です。機能事実・実画面・�
 
 テーマコードの更新は `node scripts/wordpress-install-code.mjs` で行います。この操作はコードだけをコピーし、本文DB・画像・保存済み共通スタイルを上書きしません。`wordpress/bootstrap.php` は初回移行専用で、移行済みの原本への再投入を拒否します。
 
+## Codexによるサイト編集
+
+「サイトの文章を直して」「公開サイトのデザインを変えて」と頼まれた場合も、本人と同じWordPress Studio原本を編集します。本人はWordPressを開き直すか再読み込みすれば、その保存済みの変更を確認できます。開いたままの未保存編集は自動更新されないため、競合する上書きを行いません。
+
+- 本文・画像・節の順序はStudio MCPまたは公式WP-CLIで現在のページを読み、対象だけを更新します。標準ブロック・メディアと既存ページIDを保ち、手動編集を古い全文で上書きしません。保存後に読み戻して確認します。
+- 共通デザインのコード変更は `wordpress/theme/`・`wordpress/plugin/` を修正し、`node scripts/wordpress-install-code.mjs` でWordPressへ適用してから確認します。DBに保存されたSite Editorの設定も照合します。
+- `site-output/` や `dist/client/` の直接編集、旧React原稿のみの編集、GitHub上だけの変更を通常の編集経路にしません。WordPressへの反映が済まなければ編集完了・公開完了と報告しません。
+- 修正だけの依頼はWordPressへ保存・確認までとし、公開の指示がある時に同じ原本から書き出して公開します。Web上の変更を自動逆取込する仕組みではありません。
+
+`npm run wordpress:check -- site-output` で現在のWordPressから新しく書き出し、採用済みの全配信ファイルと照合できます。本文・画像・CSS・追加/削除ページなどが違えば非成功で止まり、採用済みファイルと通常の最新書き出しポインタを変更しません。`wordpress-promote.mjs` はこの照合を必ず通してから公開候補を採用します。公開までに別の編集が入った場合は、push直前にも同じ確認を行います。
+
 ## Codexが「公開して」と依頼された時
 
 1. 本人意思の正本と現在のWordPress原本、Git差分、公開先の最新履歴を確認する。過去のSitesや古い書き出しを現在の原本と取り違えない。別の公開修正がある場合は原本と照合して後退を防ぐ。
 2. `scripts/studio.sh site start --path work/wordpress/site --skip-browser --skip-log-details` で原本を起動し、`npm run wordpress:export` でその時点の公開対象を新しく書き出す。保存前の編集や下書きは含まれない。
 3. 書き出した日英の表示・390px前後とデスクトップ・主要導線・受付停止・原本との一致を確認する。編集中に内容が変わった場合は混在した版を公開しない。
 4. `node scripts/wordpress-promote.mjs <今回検証した出力ディレクトリ>` で採用し、GitHub Actionsと同じformat・lint・test・build・verifyを通す。配信対象は静的ファイルだけで、WordPress DB・管理画面・認証情報を含めない。
-5. 差分を確認しコミットする。「公開して」の対象範囲で既存の `aaa3710/aaa3710.github.io` のmainへ通常pushし、Actionsのbuild・deploy成功と実公開URLを確認する。force pushしない。公開指示を再確認しない。
+5. `npm run wordpress:check -- site-output` でpush直前にWordPressとの一致を確認し、差分を確認してコミットする。「公開して」の対象範囲で既存の `aaa3710/aaa3710.github.io` のmainへ通常pushし、Actionsのbuild・deploy成功と実公開URLを確認する。force pushしない。公開指示を再確認しない。
 6. 今回の出力・commit・配信結果をPROJECT_CONTEXTへ記録し、公開URLを本人へ返す。公開完了前に完了と報告しない。Sitesの送信・deployは不要。
 
 ## バックアップと復元

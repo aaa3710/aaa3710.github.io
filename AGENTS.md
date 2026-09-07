@@ -2,6 +2,7 @@
 
 - アプリ公開・運営に関する本人の意思は[本人の意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)を唯一の内容正本とする。意思に関わる判断・本人への再質問・引継ぎ前に現在値を読み、新しい意思や訂正を受けたら[参照・更新手順](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/SKILL.md#本人の意思を参照更新する)に従って更新する。本文をこのAGENTSへ複製せず、未反映を完了扱いしない。
 
+- Web編集は本人・CodexともMac内のWordPress Studioを原本とする。Codexへ公開サイトの修正を頼まれた時も、本文・画像・構成はWordPressへ保存し、テーマ・プラグイン変更はローカル原本へ適用して確認する。`site-output/`・`dist/client/`・旧React原稿だけを変更して公開しない。編集・公開前照合は [WordPress運用](wordpress/README.md#codexによるサイト編集) に従い、WordPress未反映を完了扱いしない。
 - 目的は、個人制作アプリを必要な人が見つけ、内容を誤解せずApp Storeへ進める状態をつくること。
 - 制作目的・収益化・実名と連絡先の公開範囲は[本人の意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)の現在値を使う。サイトの文章や外部の制度説明を本人の意思として記録しない。
 - 最終的には現在までに制作した全アプリを扱う。数を固定せず、新しいアプリが増えたら一覧へ追加する。

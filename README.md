@@ -14,6 +14,8 @@
 
 使い方と保守手順は[WordPress運用](wordpress/README.md)、実装・検証・公開の現在地は[改修記録](website-refinement-2026-09-07.md)を参照してください。
 
+Codexへサイト修正を頼む場合も、同じWordPressへ変更を保存します。WordPressを再読み込みすれば確認できます。公開候補を採用する際はWordPressとの全ファイル照合を行い、不一致なら停止します。
+
 ## 正本と担当
 
 本人の希望・公開範囲は[OWNER_INTENT](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)、担当は[共通README](/Users/minatosuzuki/work_local/アプリ開発共通事項/README.md#関連projectとの責任境界)に従います。機能事実・実画面・プライバシーの内容は各アプリの現行資料、提出・配信・問い合わせ運用は管理台帳を参照します。新しい機能や提供条件をWeb編集だけで確定しません。

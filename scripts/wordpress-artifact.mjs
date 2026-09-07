@@ -58,3 +58,20 @@ export async function replaceArtifact(source, target) {
   await cp(source, target, { recursive: true });
   await verifyArtifact(target);
 }
+
+// Compare validated payloads, not export timestamps or manifest entry order.
+export async function requireSameArtifact(reviewed, current) {
+  const a = await verifyArtifact(reviewed);
+  const b = await verifyArtifact(current);
+  const expected = new Map(a.files.map((f) => [f.path, f.sha256]));
+  const actual = new Map(b.files.map((f) => [f.path, f.sha256]));
+  const changed = [...new Set([...expected.keys(), ...actual.keys()])]
+    .filter((file) => expected.get(file) !== actual.get(file))
+    .sort((a, b) => a.localeCompare(b));
+  if (changed.length) {
+    throw new Error(
+      `WordPressと公開候補が一致しません。原本へ反映して再確認してください: ${changed.join(', ')}`,
+    );
+  }
+  return expected.size;
+}
