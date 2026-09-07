@@ -1,6 +1,6 @@
 # WordPressでWebサイトを編集する
 
-[Webサイトを編集.command](../Webサイトを編集.command)をダブルクリックし、Chromeの「Webサイト」から編集します。WordPressでの保存はこのMac内だけです。既存のWordPress.comサイトとは別の編集環境です。
+デスクトップの **「Webサイト編集」** をダブルクリックし、Chromeの「Webサイト」から編集します。WordPressが停止している場合も、起動を待ってから編集画面を開きます。WordPressでの保存はこのMac内だけです。既存のWordPress.comサイトとは別の編集環境です。
 
 ## 普段の操作
 
@@ -45,6 +45,10 @@ node scripts/wordpress-restore.mjs --backup work/wordpress/backups/<日時>-comp
 復元先は `work/wordpress/` の配下だけを受け付けます。Studio標準ZIPだけで復元した場合は共有画像2枚が欠けるため、この完全バックアップを使用してください。
 
 ## Codexの保守操作
+
+起動入口は `~/Applications/Webサイト編集.app`、デスクトップはそのショートカットです。`scripts/open-wordpress.sh` が起動確認とChromeへの案内を行い、旧 `.command` もこの処理を使用します。失敗時はアプリがダイアログを表示します。会話内のファイルリンクは起動ボタンとして案内しません。
+
+入口を再作成する場合は `scripts/install-wordpress-launcher.sh` を使います。既存の同名項目は上書きしません。インストール先のアプリはローカルで署名し、認証情報を含みません。
 
 WordPress Studio CLI 1.20.0、WordPress 7.1、PHP 8.4で構築しています。Studio用のNodeは既存のCodex同梱Node 24を使い、システム全体のNodeは変更していません。
 
