@@ -6,12 +6,14 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "test": "node --experimental-strip-types --test scripts/public-config.test.mjs scripts/public-document.test.mjs scripts/readable-text.test.mjs",
-    "dev": "vinext dev",
-    "build": "vinext build",
-    "build:pages": "node scripts/build-pages.mjs",
+    "test": "node --experimental-strip-types --test scripts/public-config.test.mjs scripts/public-document.test.mjs scripts/readable-text.test.mjs scripts/wordpress-export.test.mjs",
+    "dev": "node scripts/serve-site.mjs",
+    "build": "node scripts/build-snapshot.mjs",
+    "build:pages": "node scripts/build-snapshot.mjs",
+    "build:legacy": "node scripts/build-pages.mjs",
+    "wordpress:export": "node scripts/wordpress-snapshot.mjs",
     "verify:pages": "node scripts/verify-pages.mjs",
-    "start": "wrangler dev --config dist/server/wrangler.json",
+    "start": "node scripts/serve-site.mjs",
     "lint": "oxlint",
     "format": "oxfmt"
   },
@@ -50,6 +52,7 @@
     "oxfmt": "0.61.0",
     "oxlint": "1.76.0",
     "oxlint-tsgolint": "7.0.2001",
+    "parse5": "8.0.0",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",
     "vite": "^8.2.2",

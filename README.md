@@ -1,103 +1,49 @@
 # Apps website
 
-アプリの公開・運営に関する希望、個人情報の公開範囲、公開用メールの方針は[本人の意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)に集約しています。 判断前・新しい意思を受けた時・作業終了前の扱いは[参照・更新手順](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/SKILL.md#本人の意思を参照更新する)を使います。
+個人制作アプリを見つけ、内容を誤解せずに紹介・サポートへ進める日英対応サイトです。公開サイトはGitHub Pages、Webの編集原本はこのMacのWordPress Studioです。
 
-個人制作アプリを一覧から見つけ、内容を誤解せずに詳しい紹介やApp Storeへ進めるための日英対応サイトです。`撮影のものさし`（英語: `Photo Yardstick`）は最初の詳しい紹介例ですが、`/apps/` の一覧は全アプリを同じ規則で案内します。
+## 編集する
 
-担当は[担当境界の正本](/Users/minatosuzuki/work_local/アプリ開発共通事項/README.md#関連projectとの責任境界)、命名は[本人の命名方針](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md#全アプリ共通の命名方針)に従います。このrepoはWebサイトとApp Storeの公開表現・表示構成・素材計画を担当します。機能事実・実画面の証拠は各アプリの正本を参照し、提出の採用値・外部gateは管理台帳へ照合します。
+[Webサイトを編集.command](Webサイトを編集.command)をダブルクリックすると、Chromeで編集画面が開きます。
 
-既存原稿・素材の保存場所と編集担当は区別します。認知担当が別repoの既存正本を変更する場合は、[project間の連携手順](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/references/project-coordination.md)でactive編集との競合を先に確認します。原稿や素材を移動せず、同じ内容の独立原稿を二重に保守しません。以下の確定commitからの取込と同期経路は維持します。
+- 各ページの「編集」で文章・画像・節の順序を変更し、保存します。
+- 「共通デザイン」でサイト全体の色や書体を変更します。
+- 「ローカルで確認」で仕上がりを確認します。片方の言語を編集すると、対応する他方に確認表示が付きます。
 
-2026-09-07の表示共通化とWordPressによる手動編集への移行案は[改修記録](website-refinement-2026-09-07.md)を参照してください。WordPress管理画面と常駐同期は未導入です。
+保存先はこのMac内です。[確認版を書き出す.command](確認版を書き出す.command)で配信用ファイルを作成し、確認した同じファイルを本人限定SitesとGitHub Pagesへ反映します。外部への反映は公開操作として分けています。[編集原本をバックアップ.command](編集原本をバックアップ.command)で本文・画像・デザインをまとめて保存できます。
 
-## 現在のサイト構成
+使い方と保守手順は[WordPress運用](wordpress/README.md)、実装・検証・公開の現在地は[改修記録](website-refinement-2026-09-07.md)を参照してください。
 
-- 全アプリを同じ大きさで案内する `/apps/` の一覧と、`撮影のものさし`の詳細ページ
-- 日本語・英語
-- プライバシーポリシー
-- サポートと計算の前提
-- 業務・運営・プライバシー請求・その他のための共通Contactと、個別アプリ／Supportから開くアプリ専用Feedback
-- ほかのアプリの準備中ページ
-- 検索向けのサイトマップ、robots.txt、共有用画像
-- GitHub Pages向けの自動公開設定
+## 正本と担当
 
-旧名が写る4画面のWeb用実画像は、加工せずファイルを保持し、現在のサイトUIには表示しません。改名後の実画面への差し替えは公開前確認に残します。
+本人の希望・公開範囲は[OWNER_INTENT](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)、担当は[共通README](/Users/minatosuzuki/work_local/アプリ開発共通事項/README.md#関連projectとの責任境界)に従います。機能事実・実画面・プライバシーの内容は各アプリの現行資料、提出・配信・問い合わせ運用は管理台帳を参照します。新しい機能や提供条件をWeb編集だけで確定しません。
 
-一般向け文面は、機能名や開発工程ではなく、使う場面と得られる変化から始めます。専門的な計算や限界は省かず、必要になった人が詳しいページで確認できる順序にします。変更後は日本語・英語とスマートフォン・デスクトップを初見の読者として再確認します。
+WordPressへ移したWebの文章と配置はWordPressで編集します。`app/`、`components/`、旧公開原稿JSONと `sync-*-copy.mjs` は移行元の記録です。旧同期スクリプトでWordPressを上書きしたり、Web原稿を二重に手編集したりしません。アプリ側で機能事実が変更された時は、その確定差分を照合してWordPressへ反映します。
 
-全アプリのアイコンは100% Codex制作との本人申告を現在方針として扱います。これは個々の成果物の制作証拠とは分け、具体的な外部素材や権利上の問題を示す証拠が出た場合だけ再確認します。配信地域は全アプリ共通で日本のみを既定とし、実際のApp Store Connect設定、提出、公開は別ゲートです。
+- 伝わる文字: 本体 `Docs/Public/`、初回取込commit `0350e3df114f3672442545f58ee89cb9553d7695`。[公開記録](app-store/tsutawaru-moji/site-verification-2026-09-05.md)
+- 道の記録: 本体 `Docs/AppStoreMetadata-*`・`Support-*`・`PrivacyPolicy-*`、初回取込commit `a850c9e3edff1e2b9c45fc2ba5e71de1e3412a2a`。[準備記録](app-store/location-logger/site-verification-2026-09-05.md)
 
-## ローカル確認
+## 表示と問い合わせの境界
 
-### 伝わる文字の公開内容
+全アプリの紹介・サポート・プライバシーを同じ順序と共通デザインで案内します。紹介未整備のアプリは名前と準備状態のみです。日本語は意味のまとまりで折り返し、長文の詳細は開閉して読めます。実画面との一致が未確認の旧画像は保持し、画面には掲載していません。
 
-日英の紹介・Support・Privacy・専用Feedbackを追加し、一覧と共通Contactから接続しています。App Store未配信・受付準備中を明記し、実フォーム、公開メール、旧buildの画像は追加していません。`NEXT_PUBLIC_APP_FEEDBACK_READY` は既存の撮影計算アプリ用で、伝わる文字には流用しません。伝わる文字はフォーム未登録で、環境変数による有効化経路もありません。
+Contactと各アプリ専用Feedbackは現在受付準備中です。実フォーム・設定の確認が終わるまで送信可能にしません。専用Feedbackは匿名の自由記述1欄、共通Contactは用件と任意の返信先という区別を維持します。Feedbackはサイトマップへ載せず `noindex, nofollow` とします。
 
-製品本文の正本は本体 `Docs/Public/` です。確定commit `0350e3df114f3672442545f58ee89cb9553d7695` の4原稿を、管理コメントを除いた出典付き生成データとして保持します。本文を生成データ側だけで修正せず、担当者が既存正本で確定した後に次の明示操作で同期してください。ビルドは兄弟repoやネットワークから原稿を取得しません。
+以前の `NEXT_PUBLIC_*_READY` はReact移行元の設定です。現在のビルドは確認済みの静的ファイルをコピーするため、環境変数だけを変更しても受付は有効になりません。受付開始時には[PROJECT_CONTEXT](PROJECT_CONTEXT.md#このサイト変更の外部ゲート)の条件を照合し、WordPress・静的書き出し・実フォームを一緒に改修・検証します。現行の書き出しは動的フォームを検出すると停止します。
+
+## 検証とビルド
 
 ```bash
-node --experimental-strip-types scripts/sync-tsutawaru-copy.mjs \
-  '/Users/minatosuzuki/work_local/会話用音声文字起こし' \
-  0350e3df114f3672442545f58ee89cb9553d7695 --check
-```
-
-更新時は採用commitを指定し、`--check` を外して生成します。管理側の受付条件は `0dfec49f6bcbff649ad893af2f3a3c80832dc816` を参照します。90日保持案を含む周期削除は採用せず、法令上の請求や誤送信された機微情報への必要な措置は別に扱います。[URL・検証・公開条件](app-store/tsutawaru-moji/site-verification-2026-09-05.md)を参照してください。
-
-### 道の記録のローカル準備（未公開）
-
-日英の紹介・Support・Privacyと、専用Feedback案内を追加しています。製品本文の正本はLocationLogger本体の `Docs/AppStoreMetadata-*.md`、`Docs/Support-*.md`、`Docs/PrivacyPolicy-*.md` です。サイトには6原稿の本文とSHA-256を生成データとして保持し、本文をサイト側だけで修正しません。
-
-```bash
-node --experimental-strip-types scripts/sync-location-logger-copy.mjs \
-  '/Users/minatosuzuki/work_local/LocationLogger' \
-  a850c9e3edff1e2b9c45fc2ba5e71de1e3412a2a --check
-```
-
-専用FeedbackはLocationLogger専用の日英URLと受付フラグを別設定として持ち、既定では送信できません。日英両フォームの実設定・受付試験を確認した後だけ3つの設定を同時に入れます。片言語不足、不正URL、同一フォーム、撮影計算アプリ用Feedback／共通Contactの流用ではbuildを失敗させます。配信地域は全アプリ共通の既定に従い日本ですが、App Store Connect操作や配布許可ではありません。[予定URL・検証・公開前条件](app-store/location-logger/site-verification-2026-09-05.md)を参照してください。
-
-### 開発サーバー
-
-```bash
-npm install
-npm run dev
-```
-
-## 検証
-
-```bash
+npm ci
 npm run format -- --check
 npm run lint
 npm test
 npm run build:pages
 npm run verify:pages
+npm run dev
 ```
 
-GitHub Pagesでは、ログイン後に確認するアカウント名の `<アカウント名>.github.io` リポジトリを使い、`dist/client/` の静的ファイルをGitHub Actionsから公開します。リポジトリはそのまま使い、全アプリのページを `/apps/` 配下に置きます。共有アセットとrobots.txt／sitemap.xmlは大元に残します。
-
-## 問い合わせ経路と公開設定
-
-実Googleフォーム4件の改修・設定照合は完了していません。既定ではFeedback／Contactとも埋め込みと外部フォームリンクを表示せず、「準備中のため現在は送信できない」ことを日本語・英語で明示します。フォーム経由の受付・返信が可能になったとは扱いません。部分的な準備状況は [PROJECT_CONTEXT](PROJECT_CONTEXT.md#このサイト変更の外部ゲート) を参照します。
-
-必須同意チェックボックス案は未採用です。本人はGoogleフォームへの入力・送信で同意を得たいと希望していますが、これは有効な同意成立や国外提供の法的条件を確認済みという意味ではありません。自由記述1欄を標準とし、実フォームの説明・設定・適用要件を照合するまで受付フラグは `false`（未設定）のままにします。AIによる半自動整理は現在未稼働で、稼働中とは表示しません。
-
-有効化後のアプリ専用Feedbackは、不具合・困りごと・要望を受ける匿名のGoogleフォームです。アプリと言語は入口で確定し、カテゴリ、端末、OSを尋ねず、大きな自由記述1欄だけにします。個別返信を通常運用にせず、既存の安全な処理基盤でAIが半自動整理して改善へ回します。有用な報告は概ね1か月以内の反映を目標としますが、全件採用・全件返信・期限内の修正や公開は保証しません。原文は周期だけを理由に削除せず、法令上の請求や誤送信された機微情報への必要な措置は別に扱います。個人情報、秘密、パスワードや認証コード、URLを送らないよう案内します。個別アプリとそのSupportから到達できますが、サイトマップへは載せず `noindex, nofollow` を指定します。App Storeレビューと共通Contactは主な不具合窓口にしません。返信を伴うプライバシー請求は共通Contactへ統合し、別窓口は増やしません。
-
-共通Contactは業務・運営・プライバシー請求・その他の返信が必要な連絡用です。アプリの不具合・要望は受け付けず、各アプリのSupportを経由して専用Feedbackへ案内します。有効化後は本文を必須、返信を希望する人の連絡先だけ任意とします。業務等の任意問い合わせへの返信は保証しませんが、法令に基づくプライバシー権利請求は適用法令に従って対応します。不要な個人情報、秘密、パスワード、認証コード、非公開共有リンクは禁止し、用件に必要な公開ページURLは許容します。匿名・URL禁止のFeedbackとは利用目的、入力制限、返信の扱いを分けます。Googleフォームの公開用回答者URLだけを `lib/feedback.ts` で管理し、フォーム編集URL、回答本文、認証情報はGitへ保存しません。
-
-| GitHub Actionsのrepository variable | ビルド時の環境変数                            | 有効化条件                                                                                  |
-| ----------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `APP_FEEDBACK_READY`                | `NEXT_PUBLIC_APP_FEEDBACK_READY`              | 日本語・英語両方の専用Feedbackを実編集し、質問項目・説明・設定を照合した後だけ文字列 `true` |
-| `CONTACT_READY`                     | `NEXT_PUBLIC_CONTACT_READY`                   | 日本語・英語両方のContactを実編集し、質問項目・説明・設定を照合した後だけ文字列 `true`      |
-| `LOCATION_LOGGER_FEEDBACK_READY`    | `NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_READY`  | LocationLogger日英両フォームの実設定と受付試験を確認した後だけ文字列 `true`                 |
-| `LOCATION_LOGGER_FEEDBACK_URL_JA`   | `NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_JA` | 確認済み日本語フォームの公開回答者URL                                                       |
-| `LOCATION_LOGGER_FEEDBACK_URL_EN`   | `NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_EN` | 確認済み英語フォームの公開回答者URL                                                         |
-| `PUBLIC_SUPPORT_EMAIL`              | `NEXT_PUBLIC_SUPPORT_EMAIL`                   | 採用が決まった共通公開サポートメールの実値を設定した場合だけ表示                            |
-
-受付フラグは文字列 `true` と厳密比較します。未設定やそれ以外の値では無効のままです。LocationLoggerは `lib/location-logger-feedback.ts` で専用設定を解決し、無効時はURLを出力しません。有効時は日英両方の `https://docs.google.com/forms/d/e/.../viewform` 公開回答者URLが必須です。追加同意の採否とAI処理の実証照合を含む説明・設定の確定、実フォームの編集、回答者の下書き自動保存の無効化、入力制限・返信契約の日英照合、受付フラグ有効化は、まとめてサイトのローカル実装とは別の外部ゲートです。
-
-送信ボタンを押していなければ開発者へ回答としては届きませんが、Googleの下書き保存や通常のWeb処理は別です。Googleアカウントでログイン中の回答途中データは、設定によって30日間下書き保存されるため、「閉じれば一切送信されない」とは説明しません。[Google公式の下書き自動保存の説明](https://support.google.com/docs/answer/10952360?hl=en)（2026-09-04確認）
-
-公開サポートメールは必須と断定せず、採用して実値を設定した場合だけSupportへ表示します。未設定時に仮アドレスや準備中表示は出しません。App Store提出前には、Support URLから容易に実際の連絡手段へ進めるかを改めて確認します。
+`build:pages` は `site-output/` の全ファイルのハッシュを検査し、そのまま `dist/client/` へコピーします。WordPressのDBや旧React原稿から再生成しません。`dev` は `site-output/` のローカル確認用です。GitHub Actionsも同じ静的ファイルを公開します。
 
 ## URL構成
 
@@ -112,9 +58,9 @@ GitHub Pagesでは、ログイン後に確認するアカウント名の `<ア�
 | Feedback            | `/apps/feedback/<slug>/` | `/apps/en/feedback/<slug>/` |
 | アプリ運営のContact | `/apps/contact/`         | `/apps/en/contact/`         |
 
-大元 `/` と `/en/` は当面アプリ一覧へ案内します。公開済みの旧URL25件（別件の未公開LocationLoggerページを含むローカル出力では31件）は、固定の新URLへの即時HTML転送と手動リンクを持ち、`noindex, nofollow` とします。HTTP 301ではありません。廃止済みの `focus-map` と旧共通Feedbackは復活させません。転送は `build:pages` の出力に生成するため、確認は開発サーバーではなく `dist/client/` の静的サーバーで行います。
+大元 `/` と `/en/` は当面アプリ一覧へ案内します。公開済みの旧URL25件（別件の未公開LocationLoggerページを含むローカル出力では31件）は、固定の新URLへの即時HTML転送と手動リンクを持ち、`noindex, nofollow` とします。HTTP 301ではありません。廃止済みの `focus-map` と旧共通Feedbackは復活させません。転送もWordPressからの静的書き出しに含め、確認版と本番に同じファイルを使います。
 
-原稿の内容正本は各アプリ、公開URLと移行の検証記録は[URL移行記録](app-store/url-migration-2026-09-05.md)で管理します。過去の公開検証記録は当時の証拠として保持します。
+アプリの機能事実・プライバシーの内容正本は各アプリ、Webの文章・配置の編集原本はWordPress、公開URLと移行の検証記録は[URL移行記録](app-store/url-migration-2026-09-05.md)で管理します。過去の公開検証記録は当時の証拠として保持します。
 
 ## 公開URL
 

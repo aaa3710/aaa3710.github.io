@@ -1,0 +1,963 @@
+{
+  "version": 1,
+  "publicOrigin": "https://aaa3710.github.io",
+  "routes": [
+    {
+      "path": "/apps/",
+      "lang": "ja",
+      "indexable": true
+    },
+    {
+      "path": "/apps/card-relay/",
+      "lang": "ja",
+      "indexable": false
+    },
+    {
+      "path": "/apps/contact/",
+      "lang": "ja",
+      "indexable": true
+    },
+    {
+      "path": "/apps/en/",
+      "lang": "en",
+      "indexable": true
+    },
+    {
+      "path": "/apps/en/card-relay/",
+      "lang": "en",
+      "indexable": false
+    },
+    {
+      "path": "/apps/en/contact/",
+      "lang": "en",
+      "indexable": true
+    },
+    {
+      "path": "/apps/en/feedback/focus-exposure-calculator/",
+      "lang": "en",
+      "indexable": false
+    },
+    {
+      "path": "/apps/en/feedback/location-logger/",
+      "lang": "en",
+      "indexable": false
+    },
+    {
+      "path": "/apps/en/feedback/tsutawaru-moji/",
+      "lang": "en",
+      "indexable": false
+    },
+    {
+      "path": "/apps/en/focus-exposure-calculator/",
+      "lang": "en",
+      "indexable": true
+    },
+    {
+      "path": "/apps/en/genome-notebook/",
+      "lang": "en",
+      "indexable": false
+    },
+    {
+      "path": "/apps/en/location-logger/",
+      "lang": "en",
+      "indexable": true
+    },
+    {
+      "path": "/apps/en/mastery-steps/",
+      "lang": "en",
+      "indexable": false
+    },
+    {
+      "path": "/apps/en/privacy/focus-exposure-calculator/",
+      "lang": "en",
+      "indexable": true
+    },
+    {
+      "path": "/apps/en/privacy/location-logger/",
+      "lang": "en",
+      "indexable": true
+    },
+    {
+      "path": "/apps/en/privacy/tsutawaru-moji/",
+      "lang": "en",
+      "indexable": true
+    },
+    {
+      "path": "/apps/en/spatial-fold/",
+      "lang": "en",
+      "indexable": false
+    },
+    {
+      "path": "/apps/en/support/focus-exposure-calculator/",
+      "lang": "en",
+      "indexable": true
+    },
+    {
+      "path": "/apps/en/support/location-logger/",
+      "lang": "en",
+      "indexable": true
+    },
+    {
+      "path": "/apps/en/support/tsutawaru-moji/",
+      "lang": "en",
+      "indexable": true
+    },
+    {
+      "path": "/apps/en/task-rail/",
+      "lang": "en",
+      "indexable": false
+    },
+    {
+      "path": "/apps/en/tsutawaru-moji/",
+      "lang": "en",
+      "indexable": true
+    },
+    {
+      "path": "/apps/en/wrist-morse/",
+      "lang": "en",
+      "indexable": false
+    },
+    {
+      "path": "/apps/feedback/focus-exposure-calculator/",
+      "lang": "ja",
+      "indexable": false
+    },
+    {
+      "path": "/apps/feedback/location-logger/",
+      "lang": "ja",
+      "indexable": false
+    },
+    {
+      "path": "/apps/feedback/tsutawaru-moji/",
+      "lang": "ja",
+      "indexable": false
+    },
+    {
+      "path": "/apps/focus-exposure-calculator/",
+      "lang": "ja",
+      "indexable": true
+    },
+    {
+      "path": "/apps/genome-notebook/",
+      "lang": "ja",
+      "indexable": false
+    },
+    {
+      "path": "/apps/location-logger/",
+      "lang": "ja",
+      "indexable": true
+    },
+    {
+      "path": "/apps/mastery-steps/",
+      "lang": "ja",
+      "indexable": false
+    },
+    {
+      "path": "/apps/privacy/focus-exposure-calculator/",
+      "lang": "ja",
+      "indexable": true
+    },
+    {
+      "path": "/apps/privacy/location-logger/",
+      "lang": "ja",
+      "indexable": true
+    },
+    {
+      "path": "/apps/privacy/tsutawaru-moji/",
+      "lang": "ja",
+      "indexable": true
+    },
+    {
+      "path": "/apps/spatial-fold/",
+      "lang": "ja",
+      "indexable": false
+    },
+    {
+      "path": "/apps/support/focus-exposure-calculator/",
+      "lang": "ja",
+      "indexable": true
+    },
+    {
+      "path": "/apps/support/location-logger/",
+      "lang": "ja",
+      "indexable": true
+    },
+    {
+      "path": "/apps/support/tsutawaru-moji/",
+      "lang": "ja",
+      "indexable": true
+    },
+    {
+      "path": "/apps/task-rail/",
+      "lang": "ja",
+      "indexable": false
+    },
+    {
+      "path": "/apps/tsutawaru-moji/",
+      "lang": "ja",
+      "indexable": true
+    },
+    {
+      "path": "/apps/wrist-morse/",
+      "lang": "ja",
+      "indexable": false
+    }
+  ],
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "404.html",
+      "bytes": 451,
+      "sha256": "837ba305dcc3c217c011963ed19d31e0b77b000d0b9c160e1ad6c81d42d4627d"
+    },
+    {
+      "path": "apps.html",
+      "bytes": 38258,
+      "sha256": "774125d94bc4f338f029d1024fea0e5539ceea337579adc7605cb6771efd0f92"
+    },
+    {
+      "path": "apps/card-relay.html",
+      "bytes": 24722,
+      "sha256": "665403791e658ac18680e8a897d88d02102d829715a95595a55b6be5376e93ec"
+    },
+    {
+      "path": "apps/card-relay/index.html",
+      "bytes": 24722,
+      "sha256": "665403791e658ac18680e8a897d88d02102d829715a95595a55b6be5376e93ec"
+    },
+    {
+      "path": "apps/contact.html",
+      "bytes": 29669,
+      "sha256": "76b914ff52988b528d4b566cf5b1159eae64f268d1e48a45070d7d68ac73068a"
+    },
+    {
+      "path": "apps/contact/index.html",
+      "bytes": 29669,
+      "sha256": "76b914ff52988b528d4b566cf5b1159eae64f268d1e48a45070d7d68ac73068a"
+    },
+    {
+      "path": "apps/en.html",
+      "bytes": 36364,
+      "sha256": "2cc783f98d44fa058862368af192a7226087f3ecd54ecf839db80cda6bb29a7c"
+    },
+    {
+      "path": "apps/en/card-relay.html",
+      "bytes": 24391,
+      "sha256": "757646515c8b20bbba1db161d07cfe1df9423f53fdfb475400550e33695e25ee"
+    },
+    {
+      "path": "apps/en/card-relay/index.html",
+      "bytes": 24391,
+      "sha256": "757646515c8b20bbba1db161d07cfe1df9423f53fdfb475400550e33695e25ee"
+    },
+    {
+      "path": "apps/en/contact.html",
+      "bytes": 25732,
+      "sha256": "d53cf97b3825650fa2bf5657850b25d50bc952eda76bf504c3a22f453a66ec32"
+    },
+    {
+      "path": "apps/en/contact/index.html",
+      "bytes": 25732,
+      "sha256": "d53cf97b3825650fa2bf5657850b25d50bc952eda76bf504c3a22f453a66ec32"
+    },
+    {
+      "path": "apps/en/feedback/focus-exposure-calculator.html",
+      "bytes": 34346,
+      "sha256": "a05668ec5b366c307d75ac03d6e6fbbbb30410693c7c35f9320b3dd1422c5c02"
+    },
+    {
+      "path": "apps/en/feedback/focus-exposure-calculator/index.html",
+      "bytes": 34346,
+      "sha256": "a05668ec5b366c307d75ac03d6e6fbbbb30410693c7c35f9320b3dd1422c5c02"
+    },
+    {
+      "path": "apps/en/feedback/location-logger.html",
+      "bytes": 25846,
+      "sha256": "12e77bf0267dba20c32543c42bb6d6d4f447c818938d71f9ef1ca2c1e72ba163"
+    },
+    {
+      "path": "apps/en/feedback/location-logger/index.html",
+      "bytes": 25846,
+      "sha256": "12e77bf0267dba20c32543c42bb6d6d4f447c818938d71f9ef1ca2c1e72ba163"
+    },
+    {
+      "path": "apps/en/feedback/tsutawaru-moji.html",
+      "bytes": 34458,
+      "sha256": "af33a9fc076babb462b81262de4bdbf2560845b46ef7ca8716a1fdd2e3a490f5"
+    },
+    {
+      "path": "apps/en/feedback/tsutawaru-moji/index.html",
+      "bytes": 34458,
+      "sha256": "af33a9fc076babb462b81262de4bdbf2560845b46ef7ca8716a1fdd2e3a490f5"
+    },
+    {
+      "path": "apps/en/focus-exposure-calculator.html",
+      "bytes": 38074,
+      "sha256": "f67fe824a2563fe69f0b15f84a08f59c2fdeebbada81494b06deda8480e21ef4"
+    },
+    {
+      "path": "apps/en/focus-exposure-calculator/index.html",
+      "bytes": 38074,
+      "sha256": "f67fe824a2563fe69f0b15f84a08f59c2fdeebbada81494b06deda8480e21ef4"
+    },
+    {
+      "path": "apps/en/genome-notebook.html",
+      "bytes": 24446,
+      "sha256": "88cca02b36f9fe32283d072f98eab93f5561c3cef2e6df5e7c03d4168c3a5be7"
+    },
+    {
+      "path": "apps/en/genome-notebook/index.html",
+      "bytes": 24446,
+      "sha256": "88cca02b36f9fe32283d072f98eab93f5561c3cef2e6df5e7c03d4168c3a5be7"
+    },
+    {
+      "path": "apps/en/index.html",
+      "bytes": 36364,
+      "sha256": "2cc783f98d44fa058862368af192a7226087f3ecd54ecf839db80cda6bb29a7c"
+    },
+    {
+      "path": "apps/en/location-logger.html",
+      "bytes": 27771,
+      "sha256": "315a9ea626a03403ff078ffba53e6bdb75979b4e48016a3f486f786b92462f03"
+    },
+    {
+      "path": "apps/en/location-logger/index.html",
+      "bytes": 27771,
+      "sha256": "315a9ea626a03403ff078ffba53e6bdb75979b4e48016a3f486f786b92462f03"
+    },
+    {
+      "path": "apps/en/mastery-steps.html",
+      "bytes": 24424,
+      "sha256": "05c66b999aba7fbf9ac0eafb9006d2942f3f07ba5db8adffb24b42ff0f7f5db4"
+    },
+    {
+      "path": "apps/en/mastery-steps/index.html",
+      "bytes": 24424,
+      "sha256": "05c66b999aba7fbf9ac0eafb9006d2942f3f07ba5db8adffb24b42ff0f7f5db4"
+    },
+    {
+      "path": "apps/en/privacy/focus-exposure-calculator.html",
+      "bytes": 43854,
+      "sha256": "05c354dcd6524b031c613fee4d2afc8f7bfd1ec92365b0d41a69ce8afecebe97"
+    },
+    {
+      "path": "apps/en/privacy/focus-exposure-calculator/index.html",
+      "bytes": 43854,
+      "sha256": "05c354dcd6524b031c613fee4d2afc8f7bfd1ec92365b0d41a69ce8afecebe97"
+    },
+    {
+      "path": "apps/en/privacy/location-logger.html",
+      "bytes": 32020,
+      "sha256": "b2ce6b265ba8ca37fd3c6ad5688247cfff365ea7139304732839af54c002759e"
+    },
+    {
+      "path": "apps/en/privacy/location-logger/index.html",
+      "bytes": 32020,
+      "sha256": "b2ce6b265ba8ca37fd3c6ad5688247cfff365ea7139304732839af54c002759e"
+    },
+    {
+      "path": "apps/en/privacy/tsutawaru-moji.html",
+      "bytes": 55018,
+      "sha256": "f505c7b163960bafe84640601321b5aa68fecc6ab98dae360d4c9bb03c991722"
+    },
+    {
+      "path": "apps/en/privacy/tsutawaru-moji/index.html",
+      "bytes": 55018,
+      "sha256": "f505c7b163960bafe84640601321b5aa68fecc6ab98dae360d4c9bb03c991722"
+    },
+    {
+      "path": "apps/en/spatial-fold.html",
+      "bytes": 24413,
+      "sha256": "2ecdd67795cb9d852698ceeedd389277c6550d4f4a440e5ca7b167b0d554ebd9"
+    },
+    {
+      "path": "apps/en/spatial-fold/index.html",
+      "bytes": 24413,
+      "sha256": "2ecdd67795cb9d852698ceeedd389277c6550d4f4a440e5ca7b167b0d554ebd9"
+    },
+    {
+      "path": "apps/en/support/focus-exposure-calculator.html",
+      "bytes": 37787,
+      "sha256": "c604b39c42f7f0fff5ed04cc46dcbfb86c83702b3527da5fc31066b5f7d63a28"
+    },
+    {
+      "path": "apps/en/support/focus-exposure-calculator/index.html",
+      "bytes": 37787,
+      "sha256": "c604b39c42f7f0fff5ed04cc46dcbfb86c83702b3527da5fc31066b5f7d63a28"
+    },
+    {
+      "path": "apps/en/support/location-logger.html",
+      "bytes": 29973,
+      "sha256": "f5766f08e5ace8b30d56a461d7b6ff10958aa170cacae80db02434edd842b6ed"
+    },
+    {
+      "path": "apps/en/support/location-logger/index.html",
+      "bytes": 29973,
+      "sha256": "f5766f08e5ace8b30d56a461d7b6ff10958aa170cacae80db02434edd842b6ed"
+    },
+    {
+      "path": "apps/en/support/tsutawaru-moji.html",
+      "bytes": 55612,
+      "sha256": "ad27a73b31201d405872dc8d6340ef897f2da9d2887cadaf21a8b50d28aa5424"
+    },
+    {
+      "path": "apps/en/support/tsutawaru-moji/index.html",
+      "bytes": 55612,
+      "sha256": "ad27a73b31201d405872dc8d6340ef897f2da9d2887cadaf21a8b50d28aa5424"
+    },
+    {
+      "path": "apps/en/task-rail.html",
+      "bytes": 24380,
+      "sha256": "53f157415c2c554906babcfc3560bb0d2a7bf12e29690a1f5ff53be296235e86"
+    },
+    {
+      "path": "apps/en/task-rail/index.html",
+      "bytes": 24380,
+      "sha256": "53f157415c2c554906babcfc3560bb0d2a7bf12e29690a1f5ff53be296235e86"
+    },
+    {
+      "path": "apps/en/tsutawaru-moji.html",
+      "bytes": 36839,
+      "sha256": "0c1b01f7dba1074fe15d0e77f80f34efb43d1b96e12fa44c67748d87135678f0"
+    },
+    {
+      "path": "apps/en/tsutawaru-moji/index.html",
+      "bytes": 36839,
+      "sha256": "0c1b01f7dba1074fe15d0e77f80f34efb43d1b96e12fa44c67748d87135678f0"
+    },
+    {
+      "path": "apps/en/wrist-morse.html",
+      "bytes": 24402,
+      "sha256": "d2cc56a4d5badd6bc4f3c30bb76685312f0a600393920d561a4f34c7d8564b22"
+    },
+    {
+      "path": "apps/en/wrist-morse/index.html",
+      "bytes": 24402,
+      "sha256": "d2cc56a4d5badd6bc4f3c30bb76685312f0a600393920d561a4f34c7d8564b22"
+    },
+    {
+      "path": "apps/feedback/focus-exposure-calculator.html",
+      "bytes": 37360,
+      "sha256": "48f1721db0f6cb61fa1b14cab7abc2d2681aea088b9c05218de78d1f350f6107"
+    },
+    {
+      "path": "apps/feedback/focus-exposure-calculator/index.html",
+      "bytes": 37360,
+      "sha256": "48f1721db0f6cb61fa1b14cab7abc2d2681aea088b9c05218de78d1f350f6107"
+    },
+    {
+      "path": "apps/feedback/location-logger.html",
+      "bytes": 28651,
+      "sha256": "dbdd5924ca50be259f4caf45c0dcde8d0a26ee9f84c407e7e33cbdba32dc66d4"
+    },
+    {
+      "path": "apps/feedback/location-logger/index.html",
+      "bytes": 28651,
+      "sha256": "dbdd5924ca50be259f4caf45c0dcde8d0a26ee9f84c407e7e33cbdba32dc66d4"
+    },
+    {
+      "path": "apps/feedback/tsutawaru-moji.html",
+      "bytes": 37113,
+      "sha256": "753ab431a02e30e9ff24f9f991a2f07dac9f111b7c56c7d7d27dedecb8027087"
+    },
+    {
+      "path": "apps/feedback/tsutawaru-moji/index.html",
+      "bytes": 37113,
+      "sha256": "753ab431a02e30e9ff24f9f991a2f07dac9f111b7c56c7d7d27dedecb8027087"
+    },
+    {
+      "path": "apps/focus-exposure-calculator.html",
+      "bytes": 46632,
+      "sha256": "ad5d65edd2d52db562d66358e8c39bdbdd781fcb575c42bcbb349b9687efa3e9"
+    },
+    {
+      "path": "apps/focus-exposure-calculator/index.html",
+      "bytes": 46632,
+      "sha256": "ad5d65edd2d52db562d66358e8c39bdbdd781fcb575c42bcbb349b9687efa3e9"
+    },
+    {
+      "path": "apps/genome-notebook.html",
+      "bytes": 24778,
+      "sha256": "6d0ee45ce314c0d9c25e41b7371902f53e95e430c7b76a586fbcde05d7e1a01a"
+    },
+    {
+      "path": "apps/genome-notebook/index.html",
+      "bytes": 24778,
+      "sha256": "6d0ee45ce314c0d9c25e41b7371902f53e95e430c7b76a586fbcde05d7e1a01a"
+    },
+    {
+      "path": "apps/index.html",
+      "bytes": 38258,
+      "sha256": "774125d94bc4f338f029d1024fea0e5539ceea337579adc7605cb6771efd0f92"
+    },
+    {
+      "path": "apps/location-logger.html",
+      "bytes": 33172,
+      "sha256": "b07c10ed787a9b71fad8afe74aabc105be7bad215b913bf418d7d31508c9dbdf"
+    },
+    {
+      "path": "apps/location-logger/index.html",
+      "bytes": 33172,
+      "sha256": "b07c10ed787a9b71fad8afe74aabc105be7bad215b913bf418d7d31508c9dbdf"
+    },
+    {
+      "path": "apps/mastery-steps.html",
+      "bytes": 24756,
+      "sha256": "981c9170152c37109c28069fb5866ca2b0c947d4ba518f2cf772c20888276499"
+    },
+    {
+      "path": "apps/mastery-steps/index.html",
+      "bytes": 24756,
+      "sha256": "981c9170152c37109c28069fb5866ca2b0c947d4ba518f2cf772c20888276499"
+    },
+    {
+      "path": "apps/privacy/focus-exposure-calculator.html",
+      "bytes": 65764,
+      "sha256": "ea09717e4ed14894b31bdbdf73d6aa8270e7b3df38459e05819b5c2926ea750c"
+    },
+    {
+      "path": "apps/privacy/focus-exposure-calculator/index.html",
+      "bytes": 65764,
+      "sha256": "ea09717e4ed14894b31bdbdf73d6aa8270e7b3df38459e05819b5c2926ea750c"
+    },
+    {
+      "path": "apps/privacy/location-logger.html",
+      "bytes": 48247,
+      "sha256": "cb799825cac928312470229e1d4d5a77d217021feec541ecd2c370cc9aecb01c"
+    },
+    {
+      "path": "apps/privacy/location-logger/index.html",
+      "bytes": 48247,
+      "sha256": "cb799825cac928312470229e1d4d5a77d217021feec541ecd2c370cc9aecb01c"
+    },
+    {
+      "path": "apps/privacy/tsutawaru-moji.html",
+      "bytes": 107401,
+      "sha256": "27ef1b381945abd29d75e5bb3ee281f31541840b9493df1d525c48bf0f233eb6"
+    },
+    {
+      "path": "apps/privacy/tsutawaru-moji/index.html",
+      "bytes": 107401,
+      "sha256": "27ef1b381945abd29d75e5bb3ee281f31541840b9493df1d525c48bf0f233eb6"
+    },
+    {
+      "path": "apps/spatial-fold.html",
+      "bytes": 24745,
+      "sha256": "bc7534d3d9c6d435c17b5ad623afd1e2f056b1105fc6d12849c011562326b162"
+    },
+    {
+      "path": "apps/spatial-fold/index.html",
+      "bytes": 24745,
+      "sha256": "bc7534d3d9c6d435c17b5ad623afd1e2f056b1105fc6d12849c011562326b162"
+    },
+    {
+      "path": "apps/support/focus-exposure-calculator.html",
+      "bytes": 45939,
+      "sha256": "33a167eead204be9e41d4db7a2afd8059fa04d044e8ac65bfb310533e2ccdf92"
+    },
+    {
+      "path": "apps/support/focus-exposure-calculator/index.html",
+      "bytes": 45939,
+      "sha256": "33a167eead204be9e41d4db7a2afd8059fa04d044e8ac65bfb310533e2ccdf92"
+    },
+    {
+      "path": "apps/support/location-logger.html",
+      "bytes": 41272,
+      "sha256": "ca6ec079b9391ee3e72c5a014a040528645352a252e92d4eafda4bc7d80b83f0"
+    },
+    {
+      "path": "apps/support/location-logger/index.html",
+      "bytes": 41272,
+      "sha256": "ca6ec079b9391ee3e72c5a014a040528645352a252e92d4eafda4bc7d80b83f0"
+    },
+    {
+      "path": "apps/support/tsutawaru-moji.html",
+      "bytes": 107606,
+      "sha256": "cc9925c98588e289b08676dc0e562d03f0d8255f67c43d798b918fd29991c7ca"
+    },
+    {
+      "path": "apps/support/tsutawaru-moji/index.html",
+      "bytes": 107606,
+      "sha256": "cc9925c98588e289b08676dc0e562d03f0d8255f67c43d798b918fd29991c7ca"
+    },
+    {
+      "path": "apps/task-rail.html",
+      "bytes": 24712,
+      "sha256": "2941bbf4983ce0fce4e628201f795b8eff2d911c9fed5cb1d923a87502378e0a"
+    },
+    {
+      "path": "apps/task-rail/index.html",
+      "bytes": 24712,
+      "sha256": "2941bbf4983ce0fce4e628201f795b8eff2d911c9fed5cb1d923a87502378e0a"
+    },
+    {
+      "path": "apps/tsutawaru-moji.html",
+      "bytes": 42542,
+      "sha256": "e94ea04f45b56cba165099ae7e8a28cb04a8bd8cf396a99870727fa4309674b2"
+    },
+    {
+      "path": "apps/tsutawaru-moji/index.html",
+      "bytes": 42542,
+      "sha256": "e94ea04f45b56cba165099ae7e8a28cb04a8bd8cf396a99870727fa4309674b2"
+    },
+    {
+      "path": "apps/wrist-morse.html",
+      "bytes": 24734,
+      "sha256": "5c0e69c663145069df111418ba59bd5dcaf4fd4504e31035406a02ca655fe108"
+    },
+    {
+      "path": "apps/wrist-morse/index.html",
+      "bytes": 24734,
+      "sha256": "5c0e69c663145069df111418ba59bd5dcaf4fd4504e31035406a02ca655fe108"
+    },
+    {
+      "path": "contact.html",
+      "bytes": 377,
+      "sha256": "4176d86a1d111dc7ce6646502c491c87fae3c6f57eea577c94d92db7fb5b302e"
+    },
+    {
+      "path": "contact/index.html",
+      "bytes": 377,
+      "sha256": "4176d86a1d111dc7ce6646502c491c87fae3c6f57eea577c94d92db7fb5b302e"
+    },
+    {
+      "path": "en.html",
+      "bytes": 337,
+      "sha256": "d6febee47397885a530075b502abcfbd877da57cb4187587de2bf96ee4eb696f"
+    },
+    {
+      "path": "en/apps/card-relay.html",
+      "bytes": 359,
+      "sha256": "696a12f0e5125ef20ec19897529b917e7119e922a1e7bd5bdfaf226d07d814cb"
+    },
+    {
+      "path": "en/apps/card-relay/index.html",
+      "bytes": 359,
+      "sha256": "696a12f0e5125ef20ec19897529b917e7119e922a1e7bd5bdfaf226d07d814cb"
+    },
+    {
+      "path": "en/apps/focus-exposure-calculator.html",
+      "bytes": 389,
+      "sha256": "9badc61a9998981e1a3ab56d37031c013f0f3d40bf36e157abb8e77ca2d8dc48"
+    },
+    {
+      "path": "en/apps/focus-exposure-calculator/index.html",
+      "bytes": 389,
+      "sha256": "9badc61a9998981e1a3ab56d37031c013f0f3d40bf36e157abb8e77ca2d8dc48"
+    },
+    {
+      "path": "en/apps/genome-notebook.html",
+      "bytes": 369,
+      "sha256": "8ccce74ac2fb3e1e7e258e4d6b200c8974426f898b502846898af084f12b0ee9"
+    },
+    {
+      "path": "en/apps/genome-notebook/index.html",
+      "bytes": 369,
+      "sha256": "8ccce74ac2fb3e1e7e258e4d6b200c8974426f898b502846898af084f12b0ee9"
+    },
+    {
+      "path": "en/apps/location-logger.html",
+      "bytes": 369,
+      "sha256": "75b9f9f01ffc023a91cd2997144cdd82cce4ba7a3d1079bb8ee1e8f3b36fe3a4"
+    },
+    {
+      "path": "en/apps/location-logger/index.html",
+      "bytes": 369,
+      "sha256": "75b9f9f01ffc023a91cd2997144cdd82cce4ba7a3d1079bb8ee1e8f3b36fe3a4"
+    },
+    {
+      "path": "en/apps/mastery-steps.html",
+      "bytes": 365,
+      "sha256": "579803b86e6be0de503e15173dc76c610a3026ee957274fbe05d54f94333cc6b"
+    },
+    {
+      "path": "en/apps/mastery-steps/index.html",
+      "bytes": 365,
+      "sha256": "579803b86e6be0de503e15173dc76c610a3026ee957274fbe05d54f94333cc6b"
+    },
+    {
+      "path": "en/apps/spatial-fold.html",
+      "bytes": 363,
+      "sha256": "3ebf708327e1b02aa578a19e1153c35e24a8a8fa2817f720829de28bf472afe0"
+    },
+    {
+      "path": "en/apps/spatial-fold/index.html",
+      "bytes": 363,
+      "sha256": "3ebf708327e1b02aa578a19e1153c35e24a8a8fa2817f720829de28bf472afe0"
+    },
+    {
+      "path": "en/apps/task-rail.html",
+      "bytes": 357,
+      "sha256": "bd5c1cc1e24af7c8b45167c4a3d5cf38cbb89b8973f7a20fc8787f3b65d6d0fa"
+    },
+    {
+      "path": "en/apps/task-rail/index.html",
+      "bytes": 357,
+      "sha256": "bd5c1cc1e24af7c8b45167c4a3d5cf38cbb89b8973f7a20fc8787f3b65d6d0fa"
+    },
+    {
+      "path": "en/apps/tsutawaru-moji.html",
+      "bytes": 367,
+      "sha256": "cfae33c79a4447cba79f211d26517f06accb4d5743470cd069ff9adffb7be150"
+    },
+    {
+      "path": "en/apps/tsutawaru-moji/index.html",
+      "bytes": 367,
+      "sha256": "cfae33c79a4447cba79f211d26517f06accb4d5743470cd069ff9adffb7be150"
+    },
+    {
+      "path": "en/apps/wrist-morse.html",
+      "bytes": 361,
+      "sha256": "281cc3a4d28112ba0d45fcffa3139d62a6c67493c79441fcc2cf6940cf59b4e4"
+    },
+    {
+      "path": "en/apps/wrist-morse/index.html",
+      "bytes": 361,
+      "sha256": "281cc3a4d28112ba0d45fcffa3139d62a6c67493c79441fcc2cf6940cf59b4e4"
+    },
+    {
+      "path": "en/contact.html",
+      "bytes": 353,
+      "sha256": "40a0c5ac0c47499dc40b473df89c8b6b1c4eeb82f2510fb4fe7ec60b0a937bee"
+    },
+    {
+      "path": "en/contact/index.html",
+      "bytes": 353,
+      "sha256": "40a0c5ac0c47499dc40b473df89c8b6b1c4eeb82f2510fb4fe7ec60b0a937bee"
+    },
+    {
+      "path": "en/feedback/focus-exposure-calculator.html",
+      "bytes": 407,
+      "sha256": "999e919fc0666996eda2e7c6fefc4a358435a850e9f826d091ac072003f3d235"
+    },
+    {
+      "path": "en/feedback/focus-exposure-calculator/index.html",
+      "bytes": 407,
+      "sha256": "999e919fc0666996eda2e7c6fefc4a358435a850e9f826d091ac072003f3d235"
+    },
+    {
+      "path": "en/feedback/location-logger.html",
+      "bytes": 387,
+      "sha256": "2be8f37f3e8b4ef160e48e836e2c530b4aabe5ba1155912c5742362078b2a433"
+    },
+    {
+      "path": "en/feedback/location-logger/index.html",
+      "bytes": 387,
+      "sha256": "2be8f37f3e8b4ef160e48e836e2c530b4aabe5ba1155912c5742362078b2a433"
+    },
+    {
+      "path": "en/feedback/tsutawaru-moji.html",
+      "bytes": 385,
+      "sha256": "99f04fef55461479bec051a2d7750db87efa730b9cf87dcc80aaeaea3485a90a"
+    },
+    {
+      "path": "en/feedback/tsutawaru-moji/index.html",
+      "bytes": 385,
+      "sha256": "99f04fef55461479bec051a2d7750db87efa730b9cf87dcc80aaeaea3485a90a"
+    },
+    {
+      "path": "en/index.html",
+      "bytes": 337,
+      "sha256": "d6febee47397885a530075b502abcfbd877da57cb4187587de2bf96ee4eb696f"
+    },
+    {
+      "path": "en/privacy/focus-exposure-calculator.html",
+      "bytes": 405,
+      "sha256": "b2e6b5e5e1c518d5a461d8cfed6874eb250dc3562d1a854d99bc0876c6aac92d"
+    },
+    {
+      "path": "en/privacy/focus-exposure-calculator/index.html",
+      "bytes": 405,
+      "sha256": "b2e6b5e5e1c518d5a461d8cfed6874eb250dc3562d1a854d99bc0876c6aac92d"
+    },
+    {
+      "path": "en/privacy/location-logger.html",
+      "bytes": 385,
+      "sha256": "4135674de90f1eb50b6c123bedbfbd682494d31bd80527b10b1fd9c1d0a2edea"
+    },
+    {
+      "path": "en/privacy/location-logger/index.html",
+      "bytes": 385,
+      "sha256": "4135674de90f1eb50b6c123bedbfbd682494d31bd80527b10b1fd9c1d0a2edea"
+    },
+    {
+      "path": "en/privacy/tsutawaru-moji.html",
+      "bytes": 383,
+      "sha256": "303804ac2f7ad16cf4efb527dd4c99e121a6beeacb755e79ecef14c0e9a1ddb3"
+    },
+    {
+      "path": "en/privacy/tsutawaru-moji/index.html",
+      "bytes": 383,
+      "sha256": "303804ac2f7ad16cf4efb527dd4c99e121a6beeacb755e79ecef14c0e9a1ddb3"
+    },
+    {
+      "path": "en/support/focus-exposure-calculator.html",
+      "bytes": 405,
+      "sha256": "7f54b7ddaf6aa7369f474456f6a642ff4e6058ccb97f467444db9f834d3352bc"
+    },
+    {
+      "path": "en/support/focus-exposure-calculator/index.html",
+      "bytes": 405,
+      "sha256": "7f54b7ddaf6aa7369f474456f6a642ff4e6058ccb97f467444db9f834d3352bc"
+    },
+    {
+      "path": "en/support/location-logger.html",
+      "bytes": 385,
+      "sha256": "2b709b8b60196030d8a0adb0b7876c85095f5170cb6307f3bd3dab9d9177b5c0"
+    },
+    {
+      "path": "en/support/location-logger/index.html",
+      "bytes": 385,
+      "sha256": "2b709b8b60196030d8a0adb0b7876c85095f5170cb6307f3bd3dab9d9177b5c0"
+    },
+    {
+      "path": "en/support/tsutawaru-moji.html",
+      "bytes": 383,
+      "sha256": "785639905f2803f6e7bbaf6e2b5f74f30e39c3f38f9be36c8b8532e4c8837d3f"
+    },
+    {
+      "path": "en/support/tsutawaru-moji/index.html",
+      "bytes": 383,
+      "sha256": "785639905f2803f6e7bbaf6e2b5f74f30e39c3f38f9be36c8b8532e4c8837d3f"
+    },
+    {
+      "path": "feedback/focus-exposure-calculator.html",
+      "bytes": 431,
+      "sha256": "bea3fe0a772deb1a9a87b199aaa74e0ac232bdf1370fde1ee5cbb7b676d72d40"
+    },
+    {
+      "path": "feedback/focus-exposure-calculator/index.html",
+      "bytes": 431,
+      "sha256": "bea3fe0a772deb1a9a87b199aaa74e0ac232bdf1370fde1ee5cbb7b676d72d40"
+    },
+    {
+      "path": "feedback/location-logger.html",
+      "bytes": 411,
+      "sha256": "59947ad4275b604853c8440557b765cf52473af345109ad36879acc35ec3ddcb"
+    },
+    {
+      "path": "feedback/location-logger/index.html",
+      "bytes": 411,
+      "sha256": "59947ad4275b604853c8440557b765cf52473af345109ad36879acc35ec3ddcb"
+    },
+    {
+      "path": "feedback/tsutawaru-moji.html",
+      "bytes": 409,
+      "sha256": "cf4a911890fc31195c1df20a3ce3c75aba31d59247a769fc6b2efd979455dde1"
+    },
+    {
+      "path": "feedback/tsutawaru-moji/index.html",
+      "bytes": 409,
+      "sha256": "cf4a911890fc31195c1df20a3ce3c75aba31d59247a769fc6b2efd979455dde1"
+    },
+    {
+      "path": "images/focus-exposure-calculator/og-en.png",
+      "bytes": 665925,
+      "sha256": "8ad6c3f7b875a0116cced06ba160d8622c91de3f3ae2cd21a5c343386c3e83b2"
+    },
+    {
+      "path": "images/focus-exposure-calculator/og-ja.png",
+      "bytes": 696378,
+      "sha256": "420ad58a217ad71340c1df03c759144b2480a544a03c4eb28fad31212a2940a5"
+    },
+    {
+      "path": "index.html",
+      "bytes": 361,
+      "sha256": "00a70c69d70a31743161ffb3d035cd1e2d24814831c591499b9691cc22290f41"
+    },
+    {
+      "path": "privacy/focus-exposure-calculator.html",
+      "bytes": 429,
+      "sha256": "0bbe2f351c2bc158286a00b7537919cab777c652344751f858db39048c95b38e"
+    },
+    {
+      "path": "privacy/focus-exposure-calculator/index.html",
+      "bytes": 429,
+      "sha256": "0bbe2f351c2bc158286a00b7537919cab777c652344751f858db39048c95b38e"
+    },
+    {
+      "path": "privacy/location-logger.html",
+      "bytes": 409,
+      "sha256": "cc683bf60811de77daa7cca1848d7c1493d66492f93b67829c3178035d600a22"
+    },
+    {
+      "path": "privacy/location-logger/index.html",
+      "bytes": 409,
+      "sha256": "cc683bf60811de77daa7cca1848d7c1493d66492f93b67829c3178035d600a22"
+    },
+    {
+      "path": "privacy/tsutawaru-moji.html",
+      "bytes": 407,
+      "sha256": "af8764256b75cd3ca81770ffa6ea6d365661023b67c5b603566f45acd554525d"
+    },
+    {
+      "path": "privacy/tsutawaru-moji/index.html",
+      "bytes": 407,
+      "sha256": "af8764256b75cd3ca81770ffa6ea6d365661023b67c5b603566f45acd554525d"
+    },
+    {
+      "path": "robots.txt",
+      "bytes": 71,
+      "sha256": "e35cea6a2863f9952ee5c7e9a35caebc39697eba80debe0086cee88fc817ea06"
+    },
+    {
+      "path": "sitemap.xml",
+      "bytes": 1829,
+      "sha256": "ea445ec0a285a81413f885f28a67fcbe022d9f9cc42c98e823ab3614d6fdb088"
+    },
+    {
+      "path": "support/focus-exposure-calculator.html",
+      "bytes": 429,
+      "sha256": "fee4ecef64ed539026b14f61e5136e66cb17422f8296cc01fd4fc1ebce1384d2"
+    },
+    {
+      "path": "support/focus-exposure-calculator/index.html",
+      "bytes": 429,
+      "sha256": "fee4ecef64ed539026b14f61e5136e66cb17422f8296cc01fd4fc1ebce1384d2"
+    },
+    {
+      "path": "support/location-logger.html",
+      "bytes": 409,
+      "sha256": "69ee52284d34b985e1e3a11a5b003125cb17de3b27ae2f58f1a886b27d0dbeb0"
+    },
+    {
+      "path": "support/location-logger/index.html",
+      "bytes": 409,
+      "sha256": "69ee52284d34b985e1e3a11a5b003125cb17de3b27ae2f58f1a886b27d0dbeb0"
+    },
+    {
+      "path": "support/tsutawaru-moji.html",
+      "bytes": 407,
+      "sha256": "7ac200850c73273533871f0a3c77cb755e66d2d137c0cfef3dbdd36d4b2c2b18"
+    },
+    {
+      "path": "support/tsutawaru-moji/index.html",
+      "bytes": 407,
+      "sha256": "7ac200850c73273533871f0a3c77cb755e66d2d137c0cfef3dbdd36d4b2c2b18"
+    },
+    {
+      "path": "wp-content/themes/apps-common/assets/site.css",
+      "bytes": 35754,
+      "sha256": "6eddaab27eb96614f473b45d5aa9e7deb304a4e8b745b84721cd7126f9171bb8"
+    },
+    {
+      "path": "wp-content/themes/apps-common/assets/wordpress.css",
+      "bytes": 1999,
+      "sha256": "a4f21a51160294ff161832f1e0cabc110f98adfa8f6cb3f8c2868519efb73c2f"
+    },
+    {
+      "path": "wp-content/uploads/2026/09/focus-exposure-calculator-icon.png",
+      "bytes": 779434,
+      "sha256": "467028c8afa78388590e5390dae9e14c81100be2f5acd166a6dbb4ccdaebc0ab"
+    },
+    {
+      "path": "wp-content/uploads/2026/09/tsutawaru-moji-icon.png",
+      "bytes": 755980,
+      "sha256": "7ccb2465e763bde174f0715986ea48513f8edeb8aa1da0b4d9db4c0e059aa781"
+    }
+  ]
+}

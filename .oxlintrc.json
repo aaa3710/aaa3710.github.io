@@ -23,6 +23,8 @@
     "typeCheck": true
   },
   "ignorePatterns": [
+    "site-output/**",
+    "work/**",
     ".next/**",
     ".vinext/**",
     "out/**",

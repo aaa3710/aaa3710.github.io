@@ -4,6 +4,8 @@
   "printWidth": 80,
   "sortPackageJson": false,
   "ignorePatterns": [
+    "site-output/**",
+    "wordpress/plugin/budoux-ja.json",
     "package-lock.json",
     "pnpm-lock.yaml",
     "yarn.lock",

@@ -1,0 +1,89 @@
+:root {
+  --background: var(--wp--preset--color--background, #fafaf9);
+  --foreground: var(--wp--preset--color--foreground, #171715);
+  --card: var(--wp--preset--color--surface, #fff);
+  --muted-foreground: var(--wp--preset--color--muted, #595955);
+  --font-sans: var(--wp--preset--font-family--system, sans-serif);
+  --content-width: var(--wp--style--global--wide-size, 1180px);
+  --primary: var(--wp--preset--color--accent, #e86f13);
+  --ring: var(--wp--preset--color--accent, #e86f13);
+}
+.wp-site-blocks > *,
+.apps-main,
+.wp-block-post-content > * {
+  margin-block-start: 0;
+}
+.wp-block-post-content .wp-block-group {
+  margin-block-start: 0;
+}
+.wp-block-post-content figure {
+  margin: 0;
+}
+.wp-block-image img {
+  vertical-align: middle;
+}
+.portfolio-card {
+  position: relative;
+}
+.portfolio-card .card-link a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+.portfolio-card:focus-within {
+  outline: 3px solid var(--ring);
+  outline-offset: 4px;
+}
+.portfolio-card-heading .wp-block-image {
+  width: 64px;
+  height: 64px;
+}
+.app-page-identity .wp-block-image {
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+}
+.info-contact p {
+  margin: 0;
+}
+.back-link p {
+  margin: 0;
+}
+.public-document summary {
+  font-size: 1.1rem;
+  font-weight: 650;
+}
+.wp-block-details > :not(summary) {
+  margin-top: 1rem;
+}
+.readable-unit {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: baseline;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.editor-styles-wrapper .portfolio-card .card-link a::after {
+  display: none;
+}
+.editor-styles-wrapper .wp-block-details {
+  padding: 16px;
+  border: 1px solid #ddd;
+}
+.editor-styles-wrapper .site-header,
+.editor-styles-wrapper .site-footer {
+  width: 100%;
+}
+.editor-styles-wrapper .readable-unit {
+  display: inline;
+}
+.editor-styles-wrapper .block-editor-block-list__block {
+  max-width: 100%;
+}
+.apps-editor-navigation {
+  padding: 12px 16px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  font-size: 14px;
+}

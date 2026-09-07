@@ -56,7 +56,7 @@ jobs:
           npm run lint
           npm test
 
-      - name: Build static site
+      - name: Copy verified WordPress snapshot
         run: npm run build:pages
 
       - name: Verify generated pages

@@ -1,7 +1,8 @@
 # アプリ認知プロジェクト
 
-2026-09-07: 一覧・日英の全3アプリの共通案内・日本語改行を改修。指定セクションを削除し、WordPress編集への移行案を整理した。[改修と検証](website-refinement-2026-09-07.md)を参照。GitHub本番は今回未更新、WordPress管理画面・常駐同期は未導入。Sites更新は送信範囲に関する自動承認レビューで停止し、内部資料と履歴を除いた限定ソースを準備して本人承認待ち。
+2026-09-07: 表示共通化とWordPress Studioへの移行を実施。日英40ページをブロック編集でき、公式Studio MCPの接続、実際の編集保存、静的出力、復元を検証した。Web編集原本はMac内のWordPress、配信物は `site-output/`。旧React原稿からのビルド・同期は通常運用に使わない。[使い方](wordpress/README.md)と[改修・検証記録](website-refinement-2026-09-07.md)を参照。
 
+本人限定Sitesは表示改修版のversion 2まで更新済み。WordPressから出した最新版は完成物を準備したが、Sites用リポジトリへのpushは自動承認レビューが明示指示不足として拒否した。再送は行っていない。GitHub本番は今回未更新。常駐同期・定期公開は開始していない。
 
 本人の意思は[本人の意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)を参照する。公開用メールの現在方針は同正本に従い、過去の採否未定・任意提案を現在の本人判断にしない。
 
@@ -48,7 +49,10 @@
 
 ## 主要成果物
 
-- 公開サイト: `app/`, `components/`, `public/`
+- Web編集原本: `work/wordpress/site/`（非公開・Git対象外）
+- 共通テーマ・編集用プラグイン: `wordpress/`
+- 確認した配信物: `site-output/`（生成物。直接手編集しない）
+- 移行元のReact実装: `app/`, `components/`, `public/`（履歴・機能事実の照合用）
 - GitHub Pages自動公開: `.github/workflows/deploy-pages.yml`
 - 業務・運営・プライバシー請求・その他を扱う共通Contactのページ: `app/apps/contact/`, `app/apps/en/contact/`
 - 個別アプリとそのSupportから開く `noindex, nofollow` の専用Feedback: `app/apps/feedback/focus-exposure-calculator/`, `app/apps/en/feedback/focus-exposure-calculator/`, `app/apps/feedback/location-logger/`, `app/apps/en/feedback/location-logger/`
@@ -56,6 +60,8 @@
 - Codexが毎回読む前提: `AGENTS.md`
 
 ## 問い合わせ導線の境界
+
+以下のフォーム契約・実設定の確認条件は維持する。`NEXT_PUBLIC_*` は移行元Reactの設定名であり、2026-09-07以降の静的コピー方式では変数だけで受付を有効化しない。WordPress側の表示と静的出力側の許可条件を改修し、実フォームと一体で検証する。
 
 - アプリ専用Feedbackは、不具合・困りごと・要望をアプリごとのGoogleフォームで受け、設定・メニュー等から容易に開けるようにする。入口でアプリと言語を確定し、カテゴリ、端末、OSを再入力させず、匿名の大きな自由記述1欄だけを使う。App Storeレビューや共通Contactを主な不具合窓口にしない。
 - Feedbackでは、個人情報、秘密、パスワードや認証コード、URLを送らないよう明示する。

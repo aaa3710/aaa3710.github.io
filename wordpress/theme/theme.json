@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "layout": { "contentSize": "1080px", "wideSize": "1180px" },
+    "color": {
+      "defaultPalette": false,
+      "palette": [
+        { "slug": "background", "name": "背景", "color": "#fafaf9" },
+        { "slug": "foreground", "name": "本文", "color": "#171715" },
+        { "slug": "surface", "name": "カード", "color": "#ffffff" },
+        { "slug": "muted", "name": "補足", "color": "#595955" },
+        { "slug": "accent", "name": "アクセント", "color": "#e86f13" }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "slug": "system",
+          "name": "端末標準",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic', sans-serif"
+        }
+      ],
+      "fontSizes": [
+        { "slug": "small", "name": "補足", "size": "0.875rem" },
+        { "slug": "medium", "name": "本文", "size": "1rem" },
+        { "slug": "large", "name": "見出し", "size": "1.5rem" },
+        {
+          "slug": "x-large",
+          "name": "大見出し",
+          "size": "clamp(2rem, 4.5vw, 3.5rem)"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var:preset|color|background",
+      "text": "var:preset|color|foreground"
+    },
+    "typography": {
+      "fontFamily": "var:preset|font-family|system",
+      "fontSize": "1rem",
+      "lineHeight": "1.8"
+    },
+    "spacing": { "blockGap": "1rem" },
+    "elements": {
+      "link": {
+        "color": { "text": "inherit" },
+        "typography": { "textDecoration": "none" }
+      }
+    }
+  },
+  "templateParts": [
+    { "name": "header", "title": "共通ヘッダー", "area": "header" },
+    { "name": "footer", "title": "共通フッター", "area": "footer" }
+  ]
+}

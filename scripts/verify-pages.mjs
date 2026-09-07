@@ -4,9 +4,21 @@ import { fileURLToPath } from 'node:url';
 
 // Verify the prepared static output, not source components or a live deployment.
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const clientDirectory = path.join(root, 'dist', 'client');
+const clientDirectory = process.env.STATIC_SITE_DIRECTORY
+  ? path.resolve(process.env.STATIC_SITE_DIRECTORY)
+  : path.join(root, 'dist', 'client');
+let snapshotOrigin;
+try {
+  snapshotOrigin = JSON.parse(
+    await readFile(path.join(clientDirectory, 'export-manifest.json'), 'utf8'),
+  ).publicOrigin;
+} catch (error) {
+  if (error.code !== 'ENOENT') throw error;
+}
 const origin = (
-  process.env.NEXT_PUBLIC_SITE_ORIGIN ?? 'https://local.github.io'
+  process.env.NEXT_PUBLIC_SITE_ORIGIN ??
+  snapshotOrigin ??
+  'https://local.github.io'
 ).replace(/\/$/, '');
 const basePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? '').replace(/\/$/, '');
 const supportEmail = (process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? '').trim();
@@ -534,7 +546,7 @@ for (const locale of locales) {
     );
     if (kind === 'app')
       check(
-        html.includes(
+        decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
           locale === 'ja'
             ? 'まだダウンロードできません'
             : 'not available to download yet',
@@ -563,9 +575,27 @@ for (const locale of locales) {
       `${routePath}: private preface or unadopted retention promise`,
     );
     check(
-      tags(html, 'img').every(
-        (img) => img.src === `${basePath}/images/tsutawaru-moji/icon.png`,
-      ),
+      (
+        await Promise.all(
+          tags(html, 'img').map(async (img) => {
+            if (img.src === `${basePath}/images/tsutawaru-moji/icon.png`)
+              return true;
+            // WordPress media-library URLs are accepted only for the same approved bytes.
+            if (
+              !/^\/wp-content\/uploads\/[a-zA-Z0-9/_-]+\.png$/.test(
+                img.src ?? '',
+              )
+            )
+              return false;
+            const candidate = path.join(clientDirectory, img.src);
+            if (!(await exists(candidate))) return false;
+            const original = await readFile(
+              path.join(root, 'public/images/tsutawaru-moji/icon.png'),
+            );
+            return original.equals(await readFile(candidate));
+          }),
+        )
+      ).every(Boolean),
       `${routePath}: imagery other than the approved Tsutawaru icon present`,
     );
     check(
@@ -690,7 +720,7 @@ for (const locale of locales) {
     );
     if (kind === 'app')
       check(
-        html.includes(
+        decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
           locale === 'ja'
             ? 'まだダウンロードできません'
             : 'not available to download yet',
