@@ -82,7 +82,7 @@ Sitesは現在の編集内容と同期しません。通常の確認・公開に
 
 次回の反映時は `site-output/` の検証済みファイルを、Sites専用の一時checkoutの `out/` にコピーします。設定の静的出力先も `out` とし、Sites公式package-site.shで配信用archiveを作ります。Sitesの既存mainを親にし、fast-forwardで送信してから実HEADを確認し、そのSHAとarchiveを同じversionに保存します。本人限定の公開範囲を確認してdeployします。
 
-元のリポジトリ全体やその履歴はSitesへ送りません。WordPressのDB・内部運用資料・認証情報も対象外です。今回のGitHub本番へのpushは未実行です。自動同期・定期公開は開始していません。
+元のリポジトリ全体やその履歴はSitesへ送りません。WordPressのDB・内部運用資料・認証情報も対象外です。このSites反映時点ではGitHub本番へのpushは未実行でした。現在は上記の直接公開手順を使います。自動同期・定期公開は行いません。
 
 ## 検証
 
