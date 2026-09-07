@@ -21,7 +21,7 @@ const content = {
     intro:
       '事業上の連絡、サイト運営、プライバシー・データの扱いに関する問い合わせは、この窓口で扱います。アプリの不具合や機能要望は、各アプリのサポートから専用フィードバックへお進みください。',
     back: 'アプリ一覧へ',
-    appSupport: 'ピントと光 — 撮影計算のサポートへ',
+    appSupport: '撮影のものさしのサポートへ',
     safetyLabel: '入力する内容',
     safetyTitle: '本文は必須です。連絡先は返信を希望する場合だけ。',
     points: [
@@ -40,7 +40,7 @@ const content = {
     intro:
       'This contact route handles business matters, site administration, and questions about privacy or data handling. For app bugs or feature requests, open the app’s support page to find its feedback form.',
     back: 'Back to all apps',
-    appSupport: 'Support for Focus & Light — Photo Tools',
+    appSupport: 'Support for Photo Yardstick',
     safetyLabel: 'What to enter',
     safetyTitle:
       'A message is required. Contact details are optional for replies.',

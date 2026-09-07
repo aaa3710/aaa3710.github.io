@@ -14,7 +14,7 @@ Contactでは業務等の任意問い合わせの返信非保証と、法令に�
 
 開発者メールのWeb非掲載は、返信相手への送信元アドレス・表示名・Reply-Toの非開示を保証しません。公開メールは未設定、返信用送信元は未確定です。今回のサイト・フォーム反映許可に、実メールの返信・試験送信・新規メール作成は含まれません。実返信が必要な時の送信元判断は親タスクへ集約し、新規メール作成を必須条件にはしません。
 
-- [x] `ピントと光 — 撮影計算` / `Focus & Light — Photo Tools` の日本語・英語ページを、新slug `focus-exposure-calculator` で構成
+- [x] `撮影のものさし` / `Photo Yardstick` の日本語・英語ページを既存slug `focus-exposure-calculator` でローカル更新（本変更の公開は未実施）
 - [x] 日本語・英語のPrivacy Policy URLを新slugへ統一
 - [x] Supportをセルフヘルプ、専用Feedback、採用時だけ表示する共通公開サポートメールの位置で構成
 - [x] 業務・運営・プライバシー請求・その他の共通Contactと、アプリ不具合・要望の専用Feedbackを分離する方針を確定
@@ -70,7 +70,7 @@ Contactでは業務等の任意問い合わせの返信非保証と、法令に�
 - [x] 日本語と英語が、それぞれ自然な文章で同じ利用場面を伝えている
 - [x] App Store文面を現行機能と再照合し、事実不一致がないことを確認
 - [x] 制作を担当していない独立した視点で、画像8枚の順序・文言とPreview全sceneを確認
-- [ ] App Store Connect入力時に、Webサイト、最終binary、Privacy表示、個別アプリ側のmetadata内容正本、採用サブタイトル（日: `被写界深度と露出をすばやく確認`／英: `Depth of Field & Exposure`）とpromo空欄、登録文面・素材を一式照合
+- [ ] App Store Connect入力時に、Webサイト、最終binary、Privacy表示、個別アプリ側のmetadata内容正本、採用サブタイトル（日: `ピントと露出を計算`／英: `Depth of Field & Exposure`）とpromo空欄、登録文面・素材を一式照合
 
 ## 素材実装基準の証拠
 
@@ -100,9 +100,9 @@ Contactでは業務等の任意問い合わせの返信非保証と、法令に�
 
 ## 手動提出の境界
 
-- [x] Bundle ID `com.minatosuzuki.FocusMap`を維持
+- [x] 本人の採用Bundle IDを `com.minatosuzuki.PhotoYardstick` へ更新（Apple側への登録・保存は別途確認）
 - [x] 最終提出操作は所有者が手動で行う
-- [x] App Store上の公開名だけを変更し、内部履歴、素材名、ファイル名、Bundle IDを無差別に置換しない
+- [x] 本人が採用した公開名・Bundle ID・Xcode識別子へ統一し、過去の検証履歴、安定URL、保存キーは区別して保持
 - [ ] 公開用メールは上の必要性確認と[本人の意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)に従う。任意の審査リスク低減だけで作成を追加しない
 - [ ] Googleフォームだけで「容易な実連絡手段」として十分かはAppleの明文保証がないため、App Reviewへ出す前にSupport URL全体を再確認
 - [x] 初回配布は日本だけとし、住所・電話番号を現時点で公開しない

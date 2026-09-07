@@ -160,8 +160,10 @@ test('LocationLogger Feedback connects only its matching localized forms', () =>
 
 test('localized names and public paths share the same app identity', async () => {
   const { featuredApp, featuredAppPaths } = await readSite(undefined);
-  assert.equal(featuredApp.name.ja, 'ピントと光 — 撮影計算');
-  assert.equal(featuredApp.name.en, 'Focus & Light — Photo Tools');
+  assert.equal(featuredApp.name.ja, '撮影のものさし');
+  assert.equal(featuredApp.name.en, 'Photo Yardstick');
+  assert.equal(featuredApp.subtitle.ja, 'ピントと露出を計算');
+  assert.equal(featuredApp.subtitle.en, 'Depth of Field & Exposure');
   for (const name of Object.values(featuredApp.name)) {
     assert.ok([...name].length <= 30);
     assert.ok(!name.includes('&amp;'));

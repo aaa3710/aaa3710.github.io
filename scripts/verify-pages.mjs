@@ -24,8 +24,8 @@ const slug = 'focus-exposure-calculator';
 const locales = ['ja', 'en'];
 const kinds = ['home', 'app', 'privacy', 'support', 'feedback', 'contact'];
 const names = {
-  ja: 'ピントと光 — 撮影計算',
-  en: 'Focus & Light — Photo Tools',
+  ja: '撮影のものさし',
+  en: 'Photo Yardstick',
 };
 const formUrls = {
   feedback: {
@@ -163,7 +163,13 @@ for (const file of htmlFiles) {
     .join('/');
   const html = await readFile(file, 'utf8');
   check(
-    !html.includes('Focus Map'),
+    ![
+      'Focus Map',
+      'ピントと光',
+      'Focus & Light',
+      'Focus &amp; Light',
+      'Photo Measure',
+    ].some((oldName) => html.includes(oldName)),
     `${relativePath}: old public app name remains`,
   );
   check(

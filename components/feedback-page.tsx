@@ -20,7 +20,7 @@ import {
 
 const content = {
   ja: {
-    label: 'ピントと光 — 撮影計算へのフィードバック',
+    label: '撮影のものさしへのフィードバック',
     title: (
       <>
         <span className="feedback-title-line">気づいたことを、</span>
@@ -29,7 +29,7 @@ const content = {
     ),
     intro:
       'この入口でアプリと表示言語は確定しています。アプリ名、言語、種類、端末、OSを選び直す必要はありません。',
-    back: 'ピントと光 — 撮影計算へ',
+    back: '撮影のものさしへ',
     safetyLabel: '送信前に',
     safetyTitle: '匿名で送れます。通常、個別の返信は行いません。',
     points: [
@@ -43,11 +43,11 @@ const content = {
       'Googleフォームを使用し、氏名やメールアドレスは収集しません。削除の依頼などプライバシーに関する連絡は、別のお問い合わせ窓口で扱います。匿名回答を確実に特定できない場合があります。AIによる整理を行う場合は、説明を更新し、必要な同意を得た範囲で行います。過去の回答を自動で流用しません。',
   },
   en: {
-    label: 'Feedback for Focus & Light — Photo Tools',
+    label: 'Feedback for Photo Yardstick',
     title: 'Share what you noticed in one free-text field.',
     intro:
       'This entry already identifies the app and display language. You do not need to re-enter the app name, language, category, device, or OS.',
-    back: 'Back to Focus & Light — Photo Tools',
+    back: 'Back to Photo Yardstick',
     safetyLabel: 'Before sending',
     safetyTitle:
       'Send anonymously. Individual replies are generally not provided.',

@@ -17,7 +17,7 @@
 ## 現在の公開順序
 
 1. アプリ一覧では全アプリを同じ一覧規則で扱い、詳しい紹介があるものだけ次へ進める。
-2. `ピントと光 — 撮影計算`（英語: `Focus & Light — Photo Tools`）の公式ページ、プライバシー、サポート、App Store素材を最初の完成例として仕上げる。公開slugは `focus-exposure-calculator` に統一し、内部履歴と素材では従来の `Focus Map` を必要に応じて維持する。
+2. `撮影のものさし`（英語: `Photo Yardstick`）の公式ページ、プライバシー、サポート、App Store素材を最初の完成例として仕上げる。公開slugは `focus-exposure-calculator` に統一し、内部履歴と素材では従来の `Focus Map` を必要に応じて維持する。
 3. `伝わる文字 / Tsutawaru Moji` は本体の確定公開原稿から日英の紹介・Support・Privacy・Feedbackを整備し、2026-09-05に実受付を無効のまま本番公開した。[検証と公開条件](app-store/tsutawaru-moji/site-verification-2026-09-05.md)を参照する。
 4. `道の記録`（英語名・内部名: `LocationLogger`、補足: `通った道を地図で見返す`）は本体の現在のApp Store原稿・Support・Privacyを内容正本として、日英の紹介・Support・Privacy・専用Feedbackをローカル整備する。Feedbackは専用の日英URLと受付フラグがすべて検証済みの場合だけ表示し、既定では停止する。配信地域は全アプリ共通の既定に従い日本のみ。[ローカル検証と公開前条件](app-store/location-logger/site-verification-2026-09-05.md)を参照する。
 5. それ以外のアプリは名前と準備中表示だけを置く。
@@ -97,3 +97,9 @@
 ## 伝わる文字のタイトル・サブタイトル確定（2026-09-05）
 
 本人確定の日本語タイトル「伝わる文字」、サブタイトル「話した言葉を、大きく見やすく」を日本語紹介ページへ適用。英語表記は維持。ローカル反映で本変更のpush・本番公開は未実施。意思の正本は管理OWNER_INTENT、入力原稿は本体APP_STORE_RELEASE。
+
+## 撮影のものさし / Photo Yardstickへの名称反映（2026-09-05）
+
+本人の採用名に合わせ、日英の紹介・Support・Privacy・Feedback・Contact内の参照、サイト一覧・検索metadata・共有画像、App Store採用値の参照原稿をローカル更新した。タイトル・サブタイトル・Bundle IDの意思正本は管理OWNER_INTENT、入力内容正本は本体metadataを参照する。今回の本番公開・実Forms改名・Apple側登録とASC保存は未実施。安定slug `focus-exposure-calculator` と日英の `/apps/` 階層を保持した。
+
+旧画面・動画は歴史証拠として保持し、改名後の提出用素材へ読み替えない。今回の実装・画像・確認結果は [名称反映記録](app-store/focus-map/site-name-reflection-2026-09-05.md)を参照する。ローカルmainにある別件の未公開変更は保持し、今回の改名として一括公開しない。

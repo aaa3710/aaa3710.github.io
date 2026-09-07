@@ -15,10 +15,10 @@ type InfoKind = 'privacy' | 'support';
 const info = {
   ja: {
     privacy: {
-      label: 'ピントと光 — 撮影計算のプライバシー',
+      label: '撮影のものさしのプライバシー',
       title: 'アプリがデータを勝手に送ることはありません。',
       intro:
-        '「ピントと光 — 撮影計算」本体は、個人情報、位置情報、写真、連絡先、識別子、利用状況、診断情報を収集しません。',
+        '「撮影のものさし」本体は、個人情報、位置情報、写真、連絡先、識別子、利用状況、診断情報を収集しません。',
       sections: [
         [
           'アプリからの通信',
@@ -56,10 +56,10 @@ const info = {
       date: '適用日: 初回リリース日',
     },
     support: {
-      label: 'ピントと光 — 撮影計算のサポート',
+      label: '撮影のものさしのサポート',
       title: '計算結果の見方と、できないこと。',
       intro:
-        '「ピントと光 — 撮影計算」の数値は、撮影前の判断を助けるための目安です。結果に影響する前提と、現在の計算に含まれないものをまとめています。',
+        '「撮影のものさし」の数値は、撮影前の判断を助けるための目安です。結果に影響する前提と、現在の計算に含まれないものをまとめています。',
       sections: [
         [
           'ピントが合って見える範囲',
@@ -82,10 +82,10 @@ const info = {
   },
   en: {
     privacy: {
-      label: 'Focus & Light — Photo Tools privacy',
+      label: 'Photo Yardstick privacy',
       title: 'The app does not send your data anywhere automatically.',
       intro:
-        'Focus & Light — Photo Tools does not collect personal information, location, photos, contacts, identifiers, usage data, or diagnostics.',
+        'Photo Yardstick does not collect personal information, location, photos, contacts, identifiers, usage data, or diagnostics.',
       sections: [
         [
           'Communication from the app',
@@ -123,10 +123,10 @@ const info = {
       date: 'Effective date: initial release date',
     },
     support: {
-      label: 'Focus & Light — Photo Tools support',
+      label: 'Photo Yardstick support',
       title: 'How to read the results, and what they do not cover.',
       intro:
-        'Focus & Light — Photo Tools results are guides for decisions before a photograph. This page summarizes the assumptions that affect the numbers and what is outside the current model.',
+        'Photo Yardstick results are guides for decisions before a photograph. This page summarizes the assumptions that affect the numbers and what is outside the current model.',
       sections: [
         [
           'The range that appears acceptably sharp',
