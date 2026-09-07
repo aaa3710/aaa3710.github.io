@@ -359,10 +359,11 @@ for (const locale of locales) {
     );
     for (const [index, [, navHtml]] of navigation.entries()) {
       const navLinks = tags(navHtml, 'a');
-      check(
-        linksTo(navLinks, route(locale, 'contact')),
-        `${routePath}: navigation ${index + 1} has no Contact link`,
-      );
+      if (!/class="app-navigation"/.test(navigation[index][0]))
+        check(
+          linksTo(navLinks, route(locale, 'contact')),
+          `${routePath}: navigation ${index + 1} has no Contact link`,
+        );
       check(
         !navLinks.some(
           (anchor) =>
@@ -450,7 +451,7 @@ for (const locale of locales) {
         `${routePath}: pre-rename app captures must remain hidden until replacements are verified`,
       );
       check(
-        decodeHtml(html).includes(names[locale]),
+        decodeHtml(html.replace(/<[^>]*>/g, '')).includes(names[locale]),
         `${routePath}: localized public app name is missing`,
       );
       const imageUrl = absoluteUrl(`/images/${slug}/og-${locale}.png`);
@@ -510,7 +511,7 @@ for (const locale of locales) {
       `${routePath}: document language mismatch`,
     );
     check(
-      decodeHtml(html).includes(
+      decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
         locale === 'ja' ? '伝わる文字' : 'Tsutawaru Moji',
       ),
       `${routePath}: localized name missing`,
@@ -531,22 +532,24 @@ for (const locale of locales) {
       linksTo(anchors, `${prefix}/contact/`),
       `${routePath}: common Contact missing`,
     );
-    check(
-      html.includes(
-        locale === 'ja'
-          ? 'まだダウンロードできません'
-          : 'not available to download yet',
-      ),
-      `${routePath}: unreleased app status missing`,
-    );
-    check(
-      html.includes(
-        locale === 'ja'
-          ? '現在は送信できません'
-          : 'Submissions are not available yet',
-      ),
-      `${routePath}: intake status missing`,
-    );
+    if (kind === 'app')
+      check(
+        html.includes(
+          locale === 'ja'
+            ? 'まだダウンロードできません'
+            : 'not available to download yet',
+        ),
+        `${routePath}: unreleased app status missing`,
+      );
+    if (kind === 'feedback')
+      check(
+        decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
+          locale === 'ja'
+            ? '現在は送信できません'
+            : 'Submissions are not available yet',
+        ),
+        `${routePath}: intake status missing`,
+      );
     check(
       !/<iframe|<form\b|<input|<textarea/.test(html),
       `${routePath}: unconfirmed input UI present`,
@@ -560,8 +563,10 @@ for (const locale of locales) {
       `${routePath}: private preface or unadopted retention promise`,
     );
     check(
-      tags(html, 'img').length === 0,
-      `${routePath}: unverified app imagery present`,
+      tags(html, 'img').every(
+        (img) => img.src === `${basePath}/images/tsutawaru-moji/icon.png`,
+      ),
+      `${routePath}: imagery other than the approved Tsutawaru icon present`,
     );
     check(
       !anchors.some((anchor) =>
@@ -662,7 +667,7 @@ for (const locale of locales) {
       `${routePath}: document language mismatch`,
     );
     check(
-      decodeHtml(html).includes(
+      decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
         locale === 'ja' ? '道の記録' : 'LocationLogger',
       ),
       `${routePath}: app name missing`,
@@ -683,26 +688,28 @@ for (const locale of locales) {
       linksTo(anchors, `${prefix}/contact/`),
       `${routePath}: common Contact missing`,
     );
-    check(
-      html.includes(
-        locale === 'ja'
-          ? 'まだダウンロードできません'
-          : 'not available to download yet',
-      ),
-      `${routePath}: unreleased app status missing`,
-    );
-    check(
-      html.includes(
-        locationLoggerFeedbackReady
-          ? locale === 'ja'
-            ? '専用フィードバックは送信できます'
-            : 'Dedicated feedback is available'
-          : locale === 'ja'
-            ? '現在は送信できません'
-            : 'Submissions are not available yet',
-      ),
-      `${routePath}: intake status missing`,
-    );
+    if (kind === 'app')
+      check(
+        html.includes(
+          locale === 'ja'
+            ? 'まだダウンロードできません'
+            : 'not available to download yet',
+        ),
+        `${routePath}: unreleased app status missing`,
+      );
+    if (kind === 'feedback')
+      check(
+        decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
+          locationLoggerFeedbackReady
+            ? locale === 'ja'
+              ? '専用フィードバックは送信できます'
+              : 'Dedicated feedback is available'
+            : locale === 'ja'
+              ? '現在は送信できません'
+              : 'Submissions are not available yet',
+        ),
+        `${routePath}: intake status missing`,
+      );
     if (kind === 'feedback' && locationLoggerFeedbackReady) {
       const expectedForm = locationLoggerFeedbackUrls[locale];
       const otherForm =
@@ -732,7 +739,7 @@ for (const locale of locales) {
         `${routePath}: unexpected local input UI present`,
       );
       check(
-        decodeHtml(html).includes(
+        decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
           locale === 'ja'
             ? 'AI処理の現在の稼働は確認済みではなく'
             : 'Current AI operation has not been verified',
@@ -759,7 +766,7 @@ for (const locale of locales) {
     );
     if (kind === 'support')
       check(
-        decodeHtml(html).includes(
+        decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
           locale === 'ja'
             ? '位置記録や端末情報を自動で付けることはありません'
             : 'will not automatically attach location records or device information',
@@ -768,7 +775,7 @@ for (const locale of locales) {
       );
     if (kind === 'privacy')
       check(
-        decodeHtml(html).includes(
+        decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
           locale === 'ja'
             ? '利用者が自分で送信する報告の取扱いは別です'
             : 'separate from handling a report you choose to send',
@@ -845,6 +852,39 @@ for (const locale of locales) {
     linksTo(home, appPath('app')),
     `${prefix}/: LocationLogger introduction missing`,
   );
+}
+
+// All app families expose the same three sections, in the same order.
+for (const locale of locales) {
+  const prefix = locale === 'ja' ? '/apps' : '/apps/en';
+  for (const appSlug of [slug, 'tsutawaru-moji', 'location-logger']) {
+    for (const kind of ['app', 'support', 'privacy', 'feedback']) {
+      const appRoute = `${prefix}/${kind === 'app' ? '' : `${kind}/`}${appSlug}/`;
+      const html = markupOnly(await readFile(pageFile(appRoute), 'utf8'));
+      const nav =
+        html.match(
+          /<nav\b[^>]*class="app-navigation"[^>]*>([\s\S]*?)<\/nav>/,
+        )?.[1] ?? '';
+      const navLinks = tags(nav, 'a');
+      const expected = ['app', 'support', 'privacy'].map(
+        (page) => `${prefix}/${page === 'app' ? '' : `${page}/`}${appSlug}/`,
+      );
+      check(
+        navLinks.length === 3 &&
+          navLinks.every((link, i) => linksTo([link], expected[i])),
+        `${appRoute}: app navigation order differs`,
+      );
+      const current = navLinks.filter(
+        (link) => link['aria-current'] === 'page',
+      );
+      check(
+        kind === 'feedback'
+          ? current.length === 0
+          : current.length === 1 && linksTo(current, appRoute),
+        `${appRoute}: current section marker differs`,
+      );
+    }
+  }
 }
 
 const sitemapFile = path.join(clientDirectory, 'sitemap.xml');

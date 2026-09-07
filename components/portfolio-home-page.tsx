@@ -1,270 +1,80 @@
-import {
-  ArrowRight,
-  CircleHelp,
-  Layers3,
-  MapPinned,
-  MessageSquareText,
-  MousePointerClick,
-} from 'lucide-react';
+import { ArrowRight, MapPinned } from 'lucide-react';
 import { SiteFooter, SiteHeader } from '@/components/site-chrome';
-import { tsutawaru, tsutawaruPaths } from '@/lib/tsutawaru';
-import { locationLogger, locationLoggerPaths } from '@/lib/location-logger';
-import {
-  appPlaceholders,
-  featuredApp,
-  featuredAppPaths,
-  localePath,
-  sitePath,
-  type Locale,
-} from '@/lib/site';
-
-const copy = {
-  ja: {
-    eyebrow: '個人制作のアプリ',
-    title: (
-      <>
-        <span className="title-line">毎日の小さな</span>
-        <span className="title-line">困りごとを、</span>
-        <span className="title-line">使いやすいアプリに。</span>
-      </>
-    ),
-    lead: '日々の中で「こんな道具があれば」と思ったことから、個人で作っているアプリを紹介しています。公開準備が整ったものから、詳しい使い方と入手先を掲載します。',
-    appsAction: 'アプリを見る',
-    feedbackAction: 'お問い合わせ',
-    appsEyebrow: 'アプリ',
-    appsTitle: '現在のアプリ',
-    appsBody:
-      '詳しい紹介があるアプリから、使い方や公開準備の状況を確認できます。ほかのアプリも、現在の内容を正確に案内できるものから追加します。',
-    focusState: 'App Store公開準備中',
-    focusSummary:
-      'ピントを置く距離と絞りから、合って見える範囲を確かめるiPhoneアプリ。',
-    ready: '詳しく見る',
-    preparing: '紹介ページを準備中',
-    valuesEyebrow: '使いやすさについて',
-    valuesTitle: 'やりたいことへ、迷わず進めるように。',
-    values: [
-      [
-        'まず必要なものだけ',
-        '最初の画面では、その場で使う結果と操作を優先します。',
-      ],
-      [
-        '詳しく知りたいときは奥へ',
-        '設定や仕組みは省かず、必要になったときに開ける順序にします。',
-      ],
-      [
-        '分からないことを隠さない',
-        '計算の前提や未確認のことは、確かめられる場所に明記します。',
-      ],
-    ],
-    feedbackTitle: '業務・運営・その他のご連絡はこちら。',
-    feedbackBody:
-      'アプリの不具合や要望は、各アプリのサポートから専用フィードバックへお進みください。',
-    feedbackButton: 'お問い合わせへ',
-  },
-  en: {
-    eyebrow: 'Independent apps',
-    title: 'Small everyday problems, turned into useful apps.',
-    lead: 'These apps began with moments when I wished a better tool existed. Full guides and download links are added as each app is ready to present accurately.',
-    appsAction: 'Browse the apps',
-    feedbackAction: 'Contact',
-    appsEyebrow: 'Apps',
-    appsTitle: 'Current apps',
-    appsBody:
-      'Open an app’s introduction for its features, help, and release status. More introductions will be added as each app can be described accurately.',
-    focusState: 'Preparing for the App Store',
-    focusSummary:
-      'An iPhone app that shows how far acceptable focus extends from a chosen distance and aperture.',
-    ready: 'Learn more',
-    preparing: 'Introduction in progress',
-    valuesEyebrow: 'Designed for ease',
-    valuesTitle: 'A clear path to what you came to do.',
-    values: [
-      [
-        'Start with what matters now',
-        'The first screen prioritizes the result and controls needed for the task at hand.',
-      ],
-      [
-        'Go deeper when you choose',
-        'Settings and explanations remain available without interrupting the main path.',
-      ],
-      [
-        'Keep uncertainty visible',
-        'Assumptions and unverified details are stated where you can find them.',
-      ],
-    ],
-    feedbackTitle: 'For business, site administration, or other inquiries.',
-    feedbackBody:
-      'For app bugs or feature requests, use the app-specific feedback link on its support page.',
-    feedbackButton: 'Open contact page',
-  },
-} as const;
-
+import { ReadableText } from '@/components/readable-text';
+import { appCatalog } from '@/lib/app-catalog';
+import { appPlaceholders, localePath, sitePath, type Locale } from '@/lib/site';
 export function PortfolioHomePage({ locale }: { locale: Locale }) {
-  const text = copy[locale];
-  const isEnglish = locale === 'en';
-
+  const ja = locale === 'ja';
   return (
     <main id="top" lang={locale}>
-      <SiteHeader
-        locale={locale}
-        languageHref={isEnglish ? '/apps/' : '/apps/en/'}
-      />
-
-      <section className="portfolio-hero section" aria-labelledby="page-title">
-        <p className="section-label">{text.eyebrow}</p>
-        <h1 id="page-title">{text.title}</h1>
-        <p>{text.lead}</p>
-        <div className="portfolio-actions">
-          <a
-            className="primary-action"
-            href={localePath(locale, '/apps/#apps')}
-          >
-            {text.appsAction}
-            <ArrowRight aria-hidden="true" size={17} />
-          </a>
-          <a
-            className="secondary-action"
-            href={localePath(locale, '/apps/contact/')}
-          >
-            {text.feedbackAction}
-          </a>
-        </div>
+      <SiteHeader locale={locale} languageHref={ja ? '/apps/en/' : '/apps/'} />
+      <section className="catalog-heading section">
+        <p className="section-label">
+          {ja ? '個人制作のアプリ' : 'Independent apps'}
+        </p>
+        <h1>
+          <ReadableText phrases>
+            {ja
+              ? '日々に役立つ、小さな道具。'
+              : 'Small tools for everyday life.'}
+          </ReadableText>
+        </h1>
+        <p>
+          <ReadableText>
+            {ja
+              ? '気になるアプリから、機能や使い方をご覧ください。'
+              : 'Find an app and explore what it can do.'}
+          </ReadableText>
+        </p>
       </section>
-
       <section
         className="app-catalog section"
         id="apps"
-        aria-labelledby="apps-title"
+        aria-label={ja ? 'アプリ一覧' : 'Apps'}
       >
-        <div className="section-intro">
-          <div>
-            <p className="section-label">{text.appsEyebrow}</p>
-            <h2 id="apps-title">{text.appsTitle}</h2>
-          </div>
-          <p>{text.appsBody}</p>
-        </div>
-
         <div className="portfolio-grid">
-          <a
-            className="portfolio-card portfolio-card-ready"
-            href={localePath(locale, featuredAppPaths.app)}
-          >
-            <div className="portfolio-card-heading">
-              <img
-                src={sitePath(`${featuredApp.imageDirectory}/icon.png`)}
-                alt=""
-                width="64"
-                height="64"
-              />
-              <span className="status-pill">{text.focusState}</span>
-            </div>
-            <div>
-              <h3>{featuredApp.name[locale]}</h3>
-              <p>{text.focusSummary}</p>
-            </div>
-            <span className="card-link">
-              {text.ready}
-              <ArrowRight aria-hidden="true" size={16} />
-            </span>
-          </a>
-
-          <a
-            className="portfolio-card portfolio-card-ready"
-            href={localePath(locale, tsutawaruPaths.app)}
-          >
-            <div className="portfolio-card-heading">
-              <img src={sitePath('/images/tsutawaru-moji/icon.png')} alt="" width="64" height="64" />
-              <span className="status-pill">
-                {locale === 'ja' ? '公開準備中' : 'Preparing for release'}
+          {appCatalog.map((app) => (
+            <a
+              className="portfolio-card portfolio-card-ready"
+              href={localePath(locale, app.paths.app)}
+              key={app.slug}
+            >
+              <div className="portfolio-card-heading">
+                {app.icon ? (
+                  <img src={sitePath(app.icon)} alt="" width="64" height="64" />
+                ) : (
+                  <MapPinned aria-hidden="true" size={48} />
+                )}
+                <span className="status-pill">
+                  {ja ? '公開準備中' : 'Preparing for release'}
+                </span>
+              </div>
+              <div>
+                <h2>
+                  <ReadableText>{app.name[locale]}</ReadableText>
+                </h2>
+                <p>
+                  <ReadableText>{app.summary[locale]}</ReadableText>
+                </p>
+              </div>
+              <span className="card-link">
+                {ja ? '詳しく見る' : 'Learn more'}
+                <ArrowRight aria-hidden="true" size={16} />
               </span>
-            </div>
-            <div>
-              <h3>{tsutawaru.name[locale]}</h3>
-              <p>
-                {locale === 'ja'
-                  ? '対面の会話を、iPhoneの大きな文字で読みやすく。'
-                  : 'Read face-to-face conversations as large text on iPhone.'}
-              </p>
-            </div>
-            <span className="card-link">
-              {text.ready}
-              <ArrowRight aria-hidden="true" size={16} />
-            </span>
-          </a>
-
-          <a
-            className="portfolio-card portfolio-card-ready"
-            href={localePath(locale, locationLoggerPaths.app)}
-          >
-            <div className="portfolio-card-heading">
-              <MapPinned aria-hidden="true" size={48} />
-              <span className="status-pill">
-                {locale === 'ja' ? '公開準備中' : 'Preparing for release'}
-              </span>
-            </div>
-            <div>
-              <h3>{locationLogger.name[locale]}</h3>
-              <p>
-                {locale === 'ja'
-                  ? '通った道を地図で見返す'
-                  : 'Keep locations delivered to iPhone and Apple Watch on your devices.'}
-              </p>
-            </div>
-            <span className="card-link">
-              {text.ready}
-              <ArrowRight aria-hidden="true" size={16} />
-            </span>
-          </a>
-
-          {appPlaceholders.map((app) => (
-            <article className="portfolio-card" key={app.slug}>
-              <span className="status-pill">{text.preparing}</span>
-              <h3>{app.name}</h3>
-            </article>
+            </a>
           ))}
         </div>
+        <section className="upcoming-apps" aria-labelledby="upcoming-title">
+          <h2 id="upcoming-title">
+            {ja ? '紹介を準備しているアプリ' : 'More introductions to come'}
+          </h2>
+          <ul>
+            {appPlaceholders.map((app) => (
+              <li key={app.slug}>{app.name}</li>
+            ))}
+          </ul>
+        </section>
       </section>
-
-      <section
-        className="values-section section"
-        aria-labelledby="values-title"
-      >
-        <p className="section-label">{text.valuesEyebrow}</p>
-        <h2 id="values-title">{text.valuesTitle}</h2>
-        <div className="value-grid">
-          {text.values.map(([title, body], index) => (
-            <article key={title}>
-              {index === 0 ? (
-                <MousePointerClick aria-hidden="true" />
-              ) : index === 1 ? (
-                <Layers3 aria-hidden="true" />
-              ) : (
-                <CircleHelp aria-hidden="true" />
-              )}
-              <h3>{title}</h3>
-              <p>{body}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="feedback-section section">
-        <a
-          className="feedback-banner"
-          href={localePath(locale, '/apps/contact/')}
-        >
-          <MessageSquareText aria-hidden="true" />
-          <span>
-            <strong>{text.feedbackTitle}</strong>
-            <small>{text.feedbackBody}</small>
-          </span>
-          <span className="feedback-banner-action">
-            {text.feedbackButton}
-            <ArrowRight aria-hidden="true" size={16} />
-          </span>
-        </a>
-      </section>
-
       <SiteFooter locale={locale} />
     </main>
   );

@@ -5,7 +5,7 @@ import { absoluteSiteUrl } from '@/lib/site';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Apps — 毎日の小さな困りごとから生まれたアプリ',
+  title: 'Apps — 日々に役立つ、小さな道具。',
   description:
     '自分で使いたいと思ったところから作り始めた、個人制作アプリの紹介サイトです。',
   alternates: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    title: 'Apps — 毎日の小さな困りごとから生まれたアプリ',
+    title: 'Apps — 日々に役立つ、小さな道具。',
     description:
       '自分で使いたいと思ったところから作り始めた、個人制作アプリの紹介サイトです。',
     url: absoluteSiteUrl('/apps/'),

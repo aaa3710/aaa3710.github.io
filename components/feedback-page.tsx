@@ -1,10 +1,8 @@
+import { AppPageHeader } from '@/components/app-page-header';
+import { appCatalog } from '@/lib/app-catalog';
+import { ReadableText } from '@/components/readable-text';
 import { localizedAppRoute } from '@/lib/app-routes';
-import {
-  ArrowLeft,
-  ExternalLink,
-  MessageSquareText,
-  ShieldCheck,
-} from 'lucide-react';
+import { ExternalLink, ShieldCheck } from 'lucide-react';
 import { SiteFooter, SiteHeader } from '@/components/site-chrome';
 import {
   feedbackFormUrl,
@@ -31,16 +29,22 @@ const content = {
       'この入口でアプリと表示言語は確定しています。アプリ名、言語、種類、端末、OSを選び直す必要はありません。',
     back: '撮影のものさしへ',
     safetyLabel: '送信前に',
-    safetyTitle: '匿名で送れます。通常、個別の返信は行いません。',
+    safetyTitle: '氏名・メールは不要です。個別の返信は原則ありません。',
     points: [
       '大きな自由記述欄に、気づいたことをそのままお書きください。分かる範囲で、何をしていたか、何が起きたか、どうなるとよかったかがあると確認しやすくなります。',
-      '個人情報、秘密情報、パスワード、認証コード、URLは入力しないでください。アプリの計算値や設定は自動で添付されません。',
-      '内容はGoogleフォームを通じて送信・保存され、不具合・意見の確認と改善に必要な間だけ保持した後、不要になれば削除します。返信や修正時期はお約束できません。',
+      '個人情報、秘密情報、パスワード、認証コード、URL、第三者の情報は入力しないでください。アプリの計算値や設定は自動で添付されません。',
+      '内容は不具合・ご意見の把握、安全確認、アプリ改善のためにGoogle Formsで受け取ります。有用な報告は概ね1か月以内の改善につなげることを目指しますが、全件の内容把握・対応、期限、個別返信は保証しません。',
     ],
+    processing:
+      '回答本文をそのまま外部AIへ渡しません。個人情報や本文を含まない、安全に作成できる改善候補を必要時にAIで整理する方針です。実回答のAI整理はまだ開始していません。新たな外部AIへ本文を渡す場合は、開始前に案内し必要な同意を得ます。以前の回答を当然には流用しません。',
+    testFlight:
+      'TestFlight参加者はTestFlightのフィードバック機能をご利用ください。プライバシーの請求は、TestFlightのこのアプリの情報欄にある「Appの詳細」で開発者メールを確認してお送りください。TestFlight由来のコメント・画面・クラッシュ情報等をGoogleフォームへ転送しないでください。',
+    consent:
+      '送信は任意です。プライバシーポリシーで利用目的、国外での取扱い、保持・削除をご確認ください。米国のGoogle LLCへの送信・保存と、説明した国外での取扱いに同意する場合に「送信」を押してください。',
     formTitle: '自由記述で送る',
     open: 'フォームを別画面で開く',
     google:
-      'Googleフォームを使用し、氏名やメールアドレスは収集しません。削除の依頼などプライバシーに関する連絡は、別のお問い合わせ窓口で扱います。匿名回答を確実に特定できない場合があります。AIによる整理を行う場合は、説明を更新し、必要な同意を得た範囲で行います。過去の回答を自動で流用しません。',
+      '氏名やメールの回答欄はなく、メールを自動収集しません。自分で識別情報を書いた場合まで匿名性を保証するものではありません。Google Formsの提供者は米国のGoogle LLCです。情報は米国を含む世界各地で処理される場合があり、個々の回答の保存・処理国を開発者が指定・特定することはできません。米国のGlobal CBPR Forum参加は、日本と同じ制度やGoogleの個別認証を保証しません。Googleは暗号化・アクセス制限等を説明し、サービス提供・改善・安全確保や法的要請等でも情報を扱います。回答は目的に必要な間だけ保持し、不要になれば削除します。周期だけを理由に一律削除しません。削除などのご依頼はContactへ、送信日時と秘密でない本文の一部をお知らせください。特定できない場合がありますが、法令上の権利を制限しません。',
   },
   en: {
     label: 'Feedback for Photo Yardstick',
@@ -50,16 +54,22 @@ const content = {
     back: 'Back to Photo Yardstick',
     safetyLabel: 'Before sending',
     safetyTitle:
-      'Send anonymously. Individual replies are generally not provided.',
+      'No name or email is required. Individual replies are generally not provided.',
     points: [
       'Use the large free-text field for anything you noticed. If known, what you were doing, what happened, and what you hoped would happen can help with review.',
-      'Do not include personal information, secrets, passwords, authentication codes, or URLs. The app never attaches calculations or settings automatically.',
-      'Your text is sent and stored through Google Forms only while needed to review issues and feedback and improve the app, then deleted. A reply or delivery date cannot be promised.',
+      'Do not include personal information, secrets, passwords, authentication codes, URLs, or information about another person. The app never attaches calculations or settings automatically.',
+      'Your text is received through Google Forms to understand issues and feedback, maintain safety, and improve the app. Useful reports are intended to inform improvements within roughly one month, without a guarantee that every message will be understood or addressed, a deadline, or an individual reply.',
     ],
+    processing:
+      'Original responses are not passed directly to external AI. The intended process uses AI when needed to organize safely produced improvement candidates without personal information or original text. AI organization of real submissions has not started. Before text is provided to a new external AI service, its handling will be explained and any required consent obtained. Earlier responses will not automatically be reused.',
+    testFlight:
+      'TestFlight participants can use its feedback feature. For privacy requests, open this app’s page in TestFlight and select App Details in the Information section to find the developer email. Do not forward TestFlight comments, screenshots, crash information, or other TestFlight data to Google Forms.',
+    consent:
+      'Submission is optional. Read the Privacy Policy for the purposes, international handling, retention, and deletion. Press Submit if you agree to transmission and storage through Google LLC in the United States and the international handling described here.',
     formTitle: 'Write freely',
     open: 'Open the form in a separate page',
     google:
-      'This Google Form does not collect names or email addresses. Privacy matters, including deletion requests, use the separate Contact route. A particular anonymous response may not be identifiable. Before any AI-assisted organization, the explanation will be updated and any required consent obtained. Previous responses will not be reused automatically.',
+      'There is no name or email field, and email addresses are not automatically collected. Anonymity is not guaranteed if someone writes identifying information themselves. Google Forms is provided by Google LLC in the United States. Information may be processed around the world, including the United States; the developer cannot specify or identify the countries used for each response. US participation in the Global CBPR Forum does not guarantee laws identical to Japan’s or any specific Google certification. Google describes encryption and access restrictions and also handles information for service provision, improvement, safety, and legal requests. Responses are kept only while needed, then deleted, not solely on a fixed schedule. For requests such as deletion, use Contact with the approximate submission time and a non-sensitive excerpt. A response may not be identifiable; this does not limit statutory rights.',
   },
 } as const;
 
@@ -80,30 +90,26 @@ export function FeedbackPage({ locale }: { locale: Locale }) {
         }
       />
 
-      <article className="feedback-page section">
-        <a
-          className="back-link"
-          href={localePath(locale, featuredAppPaths.app)}
-        >
-          <ArrowLeft aria-hidden="true" size={16} />
-          {text.back}
-        </a>
-
-        <div className="feedback-intro">
-          <div>
-            <p className="section-label">{text.label}</p>
-            <h1>
-              {formReadiness['app-feedback']
-                ? text.title
-                : isEnglish
-                  ? 'App feedback'
-                  : 'アプリのフィードバック'}
-            </h1>
-            <p>{text.intro}</p>
-          </div>
-          <MessageSquareText aria-hidden="true" />
+      <article className="info-page section app-detail-page">
+        <AppPageHeader app={appCatalog[0]} locale={locale} kind="feedback" />
+        {!formReadiness['app-feedback'] && (
+          <p className="intake-status">
+            {isEnglish
+              ? 'The feedback form is being prepared. Submissions are not available from this page yet.'
+              : 'フィードバックフォームを準備中です。現在、このページからは送信できません。'}
+          </p>
+        )}
+        <div className="public-document">
+          <p>
+            <ReadableText>{text.intro}</ReadableText>
+          </p>
+          <p>
+            <ReadableText>{text.processing}</ReadableText>
+          </p>
+          <p>
+            <ReadableText>{text.testFlight}</ReadableText>
+          </p>
         </div>
-
         {formReadiness['app-feedback'] ? (
           <>
             <section
@@ -133,6 +139,8 @@ export function FeedbackPage({ locale }: { locale: Locale }) {
                   <ExternalLink aria-hidden="true" size={15} />
                 </a>
               </div>
+              <p>{text.google}</p>
+              <p>{text.consent}</p>
               <p>{submissionNotice[locale]}</p>
               <iframe
                 loading="lazy"
@@ -140,7 +148,6 @@ export function FeedbackPage({ locale }: { locale: Locale }) {
                 src={embeddedUrl}
                 title={`${featuredApp.name[locale]} — ${text.formTitle}`}
               />
-              <p>{text.google}</p>
               <p className="info-contact">
                 <a href={localePath(locale, '/apps/contact/')}>
                   {isEnglish
@@ -150,20 +157,7 @@ export function FeedbackPage({ locale }: { locale: Locale }) {
               </p>
             </section>
           </>
-        ) : (
-          <section className="form-pending" aria-labelledby="feedback-pending">
-            <h2 id="feedback-pending">
-              {isEnglish
-                ? 'The feedback form is being prepared.'
-                : 'フィードバックフォームを準備中です。'}
-            </h2>
-            <p>
-              {isEnglish
-                ? 'Submissions are not available from this page yet. The form will appear here once its content and settings have been checked.'
-                : '現在、このページからは送信できません。フォームの内容と設定を確認した後、この場所に表示します。'}
-            </p>
-          </section>
-        )}
+        ) : null}
       </article>
 
       <SiteFooter locale={locale} />

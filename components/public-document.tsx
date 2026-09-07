@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { ReadableText } from '@/components/readable-text';
 import {
   inlineTokens,
   parsePublicDocument,
@@ -14,12 +14,12 @@ function Inline({ text }: { text: string }) {
         href={sitePath(token.href)}
         rel={token.href.startsWith('https:') ? 'noreferrer' : undefined}
       >
-        {token.text}
+        <ReadableText>{token.text}</ReadableText>
       </a>
     ) : token.kind === 'code' ? (
       <code key={index}>{token.text}</code>
     ) : (
-      <Fragment key={index}>{token.text}</Fragment>
+      <ReadableText key={index}>{token.text}</ReadableText>
     ),
   );
 }
@@ -59,7 +59,9 @@ export function PublicDocument({
 }) {
   const document = parsePublicDocument(body);
   const sections = document.sections.filter(
-    (section) => kind !== 'app' || !['名前', 'Name'].includes(section.title),
+    (section) =>
+      kind !== 'app' ||
+      !['名前', 'Name', 'サブタイトル', 'Subtitle'].includes(section.title),
   );
   return (
     <div className="public-document">
@@ -69,8 +71,10 @@ export function PublicDocument({
           key={section.title}
           open={index < (kind === 'privacy' ? 1 : 2)}
         >
-          <summary>
-            <h2>{section.title}</h2>
+          <summary aria-label={section.title}>
+            <h2>
+              <ReadableText>{section.title}</ReadableText>
+            </h2>
           </summary>
           <div className="public-document-body">
             <Blocks blocks={section.blocks} />

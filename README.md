@@ -8,6 +8,8 @@
 
 既存原稿・素材の保存場所と編集担当は区別します。認知担当が別repoの既存正本を変更する場合は、[project間の連携手順](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/references/project-coordination.md)でactive編集との競合を先に確認します。原稿や素材を移動せず、同じ内容の独立原稿を二重に保守しません。以下の確定commitからの取込と同期経路は維持します。
 
+2026-09-07の表示共通化とWordPressによる手動編集への移行案は[改修記録](website-refinement-2026-09-07.md)を参照してください。WordPress管理画面と常駐同期は未導入です。
+
 ## 現在のサイト構成
 
 - 全アプリを同じ大きさで案内する `/apps/` の一覧と、`撮影のものさし`の詳細ページ

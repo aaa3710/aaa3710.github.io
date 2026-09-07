@@ -1,5 +1,8 @@
+import { AppPageHeader, AppSupportLinks } from '@/components/app-page-header';
+import { appCatalog } from '@/lib/app-catalog';
+import { ReadableText } from '@/components/readable-text';
 import { localizedAppRoute } from '@/lib/app-routes';
-import { ArrowLeft, ExternalLink, ShieldCheck } from 'lucide-react';
+import { ExternalLink, ShieldCheck } from 'lucide-react';
 import { PublicDocument } from '@/components/public-document';
 import { SiteFooter, SiteHeader } from '@/components/site-chrome';
 import { submissionNotice } from '@/lib/feedback';
@@ -12,7 +15,7 @@ import {
   locationLoggerFeedbackConfig,
   locationLoggerFeedbackUrl,
 } from '@/lib/location-logger-feedback';
-import { localePath, type Locale } from '@/lib/site';
+import { type Locale } from '@/lib/site';
 import snapshot from '@/lib/location-logger-public.generated.json';
 
 const copy = {
@@ -86,7 +89,6 @@ export function LocationLoggerPage({
 }) {
   const text = copy[locale];
   const name = locationLogger.name[locale];
-  const title = `${name} — ${text[kind]}`;
   const formUrl =
     kind === 'feedback' ? locationLoggerFeedbackUrl(locale) : null;
   const embeddedUrl =
@@ -100,51 +102,29 @@ export function LocationLoggerPage({
           locationLoggerPaths[kind],
         )}
       />
-      <article className="info-page section tsutawaru-page">
-        <a
-          className="back-link"
-          href={localePath(
-            locale,
-            kind === 'app' ? '/apps/' : locationLoggerPaths.app,
-          )}
-        >
-          <ArrowLeft aria-hidden="true" size={16} />
-          {kind === 'app'
-            ? locale === 'ja'
-              ? 'アプリ一覧'
-              : 'All apps'
-            : name}
-        </a>
-        <p className="section-label">{name}</p>
-        <h1>{title}</h1>
-        <div className="tsutawaru-status">
-          <p>{text.release}</p>
-          <p>
-            {locationLoggerFeedbackConfig.ready
-              ? text.intakeReady
-              : text.intake}
+      <article className="info-page section app-detail-page">
+        <AppPageHeader
+          app={appCatalog[2]}
+          locale={locale}
+          kind={kind}
+          lead={kind === 'app' ? appCatalog[2].summary[locale] : undefined}
+        />
+        {kind === 'support' && (
+          <AppSupportLinks
+            app={appCatalog[2]}
+            locale={locale}
+            ready={locationLoggerFeedbackConfig.ready}
+          />
+        )}
+        {kind === 'feedback' && (
+          <p className="intake-status">
+            <ReadableText>
+              {locationLoggerFeedbackConfig.ready
+                ? text.intakeReady
+                : text.intake}
+            </ReadableText>
           </p>
-        </div>
-        <div className="info-contact">
-          {kind !== 'support' && (
-            <a href={localePath(locale, locationLoggerPaths.support)}>
-              {text.support}
-            </a>
-          )}
-          {kind !== 'privacy' && (
-            <a href={localePath(locale, locationLoggerPaths.privacy)}>
-              {text.privacy}
-            </a>
-          )}
-          {kind === 'support' && (
-            <a href={localePath(locale, locationLoggerPaths.feedback)}>
-              {text.feedback}
-            </a>
-          )}
-          {kind !== 'app' && (
-            <a href={localePath(locale, '/apps/contact/')}>{text.contact}</a>
-          )}
-        </div>
+        )}
         {kind === 'feedback' && formUrl && embeddedUrl ? (
           <div className="public-document">
             <section

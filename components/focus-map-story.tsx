@@ -1,27 +1,9 @@
 import { localizedAppRoute } from '@/lib/app-routes';
-import {
-  ArrowLeft,
-  ArrowRight,
-  BookOpen,
-  Camera,
-  CheckCircle2,
-  Eye,
-  LockKeyhole,
-  Ruler,
-  Smartphone,
-} from 'lucide-react';
 import { SiteFooter, SiteHeader } from '@/components/site-chrome';
-import {
-  featuredApp,
-  featuredAppPaths,
-  localePath,
-  sitePath,
-  type Locale,
-} from '@/lib/site';
-
-// Preserve the existing real captures, but do not display them under a new
-// app name until replacement captures have been independently verified.
-const hasCurrentScreenshots = false;
+import { AppPageHeader } from '@/components/app-page-header';
+import { ReadableText } from '@/components/readable-text';
+import { appCatalog } from '@/lib/app-catalog';
+import { featuredAppPaths, localePath, type Locale } from '@/lib/site';
 
 const content = {
   ja: {
@@ -166,213 +148,91 @@ const content = {
 
 export function FocusMapStory({ locale }: { locale: Locale }) {
   const text = content[locale];
-  const isEnglish = locale === 'en';
-  const mainScreen = isEnglish ? 'main-en.png' : 'main-ja.png';
-  const sensorScreen = isEnglish ? 'sensors-en.png' : 'sensors-ja.png';
-
+  const features = [
+    [text.focusLabel, text.focusBody],
+    [text.sensorLabel, text.sensorBody],
+    [text.learningTitle, text.learningBody],
+  ];
   return (
     <main id="top" lang={locale}>
       <SiteHeader
         locale={locale}
-        languageHref={
-          isEnglish
-            ? featuredAppPaths.app
-            : localizedAppRoute('en', featuredAppPaths.app)
-        }
+        languageHref={localizedAppRoute(
+          locale === 'ja' ? 'en' : 'ja',
+          featuredAppPaths.app,
+        )}
       />
-
-      <section
-        className={`detail-hero section${hasCurrentScreenshots ? '' : ' without-app-screen'}`}
-      >
-        <div className="detail-hero-copy">
-          <a className="back-link" href={localePath(locale, '/apps/#apps')}>
-            <ArrowLeft aria-hidden="true" size={16} />
-            {text.back}
-          </a>
-          <div className="detail-identity">
-            <img
-              src={sitePath(`${featuredApp.imageDirectory}/icon.png`)}
-              alt={featuredApp.name[locale]}
-              width="92"
-              height="92"
-            />
-            <div>
-              <p>{text.eyebrow}</p>
-              <strong>{featuredApp.name[locale]}</strong>
-              <p>{featuredApp.subtitle[locale]}</p>
-            </div>
-          </div>
-          <h1>{text.title}</h1>
-          <p className="detail-lead">{text.lead}</p>
-          <div className="detail-actions">
-            <span className="disabled-store-action" aria-disabled="true">
-              {text.state}
-            </span>
+      <article className="info-page section app-detail-page">
+        <AppPageHeader
+          app={appCatalog[0]}
+          locale={locale}
+          kind="app"
+          lead={text.lead}
+        />
+        <p className="policy-date">
+          {locale === 'ja'
+            ? 'iPhone・iOS 17以降 ／ 日本語・英語 ／ 初回配信予定地域：日本'
+            : 'iPhone · iOS 17 or later · Japanese and English · Initial release planned for Japan'}
+        </p>
+        <div className="info-sections">
+          {features.map(([heading, body]) => (
+            <section key={heading}>
+              <h2>
+                <ReadableText>{heading}</ReadableText>
+              </h2>
+              <p>
+                <ReadableText>{body}</ReadableText>
+              </p>
+            </section>
+          ))}
+        </div>
+        <div className="public-document">
+          <h2>
+            <ReadableText>{text.limitsTitle}</ReadableText>
+          </h2>
+          <p>
+            <ReadableText>{text.limitsBody}</ReadableText>
+          </p>
+          <details>
+            <summary>
+              <h2>{text.sceneLabel}</h2>
+            </summary>
+            {text.scenes.map(([heading, body]) => (
+              <section key={heading}>
+                <h3>
+                  <ReadableText>{heading}</ReadableText>
+                </h3>
+                <p>
+                  <ReadableText>{body}</ReadableText>
+                </p>
+              </section>
+            ))}
+          </details>
+          <details>
+            <summary>
+              <h2>{text.originLabel}</h2>
+            </summary>
+            <p>
+              <ReadableText>{text.originBody}</ReadableText>
+            </p>
+          </details>
+          <details>
+            <summary>
+              <h2>{text.localLabel}</h2>
+            </summary>
+            <p>
+              <ReadableText>
+                {locale === 'ja'
+                  ? '計算値と設定はiPhone内に保存され、自動送信されません。アカウント、広告、解析、追跡はありません。自分で開くWebページやTestFlightでの取扱いは、プライバシーのページをご確認ください。'
+                  : 'Calculations and settings stay on iPhone and are not sent automatically. There are no accounts, ads, analytics, or tracking. See Privacy for information about web pages you choose to open and TestFlight.'}
+              </ReadableText>
+            </p>
             <a href={localePath(locale, featuredAppPaths.privacy)}>
               {text.privacy}
             </a>
-            <a href={localePath(locale, featuredAppPaths.support)}>
-              {text.support}
-            </a>
-          </div>
+          </details>
         </div>
-        {hasCurrentScreenshots ? (
-          <div className="detail-visual">
-            <div className="detail-phone phone-frame">
-              <div className="phone-speaker" aria-hidden="true" />
-              <img
-                src={sitePath(`${featuredApp.imageDirectory}/${mainScreen}`)}
-                alt={
-                  isEnglish
-                    ? 'Photo Yardstick showing an acceptable focus range and blur curve'
-                    : '「撮影のものさし」で、合って見える範囲とぼけの曲線を表示している画面'
-                }
-                width="1320"
-                height="2868"
-              />
-            </div>
-            <p className="evidence-note">{text.screenNote}</p>
-          </div>
-        ) : null}
-      </section>
-
-      <section className="origin-section section">
-        <div>
-          <p className="section-label">{text.originLabel}</p>
-          <h2>{text.originTitle}</h2>
-        </div>
-        <p>{text.originBody}</p>
-      </section>
-
-      <section
-        className="decision-section section"
-        aria-labelledby="decision-title"
-      >
-        <p className="section-label">{text.sceneLabel}</p>
-        <h2 id="decision-title">{text.sceneTitle}</h2>
-        <div className="decision-grid">
-          {text.scenes.map(([title, body], index) => (
-            <article key={title}>
-              {index === 0 ? (
-                <Camera aria-hidden="true" />
-              ) : index === 1 ? (
-                <Eye aria-hidden="true" />
-              ) : (
-                <BookOpen aria-hidden="true" />
-              )}
-              <h3>{title}</h3>
-              <p>{body}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section
-        className={`feature-story section feature-story-main${hasCurrentScreenshots ? '' : ' without-app-screen'}`}
-      >
-        {hasCurrentScreenshots ? (
-          <div className="feature-screen">
-            <img
-              src={sitePath(`${featuredApp.imageDirectory}/${mainScreen}`)}
-              alt={
-                isEnglish
-                  ? 'Focus range and continuous blur curve'
-                  : 'ピントが合って見える範囲と、ぼけの変化を示す曲線'
-              }
-              width="1320"
-              height="2868"
-            />
-          </div>
-        ) : null}
-        <div className="feature-copy">
-          <p className="section-label">{text.focusLabel}</p>
-          <h2>{text.focusTitle}</h2>
-          <p>{text.focusBody}</p>
-        </div>
-      </section>
-
-      <section
-        className={`feature-story section feature-story-reverse${hasCurrentScreenshots ? '' : ' without-app-screen'}`}
-      >
-        {hasCurrentScreenshots ? (
-          <div className="feature-screen feature-screen-soft">
-            <img
-              src={sitePath(`${featuredApp.imageDirectory}/${sensorScreen}`)}
-              alt={
-                isEnglish
-                  ? 'Sensor formats compared at one scale'
-                  : 'センサーの大きさを同じ縮尺で比べる画面'
-              }
-              width="1320"
-              height="2868"
-            />
-          </div>
-        ) : null}
-        <div className="feature-copy">
-          <p className="section-label">{text.sensorLabel}</p>
-          <h2>{text.sensorTitle}</h2>
-          <p>{text.sensorBody}</p>
-        </div>
-      </section>
-
-      <section className="learning-section section">
-        <div>
-          <p className="section-label">{text.learningLabel}</p>
-          <h2>{text.learningTitle}</h2>
-          <p>{text.learningBody}</p>
-        </div>
-        <aside>
-          <Ruler aria-hidden="true" />
-          <p>{text.learningAside}</p>
-        </aside>
-      </section>
-
-      <section className="privacy-feature section">
-        <div className="privacy-symbol" aria-hidden="true">
-          <LockKeyhole />
-        </div>
-        <div>
-          <p className="section-label">{text.localLabel}</p>
-          <h2>{text.localTitle}</h2>
-          <p>{text.localBody}</p>
-          <ul>
-            {text.facts.map((fact) => (
-              <li key={fact}>
-                <CheckCircle2 aria-hidden="true" size={18} />
-                {fact}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="release-section section">
-        <div>
-          <p className="section-label">{text.releaseLabel}</p>
-          <h2>{text.releaseTitle}</h2>
-        </div>
-        <p>{text.releaseBody}</p>
-      </section>
-
-      <section className="limits-section section">
-        <Smartphone aria-hidden="true" />
-        <div>
-          <p className="section-label">{text.limitsLabel}</p>
-          <h2>{text.limitsTitle}</h2>
-          <p>{text.limitsBody}</p>
-        </div>
-      </section>
-
-      <section className="closing-cta section">
-        <p>{featuredApp.name[locale]}</p>
-        <h2>{text.closeTitle}</h2>
-        <span>{text.closeBody}</span>
-        <a href={localePath(locale, '/apps/#apps')}>
-          {text.back}
-          <ArrowRight aria-hidden="true" size={16} />
-        </a>
-      </section>
-
+      </article>
       <SiteFooter locale={locale} />
     </main>
   );

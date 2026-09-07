@@ -1,13 +1,11 @@
 import { localizedAppRoute } from '@/lib/app-routes';
-import { ArrowLeft } from 'lucide-react';
+import { AppPageHeader, AppSupportLinks } from '@/components/app-page-header';
+import { appCatalog } from '@/lib/app-catalog';
+import { ReadableText } from '@/components/readable-text';
 import { SiteFooter, SiteHeader } from '@/components/site-chrome';
 import { PublicDocument } from '@/components/public-document';
-import { localePath, sitePath, type Locale } from '@/lib/site';
-import {
-  tsutawaru,
-  tsutawaruPaths,
-  type TsutawaruPageKind,
-} from '@/lib/tsutawaru';
+import { type Locale } from '@/lib/site';
+import { tsutawaruPaths, type TsutawaruPageKind } from '@/lib/tsutawaru';
 import snapshot from '@/lib/tsutawaru-public.generated.json';
 
 const copy = {
@@ -106,15 +104,6 @@ export function TsutawaruPage({
   kind: TsutawaruPageKind;
 }) {
   const text = copy[locale];
-  const name = tsutawaru.name[locale];
-  const title =
-    kind === 'app'
-      ? text.headline
-      : kind === 'support'
-        ? `${name} — ${text.support}`
-        : kind === 'privacy'
-          ? `${name} — ${text.privacy}`
-          : `${name} — ${text.feedback}`;
   return (
     <main id="top" lang={locale}>
       <SiteHeader
@@ -124,53 +113,23 @@ export function TsutawaruPage({
           tsutawaruPaths[kind],
         )}
       />
-      <article className="info-page section tsutawaru-page">
-        <a
-          className="back-link"
-          href={localePath(
-            locale,
-            kind === 'app' ? '/apps/' : tsutawaruPaths.app,
-          )}
-        >
-          <ArrowLeft aria-hidden="true" size={16} />
-          {kind === 'app'
-            ? locale === 'ja'
-              ? 'アプリ一覧'
-              : 'All apps'
-            : name}
-        </a>
-        {kind === 'app' && (
-          <img src={sitePath('/images/tsutawaru-moji/icon.png')} alt="" width="96" height="96" style={{ borderRadius: '22%', marginBottom: '1rem' }} />
+      <article className="info-page section app-detail-page">
+        <AppPageHeader
+          app={appCatalog[1]}
+          locale={locale}
+          kind={kind}
+          lead={kind === 'app' ? text.lead : undefined}
+        />
+        {kind === 'support' && (
+          <AppSupportLinks app={appCatalog[1]} locale={locale} />
         )}
-        <p className="section-label">{name}</p>
-        <h1>{title}</h1>
-        <div className="tsutawaru-status">
-          <p>{text.release}</p>
-          <p>{text.intake}</p>
-        </div>
-        <div className="info-contact">
-          {kind !== 'support' && (
-            <a href={localePath(locale, tsutawaruPaths.support)}>
-              {text.support}
-            </a>
-          )}
-          {kind !== 'privacy' && (
-            <a href={localePath(locale, tsutawaruPaths.privacy)}>
-              {text.privacy}
-            </a>
-          )}
-          {kind === 'support' && (
-            <a href={localePath(locale, tsutawaruPaths.feedback)}>
-              {text.feedback}
-            </a>
-          )}
-          {kind !== 'app' && (
-            <a href={localePath(locale, '/apps/contact/')}>{text.contact}</a>
-          )}
-        </div>
+        {kind === 'feedback' && (
+          <p className="intake-status">
+            <ReadableText>{text.intake}</ReadableText>
+          </p>
+        )}
         {kind === 'app' ? (
           <>
-            <p className="info-intro">{text.lead}</p>
             <p className="policy-date">
               {locale === 'ja'
                 ? 'iPhone・iOS 17以降 ／ 日本語・英語 ／ 初回配信予定地域：日本'
@@ -179,8 +138,12 @@ export function TsutawaruPage({
             <div className="info-sections">
               {text.features.map(([heading, body]) => (
                 <section key={heading}>
-                  <h2>{heading}</h2>
-                  <p>{body}</p>
+                  <h2>
+                    <ReadableText>{heading}</ReadableText>
+                  </h2>
+                  <p>
+                    <ReadableText>{body}</ReadableText>
+                  </p>
                 </section>
               ))}
             </div>
