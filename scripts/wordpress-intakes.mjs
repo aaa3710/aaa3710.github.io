@@ -5,6 +5,7 @@ const APPS = new Set([
   'focus-exposure-calculator',
   'location-logger',
   'tsutawaru-moji',
+  'wrist-morse',
 ]);
 
 function fail(message) {

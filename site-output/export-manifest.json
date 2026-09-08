@@ -48,6 +48,11 @@
       "indexable": false
     },
     {
+      "path": "/apps/en/feedback/wrist-morse/",
+      "lang": "en",
+      "indexable": false
+    },
+    {
       "path": "/apps/en/focus-exposure-calculator/",
       "lang": "en",
       "indexable": true
@@ -83,6 +88,11 @@
       "indexable": true
     },
     {
+      "path": "/apps/en/privacy/wrist-morse/",
+      "lang": "en",
+      "indexable": true
+    },
+    {
       "path": "/apps/en/spatial-fold/",
       "lang": "en",
       "indexable": false
@@ -103,6 +113,11 @@
       "indexable": true
     },
     {
+      "path": "/apps/en/support/wrist-morse/",
+      "lang": "en",
+      "indexable": true
+    },
+    {
       "path": "/apps/en/task-rail/",
       "lang": "en",
       "indexable": false
@@ -115,7 +130,7 @@
     {
       "path": "/apps/en/wrist-morse/",
       "lang": "en",
-      "indexable": false
+      "indexable": true
     },
     {
       "path": "/apps/feedback/focus-exposure-calculator/",
@@ -129,6 +144,11 @@
     },
     {
       "path": "/apps/feedback/tsutawaru-moji/",
+      "lang": "ja",
+      "indexable": false
+    },
+    {
+      "path": "/apps/feedback/wrist-morse/",
       "lang": "ja",
       "indexable": false
     },
@@ -168,6 +188,11 @@
       "indexable": true
     },
     {
+      "path": "/apps/privacy/wrist-morse/",
+      "lang": "ja",
+      "indexable": true
+    },
+    {
       "path": "/apps/spatial-fold/",
       "lang": "ja",
       "indexable": false
@@ -188,6 +213,11 @@
       "indexable": true
     },
     {
+      "path": "/apps/support/wrist-morse/",
+      "lang": "ja",
+      "indexable": true
+    },
+    {
       "path": "/apps/task-rail/",
       "lang": "ja",
       "indexable": false
@@ -200,7 +230,7 @@
     {
       "path": "/apps/wrist-morse/",
       "lang": "ja",
-      "indexable": false
+      "indexable": true
     }
   ],
   "files": [
@@ -216,8 +246,8 @@
     },
     {
       "path": "apps.html",
-      "bytes": 38344,
-      "sha256": "6b5444a269a3adb9aa6f9a6b224c3e8a49354f2f3b709fbea69368fea9c4fdd0"
+      "bytes": 39535,
+      "sha256": "b7fefa24cfea46efbd4d5677be41a7e37b3ce46a96a67cfc10e4c7eb66fd23b3"
     },
     {
       "path": "apps/card-relay.html",
@@ -231,18 +261,18 @@
     },
     {
       "path": "apps/contact.html",
-      "bytes": 29669,
-      "sha256": "76b914ff52988b528d4b566cf5b1159eae64f268d1e48a45070d7d68ac73068a"
+      "bytes": 29864,
+      "sha256": "d5e13dfc9fc120ffcec39fd463dbd1306680a3071958a749416c2c7f098987c8"
     },
     {
       "path": "apps/contact/index.html",
-      "bytes": 29669,
-      "sha256": "76b914ff52988b528d4b566cf5b1159eae64f268d1e48a45070d7d68ac73068a"
+      "bytes": 29864,
+      "sha256": "d5e13dfc9fc120ffcec39fd463dbd1306680a3071958a749416c2c7f098987c8"
     },
     {
       "path": "apps/en.html",
-      "bytes": 36369,
-      "sha256": "c05a13a0836225247f06ad04807caf0dc88502e0094c75a9a62f8576fb5928f3"
+      "bytes": 37152,
+      "sha256": "fff9bf1700489f2dc468ab1149a22cc42bce6557728329e1a4843b616fae30bd"
     },
     {
       "path": "apps/en/card-relay.html",
@@ -256,13 +286,13 @@
     },
     {
       "path": "apps/en/contact.html",
-      "bytes": 25732,
-      "sha256": "d53cf97b3825650fa2bf5657850b25d50bc952eda76bf504c3a22f453a66ec32"
+      "bytes": 25803,
+      "sha256": "22e3ec8b32e3f2fc8364198e7d4a9f39511c393e7a2b36b2290813c3076133cc"
     },
     {
       "path": "apps/en/contact/index.html",
-      "bytes": 25732,
-      "sha256": "d53cf97b3825650fa2bf5657850b25d50bc952eda76bf504c3a22f453a66ec32"
+      "bytes": 25803,
+      "sha256": "22e3ec8b32e3f2fc8364198e7d4a9f39511c393e7a2b36b2290813c3076133cc"
     },
     {
       "path": "apps/en/feedback/focus-exposure-calculator.html",
@@ -295,6 +325,16 @@
       "sha256": "af33a9fc076babb462b81262de4bdbf2560845b46ef7ca8716a1fdd2e3a490f5"
     },
     {
+      "path": "apps/en/feedback/wrist-morse.html",
+      "bytes": 34230,
+      "sha256": "e7f7d20945d5f9a698be417b986126a8123d6131e066d1c146f9491a4ad96533"
+    },
+    {
+      "path": "apps/en/feedback/wrist-morse/index.html",
+      "bytes": 34230,
+      "sha256": "e7f7d20945d5f9a698be417b986126a8123d6131e066d1c146f9491a4ad96533"
+    },
+    {
       "path": "apps/en/focus-exposure-calculator.html",
       "bytes": 38074,
       "sha256": "f67fe824a2563fe69f0b15f84a08f59c2fdeebbada81494b06deda8480e21ef4"
@@ -316,8 +356,8 @@
     },
     {
       "path": "apps/en/index.html",
-      "bytes": 36369,
-      "sha256": "c05a13a0836225247f06ad04807caf0dc88502e0094c75a9a62f8576fb5928f3"
+      "bytes": 37152,
+      "sha256": "fff9bf1700489f2dc468ab1149a22cc42bce6557728329e1a4843b616fae30bd"
     },
     {
       "path": "apps/en/location-logger.html",
@@ -370,6 +410,16 @@
       "sha256": "f505c7b163960bafe84640601321b5aa68fecc6ab98dae360d4c9bb03c991722"
     },
     {
+      "path": "apps/en/privacy/wrist-morse.html",
+      "bytes": 37175,
+      "sha256": "bb3a9e83788e89919423ba2a77e367229553c42e563cc6c327ac1b0e9c22d600"
+    },
+    {
+      "path": "apps/en/privacy/wrist-morse/index.html",
+      "bytes": 37175,
+      "sha256": "bb3a9e83788e89919423ba2a77e367229553c42e563cc6c327ac1b0e9c22d600"
+    },
+    {
       "path": "apps/en/spatial-fold.html",
       "bytes": 24413,
       "sha256": "2ecdd67795cb9d852698ceeedd389277c6550d4f4a440e5ca7b167b0d554ebd9"
@@ -410,6 +460,16 @@
       "sha256": "ad27a73b31201d405872dc8d6340ef897f2da9d2887cadaf21a8b50d28aa5424"
     },
     {
+      "path": "apps/en/support/wrist-morse.html",
+      "bytes": 36339,
+      "sha256": "4d3e93d2154514c224189487b20ba6da03a83ba13fe2767a9d9113d004e129c4"
+    },
+    {
+      "path": "apps/en/support/wrist-morse/index.html",
+      "bytes": 36339,
+      "sha256": "4d3e93d2154514c224189487b20ba6da03a83ba13fe2767a9d9113d004e129c4"
+    },
+    {
       "path": "apps/en/task-rail.html",
       "bytes": 24380,
       "sha256": "53f157415c2c554906babcfc3560bb0d2a7bf12e29690a1f5ff53be296235e86"
@@ -431,13 +491,13 @@
     },
     {
       "path": "apps/en/wrist-morse.html",
-      "bytes": 24787,
-      "sha256": "cbbc036cd2c8c599581d50bd2b8708714ad6cee3e0891fcdf3fd95b730a8f13e"
+      "bytes": 36264,
+      "sha256": "b04a19eed40029aa193cd7a0c880a2f5f1a5eb99bb8e707cbc6af9e6940d5b9f"
     },
     {
       "path": "apps/en/wrist-morse/index.html",
-      "bytes": 24787,
-      "sha256": "cbbc036cd2c8c599581d50bd2b8708714ad6cee3e0891fcdf3fd95b730a8f13e"
+      "bytes": 36264,
+      "sha256": "b04a19eed40029aa193cd7a0c880a2f5f1a5eb99bb8e707cbc6af9e6940d5b9f"
     },
     {
       "path": "apps/feedback/focus-exposure-calculator.html",
@@ -470,6 +530,16 @@
       "sha256": "753ab431a02e30e9ff24f9f991a2f07dac9f111b7c56c7d7d27dedecb8027087"
     },
     {
+      "path": "apps/feedback/wrist-morse.html",
+      "bytes": 36226,
+      "sha256": "d1102e385fe4d090bea3e8ef70642cfac340d29e923edeea67cec5d73395a012"
+    },
+    {
+      "path": "apps/feedback/wrist-morse/index.html",
+      "bytes": 36226,
+      "sha256": "d1102e385fe4d090bea3e8ef70642cfac340d29e923edeea67cec5d73395a012"
+    },
+    {
       "path": "apps/focus-exposure-calculator.html",
       "bytes": 46632,
       "sha256": "ad5d65edd2d52db562d66358e8c39bdbdd781fcb575c42bcbb349b9687efa3e9"
@@ -491,8 +561,8 @@
     },
     {
       "path": "apps/index.html",
-      "bytes": 38344,
-      "sha256": "6b5444a269a3adb9aa6f9a6b224c3e8a49354f2f3b709fbea69368fea9c4fdd0"
+      "bytes": 39535,
+      "sha256": "b7fefa24cfea46efbd4d5677be41a7e37b3ce46a96a67cfc10e4c7eb66fd23b3"
     },
     {
       "path": "apps/location-logger.html",
@@ -545,6 +615,16 @@
       "sha256": "27ef1b381945abd29d75e5bb3ee281f31541840b9493df1d525c48bf0f233eb6"
     },
     {
+      "path": "apps/privacy/wrist-morse.html",
+      "bytes": 46595,
+      "sha256": "23a8350b4407648ec044c719927a1a7a62585c3ce68e5e01eaf106851ecb1b01"
+    },
+    {
+      "path": "apps/privacy/wrist-morse/index.html",
+      "bytes": 46595,
+      "sha256": "23a8350b4407648ec044c719927a1a7a62585c3ce68e5e01eaf106851ecb1b01"
+    },
+    {
       "path": "apps/spatial-fold.html",
       "bytes": 24745,
       "sha256": "bc7534d3d9c6d435c17b5ad623afd1e2f056b1105fc6d12849c011562326b162"
@@ -585,6 +665,16 @@
       "sha256": "cc9925c98588e289b08676dc0e562d03f0d8255f67c43d798b918fd29991c7ca"
     },
     {
+      "path": "apps/support/wrist-morse.html",
+      "bytes": 43564,
+      "sha256": "6d0d1dd18f3dc1391d9eda55f3c78fdaec0a0ca070cb1a5cedd375c2fe99f15e"
+    },
+    {
+      "path": "apps/support/wrist-morse/index.html",
+      "bytes": 43564,
+      "sha256": "6d0d1dd18f3dc1391d9eda55f3c78fdaec0a0ca070cb1a5cedd375c2fe99f15e"
+    },
+    {
       "path": "apps/task-rail.html",
       "bytes": 24712,
       "sha256": "2941bbf4983ce0fce4e628201f795b8eff2d911c9fed5cb1d923a87502378e0a"
@@ -606,13 +696,13 @@
     },
     {
       "path": "apps/wrist-morse.html",
-      "bytes": 26030,
-      "sha256": "bc842a8ea7405ab8606a09bbb9fe14658329e62b75faada6afded5efed14d859"
+      "bytes": 41964,
+      "sha256": "aecd449df5fb49a5afb8a872a54adc7c9df9208f349d7fd3367ca1313b673122"
     },
     {
       "path": "apps/wrist-morse/index.html",
-      "bytes": 26030,
-      "sha256": "bc842a8ea7405ab8606a09bbb9fe14658329e62b75faada6afded5efed14d859"
+      "bytes": 41964,
+      "sha256": "aecd449df5fb49a5afb8a872a54adc7c9df9208f349d7fd3367ca1313b673122"
     },
     {
       "path": "contact.html",
@@ -760,6 +850,16 @@
       "sha256": "99f04fef55461479bec051a2d7750db87efa730b9cf87dcc80aaeaea3485a90a"
     },
     {
+      "path": "en/feedback/wrist-morse.html",
+      "bytes": 379,
+      "sha256": "ae67a6ccee76cc7353b18cab732b0fb0d01c6d76626677f77b23a080c79f9bd4"
+    },
+    {
+      "path": "en/feedback/wrist-morse/index.html",
+      "bytes": 379,
+      "sha256": "ae67a6ccee76cc7353b18cab732b0fb0d01c6d76626677f77b23a080c79f9bd4"
+    },
+    {
       "path": "en/index.html",
       "bytes": 337,
       "sha256": "d6febee47397885a530075b502abcfbd877da57cb4187587de2bf96ee4eb696f"
@@ -795,6 +895,16 @@
       "sha256": "303804ac2f7ad16cf4efb527dd4c99e121a6beeacb755e79ecef14c0e9a1ddb3"
     },
     {
+      "path": "en/privacy/wrist-morse.html",
+      "bytes": 377,
+      "sha256": "67984ca4c12ce0ac47665724bd3c92a39bd9a08099a546be1973294bcaf247ed"
+    },
+    {
+      "path": "en/privacy/wrist-morse/index.html",
+      "bytes": 377,
+      "sha256": "67984ca4c12ce0ac47665724bd3c92a39bd9a08099a546be1973294bcaf247ed"
+    },
+    {
       "path": "en/support/focus-exposure-calculator.html",
       "bytes": 405,
       "sha256": "7f54b7ddaf6aa7369f474456f6a642ff4e6058ccb97f467444db9f834d3352bc"
@@ -823,6 +933,16 @@
       "path": "en/support/tsutawaru-moji/index.html",
       "bytes": 383,
       "sha256": "785639905f2803f6e7bbaf6e2b5f74f30e39c3f38f9be36c8b8532e4c8837d3f"
+    },
+    {
+      "path": "en/support/wrist-morse.html",
+      "bytes": 377,
+      "sha256": "554f1bc0bd782896139fc77ae90ef015262f5277f09435973f529519e9c1e43d"
+    },
+    {
+      "path": "en/support/wrist-morse/index.html",
+      "bytes": 377,
+      "sha256": "554f1bc0bd782896139fc77ae90ef015262f5277f09435973f529519e9c1e43d"
     },
     {
       "path": "feedback/focus-exposure-calculator.html",
@@ -855,6 +975,16 @@
       "sha256": "cf4a911890fc31195c1df20a3ce3c75aba31d59247a769fc6b2efd979455dde1"
     },
     {
+      "path": "feedback/wrist-morse.html",
+      "bytes": 403,
+      "sha256": "e897849fc7af0abf16d32cc42aab37be7505f894a5433d0364804a1c1f1cf9b2"
+    },
+    {
+      "path": "feedback/wrist-morse/index.html",
+      "bytes": 403,
+      "sha256": "e897849fc7af0abf16d32cc42aab37be7505f894a5433d0364804a1c1f1cf9b2"
+    },
+    {
       "path": "images/focus-exposure-calculator/og-en.png",
       "bytes": 665925,
       "sha256": "8ad6c3f7b875a0116cced06ba160d8622c91de3f3ae2cd21a5c343386c3e83b2"
@@ -868,6 +998,11 @@
       "path": "index.html",
       "bytes": 361,
       "sha256": "00a70c69d70a31743161ffb3d035cd1e2d24814831c591499b9691cc22290f41"
+    },
+    {
+      "path": "intake-policy.json",
+      "bytes": 36,
+      "sha256": "1ae8dca9f960602f341d9347660368881f94f0bf2f956ee723cbfcf90506fe5d"
     },
     {
       "path": "privacy/focus-exposure-calculator.html",
@@ -900,14 +1035,24 @@
       "sha256": "af8764256b75cd3ca81770ffa6ea6d365661023b67c5b603566f45acd554525d"
     },
     {
+      "path": "privacy/wrist-morse.html",
+      "bytes": 401,
+      "sha256": "3af85f6a5c5cc86ce4ef1fd8f21772b2d901f4c626b63f0df61abe8dcaf32057"
+    },
+    {
+      "path": "privacy/wrist-morse/index.html",
+      "bytes": 401,
+      "sha256": "3af85f6a5c5cc86ce4ef1fd8f21772b2d901f4c626b63f0df61abe8dcaf32057"
+    },
+    {
       "path": "robots.txt",
       "bytes": 71,
       "sha256": "e35cea6a2863f9952ee5c7e9a35caebc39697eba80debe0086cee88fc817ea06"
     },
     {
       "path": "sitemap.xml",
-      "bytes": 1829,
-      "sha256": "ea445ec0a285a81413f885f28a67fcbe022d9f9cc42c98e823ab3614d6fdb088"
+      "bytes": 2278,
+      "sha256": "febf358bf7e912ae97148652152182028a593278de3c101a8d6a238c205885cd"
     },
     {
       "path": "support/focus-exposure-calculator.html",
@@ -940,6 +1085,16 @@
       "sha256": "7ac200850c73273533871f0a3c77cb755e66d2d137c0cfef3dbdd36d4b2c2b18"
     },
     {
+      "path": "support/wrist-morse.html",
+      "bytes": 401,
+      "sha256": "f88e06570faca17163d310e7fe59c67f3b8d6f471a63ba5473b5e3e45fa56548"
+    },
+    {
+      "path": "support/wrist-morse/index.html",
+      "bytes": 401,
+      "sha256": "f88e06570faca17163d310e7fe59c67f3b8d6f471a63ba5473b5e3e45fa56548"
+    },
+    {
       "path": "wp-content/themes/apps-common/assets/site.css",
       "bytes": 35754,
       "sha256": "6eddaab27eb96614f473b45d5aa9e7deb304a4e8b745b84721cd7126f9171bb8"
@@ -955,9 +1110,34 @@
       "sha256": "467028c8afa78388590e5390dae9e14c81100be2f5acd166a6dbb4ccdaebc0ab"
     },
     {
+      "path": "wp-content/uploads/2026/09/location-logger-site-mark.svg",
+      "bytes": 522,
+      "sha256": "9077b5953d9d80cce8be851780f22f63893e44031c80646cc604f53d8c15d85c"
+    },
+    {
       "path": "wp-content/uploads/2026/09/tsutawaru-moji-icon.png",
       "bytes": 755980,
       "sha256": "7ccb2465e763bde174f0715986ea48513f8edeb8aa1da0b4d9db4c0e059aa781"
+    },
+    {
+      "path": "wp-content/uploads/2026/09/wrist-morse-icon-150x150.png",
+      "bytes": 23647,
+      "sha256": "bd3ad0a9e941064dacc4c69ad73a3c308186849bf75ee97899e1b358e84e075d"
+    },
+    {
+      "path": "wp-content/uploads/2026/09/wrist-morse-icon-300x300.png",
+      "bytes": 90661,
+      "sha256": "1f12966cf0b87f34aaac585eaf93fc61ea230211207d5ca47079e707dea5ced3"
+    },
+    {
+      "path": "wp-content/uploads/2026/09/wrist-morse-icon-768x768.png",
+      "bytes": 652074,
+      "sha256": "34f5452e25dab60eaa59a964f66fdc6077aed0ccab1dad1458d32cd20fc74384"
+    },
+    {
+      "path": "wp-content/uploads/2026/09/wrist-morse-icon.png",
+      "bytes": 1272812,
+      "sha256": "f5a647a9dd344a41c78267ea947efc3e38fe4158f0db937ac7dbd6631442e2e5"
     }
   ]
 }

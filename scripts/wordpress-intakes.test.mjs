@@ -47,6 +47,54 @@ test('intake defaults are closed and only exact page/language bindings are retur
   }
 });
 
+test('four apps and shared Contact keep ten independent language bindings', () => {
+  const apps = [
+    'focus-exposure-calculator',
+    'location-logger',
+    'tsutawaru-moji',
+    'wrist-morse',
+  ];
+  const input = {
+    version: 1,
+    intakes: [...apps, null].map((app) => ({
+      kind: app ? 'feedback' : 'contact',
+      app,
+      verified: true,
+      urls: {
+        ja: url(`${app ?? 'contact'}_JA`),
+        en: url(`${app ?? 'contact'}_EN`),
+      },
+    })),
+  };
+  const value = normalizeIntakePolicy(input);
+  for (const language of ['ja', 'en']) {
+    const prefix = language === 'en' ? '/apps/en/' : '/apps/';
+    const morseUrl = url(`wrist-morse_${language.toUpperCase()}`);
+    assert.equal(
+      intakeUrlForRoute(value, `${prefix}feedback/wrist-morse/`),
+      morseUrl,
+    );
+    assert.doesNotThrow(() =>
+      validateIntakeMarkup(
+        `<a href="${morseUrl}">Feedback</a>`,
+        `${prefix}feedback/wrist-morse/`,
+        value,
+      ),
+    );
+    assert.throws(
+      () =>
+        validateIntakeMarkup(
+          `<a href="${morseUrl}">Feedback</a>`,
+          `${prefix}contact/`,
+          value,
+        ),
+      /does not match/,
+    );
+  }
+  input.intakes.push({ ...input.intakes[0] });
+  assert.throws(() => normalizeIntakePolicy(input), /bounded list/);
+});
+
 test('unverified, incomplete, duplicated, cross-purpose and non-responder configuration is rejected', () => {
   const mutations = [
     (p) => {

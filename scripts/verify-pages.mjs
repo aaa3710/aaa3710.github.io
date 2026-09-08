@@ -33,6 +33,14 @@ const supportEmail = (process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? '').trim();
 const slug = 'focus-exposure-calculator';
 const locales = ['ja', 'en'];
 const kinds = ['home', 'app', 'privacy', 'support', 'feedback', 'contact'];
+// Preserve verification of historical three-app artifacts while requiring the
+// complete bilingual family whenever Morse has an indexable introduction.
+const morsePublished = Boolean(
+  snapshotManifest?.routes?.some(
+    (entry) =>
+      /^\/apps\/(?:en\/)?wrist-morse\/$/.test(entry.path) && entry.indexable,
+  ),
+);
 const names = {
   ja: '撮影のものさし',
   en: 'Photo Yardstick',
@@ -272,6 +280,7 @@ for (const locale of locales) {
     'focus-exposure-calculator',
     'tsutawaru-moji',
     'location-logger',
+    ...(morsePublished ? ['wrist-morse'] : []),
   ]) {
     for (const kind of ['support', 'privacy', 'feedback'])
       redirects.set(
@@ -951,12 +960,107 @@ for (const locale of locales) {
   );
 }
 
+const morseIndexable = [];
+if (morsePublished) {
+  for (const locale of locales) {
+    const prefix = locale === 'ja' ? '/apps' : '/apps/en';
+    const otherPrefix = locale === 'ja' ? '/apps/en' : '/apps';
+    const appPath = (kind, base = prefix) =>
+      `${base}/${kind === 'app' ? '' : `${kind}/`}wrist-morse/`;
+    for (const kind of ['app', 'support', 'privacy', 'feedback']) {
+      const routePath = appPath(kind);
+      const present = await exists(pageFile(routePath));
+      check(present, `${routePath}: missing Morse in Motion page`);
+      if (!present) continue;
+      requiredPages += 1;
+      const html = markupOnly(await readFile(pageFile(routePath), 'utf8'));
+      const anchors = tags(html, 'a');
+      const links = tags(html, 'link');
+      const meta = tags(html, 'meta');
+      check(
+        tags(html, 'html')[0]?.lang === locale,
+        `${routePath}: document language mismatch`,
+      );
+      check(
+        decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
+          locale === 'ja' ? '感じるモールス' : 'Morse in Motion',
+        ),
+        `${routePath}: localized name missing`,
+      );
+      check(
+        (html.match(/<h1\b/g) ?? []).length === 1,
+        `${routePath}: expected one main heading`,
+      );
+      check(
+        anchors.some(
+          (anchor) =>
+            anchor['aria-label'] === 'Language / 言語' &&
+            linksTo([anchor], appPath(kind, otherPrefix)),
+        ),
+        `${routePath}: counterpart language link missing`,
+      );
+      check(
+        linksTo(anchors, `${prefix}/contact/`),
+        `${routePath}: common Contact missing`,
+      );
+      if (kind === 'feedback') {
+        check(
+          metaValues(meta, 'robots').includes('noindex, nofollow'),
+          `${routePath}: Feedback must stay out of search`,
+        );
+        check(
+          !links.some((link) => link.rel === 'canonical'),
+          `${routePath}: Feedback must not advertise a canonical`,
+        );
+        if (!group('feedback', 'wrist-morse')) {
+          check(
+            decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
+              locale === 'ja'
+                ? '現在は送信できません'
+                : 'cannot accept submissions yet',
+            ),
+            `${routePath}: closed intake status missing`,
+          );
+        }
+      } else {
+        morseIndexable.push(absoluteUrl(routePath));
+        check(
+          links.some(
+            (link) =>
+              link.rel === 'canonical' && link.href === absoluteUrl(routePath),
+          ),
+          `${routePath}: canonical missing`,
+        );
+      }
+      if (kind === 'support')
+        check(
+          linksTo(anchors, appPath('feedback')),
+          `${routePath}: dedicated Feedback missing`,
+        );
+    }
+    const home = tags(
+      markupOnly(await readFile(pageFile(`${prefix}/`), 'utf8')),
+      'a',
+    );
+    check(
+      linksTo(home, appPath('app')),
+      `${prefix}/: Morse in Motion introduction missing`,
+    );
+  }
+}
+
 // All app families expose the same three sections, in the same order.
 for (const locale of locales) {
   const prefix = locale === 'ja' ? '/apps' : '/apps/en';
-  for (const appSlug of [slug, 'tsutawaru-moji', 'location-logger']) {
+  for (const appSlug of [
+    slug,
+    'tsutawaru-moji',
+    'location-logger',
+    ...(morsePublished ? ['wrist-morse'] : []),
+  ]) {
     for (const kind of ['app', 'support', 'privacy', 'feedback']) {
       const appRoute = `${prefix}/${kind === 'app' ? '' : `${kind}/`}${appSlug}/`;
+      if (!(await exists(pageFile(appRoute)))) continue;
       const html = markupOnly(await readFile(pageFile(appRoute), 'utf8'));
       const nav =
         html.match(
@@ -998,7 +1102,11 @@ if (await exists(sitemapFile)) {
   );
   expected.push(...tsutawaruIndexable);
   expected.push(...locationLoggerIndexable);
-  check(locations.length === 22, 'sitemap must contain exactly 22 URLs');
+  expected.push(...morseIndexable);
+  check(
+    locations.length === expected.length,
+    `sitemap must contain exactly ${expected.length} URLs`,
+  );
   check(
     new Set(locations).size === locations.length,
     'sitemap contains duplicate URLs',
@@ -1014,7 +1122,7 @@ if (await exists(sitemapFile)) {
   check(
     JSON.stringify([...locations].sort((a, b) => a.localeCompare(b))) ===
       JSON.stringify([...expected].sort((a, b) => a.localeCompare(b))),
-    'sitemap URL set differs from the 22 expected indexable routes',
+    'sitemap URL set differs from the expected indexable routes',
   );
 }
 
@@ -1051,7 +1159,7 @@ for (const locale of locales) {
   }
 }
 
-const summary = `${requiredPages}/28 required pages; ${publicRouteSet.size} generated public routes; ${htmlFiles.length} HTML files; ${assertions} assertions`;
+const summary = `${requiredPages}/${morsePublished ? 36 : 28} required pages; ${publicRouteSet.size} generated public routes; ${htmlFiles.length} HTML files; ${assertions} assertions`;
 if (failures.length) {
   console.error(
     `GitHub Pages verification failed: ${failures.length} failure(s), ${summary}.`,
