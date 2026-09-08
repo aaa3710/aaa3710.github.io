@@ -351,13 +351,13 @@
     },
     {
       "path": "apps/en/privacy/location-logger.html",
-      "bytes": 32020,
-      "sha256": "b2ce6b265ba8ca37fd3c6ad5688247cfff365ea7139304732839af54c002759e"
+      "bytes": 34750,
+      "sha256": "e83436f91f56c884eca9adb297fd5896634a5241ebc5f18b7316f4551a02c7db"
     },
     {
       "path": "apps/en/privacy/location-logger/index.html",
-      "bytes": 32020,
-      "sha256": "b2ce6b265ba8ca37fd3c6ad5688247cfff365ea7139304732839af54c002759e"
+      "bytes": 34750,
+      "sha256": "e83436f91f56c884eca9adb297fd5896634a5241ebc5f18b7316f4551a02c7db"
     },
     {
       "path": "apps/en/privacy/tsutawaru-moji.html",
@@ -526,13 +526,13 @@
     },
     {
       "path": "apps/privacy/location-logger.html",
-      "bytes": 48247,
-      "sha256": "cb799825cac928312470229e1d4d5a77d217021feec541ecd2c370cc9aecb01c"
+      "bytes": 58805,
+      "sha256": "b107ad00c1336c5e8ce4da723a9c8563d55bf1294df3f1be51e6ac85e35a4585"
     },
     {
       "path": "apps/privacy/location-logger/index.html",
-      "bytes": 48247,
-      "sha256": "cb799825cac928312470229e1d4d5a77d217021feec541ecd2c370cc9aecb01c"
+      "bytes": 58805,
+      "sha256": "b107ad00c1336c5e8ce4da723a9c8563d55bf1294df3f1be51e6ac85e35a4585"
     },
     {
       "path": "apps/privacy/tsutawaru-moji.html",

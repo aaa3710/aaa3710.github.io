@@ -1,5 +1,7 @@
 # アプリ認知プロジェクト
 
+2026-09-08: 道の記録の本人承認を受け、WordPressの日英Privacyを現行機能とAppleへの座標送信の説明に更新。現在原本と151ファイル一致を確認し公開候補へ採用。配信結果は[検証記録](app-store/location-logger/site-verification-2026-09-05.md#2026-09-08-住所送信の説明と公開)へ記録する。実フォームの受付とは別工程。
+
 2026-09-07 後続: 通常運用をWordPressで編集・ローカル確認 → 本人の公開指示 → Codexが書き出し・検証・GitHub Pages公開へ変更した。Sitesは過去の参考版であり同期・公開の必須工程から外した。本人意思は管理OWNER_INTENTへ反映済み。今回の現在版の公開は本人が直接許可した。手順は wordpress/README.md を参照。
 
 2026-09-07（移行時点の記録）: 表示共通化とWordPress Studioへの移行を実施。日英40ページをブロック編集でき、公式Studio MCPの接続、実際の編集保存、静的出力、復元を検証した。Web編集原本はMac内のWordPress、配信物は `site-output/`。旧React原稿からのビルド・同期は通常運用に使わない。[使い方](wordpress/README.md)と[改修・検証記録](website-refinement-2026-09-07.md)を参照。

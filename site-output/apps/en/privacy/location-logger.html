@@ -91,7 +91,7 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 
 
 <div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow">
-<p class="wp-block-paragraph">Last updated: September 5, 2026</p>
+<p class="wp-block-paragraph">Last updated: September 8, 2026</p>
 
 
 <p class="wp-block-paragraph">LocationLogger helps you manage your own location records on your devices. The developer does not operate a server, account system, advertising SDK, analytics SDK, or tracking feature that receives your location data.</p>
@@ -101,6 +101,9 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 <div class="wp-block-group public-document-body is-layout-flow wp-block-group-is-layout-flow">
 <ul class="wp-block-list">
 <li>Locations delivered to your iPhone or Apple Watch, including acquisition time, accuracy, speed, altitude, and course when available</li>
+
+
+<li>Locations, timestamps, and available attributes imported from a location record file you select, plus management information such as its import name, date range, and record count</li>
 
 
 <li>On-device settings needed for saving, recovery, and synchronization, plus coordinate-free diagnostics such as state transitions, battery state, and MetricKit aggregates</li>
@@ -129,7 +132,7 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 <p class="wp-block-paragraph">When you open a route or quiet-location map, Apple’s MapKit may retrieve map data needed for the visible area. This is an Apple map-display function; it does not send your location records to the developer.</p>
 
 
-<p class="wp-block-paragraph">Address Display must send the location currently on screen to Apple’s place-name lookup service. It is off by default on each installation and sends a location only after the user reviews the dedicated explanation and allows it. The user can turn it off at any time. An Apple map of the lookup location appears with the address and may retrieve the map data it needs. Even when enabled, LocationLogger does not look up every background record or store resolved addresses in the internal database, exports, or diagnostics. Addresses are held briefly in memory and discarded when the feature is disabled. If a name cannot be resolved, the module falls back to latitude and longitude.</p>
+<p class="wp-block-paragraph">Address Display sends the latitude and longitude of the location on screen to Apple’s place-name lookup service to find its address. They are not sent to the developer. The feature is off by default separately on iPhone and Apple Watch. A location is sent only after the user reviews which information is sent, its recipient, and its purpose, and enables the feature. The user can turn it off at any time. An Apple map of the lookup location appears with the address and may retrieve the map data it needs. Even when enabled, LocationLogger does not look up every background record or store resolved addresses in the internal database, exports, or diagnostics. Addresses are held briefly in memory and discarded when the feature is disabled. The address omits its country and postal code. If it cannot be resolved, the module shows that status.</p>
 
 </div>
 
@@ -140,6 +143,21 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 <div class="wp-block-group public-document-body is-layout-flow wp-block-group-is-layout-flow">
 <p class="wp-block-paragraph">LocationLogger creates CSV, GPX, GeoJSON, LocationLogger JSON, or another selected file when you request an export or run a Shortcuts action you configured. Shortcuts require authentication on the iPhone performing the export. If you select iCloud Drive or another cloud provider in Files, the exported file moves into that provider’s storage. LocationLogger does not send it to the developer. Files include locations and times that may reveal routes or places such as your home, and are not encrypted by the app. Review the recipient and subsequent actions in your shortcut.</p>
 
+
+<p class="wp-block-paragraph">When you export a route video, the app creates a temporary video on your device from the selected locations, timestamps, and Apple map images. MapKit may retrieve map data while preparing images and following the route. The app does not read existing photos or videos or import audio.</p>
+
+
+<p class="wp-block-paragraph">The default video destination is Photos. Saving there requires permission only to add to the photo library; the app does not read existing photos or videos. You can also choose Files and Sharing. If saving to Photos fails, the finished temporary video is retained for retry while the same screen and selection remain valid. Temporary output is cleaned up after a successful save, the end of sharing, a change to the selection or settings, leaving the screen, or cancellation or failure during video creation. Once a Photos write or sharing has started, cleanup waits for the write result or the end of sharing. Saved videos may sync to the cloud according to your photo-library settings, including iCloud Photos, or the destination you choose. Manage saved videos at that destination.</p>
+
+</div>
+
+</details>
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>Location record imports</summary>
+<div class="wp-block-group public-document-body is-layout-flow wp-block-group-is-layout-flow">
+<p class="wp-block-paragraph">The app reads only the CSV, GPX, GeoJSON, JSON, KML, KMZ, or GeoPackage file you explicitly select and imports history with identifiable timestamps and locations into its private storage. It uses protected temporary files during processing and removes them afterward. The original file is not changed. The app does not sign in to your Google account or send or retrieve history through Google. If you select a file stored in the cloud through Files, downloading it follows that provider’s features and settings.</p>
+
 </div>
 
 </details>
@@ -147,7 +165,7 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 
 <details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>Permissions</summary>
 <div class="wp-block-group public-document-body is-layout-flow wp-block-group-is-layout-flow">
-<p class="wp-block-paragraph">Location permission is used to record locations on your device. Background App Refresh is used to continue background recording when iOS allows it. You can change permissions in iPhone or Apple Watch Settings.</p>
+<p class="wp-block-paragraph">Location permission is used to record locations on your device. Background App Refresh is used to continue background recording when iOS allows it. Saving to Photos uses add-only photo-library permission. You can change permissions in iPhone or Apple Watch Settings.</p>
 
 </div>
 
@@ -156,7 +174,10 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 
 <details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>Deletion</summary>
 <div class="wp-block-group public-document-body is-layout-flow wp-block-group-is-layout-flow">
-<p class="wp-block-paragraph">This version has no in-app bulk deletion control. Turn recording off on both devices, then delete the app from both iPhone and Apple Watch using the operating system. On iPhone, choose Delete App; Offload App retains its data. Removing the app from one device does not guarantee deletion from the other. Delete exported files and files in earlier LocationLogger folders separately in Files or the receiving app, and manage operating-system backups separately in their backup settings. The developer cannot remotely erase records on your devices or destinations.</p>
+<p class="wp-block-paragraph">You can delete imported history by import batch from Import Data in the menu or Route History. The original file and records measured by iPhone and Apple Watch in this app remain unchanged. The app also retains an on-device deletion record so that deleted imported history does not return from its internal recovery backups.</p>
+
+
+<p class="wp-block-paragraph">There is no in-app control for deleting all records measured by your devices. Turn recording off on both devices, then delete the app from both iPhone and Apple Watch using the operating system. On iPhone, choose Delete App; Offload App retains its data. Removing the app from one device does not guarantee deletion from the other. Delete exported files and files in earlier LocationLogger folders separately in Files or the receiving app, and manage operating-system backups separately in their backup settings. The developer cannot remotely erase records on your devices or destinations.</p>
 
 </div>
 
