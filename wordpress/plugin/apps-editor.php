@@ -58,6 +58,13 @@ add_action('init', function () {
 add_filter('language_attributes', function ($attributes) {
     return is_admin() ? $attributes : 'lang="' . (apps_english() ? 'en' : 'ja') . '"';
 });
+// Core's skip link follows the page language, independently of the editor locale.
+add_filter('gettext_default', function ($translated, $text) {
+    if ($text === 'Skip to content' && !is_admin() && is_page()) {
+        return apps_english() ? 'Skip to content' : '内容をスキップ';
+    }
+    return $translated;
+}, 10, 2);
 add_filter('pre_get_document_title', function ($title) { return is_page() ? get_the_title() : $title; });
 add_filter('wp_robots', function ($robots) {
     if (str_contains(apps_route(), '/feedback/') || get_post_meta(get_the_ID(), '_apps_noindex', true)) {

@@ -81,7 +81,7 @@ npm run build:pages
 npm run verify:pages
 ```
 
-静的出力は公開済み・パスワードなしの `/apps/` 配下だけを取得します。管理画面、DB、下書き、PHP、秘密情報を配信物へ含めません。サイトマップは22URL、Feedbackは6ページとも検索対象外です。旧URLのHTML転送を含め71経路を検査しています。
+静的出力は公開済み・パスワードなしの `/apps/` 配下だけを取得します。管理画面、DB、下書き、PHP、秘密情報を配信物へ含めません。4アプリを整備した現在のサイトマップは28URL、Feedbackは8ページとも検索対象外です。旧URLのHTML転送を含め83経路を検査しています。アプリ追加時は現在の書き出し結果を確認します。
 
 公式Studio MCPは `wordpress-studio` としてCodexへ登録済みです。接続とツール呼び出しを検証しました。現在のセッションで新規MCPが自動表示されない場合は、次のCodexタスクで読み込まれます。同じ操作は上記の公式CLIで実行できます。WordPress.com用プラグインへのサインインは、このローカルStudio MCPへの接続とは別です。
 
@@ -107,7 +107,7 @@ Sitesは現在の編集内容と同期しません。通常の確認・公開に
 
 受付前に管理の[本人意思](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)と対象アプリの実受付台帳を照合します。実フォームの用途・対象アプリ・言語・項目・文字数上限・収集/共有設定・処理経路・日英説明が確認済みになった対象だけを登録します。`verified: true`は、その確認結果の申告です。コードがGoogleの設定や受付状態を外部照会して証明するものではありません。
 
-設定には `version: 1` と `intakes` の配列を持たせます。空配列は全停止です。各項目は `kind`（`feedback` または `contact`）、`app`（Feedbackでは公開slug、共通Contactでは `null`）、`verified: true`、`urls`（日英の `ja` / `en`）だけです。現在の対象slugは `location-logger`、`focus-exposure-calculator`、`tsutawaru-moji`。登録していない他の窓口は停止したままです。
+設定には `version: 1` と `intakes` の配列を持たせます。空配列は全停止です。各項目は `kind`（`feedback` または `contact`）、`app`（Feedbackでは公開slug、共通Contactでは `null`）、`verified: true`、`urls`（日英の `ja` / `en`）だけです。現在の対象slugは `location-logger`、`focus-exposure-calculator`、`tsutawaru-moji`、`wrist-morse`。登録していない他の窓口は停止したままです。
 
 URLは `https://docs.google.com/forms/d/e/<公開回答者ID>/viewform` の正規形だけを使います。実値は公開回答者URLに限り、編集URL、質問ID、OAuth、回答、私用連絡先を保存しません。短縮URL、編集画面、クエリ・fragment、片言語不足、同じフォームの言語・アプリ・用途間流用、未確認指定は拒否します。いずれかの言語を停止する場合は、その用途・アプリの日英一組を設定から外します。
 
