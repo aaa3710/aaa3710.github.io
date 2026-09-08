@@ -33,9 +33,16 @@ const origin = wp(['option', 'get', 'home']);
 const routes = JSON.parse(
   wp(['eval-file', 'wp-content/plugins/apps-editor/public-routes.php']),
 );
+const intakePolicy = JSON.parse(
+  wp([
+    'eval',
+    'echo wp_json_encode(get_option("apps_verified_intakes", ["version" => 1, "intakes" => []]));',
+  ]),
+);
 const result = await exportWordPress({
   origin,
   routes,
+  intakePolicy,
   output,
   publicOrigin: 'https://aaa3710.github.io',
 });

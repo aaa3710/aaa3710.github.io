@@ -1,6 +1,12 @@
 import { access, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  INTAKE_POLICY_FILE,
+  normalizeIntakePolicy,
+  intakeUrlForRoute,
+  validateIntakeMarkup,
+} from './wordpress-intakes.mjs';
 
 // Verify the prepared static output, not source components or a live deployment.
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -8,10 +14,12 @@ const clientDirectory = process.env.STATIC_SITE_DIRECTORY
   ? path.resolve(process.env.STATIC_SITE_DIRECTORY)
   : path.join(root, 'dist', 'client');
 let snapshotOrigin;
+let snapshotManifest;
 try {
-  snapshotOrigin = JSON.parse(
+  snapshotManifest = JSON.parse(
     await readFile(path.join(clientDirectory, 'export-manifest.json'), 'utf8'),
-  ).publicOrigin;
+  );
+  snapshotOrigin = snapshotManifest.publicOrigin;
 } catch (error) {
   if (error.code !== 'ENOENT') throw error;
 }
@@ -22,16 +30,6 @@ const origin = (
 ).replace(/\/$/, '');
 const basePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? '').replace(/\/$/, '');
 const supportEmail = (process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? '').trim();
-const formReadiness = {
-  feedback: process.env.NEXT_PUBLIC_APP_FEEDBACK_READY === 'true',
-  contact: process.env.NEXT_PUBLIC_CONTACT_READY === 'true',
-};
-const locationLoggerFeedbackReady =
-  process.env.NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_READY === 'true';
-const locationLoggerFeedbackUrls = {
-  ja: process.env.NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_JA?.trim() ?? '',
-  en: process.env.NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_EN?.trim() ?? '',
-};
 const slug = 'focus-exposure-calculator';
 const locales = ['ja', 'en'];
 const kinds = ['home', 'app', 'privacy', 'support', 'feedback', 'contact'];
@@ -39,7 +37,7 @@ const names = {
   ja: '撮影のものさし',
   en: 'Photo Yardstick',
 };
-const formUrls = {
+const legacyFormUrls = {
   feedback: {
     ja: 'https://docs.google.com/forms/d/e/1FAIpQLSeIExpSJV8iJY0866WgjJPxhnMbDQSTg5lqukNU5YE-9fhxbw/viewform',
     en: 'https://docs.google.com/forms/d/e/1FAIpQLSeHQTMezEMlXcYxy6sY7rtoOItgaYLJdDvxVXO1-zMNrxghCw/viewform',
@@ -49,6 +47,49 @@ const formUrls = {
     en: 'https://docs.google.com/forms/d/e/1FAIpQLScAt6o2DzHGOTgflSDjjbPHq3tjZm3AmqogGLOkAUpkY_3Bjg/viewform',
   },
 };
+
+// WordPress artifacts carry their own verified policy. Legacy environment flags
+// must never activate links or change the meaning of an adopted WP snapshot.
+const wordpressIntakes = snapshotOrigin
+  ? normalizeIntakePolicy(
+      snapshotManifest.files?.some((file) => file.path === INTAKE_POLICY_FILE)
+        ? JSON.parse(
+            await readFile(
+              path.join(clientDirectory, INTAKE_POLICY_FILE),
+              'utf8',
+            ),
+          )
+        : undefined,
+    )
+  : null;
+const group = (kind, app) =>
+  wordpressIntakes?.intakes.find(
+    (entry) => entry.kind === kind && entry.app === app,
+  );
+const formReadiness = {
+  feedback: wordpressIntakes
+    ? Boolean(group('feedback', slug))
+    : process.env.NEXT_PUBLIC_APP_FEEDBACK_READY === 'true',
+  contact: wordpressIntakes
+    ? Boolean(group('contact', null))
+    : process.env.NEXT_PUBLIC_CONTACT_READY === 'true',
+};
+const emptyUrls = { ja: '', en: '' };
+const formUrls = wordpressIntakes
+  ? {
+      feedback: group('feedback', slug)?.urls ?? emptyUrls,
+      contact: group('contact', null)?.urls ?? emptyUrls,
+    }
+  : legacyFormUrls;
+const locationLoggerFeedbackReady = wordpressIntakes
+  ? Boolean(group('feedback', 'location-logger'))
+  : process.env.NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_READY === 'true';
+const locationLoggerFeedbackUrls = wordpressIntakes
+  ? (group('feedback', 'location-logger')?.urls ?? emptyUrls)
+  : {
+      ja: process.env.NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_JA?.trim() ?? '',
+      en: process.env.NEXT_PUBLIC_LOCATION_LOGGER_FEEDBACK_URL_EN?.trim() ?? '',
+    };
 
 let assertions = 0;
 let requiredPages = 0;
@@ -208,6 +249,13 @@ for (const file of htmlFiles) {
       ? '/'
       : `/${relativePath.replace(/(?:\/index)?\.html$/, '')}/`;
   publicRouteSet.add(routePath);
+  if (wordpressIntakes) {
+    try {
+      validateIntakeMarkup(html, routePath, wordpressIntakes);
+    } catch (error) {
+      check(false, `${relativePath}: ${error.message}`);
+    }
+  }
 }
 
 // Check the migration independently from the generator: every former entry
@@ -421,17 +469,20 @@ for (const locale of locales) {
     if (kind === 'contact' || kind === 'feedback') {
       const iframeTags = tags(html, 'iframe');
       if (formReadiness[kind]) {
+        if (!wordpressIntakes)
+          check(
+            html.includes(
+              locale === 'ja'
+                ? '開発者へ回答としては届きません'
+                : 'developer does not receive your text as a response',
+            ),
+            `${routePath}: response submission and Google processing are not distinguished`,
+          );
         check(
-          html.includes(
-            locale === 'ja'
-              ? '開発者へ回答としては届きません'
-              : 'developer does not receive your text as a response',
-          ),
-          `${routePath}: response submission and Google processing are not distinguished`,
-        );
-        check(
-          iframeTags.length === 1 &&
-            iframeTags[0].src === `${formUrls[kind][locale]}?embedded=true`,
+          wordpressIntakes
+            ? iframeTags.length === 0
+            : iframeTags.length === 1 &&
+                iframeTags[0].src === `${formUrls[kind][locale]}?embedded=true`,
           `${routePath}: embedded Google Form URL mismatch`,
         );
         check(
@@ -553,12 +604,19 @@ for (const locale of locales) {
         ),
         `${routePath}: unreleased app status missing`,
       );
+    const intakeReady =
+      wordpressIntakes &&
+      Boolean(intakeUrlForRoute(wordpressIntakes, routePath));
     if (kind === 'feedback')
       check(
         decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
-          locale === 'ja'
-            ? '現在は送信できません'
-            : 'Submissions are not available yet',
+          intakeReady
+            ? locale === 'ja'
+              ? '専用フィードバックは送信できます'
+              : 'Dedicated feedback is available'
+            : locale === 'ja'
+              ? '現在は送信できません'
+              : 'Submissions are not available yet',
         ),
         `${routePath}: intake status missing`,
       );
@@ -567,7 +625,11 @@ for (const locale of locales) {
       `${routePath}: unconfirmed input UI present`,
     );
     check(
-      !/docs\.google\.com\/forms|forms\.gle|mailto:|apps\.apple\.com/.test(raw),
+      !(
+        intakeReady
+          ? /mailto:|apps\.apple\.com/
+          : /docs\.google\.com\/forms|forms\.gle|mailto:|apps\.apple\.com/
+      ).test(raw),
       `${routePath}: unverified form, email or Store URL`,
     );
     check(
@@ -745,9 +807,11 @@ for (const locale of locales) {
       const otherForm =
         locationLoggerFeedbackUrls[locale === 'ja' ? 'en' : 'ja'];
       check(
-        tags(html, 'iframe').some(
-          (iframe) => iframe.src === `${expectedForm}?embedded=true`,
-        ),
+        wordpressIntakes
+          ? tags(html, 'iframe').length === 0
+          : tags(html, 'iframe').some(
+              (iframe) => iframe.src === `${expectedForm}?embedded=true`,
+            ),
         `${routePath}: matching embedded form missing`,
       );
       check(
@@ -760,7 +824,9 @@ for (const locale of locales) {
       );
       check(
         !Object.values(formUrls).some((urls) =>
-          Object.values(urls).some((url) => raw.includes(url)),
+          Object.values(urls)
+            .filter(Boolean)
+            .some((url) => raw.includes(url)),
         ),
         `${routePath}: Focus or Contact form reused`,
       );
@@ -768,14 +834,15 @@ for (const locale of locales) {
         !/<form\b|<input|<textarea/.test(html),
         `${routePath}: unexpected local input UI present`,
       );
-      check(
-        decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
-          locale === 'ja'
-            ? 'AI処理の現在の稼働は確認済みではなく'
-            : 'Current AI operation has not been verified',
-        ),
-        `${routePath}: unverified AI status boundary missing`,
-      );
+      if (!wordpressIntakes)
+        check(
+          decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
+            locale === 'ja'
+              ? 'AI処理の現在の稼働は確認済みではなく'
+              : 'Current AI operation has not been verified',
+          ),
+          `${routePath}: unverified AI status boundary missing`,
+        );
     } else {
       check(
         !/<iframe|<form\b|<input|<textarea/.test(html),
@@ -955,7 +1022,7 @@ const feedbackSource = await readFile(
   path.join(root, 'lib', 'feedback.ts'),
   'utf8',
 );
-for (const [kind, localizedUrls] of Object.entries(formUrls)) {
+for (const [kind, localizedUrls] of Object.entries(legacyFormUrls)) {
   for (const [locale, url] of Object.entries(localizedUrls)) {
     check(
       feedbackSource.includes(url),

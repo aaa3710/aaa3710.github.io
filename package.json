@@ -6,7 +6,7 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "test": "node --experimental-strip-types --test scripts/public-config.test.mjs scripts/public-document.test.mjs scripts/readable-text.test.mjs scripts/wordpress-export.test.mjs scripts/wordpress-artifact.test.mjs",
+    "test": "node --experimental-strip-types --test scripts/public-config.test.mjs scripts/public-document.test.mjs scripts/readable-text.test.mjs scripts/wordpress-export.test.mjs scripts/wordpress-artifact.test.mjs scripts/wordpress-intakes.test.mjs",
     "dev": "node scripts/serve-site.mjs",
     "build": "node scripts/build-snapshot.mjs",
     "build:pages": "node scripts/build-snapshot.mjs",

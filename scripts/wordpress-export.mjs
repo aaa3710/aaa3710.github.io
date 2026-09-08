@@ -12,6 +12,14 @@ import {
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse, serialize } from 'parse5';
+import {
+  INTAKE_POLICY_FILE,
+  normalizeIntakePolicy,
+  intakeRoute,
+  intakeUrlForRoute,
+  isGoogleFormsUrl,
+  validateIntakeMarkup,
+} from './wordpress-intakes.mjs';
 
 const ASSET_EXTENSIONS = new Set([
   '.css',
@@ -265,6 +273,7 @@ export async function exportWordPress({
   routes: routeInput,
   output,
   publicOrigin,
+  intakePolicy,
 }) {
   const sourceOrigin = originUrl(origin, true).origin;
   const destinationOrigin = originUrl(publicOrigin, false).origin;
@@ -272,6 +281,20 @@ export async function exportWordPress({
     fail('Editing and public origins must differ.');
   const routes = normalizeRoutes(routeInput);
   const routeSet = new Set(routes.map((route) => route.path));
+  const verifiedIntakes = normalizeIntakePolicy(intakePolicy);
+  for (const entry of verifiedIntakes.intakes) {
+    for (const language of ['ja', 'en']) {
+      const expected = intakeRoute(entry, language);
+      if (
+        !routes.some(
+          (route) => route.path === expected && route.lang === language,
+        )
+      )
+        fail(
+          'Verified intake requires both matching published language pages.',
+        );
+    }
+  }
   if (typeof output !== 'string' || !output.trim())
     fail('An output directory is required.');
   const outputDirectory = path.resolve(output);
@@ -324,12 +347,14 @@ export async function exportWordPress({
       return value;
     }
     const url = resolveReference(value, base);
-    if (
-      (url.hostname === 'docs.google.com' &&
-        url.pathname.startsWith('/forms/')) ||
-      ['forms.gle', 'forms.google.com'].includes(url.hostname)
-    ) {
-      fail('Google Forms intake is disabled for this export.');
+    if (isGoogleFormsUrl(url.href)) {
+      const expected = intakeUrlForRoute(
+        verifiedIntakes,
+        new URL(base).pathname,
+      );
+      if (absolute || !expected || value !== expected)
+        fail('Google Forms intake is disabled or mismatched for this page.');
+      return expected;
     }
     if (![sourceOrigin, destinationOrigin].includes(url.origin)) {
       if (absolute)
@@ -694,7 +719,9 @@ export async function exportWordPress({
       name: 'robots',
       content: route.indexable ? 'index, follow' : 'noindex, nofollow',
     });
-    return `${localize(serialize(document))}\n`;
+    const result = `${localize(serialize(document))}\n`;
+    validateIntakeMarkup(result, route.path, verifiedIntakes);
+    return result;
   }
 
   // No destination is written until every page/resource has passed validation.
@@ -765,6 +792,7 @@ export async function exportWordPress({
     '404.html',
     '<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ページが見つかりません / Page not found</title><meta name="robots" content="noindex, nofollow"></head><body><main><h1>ページが見つかりません</h1><p lang="en">Page not found</p><p><a href="/apps/">アプリ一覧へ</a></p><p lang="en"><a href="/apps/en/">Browse apps</a></p></main></body></html>\n',
   );
+  save(INTAKE_POLICY_FILE, `${JSON.stringify(verifiedIntakes, null, 2)}\n`);
   const manifest = {
     version: 1,
     publicOrigin: destinationOrigin,

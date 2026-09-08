@@ -1,5 +1,7 @@
 # 道の記録 / LocationLogger 日英サイトのローカル整備
 
+現在の公開結果は末尾の「住所送信の説明と公開」を参照。以下の初回・9月5日各節は当時の記録であり、現在の公開状態を上書きしない。
+
 ## 2026-09-08 WordPress日英Privacyの現行本文反映（未公開）
 
 本体の重大リリース監査から、`Docs/PrivacyPolicy-ja.md` / `-en.md` の2026年9月7日版を、WordPress Studio原本の既存ページ **日本語59・英語80** へローカル保存した。経路は `/apps/privacy/location-logger/` と `/apps/en/privacy/location-logger/`。今回の保存は公開サイトへ未反映。9月7日以降のWeb編集原本は[WordPress運用](../../wordpress/README.md)であり、以下の9月5日記録と旧生成JSON・同期スクリプトは移行前の履歴として扱う。
@@ -91,3 +93,9 @@ LocationLoggerタスク `01a07e30-c014-7ef2-af6c-051f0229f69d` で、本人が�
 書き出し `work/wordpress/exports/2026-09-08T01-04-51Z` と従来の採用物との差分はPrivacy日英各2HTMLとmanifestだけ。日英390px・1040px表示、更新日、全節、ナビゲーションを確認。新しい公開候補と現在のWordPressは151ファイル一致。公開・実受付の結果は下記に追記する。
 
 今回の公開対象にWordPressのDB・管理画面・Forms編集URL・認証情報を含めない。専用Feedbackと共通Contactは受付準備中のままで、今回の本文公開を実受付成立と扱わない。
+
+公開結果: 本人が既存未公開の原本一致検査・運用記録を含む反映を追加承認したため、`e1e9cbd1e044d7c86352f55a0eb13b8abbccf3ef` を通常pushした。[GitHub Pages run 34177085657](https://github.com/aaa3710/aaa3710.github.io/actions/runs/34177085657) はsuccess。通常の公開一覧→道の記録→Privacy→言語切替を実ブラウザでたどり、[日本語](https://aaa3710.github.io/apps/privacy/location-logger/)・[English](https://aaa3710.github.io/apps/en/privacy/location-logger/)の更新日9月8日、Appleへの緯度・経度送信、動画の場所・時刻、Photos同期の本文を確認した。自動承認レビューの先行拒否は追加承認と対象限定の通常pushで解消。
+
+後続の受付準備: WordPress option `apps_verified_intakes`を正本とし、確認済み用途・アプリ・日英一組の正規回答者URLと一致する別ページリンクのみ許可する修繕をローカル準備。全48テスト、書式・静的・差分検査に成功。設定も`intake-policy.json`としてハッシュ照合に含める。実option・フォームURL・WordPress本文・採用配信物は未変更で、この後続コードを上記公開結果に含めない。接続手順は[WordPress運用](../../wordpress/README.md)を参照。
+
+後続コードで既存の採用済みWordPress公開物をローカル生成し、28/28必須ページ・71経路・142 HTML・2019検査も成功。公開本文は再生成・変更していない。

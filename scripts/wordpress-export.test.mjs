@@ -397,3 +397,144 @@ test('rejects draft, management and live intake leakage before producing any exp
   );
   assert(state.requests.every((request) => request.url === '/apps/'));
 });
+
+test('exports only the verified bilingual responder links on their own app and Contact pages', async (t) => {
+  const { intakeUrlForRoute, normalizeIntakePolicy } =
+    await import('./wordpress-intakes.mjs');
+  const routes = routeList();
+  const address = (name) =>
+    `https://docs.google.com/forms/d/e/SYNTHETIC_NOT_A_LIVE_FORM_${name}/viewform`;
+  const intakePolicy = normalizeIntakePolicy({
+    version: 1,
+    intakes: [
+      {
+        kind: 'feedback',
+        app: 'location-logger',
+        verified: true,
+        urls: { ja: address('APP_JA'), en: address('APP_EN') },
+      },
+      {
+        kind: 'contact',
+        app: null,
+        verified: true,
+        urls: { ja: address('CONTACT_JA'), en: address('CONTACT_EN') },
+      },
+    ],
+  });
+  const state = await fixture(t, (request, response) => {
+    const approved = intakeUrlForRoute(intakePolicy, request.url);
+    response.writeHead(200, { 'Content-Type': 'text/html' });
+    response.end(
+      `<html><head><title>Fixture</title></head><body>${approved ? `<a href="${approved}">Open the form</a>` : '<p>No intake</p>'}</body></html>`,
+    );
+  });
+  const output = path.join(state.directory, 'verified-links');
+  await exportWordPress({
+    origin: state.origin,
+    routes,
+    output,
+    publicOrigin,
+    intakePolicy,
+  });
+  for (const route of routes) {
+    const html = await readFile(
+      path.join(output, route.path.slice(1), 'index.html'),
+      'utf8',
+    );
+    const approved = intakeUrlForRoute(intakePolicy, route.path);
+    if (approved) assert.ok(html.includes(approved));
+    else assert.doesNotMatch(html, /docs\.google\.com\/forms/);
+    assert.doesNotMatch(html, /<iframe|<form\b/);
+  }
+  const manifest = JSON.parse(
+    await readFile(path.join(output, 'export-manifest.json'), 'utf8'),
+  );
+  const policyFile = manifest.files.find(
+    (entry) => entry.path === 'intake-policy.json',
+  );
+  const bytes = await readFile(path.join(output, policyFile.path));
+  assert.equal(
+    policyFile.sha256,
+    createHash('sha256').update(bytes).digest('hex'),
+  );
+  assert.deepEqual(JSON.parse(bytes), intakePolicy);
+  assert.equal(state.requests.length, routes.length);
+});
+
+test('an approved form cannot escape its page or enable iframe, query, duplicated or missing links', async (t) => {
+  const { intakeUrlForRoute, normalizeIntakePolicy } =
+    await import('./wordpress-intakes.mjs');
+  const routes = routeList();
+  const address = (lang) =>
+    `https://docs.google.com/forms/d/e/SYNTHETIC_NOT_A_LIVE_FORM_${lang}/viewform`;
+  const intakePolicy = normalizeIntakePolicy({
+    version: 1,
+    intakes: [
+      {
+        kind: 'feedback',
+        app: 'location-logger',
+        verified: true,
+        urls: { ja: address('JA'), en: address('EN') },
+      },
+    ],
+  });
+  let mode = 'other-language';
+  const state = await fixture(t, (request, response) => {
+    const approved = intakeUrlForRoute(intakePolicy, request.url);
+    let html = approved ? `<a href="${approved}">Open</a>` : '<p>No intake</p>';
+    if (request.url === '/apps/feedback/location-logger/') {
+      if (mode === 'other-language')
+        html = `<a href="${address('EN')}">Wrong</a>`;
+      if (mode === 'query')
+        html = `<a href="${address('JA')}?usp=sharing">Query</a>`;
+      if (mode === 'iframe') html += `<iframe src="${address('JA')}"></iframe>`;
+      if (mode === 'missing') html = '<p>Nothing</p>';
+      if (mode === 'duplicate') html += html;
+    }
+    if (mode === 'contact' && request.url === '/apps/contact/')
+      html = `<a href="${address('JA')}">Wrong purpose</a>`;
+    if (
+      mode === 'other-app' &&
+      request.url === '/apps/feedback/focus-exposure-calculator/'
+    )
+      html = `<a href="${address('JA')}">Wrong app</a>`;
+    response.writeHead(200, { 'Content-Type': 'text/html' });
+    response.end(`<html><head></head><body>${html}</body></html>`);
+  });
+  for (const selected of [
+    'other-language',
+    'query',
+    'iframe',
+    'missing',
+    'duplicate',
+    'contact',
+    'other-app',
+  ]) {
+    mode = selected;
+    const output = path.join(state.directory, selected);
+    await assert.rejects(
+      exportWordPress({
+        origin: state.origin,
+        routes,
+        output,
+        publicOrigin,
+        intakePolicy,
+      }),
+      /WordPress (?:export|intake):/,
+    );
+    await assert.rejects(lstat(output), { code: 'ENOENT' });
+  }
+  const output = path.join(state.directory, 'missing-language-page');
+  await assert.rejects(
+    exportWordPress({
+      origin: state.origin,
+      routes: routes.filter(
+        (route) => route.path !== '/apps/en/feedback/location-logger/',
+      ),
+      output,
+      publicOrigin,
+      intakePolicy,
+    }),
+    /both matching/,
+  );
+});
