@@ -255,9 +255,21 @@ function legacyRoute(route) {
   const english = route.startsWith('/apps/en/');
   const suffix = route.slice(english ? '/apps/en/'.length : '/apps/'.length);
   if (!suffix) return english ? '/en/' : '/';
-  if (/^(?:support|privacy|feedback|contact)\//.test(suffix))
+  if (
+    suffix === 'contact/' ||
+    /^(?:support|privacy|feedback)\/(?:focus-exposure-calculator|tsutawaru-moji|location-logger|wrist-morse)\/$/.test(
+      suffix,
+    )
+  )
     return `${english ? '/en' : ''}/${suffix}`;
-  if (english) return `/en/apps/${suffix}`;
+  // Only former entries get aliases; new WordPress pages never lived at /en/apps/.
+  if (
+    english &&
+    /^(?:focus-exposure-calculator|tsutawaru-moji|location-logger|card-relay|wrist-morse|genome-notebook|spatial-fold|task-rail|mastery-steps)\/$/.test(
+      suffix,
+    )
+  )
+    return `/en/apps/${suffix}`;
   return null;
 }
 

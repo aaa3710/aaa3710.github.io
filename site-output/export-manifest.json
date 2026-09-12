@@ -33,6 +33,16 @@
       "indexable": true
     },
     {
+      "path": "/apps/en/feedback-import/",
+      "lang": "en",
+      "indexable": false
+    },
+    {
+      "path": "/apps/en/feedback-import/privacy/",
+      "lang": "en",
+      "indexable": false
+    },
+    {
       "path": "/apps/en/feedback/focus-exposure-calculator/",
       "lang": "en",
       "indexable": false
@@ -131,6 +141,16 @@
       "path": "/apps/en/wrist-morse/",
       "lang": "en",
       "indexable": true
+    },
+    {
+      "path": "/apps/feedback-import/",
+      "lang": "ja",
+      "indexable": false
+    },
+    {
+      "path": "/apps/feedback-import/privacy/",
+      "lang": "ja",
+      "indexable": false
     },
     {
       "path": "/apps/feedback/focus-exposure-calculator/",
@@ -293,6 +313,26 @@
       "path": "apps/en/contact/index.html",
       "bytes": 25797,
       "sha256": "92d3f0dbdf8b4f7a358f2d7c96d6f44906185535cd62cc923537ad044bcd2fcc"
+    },
+    {
+      "path": "apps/en/feedback-import.html",
+      "bytes": 25496,
+      "sha256": "4841a329254dec877a5a2f07d65a3a44aef7624883b9a9f6460ae9aa30624a4e"
+    },
+    {
+      "path": "apps/en/feedback-import/index.html",
+      "bytes": 25496,
+      "sha256": "4841a329254dec877a5a2f07d65a3a44aef7624883b9a9f6460ae9aa30624a4e"
+    },
+    {
+      "path": "apps/en/feedback-import/privacy.html",
+      "bytes": 28511,
+      "sha256": "7d8c121775621dd7cbebaa1edcd106b53af85c453691399c0d5e9a9a2b4ca81e"
+    },
+    {
+      "path": "apps/en/feedback-import/privacy/index.html",
+      "bytes": 28511,
+      "sha256": "7d8c121775621dd7cbebaa1edcd106b53af85c453691399c0d5e9a9a2b4ca81e"
     },
     {
       "path": "apps/en/feedback/focus-exposure-calculator.html",
@@ -498,6 +538,26 @@
       "path": "apps/en/wrist-morse/index.html",
       "bytes": 36258,
       "sha256": "8a42557a7ad7eccb156fd0994f7b8a7dc74d378939a64469ea380a570fe79cdb"
+    },
+    {
+      "path": "apps/feedback-import.html",
+      "bytes": 28564,
+      "sha256": "242a7f81d4b638b1fb8b54e627cb50c6c2ea6fe2c2c16845639e124485f42880"
+    },
+    {
+      "path": "apps/feedback-import/index.html",
+      "bytes": 28564,
+      "sha256": "242a7f81d4b638b1fb8b54e627cb50c6c2ea6fe2c2c16845639e124485f42880"
+    },
+    {
+      "path": "apps/feedback-import/privacy.html",
+      "bytes": 39846,
+      "sha256": "3e33225adedc4dccb2ccf462e27657435bf72ae16eaa4bb7d09d2d15a7577298"
+    },
+    {
+      "path": "apps/feedback-import/privacy/index.html",
+      "bytes": 39846,
+      "sha256": "3e33225adedc4dccb2ccf462e27657435bf72ae16eaa4bb7d09d2d15a7577298"
     },
     {
       "path": "apps/feedback/focus-exposure-calculator.html",

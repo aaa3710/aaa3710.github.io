@@ -398,6 +398,47 @@ test('rejects draft, management and live intake leakage before producing any exp
   assert(state.requests.every((request) => request.url === '/apps/'));
 });
 
+test('new bilingual utility pages do not create nonexistent legacy aliases', async (t) => {
+  const routes = ['ja', 'en'].flatMap((lang) =>
+    ['', 'privacy/'].map((suffix) => ({
+      path: `/apps/${lang === 'en' ? 'en/' : ''}feedback-import/${suffix}`,
+      lang,
+      indexable: false,
+    })),
+  );
+  const state = await fixture(t, (_request, response) => {
+    response.writeHead(200, { 'Content-Type': 'text/html' });
+    response.end(
+      '<!doctype html><html><head><title>Private import tool</title></head><body><main><h1>Import tool</h1></main></body></html>',
+    );
+  });
+  const output = path.join(state.directory, 'output');
+  const result = await exportWordPress({
+    origin: state.origin,
+    routes,
+    publicOrigin,
+    output,
+  });
+  assert.equal(result.pages, 4);
+  assert.equal(result.redirects, 0);
+  for (const route of routes) {
+    assert.match(
+      await readFile(
+        path.join(output, route.path.slice(1), 'index.html'),
+        'utf8',
+      ),
+      /noindex, nofollow/,
+    );
+  }
+  await assert.rejects(lstat(path.join(output, 'en/apps/feedback-import')), {
+    code: 'ENOENT',
+  });
+  assert.doesNotMatch(
+    await readFile(path.join(output, 'sitemap.xml'), 'utf8'),
+    /feedback-import/,
+  );
+});
+
 test('exports only the verified bilingual responder links on their own app and Contact pages', async (t) => {
   const { intakeUrlForRoute, normalizeIntakePolicy } =
     await import('./wordpress-intakes.mjs');
