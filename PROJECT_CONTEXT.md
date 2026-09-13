@@ -2,6 +2,12 @@
 
 ## 再開・メール往復とGoogle認証の説明ページ（2026-09-13）
 
+後続結果: 本人の具体的な公開承認後、現在WordPressとの189配信ファイル一致を再確認し、既存mainへ `6233e72` を通常pushした。[GitHub Pages run 34727110968](https://github.com/aaa3710/aaa3710.github.io/actions/runs/34727110968) のbuildとdeployが両方successとなったことをGitHub MCPで確認した。日英4ページと旧URL生成修繕は配信済み。今回は公開URLの再取得成功を証拠に加えていない。
+
+公開後のGoogle Auth Platformへのホームページ・Privacy URL・承認済みドメイン登録は、自動承認レビューが「Web公開の承認はGoogle側の具体的な設定変更を含まない」として拒否した。公開済みの説明2URL・`aaa3710.github.io`の登録と、回答読み取りだけを保つ本番状態への切替・必要時の同じ本人の再認証について、影響を明示して一件にまとめた承認を提示中。7日のTesting制限とテストユーザー限定が外れること、ツール配布・他者への管理権限付与・回答公開を行わないことを示した。許可待ちの間に同設定を別ツールや別経路で変更しない。
+
+拒否後のChrome現在値の再取得はScreenCaptureKit -3812で失敗した。Google側の保存成功は未確認で、拒否前の最後の確認値はURL欄空・ドメインなし・Testing。再開時は現画面を読み直してから入力・保存・状態を確認し、二重登録を避ける。WordPress・GitHubの公開成功とこのGoogle設定待ちを区別する。
+
 本人の明示依頼で再開した。Xcode 27 RCをメインにする変更は共通READMEへ反映済みで、現在の選択先も `/Applications/Xcode-27-RC.app/Contents/Developer`、Xcode 27.0（27A266a）と確認した。本タスクでAppleのbuild・配備・全体設定変更は行っていない。推論レベルの追加変更は現時点で不要。
 
 保存済み8profile設定の厳格な読取とGoogle OAuth更新は成功。追加の回答取得は0件で、既存のForm対応・合成試験・重複防止stateを再作成していない。MacのFileVault有効も現在確認した。
