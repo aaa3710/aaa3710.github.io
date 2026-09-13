@@ -591,13 +591,13 @@
     },
     {
       "path": "apps/en/location-logger.html",
-      "bytes": 36546,
-      "sha256": "b5f0c837583558af81e71ae978d3f7522240b0e3096e4b5f897a7ce8853098a6"
+      "bytes": 37499,
+      "sha256": "b8d2523c0e1a7ebf7e400cdc739c08e4dcf0d65cb739cf7c4843a0ce4ad47fd5"
     },
     {
       "path": "apps/en/location-logger/index.html",
-      "bytes": 36546,
-      "sha256": "b5f0c837583558af81e71ae978d3f7522240b0e3096e4b5f897a7ce8853098a6"
+      "bytes": 37499,
+      "sha256": "b8d2523c0e1a7ebf7e400cdc739c08e4dcf0d65cb739cf7c4843a0ce4ad47fd5"
     },
     {
       "path": "apps/en/mastery-steps.html",
@@ -641,13 +641,13 @@
     },
     {
       "path": "apps/en/privacy/location-logger.html",
-      "bytes": 50184,
-      "sha256": "d06eb401ac67ad49ad37b58d636085c8467bdcd2de20b1587b523d69dbce64bd"
+      "bytes": 50795,
+      "sha256": "d4dddbf94bed7487b71320432bd2a0387586e028ec448c70ef1513fd29e17921"
     },
     {
       "path": "apps/en/privacy/location-logger/index.html",
-      "bytes": 50184,
-      "sha256": "d06eb401ac67ad49ad37b58d636085c8467bdcd2de20b1587b523d69dbce64bd"
+      "bytes": 50795,
+      "sha256": "d4dddbf94bed7487b71320432bd2a0387586e028ec448c70ef1513fd29e17921"
     },
     {
       "path": "apps/en/privacy/mastery-steps.html",
@@ -671,13 +671,13 @@
     },
     {
       "path": "apps/en/privacy/tsutawaru-moji.html",
-      "bytes": 62820,
-      "sha256": "f1240f35271828b845ea3ef5c934715f7b4b2f43f28162d18d654f9d4c7ddc11"
+      "bytes": 63427,
+      "sha256": "0001c9f1e8790a0a972157c555b7619f6932729d936442388d29ddf71db85c81"
     },
     {
       "path": "apps/en/privacy/tsutawaru-moji/index.html",
-      "bytes": 62820,
-      "sha256": "f1240f35271828b845ea3ef5c934715f7b4b2f43f28162d18d654f9d4c7ddc11"
+      "bytes": 63427,
+      "sha256": "0001c9f1e8790a0a972157c555b7619f6932729d936442388d29ddf71db85c81"
     },
     {
       "path": "apps/en/privacy/wrist-morse.html",
@@ -791,13 +791,13 @@
     },
     {
       "path": "apps/en/tsutawaru-moji.html",
-      "bytes": 36504,
-      "sha256": "a1dbbd0390cdbdf75a533ba22668bb235a2d5b1fb277b6cd799e817bd096cc75"
+      "bytes": 37265,
+      "sha256": "1f4455f78bd497c341f6762f7d2dc2a65591986c09ae38efa9b7665b1a46ea86"
     },
     {
       "path": "apps/en/tsutawaru-moji/index.html",
-      "bytes": 36504,
-      "sha256": "a1dbbd0390cdbdf75a533ba22668bb235a2d5b1fb277b6cd799e817bd096cc75"
+      "bytes": 37265,
+      "sha256": "1f4455f78bd497c341f6762f7d2dc2a65591986c09ae38efa9b7665b1a46ea86"
     },
     {
       "path": "apps/en/wrist-morse.html",
@@ -936,13 +936,13 @@
     },
     {
       "path": "apps/location-logger.html",
-      "bytes": 43141,
-      "sha256": "9d72d9fa2c1050dc19a9d270fa9f056793b72dcca1e654faecea91e1a8496dc9"
+      "bytes": 45788,
+      "sha256": "298a8e19c5636cc137bb59dc234e8964ced4581338ba3cbbc5cc9ddf1cb17051"
     },
     {
       "path": "apps/location-logger/index.html",
-      "bytes": 43141,
-      "sha256": "9d72d9fa2c1050dc19a9d270fa9f056793b72dcca1e654faecea91e1a8496dc9"
+      "bytes": 45788,
+      "sha256": "298a8e19c5636cc137bb59dc234e8964ced4581338ba3cbbc5cc9ddf1cb17051"
     },
     {
       "path": "apps/mastery-steps.html",
@@ -986,13 +986,13 @@
     },
     {
       "path": "apps/privacy/location-logger.html",
-      "bytes": 90326,
-      "sha256": "bdebe3f9d6f712d8cd9f3a150cf485f13901d2a301f4ea1323958de3e1de31a6"
+      "bytes": 92436,
+      "sha256": "a9d718fa38fb2c9449ba905bb778953f00515b7e7ba555dc4cbe412cda0793e6"
     },
     {
       "path": "apps/privacy/location-logger/index.html",
-      "bytes": 90326,
-      "sha256": "bdebe3f9d6f712d8cd9f3a150cf485f13901d2a301f4ea1323958de3e1de31a6"
+      "bytes": 92436,
+      "sha256": "a9d718fa38fb2c9449ba905bb778953f00515b7e7ba555dc4cbe412cda0793e6"
     },
     {
       "path": "apps/privacy/mastery-steps.html",
@@ -1016,13 +1016,13 @@
     },
     {
       "path": "apps/privacy/tsutawaru-moji.html",
-      "bytes": 132001,
-      "sha256": "201a042c796dc4881376de3987854168eb356f6588fa30639c26475a873966ee"
+      "bytes": 134206,
+      "sha256": "81fa0f6172d054aa7c46444310beee78185fe599494af6a32cbd3ed567c29b06"
     },
     {
       "path": "apps/privacy/tsutawaru-moji/index.html",
-      "bytes": 132001,
-      "sha256": "201a042c796dc4881376de3987854168eb356f6588fa30639c26475a873966ee"
+      "bytes": 134206,
+      "sha256": "81fa0f6172d054aa7c46444310beee78185fe599494af6a32cbd3ed567c29b06"
     },
     {
       "path": "apps/privacy/wrist-morse.html",
@@ -1136,13 +1136,13 @@
     },
     {
       "path": "apps/tsutawaru-moji.html",
-      "bytes": 42837,
-      "sha256": "9abc0f46525e8336c5204ce0f8d1b78461fdcaf4c236048e9e5a5a13083ee06d"
+      "bytes": 45666,
+      "sha256": "92fc2e1bcc4826ea49a2d30764ed518b42917cc262c161d9ba822ae9f08ff6f9"
     },
     {
       "path": "apps/tsutawaru-moji/index.html",
-      "bytes": 42837,
-      "sha256": "9abc0f46525e8336c5204ce0f8d1b78461fdcaf4c236048e9e5a5a13083ee06d"
+      "bytes": 45666,
+      "sha256": "92fc2e1bcc4826ea49a2d30764ed518b42917cc262c161d9ba822ae9f08ff6f9"
     },
     {
       "path": "apps/wrist-morse.html",
