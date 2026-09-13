@@ -12,11 +12,74 @@
     },
     {
       "kind": "feedback",
+      "app": "card-relay",
+      "verified": true,
+      "urls": {
+        "ja": "https://docs.google.com/forms/d/e/1FAIpQLSe8y8LrwWg_NcWpS_2mXJqkLtOkLK8X7-KXxFdlEHkz_wVvjQ/viewform",
+        "en": "https://docs.google.com/forms/d/e/1FAIpQLSefwpJ-kByU9pFf22ogksqtxHUG0hmR6Tov-LU12B6Wg2SFRg/viewform"
+      }
+    },
+    {
+      "kind": "feedback",
+      "app": "context-english",
+      "verified": true,
+      "urls": {
+        "ja": "https://docs.google.com/forms/d/e/1FAIpQLSfeYwd9A-S2x0ODifrp9G9wd3x0rmOfbtGpbiA6HNq4_Zi1TA/viewform",
+        "en": "https://docs.google.com/forms/d/e/1FAIpQLSe2Wcat3Tiw03jhXLUB96WfTOPaYbn_of40Toa8B3D54HdcDw/viewform"
+      }
+    },
+    {
+      "kind": "feedback",
       "app": "focus-exposure-calculator",
       "verified": true,
       "urls": {
         "ja": "https://docs.google.com/forms/d/e/1FAIpQLSeIExpSJV8iJY0866WgjJPxhnMbDQSTg5lqukNU5YE-9fhxbw/viewform",
         "en": "https://docs.google.com/forms/d/e/1FAIpQLSeHQTMezEMlXcYxy6sY7rtoOItgaYLJdDvxVXO1-zMNrxghCw/viewform"
+      }
+    },
+    {
+      "kind": "feedback",
+      "app": "location-logger",
+      "verified": true,
+      "urls": {
+        "ja": "https://docs.google.com/forms/d/e/1FAIpQLScUdbtXODly7aaWRS1Fnuu9ZV1yAQCsUPnKDsZl_aHawSvncw/viewform",
+        "en": "https://docs.google.com/forms/d/e/1FAIpQLSc0gJj82NUVZ7efJ-IbMJV4UUBJGOBrN_gHTDIIuxSQyl7O9Q/viewform"
+      }
+    },
+    {
+      "kind": "feedback",
+      "app": "mastery-steps",
+      "verified": true,
+      "urls": {
+        "ja": "https://docs.google.com/forms/d/e/1FAIpQLSfCYcN7djgoBZQ9jUsHDL5dQ7yPkkGBWcBUlmmbrFSVQjKOaQ/viewform",
+        "en": "https://docs.google.com/forms/d/e/1FAIpQLSfb2lz8_7j1Fsf0OPkAmOJ65jliZe7WJI1WRrglEj0PHjNkBQ/viewform"
+      }
+    },
+    {
+      "kind": "feedback",
+      "app": "spatial-fold",
+      "verified": true,
+      "urls": {
+        "ja": "https://docs.google.com/forms/d/e/1FAIpQLScZuDfIceXrERlZrKEtxSNwaHpUF_vRK4kMIsP2gYIhwBsE6w/viewform",
+        "en": "https://docs.google.com/forms/d/e/1FAIpQLScKmLlWQFJWs-x9ugHWPzC3YCGI6vxHRZtTZMIiBc13h8UryQ/viewform"
+      }
+    },
+    {
+      "kind": "feedback",
+      "app": "tsutawaru-moji",
+      "verified": true,
+      "urls": {
+        "ja": "https://docs.google.com/forms/d/e/1FAIpQLScaE5ur_5vLenPGB8BE6rSEakafIlDbcB4o2MZCqqQB_2zeNQ/viewform",
+        "en": "https://docs.google.com/forms/d/e/1FAIpQLScssrdQK-vIYLuyhELn0mZk8OGCzOSyafeuY5Iyp6Zfs_-UvA/viewform"
+      }
+    },
+    {
+      "kind": "feedback",
+      "app": "wrist-morse",
+      "verified": true,
+      "urls": {
+        "ja": "https://docs.google.com/forms/d/e/1FAIpQLScu4-VXlPKL3OW4ecepker_0K5A4NHqDNjer2oRINHmSbJMeA/viewform",
+        "en": "https://docs.google.com/forms/d/e/1FAIpQLSe_xHkTErKSEj7T9ShEvzngR9shEmHBSg288nT-MmpEr6yW-A/viewform"
       }
     }
   ]
