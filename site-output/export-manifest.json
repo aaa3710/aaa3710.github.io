@@ -281,13 +281,13 @@
     },
     {
       "path": "apps/contact.html",
-      "bytes": 29864,
-      "sha256": "d5e13dfc9fc120ffcec39fd463dbd1306680a3071958a749416c2c7f098987c8"
+      "bytes": 29819,
+      "sha256": "56c0d9d1ff0a80ccaf43e47332b5eb47fc963fc73f84dd4f0cdbd3e732d5288e"
     },
     {
       "path": "apps/contact/index.html",
-      "bytes": 29864,
-      "sha256": "d5e13dfc9fc120ffcec39fd463dbd1306680a3071958a749416c2c7f098987c8"
+      "bytes": 29819,
+      "sha256": "56c0d9d1ff0a80ccaf43e47332b5eb47fc963fc73f84dd4f0cdbd3e732d5288e"
     },
     {
       "path": "apps/en.html",
@@ -306,13 +306,13 @@
     },
     {
       "path": "apps/en/contact.html",
-      "bytes": 25797,
-      "sha256": "92d3f0dbdf8b4f7a358f2d7c96d6f44906185535cd62cc923537ad044bcd2fcc"
+      "bytes": 25883,
+      "sha256": "0462df2c5e3651949dd55424c33323881cc26a5a5da09c7495ac85da5d9379dd"
     },
     {
       "path": "apps/en/contact/index.html",
-      "bytes": 25797,
-      "sha256": "92d3f0dbdf8b4f7a358f2d7c96d6f44906185535cd62cc923537ad044bcd2fcc"
+      "bytes": 25883,
+      "sha256": "0462df2c5e3651949dd55424c33323881cc26a5a5da09c7495ac85da5d9379dd"
     },
     {
       "path": "apps/en/feedback-import.html",
@@ -336,13 +336,13 @@
     },
     {
       "path": "apps/en/feedback/focus-exposure-calculator.html",
-      "bytes": 34340,
-      "sha256": "4ed8c74556ed818f11d6a587a233b2bfa4cd55bc822b9a2501fbd433000e8ec1"
+      "bytes": 34451,
+      "sha256": "9f8c0e46b50ce6f09c3a359688c0693d1fddfaa1e930818b3adb35090f5f83f0"
     },
     {
       "path": "apps/en/feedback/focus-exposure-calculator/index.html",
-      "bytes": 34340,
-      "sha256": "4ed8c74556ed818f11d6a587a233b2bfa4cd55bc822b9a2501fbd433000e8ec1"
+      "bytes": 34451,
+      "sha256": "9f8c0e46b50ce6f09c3a359688c0693d1fddfaa1e930818b3adb35090f5f83f0"
     },
     {
       "path": "apps/en/feedback/location-logger.html",
@@ -421,13 +421,13 @@
     },
     {
       "path": "apps/en/privacy/focus-exposure-calculator.html",
-      "bytes": 43848,
-      "sha256": "1366c52360026a38c5c93e268ba5273683d0c393dbb00c52138b9d9d23ff6bed"
+      "bytes": 43710,
+      "sha256": "507cea67104a0bea6df22b733e3bc83e60f5e13ad07d124633e0780c7ddb653e"
     },
     {
       "path": "apps/en/privacy/focus-exposure-calculator/index.html",
-      "bytes": 43848,
-      "sha256": "1366c52360026a38c5c93e268ba5273683d0c393dbb00c52138b9d9d23ff6bed"
+      "bytes": 43710,
+      "sha256": "507cea67104a0bea6df22b733e3bc83e60f5e13ad07d124633e0780c7ddb653e"
     },
     {
       "path": "apps/en/privacy/location-logger.html",
@@ -471,13 +471,13 @@
     },
     {
       "path": "apps/en/support/focus-exposure-calculator.html",
-      "bytes": 37781,
-      "sha256": "238432c2dfa3ddd7b0e59bc634328c277b2aeedbaab93c5c55bd4742c5c3c8eb"
+      "bytes": 37762,
+      "sha256": "f73cc220242342633bfa4d512b77f0f3d00144c03ab293f676e96aa140a80c55"
     },
     {
       "path": "apps/en/support/focus-exposure-calculator/index.html",
-      "bytes": 37781,
-      "sha256": "238432c2dfa3ddd7b0e59bc634328c277b2aeedbaab93c5c55bd4742c5c3c8eb"
+      "bytes": 37762,
+      "sha256": "f73cc220242342633bfa4d512b77f0f3d00144c03ab293f676e96aa140a80c55"
     },
     {
       "path": "apps/en/support/location-logger.html",
@@ -561,13 +561,13 @@
     },
     {
       "path": "apps/feedback/focus-exposure-calculator.html",
-      "bytes": 37360,
-      "sha256": "48f1721db0f6cb61fa1b14cab7abc2d2681aea088b9c05218de78d1f350f6107"
+      "bytes": 37352,
+      "sha256": "0a34e00a2b5405678b2d17ad7a1de287882249b6c2ed94e2b2194d5c5223abc0"
     },
     {
       "path": "apps/feedback/focus-exposure-calculator/index.html",
-      "bytes": 37360,
-      "sha256": "48f1721db0f6cb61fa1b14cab7abc2d2681aea088b9c05218de78d1f350f6107"
+      "bytes": 37352,
+      "sha256": "0a34e00a2b5405678b2d17ad7a1de287882249b6c2ed94e2b2194d5c5223abc0"
     },
     {
       "path": "apps/feedback/location-logger.html",
@@ -646,13 +646,13 @@
     },
     {
       "path": "apps/privacy/focus-exposure-calculator.html",
-      "bytes": 65764,
-      "sha256": "ea09717e4ed14894b31bdbdf73d6aa8270e7b3df38459e05819b5c2926ea750c"
+      "bytes": 65423,
+      "sha256": "c130e6e9846767ca59abfc1262fe51d3c91c9899a53545c528d81637fd187030"
     },
     {
       "path": "apps/privacy/focus-exposure-calculator/index.html",
-      "bytes": 65764,
-      "sha256": "ea09717e4ed14894b31bdbdf73d6aa8270e7b3df38459e05819b5c2926ea750c"
+      "bytes": 65423,
+      "sha256": "c130e6e9846767ca59abfc1262fe51d3c91c9899a53545c528d81637fd187030"
     },
     {
       "path": "apps/privacy/location-logger.html",
@@ -696,13 +696,13 @@
     },
     {
       "path": "apps/support/focus-exposure-calculator.html",
-      "bytes": 45939,
-      "sha256": "33a167eead204be9e41d4db7a2afd8059fa04d044e8ac65bfb310533e2ccdf92"
+      "bytes": 45927,
+      "sha256": "25be954eeb1acad8fdcf3929808f275fb9c176699914ae42509b80178c79bca6"
     },
     {
       "path": "apps/support/focus-exposure-calculator/index.html",
-      "bytes": 45939,
-      "sha256": "33a167eead204be9e41d4db7a2afd8059fa04d044e8ac65bfb310533e2ccdf92"
+      "bytes": 45927,
+      "sha256": "25be954eeb1acad8fdcf3929808f275fb9c176699914ae42509b80178c79bca6"
     },
     {
       "path": "apps/support/location-logger.html",
@@ -1061,8 +1061,8 @@
     },
     {
       "path": "intake-policy.json",
-      "bytes": 36,
-      "sha256": "1ae8dca9f960602f341d9347660368881f94f0bf2f956ee723cbfcf90506fe5d"
+      "bytes": 738,
+      "sha256": "7d9e809cc2ae617a1cc8854b6c51a7f8453706c5e9b5bd03a56b3b072803c749"
     },
     {
       "path": "privacy/focus-exposure-calculator.html",
