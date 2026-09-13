@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
-import { cp, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
@@ -47,12 +47,16 @@ test('intake defaults are closed and only exact page/language bindings are retur
   }
 });
 
-test('four apps and shared Contact keep ten independent language bindings', () => {
+test('eight apps and shared Contact keep eighteen independent language bindings', () => {
   const apps = [
     'focus-exposure-calculator',
     'location-logger',
     'tsutawaru-moji',
     'wrist-morse',
+    'mastery-steps',
+    'spatial-fold',
+    'card-relay',
+    'context-english',
   ];
   const input = {
     version: 1,
@@ -69,26 +73,32 @@ test('four apps and shared Contact keep ten independent language bindings', () =
   const value = normalizeIntakePolicy(input);
   for (const language of ['ja', 'en']) {
     const prefix = language === 'en' ? '/apps/en/' : '/apps/';
-    const morseUrl = url(`wrist-morse_${language.toUpperCase()}`);
+    for (const app of apps) {
+      const appUrl = url(`${app}_${language.toUpperCase()}`);
+      const route = `${prefix}feedback/${app}/`;
+      assert.equal(intakeUrlForRoute(value, route), appUrl);
+      assert.doesNotThrow(() =>
+        validateIntakeMarkup(`<a href="${appUrl}">Feedback</a>`, route, value),
+      );
+      for (const wrong of [
+        `${prefix}contact/`,
+        `${language === 'en' ? '/apps/' : '/apps/en/'}feedback/${app}/`,
+        `${prefix}feedback/${apps[(apps.indexOf(app) + 1) % apps.length]}/`,
+      ]) {
+        assert.throws(
+          () =>
+            validateIntakeMarkup(
+              `<a href="${appUrl}">Feedback</a>`,
+              wrong,
+              value,
+            ),
+          /does not match/,
+        );
+      }
+    }
     assert.equal(
-      intakeUrlForRoute(value, `${prefix}feedback/wrist-morse/`),
-      morseUrl,
-    );
-    assert.doesNotThrow(() =>
-      validateIntakeMarkup(
-        `<a href="${morseUrl}">Feedback</a>`,
-        `${prefix}feedback/wrist-morse/`,
-        value,
-      ),
-    );
-    assert.throws(
-      () =>
-        validateIntakeMarkup(
-          `<a href="${morseUrl}">Feedback</a>`,
-          `${prefix}contact/`,
-          value,
-        ),
-      /does not match/,
+      intakeUrlForRoute(value, `${prefix}contact/`),
+      url(`contact_${language.toUpperCase()}`),
     );
   }
   input.intakes.push({ ...input.intakes[0] });
@@ -111,6 +121,12 @@ test('unverified, incomplete, duplicated, cross-purpose and non-responder config
     },
     (p) => {
       p.intakes[0].app = 'unregistered-app';
+    },
+    (p) => {
+      p.intakes[0].app = 'task-rail';
+    },
+    (p) => {
+      p.intakes[0].app = 'genome-notebook';
     },
     (p) => {
       p.intakes[0].kind = 'contact';
@@ -323,4 +339,119 @@ test('a copied WP artifact with matching bilingual links verifies while environm
   await writeFile(manifestPath, JSON.stringify(manifest));
   const result = verify(directory, 'false');
   assert.equal(result.status, 0, result.stderr);
+});
+
+test('new published app families require both languages, Feedback privacy and matching sitemap entries', async (t) => {
+  const directory = await copySnapshot(t);
+  const apps = [
+    'mastery-steps',
+    'spatial-fold',
+    'card-relay',
+    'context-english',
+  ];
+  const input = {
+    version: 1,
+    intakes: apps.map((app) => ({
+      kind: 'feedback',
+      app,
+      verified: true,
+      urls: { ja: url(`${app}_JA`), en: url(`${app}_EN`) },
+    })),
+  };
+  const manifestPath = path.join(directory, 'export-manifest.json');
+  const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
+  async function saveFixture(relative, html) {
+    const filename = path.join(directory, relative);
+    await mkdir(path.dirname(filename), { recursive: true });
+    await writeFile(filename, html);
+    manifest.files = manifest.files.filter((file) => file.path !== relative);
+    manifest.files.push({
+      path: relative,
+      bytes: Buffer.byteLength(html),
+      sha256: createHash('sha256').update(html).digest('hex'),
+    });
+  }
+  for (const app of apps) {
+    for (const language of ['ja', 'en']) {
+      const prefix = `apps/${language === 'en' ? 'en/' : ''}`;
+      for (const section of ['', 'support/', 'privacy/', 'feedback/']) {
+        const route = `/${prefix}${section}${app}/`;
+        let html = await readFile(
+          path.join(directory, `${prefix}${section}location-logger/index.html`),
+          'utf8',
+        );
+        html = html.replaceAll('location-logger', app);
+        if (section === 'feedback/') {
+          html = html.replace(
+            '</main>',
+            `<a href="${url(`${app}_${language.toUpperCase()}`)}">Feedback</a></main>`,
+          );
+        }
+        await saveFixture(`${route.slice(1)}index.html`, html);
+        await saveFixture(`${route.slice(1, -1)}.html`, html);
+        manifest.routes = manifest.routes.filter(
+          (entry) => entry.path !== route,
+        );
+        manifest.routes.push({
+          path: route,
+          lang: language,
+          indexable: section !== 'feedback/',
+        });
+      }
+    }
+  }
+  const sitemap = `<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${manifest.routes
+    .filter((route) => route.indexable)
+    .map(
+      (route) => `<url><loc>https://aaa3710.github.io${route.path}</loc></url>`,
+    )
+    .join('')}</urlset>`;
+  await saveFixture('sitemap.xml', sitemap);
+  await writeFile(manifestPath, JSON.stringify(manifest));
+  await savePolicy(directory, input);
+  const result = verify(directory, 'false');
+  assert.equal(result.status, 0, result.stderr);
+
+  const feedbackPath = path.join(
+    directory,
+    'apps/feedback/context-english/index.html',
+  );
+  const feedback = await readFile(feedbackPath, 'utf8');
+  await writeFile(
+    feedbackPath,
+    feedback.replace('noindex, nofollow', 'index, follow'),
+  );
+  assert.match(
+    verify(directory, 'false').stderr,
+    /feedback must be noindex, nofollow/,
+  );
+  await writeFile(
+    feedbackPath,
+    feedback.replace(url('context-english_JA'), url('context-english_EN')),
+  );
+  assert.match(
+    verify(directory, 'false').stderr,
+    /does not match this page and language/,
+  );
+  await writeFile(feedbackPath, feedback);
+
+  const englishPath = path.join(
+    directory,
+    'apps/en/support/context-english/index.html',
+  );
+  const english = await readFile(englishPath, 'utf8');
+  await rm(englishPath);
+  assert.match(
+    verify(directory, 'false').stderr,
+    /published app family page missing/,
+  );
+  await writeFile(englishPath, english);
+  await writeFile(
+    path.join(directory, 'sitemap.xml'),
+    sitemap.replace(
+      '<url><loc>https://aaa3710.github.io/apps/privacy/context-english/</loc></url>',
+      '',
+    ),
+  );
+  assert.match(verify(directory, 'false').stderr, /sitemap URL set differs/);
 });

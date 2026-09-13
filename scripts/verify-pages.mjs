@@ -1,4 +1,5 @@
 import { access, readFile, readdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -39,6 +40,20 @@ const morsePublished = Boolean(
   snapshotManifest?.routes?.some(
     (entry) =>
       /^\/apps\/(?:en\/)?wrist-morse\/$/.test(entry.path) && entry.indexable,
+  ),
+);
+// Preparing a draft must not require its publication. Once either introduction
+// is indexable, require the complete bilingual family for each added app.
+const additionalPublishedApps = [
+  'mastery-steps',
+  'spatial-fold',
+  'card-relay',
+  'context-english',
+].filter((app) =>
+  snapshotManifest?.routes?.some(
+    (entry) =>
+      [`/apps/${app}/`, `/apps/en/${app}/`].includes(entry.path) &&
+      entry.indexable,
   ),
 );
 const names = {
@@ -344,6 +359,9 @@ for (const routePath of publicRouteSet) {
     routePath.startsWith('/apps/'),
     `${routePath}: app content outside /apps/`,
   );
+  const present = await exists(pageFile(routePath));
+  check(present, `${routePath}: canonical index.html is missing`);
+  if (!present) continue;
   const html = markupOnly(await readFile(pageFile(routePath), 'utf8'));
   for (const anchor of tags(html, 'a')) {
     const target = normalizedLink(anchor.href);
@@ -867,7 +885,28 @@ for (const locale of locales) {
       `${routePath}: unverified email or Store URL`,
     );
     check(
-      tags(html, 'img').length === 0,
+      (
+        await Promise.all(
+          tags(html, 'img').map(async (image) => {
+            // This map mark was already published on the WordPress catalog.
+            // Allow its exact bytes on the app pages, not new app captures.
+            if (
+              !/^\/wp-content\/uploads\/\d{4}\/\d{2}\/location-logger-site-mark\.svg$/.test(
+                image.src ?? '',
+              )
+            )
+              return false;
+            const file = path.join(clientDirectory, image.src);
+            if (!(await exists(file))) return false;
+            return (
+              createHash('sha256')
+                .update(await readFile(file))
+                .digest('hex') ===
+              '9077b5953d9d80cce8be851780f22f63893e44031c80646cc604f53d8c15d85c'
+            );
+          }),
+        )
+      ).every(Boolean),
       `${routePath}: unverified app imagery present`,
     );
     if (kind === 'support')
@@ -1014,10 +1053,14 @@ if (morsePublished) {
         );
         if (!group('feedback', 'wrist-morse')) {
           check(
-            decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
-              locale === 'ja'
-                ? '現在は送信できません'
-                : 'cannot accept submissions yet',
+            (locale === 'ja'
+              ? ['現在は送信できません']
+              : [
+                  'cannot accept submissions yet',
+                  'Submissions are not available yet',
+                ]
+            ).some((status) =>
+              decodeHtml(html.replace(/<[^>]*>/g, '')).includes(status),
             ),
             `${routePath}: closed intake status missing`,
           );
@@ -1049,6 +1092,60 @@ if (morsePublished) {
   }
 }
 
+const additionalIndexable = [];
+for (const appSlug of additionalPublishedApps) {
+  for (const locale of locales) {
+    const prefix = locale === 'ja' ? '/apps/' : '/apps/en/';
+    for (const kind of ['', 'support/', 'privacy/', 'feedback/']) {
+      const appRoute = `${prefix}${kind}${appSlug}/`;
+      const present = await exists(pageFile(appRoute));
+      check(present, `${appRoute}: published app family page missing`);
+      if (!present) continue;
+      requiredPages += 1;
+      const html = markupOnly(await readFile(pageFile(appRoute), 'utf8'));
+      const links = tags(html, 'link');
+      const robots = metaValues(tags(html, 'meta'), 'robots');
+      check(
+        tags(html, 'html')[0]?.lang === locale,
+        `${appRoute}: wrong language`,
+      );
+      if (kind === 'feedback/') {
+        check(
+          robots.includes('noindex, nofollow'),
+          `${appRoute}: feedback must be noindex, nofollow`,
+        );
+        check(
+          !links.some((link) => link.rel === 'canonical' || link.hreflang),
+          `${appRoute}: feedback advertises indexing alternates`,
+        );
+      } else {
+        additionalIndexable.push(absoluteUrl(appRoute));
+        check(
+          robots.includes('index, follow'),
+          `${appRoute}: published page must be indexable`,
+        );
+        const canonicals = links.filter((link) => link.rel === 'canonical');
+        check(
+          canonicals.length === 1 &&
+            canonicals[0].href === absoluteUrl(appRoute),
+          `${appRoute}: incorrect canonical URL`,
+        );
+        for (const language of locales) {
+          const counterpart = `/apps/${language === 'en' ? 'en/' : ''}${kind}${appSlug}/`;
+          check(
+            links.some(
+              (link) =>
+                link.hreflang === language &&
+                link.href === absoluteUrl(counterpart),
+            ),
+            `${appRoute}: missing ${language} language alternate`,
+          );
+        }
+      }
+    }
+  }
+}
+
 // All app families expose the same three sections, in the same order.
 for (const locale of locales) {
   const prefix = locale === 'ja' ? '/apps' : '/apps/en';
@@ -1057,6 +1154,7 @@ for (const locale of locales) {
     'tsutawaru-moji',
     'location-logger',
     ...(morsePublished ? ['wrist-morse'] : []),
+    ...additionalPublishedApps,
   ]) {
     for (const kind of ['app', 'support', 'privacy', 'feedback']) {
       const appRoute = `${prefix}/${kind === 'app' ? '' : `${kind}/`}${appSlug}/`;
@@ -1103,6 +1201,7 @@ if (await exists(sitemapFile)) {
   expected.push(...tsutawaruIndexable);
   expected.push(...locationLoggerIndexable);
   expected.push(...morseIndexable);
+  expected.push(...additionalIndexable);
   check(
     locations.length === expected.length,
     `sitemap must contain exactly ${expected.length} URLs`,
@@ -1159,7 +1258,9 @@ for (const locale of locales) {
   }
 }
 
-const summary = `${requiredPages}/${morsePublished ? 36 : 28} required pages; ${publicRouteSet.size} generated public routes; ${htmlFiles.length} HTML files; ${assertions} assertions`;
+const expectedRequiredPages =
+  (morsePublished ? 36 : 28) + additionalPublishedApps.length * 8;
+const summary = `${requiredPages}/${expectedRequiredPages} required pages; ${publicRouteSet.size} generated public routes; ${htmlFiles.length} HTML files; ${assertions} assertions`;
 if (failures.length) {
   console.error(
     `GitHub Pages verification failed: ${failures.length} failure(s), ${summary}.`,

@@ -439,28 +439,49 @@ test('new bilingual utility pages do not create nonexistent legacy aliases', asy
   );
 });
 
-test('exports only the verified bilingual responder links on their own app and Contact pages', async (t) => {
+test('exports eight app families and eighteen verified links while keeping Feedback out of search', async (t) => {
   const { intakeUrlForRoute, normalizeIntakePolicy } =
     await import('./wordpress-intakes.mjs');
-  const routes = routeList();
+  const apps = [
+    'focus-exposure-calculator',
+    'location-logger',
+    'tsutawaru-moji',
+    'wrist-morse',
+    'mastery-steps',
+    'spatial-fold',
+    'card-relay',
+    'context-english',
+  ];
+  const routes = ['ja', 'en'].flatMap((lang) => {
+    const prefix = `/apps/${lang === 'en' ? 'en/' : ''}`;
+    return [
+      ...['', 'contact/'].map((suffix) => ({
+        path: prefix + suffix,
+        lang,
+        indexable: true,
+      })),
+      ...apps.flatMap((app) =>
+        ['', 'support/', 'privacy/', 'feedback/'].map((section) => ({
+          path: `${prefix}${section}${app}/`,
+          lang,
+          indexable: section !== 'feedback/',
+        })),
+      ),
+    ];
+  });
   const address = (name) =>
     `https://docs.google.com/forms/d/e/SYNTHETIC_NOT_A_LIVE_FORM_${name}/viewform`;
   const intakePolicy = normalizeIntakePolicy({
     version: 1,
-    intakes: [
-      {
-        kind: 'feedback',
-        app: 'location-logger',
-        verified: true,
-        urls: { ja: address('APP_JA'), en: address('APP_EN') },
+    intakes: [...apps, null].map((app) => ({
+      kind: app ? 'feedback' : 'contact',
+      app,
+      verified: true,
+      urls: {
+        ja: address(`${app ?? 'contact'}_JA`),
+        en: address(`${app ?? 'contact'}_EN`),
       },
-      {
-        kind: 'contact',
-        app: null,
-        verified: true,
-        urls: { ja: address('CONTACT_JA'), en: address('CONTACT_EN') },
-      },
-    ],
+    })),
   });
   const state = await fixture(t, (request, response) => {
     const approved = intakeUrlForRoute(intakePolicy, request.url);
@@ -486,7 +507,14 @@ test('exports only the verified bilingual responder links on their own app and C
     if (approved) assert.ok(html.includes(approved));
     else assert.doesNotMatch(html, /docs\.google\.com\/forms/);
     assert.doesNotMatch(html, /<iframe|<form\b/);
+    if (route.path.includes('/feedback/')) {
+      assert.match(html, /content="noindex, nofollow"/);
+      assert.doesNotMatch(html, /<link[^>]*(?:rel="canonical"|hreflang=)/);
+    }
   }
+  const sitemap = await readFile(path.join(output, 'sitemap.xml'), 'utf8');
+  assert.equal((sitemap.match(/<url>/g) ?? []).length, 52);
+  assert.doesNotMatch(sitemap, /feedback|task-rail|genome-notebook/);
   const manifest = JSON.parse(
     await readFile(path.join(output, 'export-manifest.json'), 'utf8'),
   );

@@ -6,6 +6,10 @@ const APPS = new Set([
   'location-logger',
   'tsutawaru-moji',
   'wrist-morse',
+  'mastery-steps',
+  'spatial-fold',
+  'card-relay',
+  'context-english',
 ]);
 
 function fail(message) {
