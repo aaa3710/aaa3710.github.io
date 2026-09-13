@@ -1,5 +1,26 @@
 # アプリ認知プロジェクト
 
+## 既存3アプリのWeb照合と更新用8下書き（2026-09-13）
+
+道の記録・伝わる文字・感じるモールスの紹介/Support/Privacy/Feedbackを日英計24ページ、現在の本体原稿と照合した。変更が必要な8ページだけ同じWordPress原本へ更新用下書きを作成し、既存公開ページは保持した。先行の習慣・立体16件と合わせ、今回の新規下書きは計24件。全24件を最終読み取りで `draft`・`noindex` と確認した。
+
+| 更新対象 | 日本語の下書き → 既存ID | 英語の下書き → 既存ID |
+| --- | --- | --- |
+| 道の記録 紹介 | 183 → 17 | 184 → 37 |
+| 道の記録 Privacy | 185 → 59 | 186 → 80 |
+| 伝わる文字 紹介 | 187 → 25 | 188 → 45 |
+| 伝わる文字 Support | 189 → 68 | 190 → 89 |
+
+下書きslugは各既存slugに `-release-draft` を加えたもの。採用時は表の既存IDへ反映し、下書き用経路をそのまま公開しない。本文中の紹介/Support/Privacyは既存の正規経路へ明示的にリンクし、下書きslugから誤った経路を生成するナビゲーションを避けた。公開前の更新案であることを表示し、受付停止の説明・既存画像・課金に関する既存記述を保った。新たな無料の断定は追加していない。
+
+道の記録は[本体Docs](/Users/minatosuzuki/work_local/LocationLogger/Docs/)の `AppStoreMetadata-{ja,en}.md`・`PrivacyPolicy-{ja,en}.md` をcommit `7835112` の確定後に照合。紹介へJSONを含む7形式、軌跡動画のPhotos保存、履歴取り込み、プリセットを反映した。Privacyは現在地のMapKit表示、Photos追加専用、保存後の再生用一時動画保持・片付けへ揃えた。本体の修繕は管理側の別担当が実施したもので、この認知作業は本体を編集していない。
+
+伝わる文字は[本体Public原稿](/Users/minatosuzuki/work_local/会話用音声文字起こし/Docs/Public/)の `Support-{ja,en}.md` に合わせ、表示と別の話す言語・その他の言語/地域・端末依存、初回マイク案内、任意OpenAI方式の設定説明、近距離共有の具体的な接続許可と25秒/30秒の時間切れを反映した。道の記録のSupport/Feedback、伝わる文字のPrivacy/Feedbackは現在の説明・受付停止状態と整合し再複製しなかった。感じるモールスも[本体公開原稿](/Users/minatosuzuki/work_local/モールス信号用のアプリ/Docs/PUBLIC_PAGES.ja-en.md)と[App Store原稿](/Users/minatosuzuki/work_local/モールス信号用のアプリ/Docs/APP_STORE_METADATA.md)に対して、Watch任意・非アクティブ時停止・利用者間通信なしを含む8ページが整合し、変更不要だった。
+
+検証: 追加8件の本文・slug・親・状態の最終読み戻しが一致し、参照8ファイルのhashも確定現在値と一致した。追加前の72ページ（先行16下書きを含む）と受付optionは不変。標準514/514 blockは有効。継承した装飾SVG4 blockはHTML policy合格だが、検証ツールのlive-editor再シリアライズがSVGを空にする制約を検出したため、その自動修正は保存案へ採用せず、元のSVG byteとWordPress描画後の一致を確認した。全518件のeditor validation成功とは記録しない。公開反映時も、この装飾を消す自動修正を採用しない。
+
+保存済み本文＋既存テーマを用いる一時ローカル表示で、詳細を確認時だけ展開して8件の390px幅を確認し、取得した本文・見出し・リンク要素の横はみ出しは0。道の記録の日本語紹介（390px）と伝わる文字の英語Support（1040px、末尾まで）を目視し、元の装飾の描画も確認した。一時表示は終了済み。公開サイト全体の再検証、テーマ修正、export、`site-output`変更、push、公開、フォーム設定・回答・メールへの操作は0。既存Contact等の通常受付開始と公開の承認待ちは以下の現在記録を引き継ぐ。今回対象のWeb本文の準備・保存は完了し、実受付と公開は未完了。
+
 ## 習慣・立体のWeb原稿を16件の未公開下書きへ保存（2026-09-13）
 
 6アプリのリリース準備として、MasterySteps と Spatial Fold の紹介・Support・Privacy・Feedbackを日英各1件、計16件作成した。紹介・Support・Privacyは12件、Feedbackは4件。正本は既存の非公開WordPress Studio `work/wordpress/site/` 内にある下書きで、全件 `draft`・`noindex`。新名称・新アイコンは未採用で、現行の仮名を用いる。原稿をGit側へ重複保存していない。
