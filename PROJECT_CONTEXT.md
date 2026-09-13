@@ -4,7 +4,13 @@
 
 本人から「日英Contact＋撮影のものさしの日英Feedback、計4フォームの受付開始とサイト公開を承認」と具体的な承認を受領した。同じGoogle Formsの正規公開設定で4件の受付をONにし、保存完了と停止表示の消失を各件で確認した。以前の保存拒否と承認待ちは解消済み。試験送信・メール返信・初回認証は繰り返していない。
 
-現在のWordPressと採用済み `site-output` の189ファイル一致、87経路・174HTML・2421検査が再度成功した。公開先のChromeで既存 `aaa3710/aaa3710.github.io` の所有者であることを確認し、最新originを取得。公開差分は承認された8ページ（各経路のHTML2形式）と受付設定・manifest、経過文書のみ。別作業で保存した24下書きは公開出力に含まれない。GitHub Pagesへの反映と公開ページからの実導線の最終確認をこの続きで行う。
+現在のWordPressと採用済み `site-output` の189ファイル一致、87経路・174HTML・2421検査が再度成功した。公開先のChromeで既存 `aaa3710/aaa3710.github.io` の所有者であることを確認し、最新originを取得。公開差分は承認された8ページ（各経路のHTML2形式）と受付設定・manifest、経過文書のみ。別作業で保存した24下書きは公開出力に含まれない。
+
+公開commitは `24750cfa0ebf9c90d2f1014c09d178eb138d8af3`。[Pages run 34740099280](https://github.com/aaa3710/aaa3710.github.io/actions/runs/34740099280) のbuild・deployが成功した。最初のrunは追加済み作業記録のMarkdown表の書式で停止し、表の整形と書式検査成功後に同じ公開内容で再実行して解消した。サイト本文・検査条件・フォーム設定の変更で回避していない。
+
+Chromeで公開日英Supportから専用Feedbackへ進み、両言語の正規Googleフォームの入力欄・送信ボタンまで開いた。同じ日英Supportから共通Contactを経て、日英Contactの必須本文・任意返信メール・送信ボタンまで到達した。4件とも用途・言語・正規回答者URL・下書き保存無効が一致。公開日英Privacyの受付説明と9月13日の更新日、Feedbackの `noindex, nofollow` も確認した。今回の追加回答・メール・認証・実AI処理・定期起動は0。ログインした所有者Chromeでの到達確認と、以前の合成送受信成功は別の証拠として保持する。
+
+依頼 `01a07ffb-20260913-normal-support-handoff` の通常Web窓口の仕上げは完了。[管理受付台帳](/Users/minatosuzuki/work_local/アプリ管理/feedback/production-intake-readiness.md#日英contactと撮影feedbackの受付開始サイト公開完了2026-09-13)と[撮影のApp Store運用台帳](/Users/minatosuzuki/work_local/アプリ管理/publishing/focus-map-app-store.md#2026-09-13続報-通常の日英support窓口の公開完了)へ現在値を反映した。別アプリの既存6フォームはOFF、習慣・立体の追加4フォームと24下書きの公開は今回の対象外。App Store Connect・本体・掲載画像は未変更。今回の4窓口とサイト公開について、追加の本人操作は不要。
 
 ## 既存3アプリのWeb照合と更新用8下書き（2026-09-13）
 
