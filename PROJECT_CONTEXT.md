@@ -1,5 +1,26 @@
 # アプリ認知プロジェクト
 
+## 習慣・立体のWeb原稿を16件の未公開下書きへ保存（2026-09-13）
+
+6アプリのリリース準備として、MasterySteps と Spatial Fold の紹介・Support・Privacy・Feedbackを日英各1件、計16件作成した。紹介・Support・Privacyは12件、Feedbackは4件。正本は既存の非公開WordPress Studio `work/wordpress/site/` 内にある下書きで、全件 `draft`・`noindex`。新名称・新アイコンは未採用で、現行の仮名を用いる。原稿をGit側へ重複保存していない。
+
+| 対象 | 言語 | 紹介ID | Support ID | Privacy ID | Feedback ID |
+| --- | --- | --- | --- | --- | --- |
+| MasterySteps | 日本語 | 167 | 168 | 169 | 170 |
+| MasterySteps | English | 171 | 172 | 173 | 174 |
+| Spatial Fold | 日本語 | 175 | 176 | 177 | 178 |
+| Spatial Fold | English | 179 | 180 | 181 | 182 |
+
+予定経路は `/apps/{app}/` と `/apps/{support|privacy|feedback}/{app}/`、英語は `/apps/en/` 以下の同じ構成。`{app}` は `mastery-steps` / `spatial-fold`。紹介は既存ページ（習慣19/39・立体21/41）を維持し、更新用下書きだけ `*-release-draft` のslugに置いた。採用時は既存紹介ページへ反映し、下書き用経路をそのまま公開しない。各下書きの予定経路・対応する既存ID・参照原稿hashはprivate post metaへ保存済み。
+
+製品説明は9月13日時点の本体正本を再利用した。習慣は[Release原稿](/Users/minatosuzuki/work_local/習慣のためのアプリ/Docs/Release/)の `StoreMetadata.{ja,en}.md`・`Support.{ja,en}.md`・`PrivacyPolicy.{ja,en}.md` の6ファイル、立体は[Release原稿](/Users/minatosuzuki/work_local/空間認知能力を刺激するアプリ/Docs/Release/)の `AppStoreMetadata-draft.md`・`Support-draft.md`・`PrivacyPolicy-draft.md` の3ファイル。保存前後で全9原稿のhash一致を確認した。習慣はiPhone＋任意のApple Watch、立体はiPhoneのみでWatch/iPad対応を追加していない。課金方針は今回変更していない。
+
+Feedbackは専用の自由記述1欄を予定し、共通Contactと用途を分離した。送信欄・実送信リンクは置かず、各ページ冒頭と予定リンクに公開準備中を表示した。専用4フォームは未作成・未接続、Webでの取扱説明・Privacyの施行日・実際の連絡導線は公開前に確定する。既存の日英Contact・4アプリのフォーム・受付option・適用済み8ページ・公開候補には触れていない。以下のContact通常受付開始と8ページ公開の承認待ちも維持する。
+
+検証: WordPress標準ブロック326/326件が有効で、core/htmlなし・修正不要。16件の本文・slug・親・draft状態の保存後読み戻しが一致した。作成前の既存56ページは本文・meta等のfingerprintが不変、受付optionも不変。保存済み本文をWordPressで描画し、既存テーマCSSとcore block CSSを使う一時的なローカル表示で16件の390px幅を確認し、取得した本文・見出し・リンク要素の横はみ出しは0件。立体の日本語紹介・英語Feedback（390px）と習慣の英語Support（1040px）を目視した。これは下書き本文の表示確認であり、公開サイト全体・実フォーム・実機アプリの受入れ証拠ではない。確認用表示は終了済み。
+
+`site-output`・配信生成物・テーマ・受付allowlistは未変更、export・push・公開・フォーム操作・回答取得・メール送信は行っていない。次は名称/アイコンの採用後の差分反映と、別記の受付準備・公開判断。未決定のまま進められる本文作成とローカル保存は完了した。
+
 ## 日英Contactの返信確認完了・通常受付の保存待ち（2026-09-13）
 
 本人の「送信しました」を受領し、英語Contactの受領画面、回答0→1件、既存の非公開回答シートへの13:03:16 JSTの保存、13:03の新着通知を確認した。自作試験本文と任意返信先が一致。開発窓口から試験返信を1通送り、主メールで13:06の到着、英語原文・確認番号・実送信者と宛先の一致を確認した。日本語の成功済み試験は再実施していない。合成回答は計12件（専用8件・日本語Contact3件・英語Contact1件）、今回の追加は本人送信1件とCodexの返信1通。実回答のAI整理・定期実行・追加認証は行っていない。
@@ -10,7 +31,7 @@ WordPress原本へ日英Contact・撮影のSupport/Feedback/Privacy計8ページ
 
 残る操作は、共通Contact日英・撮影Feedback日英の4フォームの通常受付ON保存と、この8ページを既存GitHub Pagesへ公開すること。受付ON保存の一括操作は自動承認レビューが「継続依頼だけでは4フォームの具体的な公開・データ収集設定保存の明示承認にならない」として拒否し、実行されなかった。未保存の変更をキャンセルし、4フォームとも受付OFFを確認した。本人へ4フォームの受付開始と8ページ公開の一件の承認確認を提示中。WordPress登録2組とGoogle受付OFFを混同せず、承認後に同じ正規操作で保存・公開・実導線を確認する。試験送信の再承認・再送信・認証・日英改修へ戻さない。残る3アプリの専用6フォームは今回未接続のまま。
 
-復元用の元本文・適用済み案・実施状態は `work/intake-activation-pending-20260913.json`（Git対象外・0600）へ保持。WordPressが唯一の設定原本であり、このJSONを通常設定として再適用しない。管理の `feedback/production-intake-readiness.md` と `publishing/computer-use-operations.md` への今回差分は、同repoの「6アプリのリリース準備」タスクが編集中のため未反映。必要差分は上記の英語一巡完了・WordPress2組・4フォームOFF・開始承認待ち、およびGmail即時検索0件だけで未到着と断定せず受信トレイで照合する手順。担当終了後に現在文面を読み直して反映する。
+復元用の元本文・適用済み案・実施状態は `work/intake-activation-pending-20260913.json`（Git対象外・0600）へ保持。WordPressが唯一の設定原本であり、このJSONを通常設定として再適用しない。管理の「6アプリのリリース準備」タスクが、英語一巡完了・WordPress2組・4フォームOFF・開始承認待ちを[受付台帳](/Users/minatosuzuki/work_local/アプリ管理/feedback/production-intake-readiness.md)へ回収済み。[管理画面の操作と記録](/Users/minatosuzuki/work_local/アプリ管理/publishing/computer-use-operations.md)にも、Gmail即時検索0件だけで未到着と断定せず受信トレイで照合する手順が反映されたことを読み取り確認した。管理への未反映状態は解消済み。
 
 ## 英語Contactの送信だけを本人へ引き渡し（2026-09-13）
 
