@@ -611,23 +611,23 @@
     },
     {
       "path": "apps/en/privacy/card-relay.html",
-      "bytes": 38339,
-      "sha256": "f202ddc3fa0847ae8b0ad01e76b62e2c4612993c462523f6fb4353ef6335748f"
+      "bytes": 45041,
+      "sha256": "9b5fa70ae47345b66a7816fb9cd9eec1a58bb7deaa90cc736f5513b9e7f1d44b"
     },
     {
       "path": "apps/en/privacy/card-relay/index.html",
-      "bytes": 38339,
-      "sha256": "f202ddc3fa0847ae8b0ad01e76b62e2c4612993c462523f6fb4353ef6335748f"
+      "bytes": 45041,
+      "sha256": "9b5fa70ae47345b66a7816fb9cd9eec1a58bb7deaa90cc736f5513b9e7f1d44b"
     },
     {
       "path": "apps/en/privacy/context-english.html",
-      "bytes": 29076,
-      "sha256": "26aa9d40f2967aad68f7739f3cff1975d7a2a61498bd8a4c383ff87bb35b9386"
+      "bytes": 35762,
+      "sha256": "2e915e19cdeec7a97a307bdae82574de380ae5061601f324ea2da2acb3f234f1"
     },
     {
       "path": "apps/en/privacy/context-english/index.html",
-      "bytes": 29076,
-      "sha256": "26aa9d40f2967aad68f7739f3cff1975d7a2a61498bd8a4c383ff87bb35b9386"
+      "bytes": 35762,
+      "sha256": "2e915e19cdeec7a97a307bdae82574de380ae5061601f324ea2da2acb3f234f1"
     },
     {
       "path": "apps/en/privacy/focus-exposure-calculator.html",
@@ -641,53 +641,53 @@
     },
     {
       "path": "apps/en/privacy/location-logger.html",
-      "bytes": 43664,
-      "sha256": "1beab522db71f4ff16f9d8e574f9541cab9fae8177bdc8574dbb9b4fd84d4b2a"
+      "bytes": 50184,
+      "sha256": "d06eb401ac67ad49ad37b58d636085c8467bdcd2de20b1587b523d69dbce64bd"
     },
     {
       "path": "apps/en/privacy/location-logger/index.html",
-      "bytes": 43664,
-      "sha256": "1beab522db71f4ff16f9d8e574f9541cab9fae8177bdc8574dbb9b4fd84d4b2a"
+      "bytes": 50184,
+      "sha256": "d06eb401ac67ad49ad37b58d636085c8467bdcd2de20b1587b523d69dbce64bd"
     },
     {
       "path": "apps/en/privacy/mastery-steps.html",
-      "bytes": 36951,
-      "sha256": "a43784d4f5d2445c556ab28368d3ef2cf8c3f9ce9d42d0962ed73994460a772d"
+      "bytes": 43619,
+      "sha256": "8eb9349acda459ffaa6ba9495ca484012cce9a837a468fb24ef9799659f13b08"
     },
     {
       "path": "apps/en/privacy/mastery-steps/index.html",
-      "bytes": 36951,
-      "sha256": "a43784d4f5d2445c556ab28368d3ef2cf8c3f9ce9d42d0962ed73994460a772d"
+      "bytes": 43619,
+      "sha256": "8eb9349acda459ffaa6ba9495ca484012cce9a837a468fb24ef9799659f13b08"
     },
     {
       "path": "apps/en/privacy/spatial-fold.html",
-      "bytes": 36655,
-      "sha256": "01ab3905df784894ec2aba51c1793c675cd06518dac0159b2981ca84423d6a27"
+      "bytes": 43130,
+      "sha256": "df2afab3a312eaee33182b5f6b6dd9d5fda32a194518685a732e4244f3316b7b"
     },
     {
       "path": "apps/en/privacy/spatial-fold/index.html",
-      "bytes": 36655,
-      "sha256": "01ab3905df784894ec2aba51c1793c675cd06518dac0159b2981ca84423d6a27"
+      "bytes": 43130,
+      "sha256": "df2afab3a312eaee33182b5f6b6dd9d5fda32a194518685a732e4244f3316b7b"
     },
     {
       "path": "apps/en/privacy/tsutawaru-moji.html",
-      "bytes": 56332,
-      "sha256": "31bb36243d60fe8729b50ebf72e63c6daa11237ac856f3ccf5e61b2c4884af7b"
+      "bytes": 62820,
+      "sha256": "f1240f35271828b845ea3ef5c934715f7b4b2f43f28162d18d654f9d4c7ddc11"
     },
     {
       "path": "apps/en/privacy/tsutawaru-moji/index.html",
-      "bytes": 56332,
-      "sha256": "31bb36243d60fe8729b50ebf72e63c6daa11237ac856f3ccf5e61b2c4884af7b"
+      "bytes": 62820,
+      "sha256": "f1240f35271828b845ea3ef5c934715f7b4b2f43f28162d18d654f9d4c7ddc11"
     },
     {
       "path": "apps/en/privacy/wrist-morse.html",
-      "bytes": 38182,
-      "sha256": "d7aed40e35359e94ff8eea60456843f06641516da52729139836d7be577dcb94"
+      "bytes": 44875,
+      "sha256": "11c32189335ba3dc1f0fcc5c3fc02e8df6a3d10e95a7c564c6c5e402da0dabe3"
     },
     {
       "path": "apps/en/privacy/wrist-morse/index.html",
-      "bytes": 38182,
-      "sha256": "d7aed40e35359e94ff8eea60456843f06641516da52729139836d7be577dcb94"
+      "bytes": 44875,
+      "sha256": "11c32189335ba3dc1f0fcc5c3fc02e8df6a3d10e95a7c564c6c5e402da0dabe3"
     },
     {
       "path": "apps/en/spatial-fold.html",
@@ -956,23 +956,23 @@
     },
     {
       "path": "apps/privacy/card-relay.html",
-      "bytes": 50031,
-      "sha256": "9f9baf5c54996721905c2e5e13e221bbfe94dec4be3edc701a3b925cf2d4dfe9"
+      "bytes": 71323,
+      "sha256": "ab9e01444471985879a916ca15a1e3def2a7fccaf3ad291071d81f869c40b01f"
     },
     {
       "path": "apps/privacy/card-relay/index.html",
-      "bytes": 50031,
-      "sha256": "9f9baf5c54996721905c2e5e13e221bbfe94dec4be3edc701a3b925cf2d4dfe9"
+      "bytes": 71323,
+      "sha256": "ab9e01444471985879a916ca15a1e3def2a7fccaf3ad291071d81f869c40b01f"
     },
     {
       "path": "apps/privacy/context-english.html",
-      "bytes": 41508,
-      "sha256": "98a8676a35371ab710f65a56817e3c45be30a848bd08dbaa6e2bc94c26cb4a47"
+      "bytes": 62743,
+      "sha256": "717404848ebf2a4e712813b6f3d349816fc50724ec63120a2bb360a647b18315"
     },
     {
       "path": "apps/privacy/context-english/index.html",
-      "bytes": 41508,
-      "sha256": "98a8676a35371ab710f65a56817e3c45be30a848bd08dbaa6e2bc94c26cb4a47"
+      "bytes": 62743,
+      "sha256": "717404848ebf2a4e712813b6f3d349816fc50724ec63120a2bb360a647b18315"
     },
     {
       "path": "apps/privacy/focus-exposure-calculator.html",
@@ -986,53 +986,53 @@
     },
     {
       "path": "apps/privacy/location-logger.html",
-      "bytes": 69217,
-      "sha256": "4b1a4f8b6eb4fdf2e4c577ad388c9a18342d8915f8c73a0e112197bc5f7e9297"
+      "bytes": 90326,
+      "sha256": "bdebe3f9d6f712d8cd9f3a150cf485f13901d2a301f4ea1323958de3e1de31a6"
     },
     {
       "path": "apps/privacy/location-logger/index.html",
-      "bytes": 69217,
-      "sha256": "4b1a4f8b6eb4fdf2e4c577ad388c9a18342d8915f8c73a0e112197bc5f7e9297"
+      "bytes": 90326,
+      "sha256": "bdebe3f9d6f712d8cd9f3a150cf485f13901d2a301f4ea1323958de3e1de31a6"
     },
     {
       "path": "apps/privacy/mastery-steps.html",
-      "bytes": 45974,
-      "sha256": "09c6b70466d454eae37d85265103620d01d7f366e44147c4bceba73238026ce2"
+      "bytes": 67150,
+      "sha256": "2b1d4a50948d95548b20acd89ed4d2e52f08735bf5ab31b15e1b666f11a4fb35"
     },
     {
       "path": "apps/privacy/mastery-steps/index.html",
-      "bytes": 45974,
-      "sha256": "09c6b70466d454eae37d85265103620d01d7f366e44147c4bceba73238026ce2"
+      "bytes": 67150,
+      "sha256": "2b1d4a50948d95548b20acd89ed4d2e52f08735bf5ab31b15e1b666f11a4fb35"
     },
     {
       "path": "apps/privacy/spatial-fold.html",
-      "bytes": 44668,
-      "sha256": "bf3dc6d0ae0e2ce5ab71c623a5dab090c677dd716f20152253aa63bc35b555cd"
+      "bytes": 65019,
+      "sha256": "1a37b040cd6bbdcdb0edb9385cd91b6f2a059853f3d1b0acf08bc3dffa1e964f"
     },
     {
       "path": "apps/privacy/spatial-fold/index.html",
-      "bytes": 44668,
-      "sha256": "bf3dc6d0ae0e2ce5ab71c623a5dab090c677dd716f20152253aa63bc35b555cd"
+      "bytes": 65019,
+      "sha256": "1a37b040cd6bbdcdb0edb9385cd91b6f2a059853f3d1b0acf08bc3dffa1e964f"
     },
     {
       "path": "apps/privacy/tsutawaru-moji.html",
-      "bytes": 111067,
-      "sha256": "bac40d52d048f622238bb3cc71bab1eaa6f1c04cc4332ae9929445a91ae46f43"
+      "bytes": 132001,
+      "sha256": "201a042c796dc4881376de3987854168eb356f6588fa30639c26475a873966ee"
     },
     {
       "path": "apps/privacy/tsutawaru-moji/index.html",
-      "bytes": 111067,
-      "sha256": "bac40d52d048f622238bb3cc71bab1eaa6f1c04cc4332ae9929445a91ae46f43"
+      "bytes": 132001,
+      "sha256": "201a042c796dc4881376de3987854168eb356f6588fa30639c26475a873966ee"
     },
     {
       "path": "apps/privacy/wrist-morse.html",
-      "bytes": 50176,
-      "sha256": "b541efe10a350cacb1ebbaa033280c3a7a9e09d054a3ccd06b41dcb1a1eef575"
+      "bytes": 71546,
+      "sha256": "cb856c8cb416d68a2e2b009a5d7397c549e28b9ba3e6b3e5c5f4bd78d3f7f3f8"
     },
     {
       "path": "apps/privacy/wrist-morse/index.html",
-      "bytes": 50176,
-      "sha256": "b541efe10a350cacb1ebbaa033280c3a7a9e09d054a3ccd06b41dcb1a1eef575"
+      "bytes": 71546,
+      "sha256": "cb856c8cb416d68a2e2b009a5d7397c549e28b9ba3e6b3e5c5f4bd78d3f7f3f8"
     },
     {
       "path": "apps/spatial-fold.html",
