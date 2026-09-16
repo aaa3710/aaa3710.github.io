@@ -87,3 +87,19 @@
   border-radius: 8px;
   font-size: 14px;
 }
+
+/* Preserve the owner's compact introduction while keeping a main heading. */
+.info-page .app-page-header h1.app-overview-title {
+  margin: 1rem 0 0;
+  font-size: 1.17rem;
+  font-weight: 700;
+  line-height: 1.75;
+  letter-spacing: -0.025em;
+}
+.info-page .app-page-header p.app-overview-lead {
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.75;
+  letter-spacing: normal;
+}

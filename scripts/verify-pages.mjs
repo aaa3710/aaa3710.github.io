@@ -888,10 +888,10 @@ for (const locale of locales) {
       (
         await Promise.all(
           tags(html, 'img').map(async (image) => {
-            // This map mark was already published on the WordPress catalog.
-            // Allow its exact bytes on the app pages, not new app captures.
+            // Accept only the verified release icon or the historical site mark.
+            // Exact hashes keep unrelated captures and unverified images blocked.
             if (
-              !/^\/wp-content\/uploads\/\d{4}\/\d{2}\/location-logger-site-mark\.svg$/.test(
+              !/^\/wp-content\/uploads\/\d{4}\/\d{2}\/location-logger-(?:site-mark\.svg|release-icon\.png)$/.test(
                 image.src ?? '',
               )
             )
@@ -902,7 +902,9 @@ for (const locale of locales) {
               createHash('sha256')
                 .update(await readFile(file))
                 .digest('hex') ===
-              '9077b5953d9d80cce8be851780f22f63893e44031c80646cc604f53d8c15d85c'
+              (image.src.endsWith('release-icon.png')
+                ? '7f1390ad19c830176d6fe466ca254759df6e68bcf4fbee86a1d0a0b17ec6419c'
+                : '9077b5953d9d80cce8be851780f22f63893e44031c80646cc604f53d8c15d85c')
             );
           }),
         )
