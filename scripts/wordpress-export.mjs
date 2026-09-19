@@ -150,13 +150,13 @@ function normalizeRoutes(input) {
   if (!Array.isArray(input) || input.length === 0)
     fail('Routes must be a non-empty array.');
   const seen = new Set();
-  return input.map((route) => {
+  const routes = input.map((route) => {
     if (
       !route ||
       typeof route !== 'object' ||
       Array.isArray(route) ||
       Object.keys(route).some(
-        (key) => !['path', 'lang', 'indexable'].includes(key),
+        (key) => !['path', 'lang', 'indexable', 'redirect'].includes(key),
       ) ||
       typeof route.path !== 'string' ||
       !['ja', 'en'].includes(route.lang) ||
@@ -173,8 +173,36 @@ function normalizeRoutes(input) {
     if (/\/(?:feedback)\//.test(route.path) && route.indexable)
       fail('Feedback pages must remain noindex.');
     seen.add(route.path);
-    return { path: route.path, lang: route.lang, indexable: route.indexable };
+    const result = {
+      path: route.path,
+      lang: route.lang,
+      indexable: route.indexable,
+    };
+    if (Object.hasOwn(route, 'redirect')) {
+      if (
+        route.indexable ||
+        typeof route.redirect !== 'string' ||
+        !/^\/apps\/(?:[a-z0-9-]+\/)+$/.test(route.redirect)
+      )
+        fail('Redirects require a local public route and must remain noindex.');
+      safePathname(route.redirect);
+      result.redirect = route.redirect;
+    }
+    return result;
   });
+  for (const route of routes.filter((entry) => entry.redirect)) {
+    const target = routes.find((entry) => entry.path === route.redirect);
+    if (
+      !target ||
+      target.redirect ||
+      target.lang !== route.lang ||
+      target.path === route.path
+    )
+      fail(
+        'Redirect destination must be a non-redirect public page in the same language.',
+      );
+  }
+  return routes;
 }
 
 function attribute(node, name) {
@@ -293,13 +321,21 @@ export async function exportWordPress({
     fail('Editing and public origins must differ.');
   const routes = normalizeRoutes(routeInput);
   const routeSet = new Set(routes.map((route) => route.path));
+  const redirectTargets = new Map(
+    routes
+      .filter((route) => route.redirect)
+      .map((route) => [route.path, route.redirect]),
+  );
   const verifiedIntakes = normalizeIntakePolicy(intakePolicy);
   for (const entry of verifiedIntakes.intakes) {
     for (const language of ['ja', 'en']) {
       const expected = intakeRoute(entry, language);
       if (
         !routes.some(
-          (route) => route.path === expected && route.lang === language,
+          (route) =>
+            route.path === expected &&
+            route.lang === language &&
+            !route.redirect,
         )
       )
         fail(
@@ -380,7 +416,7 @@ export async function exportWordPress({
       : `${url.pathname}/`;
     if (!routeSet.has(routePath))
       fail(`Internal page is outside the approved route list: ${url.pathname}`);
-    return `${absolute ? destinationOrigin : ''}${routePath}${url.hash}`;
+    return `${absolute ? destinationOrigin : ''}${redirectTargets.get(routePath) ?? routePath}${url.hash}`;
   }
 
   function assetReference(value, base) {
@@ -738,6 +774,10 @@ export async function exportWordPress({
 
   // No destination is written until every page/resource has passed validation.
   for (const route of routes) {
+    if (route.redirect) {
+      savePage(route.path, redirectHtml(route.redirect, route.lang));
+      continue;
+    }
     const response = await fetchPublic(`${sourceOrigin}${route.path}`, true);
     savePage(route.path, transformHtml(response.bytes.toString('utf8'), route));
   }
@@ -783,11 +823,11 @@ export async function exportWordPress({
     }
     save(safePathname(assetPath).slice(1), content);
   }
-  let redirects = 0;
+  let redirects = redirectTargets.size;
   for (const route of routes) {
     const legacy = legacyRoute(route.path);
     if (!legacy) continue;
-    savePage(legacy, redirectHtml(route.path, route.lang));
+    savePage(legacy, redirectHtml(route.redirect ?? route.path, route.lang));
     redirects += 1;
   }
   const indexable = routes.filter((route) => route.indexable);

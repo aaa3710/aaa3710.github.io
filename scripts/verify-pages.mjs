@@ -34,6 +34,13 @@ const supportEmail = (process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? '').trim();
 const slug = 'focus-exposure-calculator';
 const locales = ['ja', 'en'];
 const kinds = ['home', 'app', 'privacy', 'support', 'feedback', 'contact'];
+const tsutawaruFeedbackIntegrated = Boolean(
+  snapshotManifest?.routes?.some(
+    (entry) =>
+      entry.path === '/apps/support/tsutawaru-moji/' &&
+      entry.redirect === '/apps/feedback/tsutawaru-moji/',
+  ),
+);
 // Preserve verification of historical three-app artifacts while requiring the
 // complete bilingual family whenever Morse has an indexable introduction.
 const morsePublished = Boolean(
@@ -316,6 +323,14 @@ for (const app of [
   'mastery-steps',
 ])
   redirects.set(`/en/apps/${app}/`, `/apps/en/${app}/`);
+for (const entry of snapshotManifest?.routes ?? []) {
+  if (entry.redirect) redirects.set(entry.path, entry.redirect);
+}
+// Former root-level aliases must go directly to the final page, too.
+for (const [before, after] of redirects) {
+  const destination = redirects.get(after);
+  if (destination) redirects.set(before, destination);
+}
 for (const [before, after] of redirects) {
   check(
     publicRouteSet.has(after) && !redirects.has(after),
@@ -591,6 +606,13 @@ for (const locale of locales) {
     check(present, `${routePath}: missing Tsutawaru page`);
     if (!present) continue;
     requiredPages += 1;
+    if (kind === 'support' && tsutawaruFeedbackIntegrated) {
+      check(
+        redirects.get(routePath) === appPath('feedback'),
+        `${routePath}: integrated Feedback redirect missing`,
+      );
+      continue;
+    }
     const raw = await readFile(pageFile(routePath), 'utf8');
     const html = markupOnly(raw);
     const anchors = tags(html, 'a');
@@ -625,11 +647,15 @@ for (const locale of locales) {
     if (kind === 'app')
       check(
         decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
-          locale === 'ja'
-            ? 'まだダウンロードできません'
-            : 'not available to download yet',
+          tsutawaruFeedbackIntegrated
+            ? locale === 'ja'
+              ? 'バージョン1.0.1を準備中です'
+              : 'Version 1.0.1 is in preparation'
+            : locale === 'ja'
+              ? 'まだダウンロードできません'
+              : 'not available to download yet',
         ),
-        `${routePath}: unreleased app status missing`,
+        `${routePath}: current release status missing`,
       );
     const intakeReady =
       wordpressIntakes &&
@@ -638,9 +664,13 @@ for (const locale of locales) {
       check(
         decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
           intakeReady
-            ? locale === 'ja'
-              ? '専用フィードバックは送信できます'
-              : 'Dedicated feedback is available'
+            ? tsutawaruFeedbackIntegrated
+              ? locale === 'ja'
+                ? '不具合やご要望をお送りいただけます'
+                : 'Send a bug report or suggestion about Tsutawaru Moji'
+              : locale === 'ja'
+                ? '専用フィードバックは送信できます'
+                : 'Dedicated feedback is available'
             : locale === 'ja'
               ? '現在は送信できません'
               : 'Submissions are not available yet',
@@ -731,8 +761,10 @@ for (const locale of locales) {
       );
     if (kind === 'app')
       check(
-        !linksTo(anchors, appPath('feedback')),
-        `${routePath}: introduction must route feedback via Support`,
+        tsutawaruFeedbackIntegrated
+          ? linksTo(anchors, appPath('feedback'))
+          : !linksTo(anchors, appPath('feedback')),
+        `${routePath}: introduction Feedback route differs`,
       );
     for (const anchor of anchors) {
       const target = normalizedLink(anchor.href);
@@ -748,12 +780,17 @@ for (const locale of locales) {
     'a',
   );
   check(
-    linksTo(contact, appPath('support')),
-    `${prefix}/contact/: Tsutawaru support missing`,
+    linksTo(
+      contact,
+      appPath(tsutawaruFeedbackIntegrated ? 'feedback' : 'support'),
+    ),
+    `${prefix}/contact/: Tsutawaru contact entry missing`,
   );
   check(
-    !linksTo(contact, appPath('feedback')),
-    `${prefix}/contact/: direct Feedback link`,
+    tsutawaruFeedbackIntegrated
+      ? !linksTo(contact, appPath('support'))
+      : !linksTo(contact, appPath('feedback')),
+    `${prefix}/contact/: obsolete Tsutawaru contact entry`,
   );
   const home = tags(
     markupOnly(await readFile(pageFile(`${prefix}/`), 'utf8')),
@@ -1148,7 +1185,7 @@ for (const appSlug of additionalPublishedApps) {
   }
 }
 
-// All app families expose the same three sections, in the same order.
+// Every app exposes three sections; integrated Feedback replaces Support.
 for (const locale of locales) {
   const prefix = locale === 'ja' ? '/apps' : '/apps/en';
   for (const appSlug of [
@@ -1161,13 +1198,20 @@ for (const locale of locales) {
     for (const kind of ['app', 'support', 'privacy', 'feedback']) {
       const appRoute = `${prefix}/${kind === 'app' ? '' : `${kind}/`}${appSlug}/`;
       if (!(await exists(pageFile(appRoute)))) continue;
+      if (redirects.has(appRoute)) continue;
       const html = markupOnly(await readFile(pageFile(appRoute), 'utf8'));
       const nav =
         html.match(
           /<nav\b[^>]*class="app-navigation"[^>]*>([\s\S]*?)<\/nav>/,
         )?.[1] ?? '';
       const navLinks = tags(nav, 'a');
-      const expected = ['app', 'support', 'privacy'].map(
+      const integrated =
+        appSlug === 'tsutawaru-moji' && tsutawaruFeedbackIntegrated;
+      const expected = [
+        'app',
+        integrated ? 'feedback' : 'support',
+        'privacy',
+      ].map(
         (page) => `${prefix}/${page === 'app' ? '' : `${page}/`}${appSlug}/`,
       );
       check(
@@ -1179,7 +1223,7 @@ for (const locale of locales) {
         (link) => link['aria-current'] === 'page',
       );
       check(
-        kind === 'feedback'
+        kind === 'feedback' && !integrated
           ? current.length === 0
           : current.length === 1 && linksTo(current, appRoute),
         `${appRoute}: current section marker differs`,

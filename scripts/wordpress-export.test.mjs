@@ -439,6 +439,95 @@ test('new bilingual utility pages do not create nonexistent legacy aliases', asy
   );
 });
 
+test('integrated Feedback keeps old Support entries as direct redirects without copying forms', async (t) => {
+  const routes = ['ja', 'en'].flatMap((lang) => {
+    const prefix = lang === 'en' ? '/apps/en' : '/apps';
+    return [
+      {
+        path: `${prefix}/support/tsutawaru-moji/`,
+        lang,
+        indexable: false,
+        redirect: `${prefix}/feedback/tsutawaru-moji/`,
+      },
+      { path: `${prefix}/feedback/tsutawaru-moji/`, lang, indexable: false },
+    ];
+  });
+  const state = await fixture(t, (request, response) => {
+    const prefix = request.url.startsWith('/apps/en/') ? '/apps/en' : '/apps';
+    response.writeHead(200, { 'Content-Type': 'text/html' });
+    response.end(
+      `<!doctype html><html><head><title>Feedback</title></head><body><h1>Feedback</h1><a href="${prefix}/support/tsutawaru-moji/#contact">Contact</a></body></html>`,
+    );
+  });
+  const output = path.join(state.directory, 'integrated');
+  await exportWordPress({ origin: state.origin, routes, publicOrigin, output });
+  assert.equal(state.requests.length, 2);
+  assert(state.requests.every(({ url }) => url.includes('/feedback/')));
+  for (const lang of ['ja', 'en']) {
+    const prefix = lang === 'en' ? '/apps/en' : '/apps';
+    const destination = `${prefix}/feedback/tsutawaru-moji/`;
+    for (const route of [
+      `${prefix}/support/tsutawaru-moji/`,
+      `${lang === 'en' ? '/en' : ''}/support/tsutawaru-moji/`,
+    ]) {
+      const html = await readFile(
+        path.join(output, route, 'index.html'),
+        'utf8',
+      );
+      assert(html.includes(`content="0;url=${destination}"`));
+      assert(html.includes('noindex, nofollow'));
+      assert(!html.includes('docs.google.com'));
+    }
+    const html = await readFile(
+      path.join(output, destination, 'index.html'),
+      'utf8',
+    );
+    assert(html.includes(`href="${destination}#contact"`));
+    assert(!html.includes('/support/'));
+  }
+  assert.doesNotMatch(
+    await readFile(path.join(output, 'sitemap.xml'), 'utf8'),
+    /support|feedback/,
+  );
+});
+
+test('redirects reject external, missing, looping, cross-language and indexable destinations before fetching', async (t) => {
+  const state = await fixture(t, (_request, response) =>
+    response.end('unexpected'),
+  );
+  const page = {
+    path: '/apps/feedback/tsutawaru-moji/',
+    lang: 'ja',
+    indexable: false,
+  };
+  const alias = {
+    path: '/apps/support/tsutawaru-moji/',
+    lang: 'ja',
+    indexable: false,
+    redirect: page.path,
+  };
+  const invalid = [
+    [{ ...alias, redirect: 'https://example.com/' }, page],
+    [{ ...alias, redirect: '/apps/missing/' }, page],
+    [{ ...alias, redirect: alias.path }, page],
+    [alias, { ...page, redirect: alias.path }],
+    [alias, { ...page, lang: 'en' }],
+    [{ ...alias, indexable: true }, page],
+  ];
+  for (const [index, routes] of invalid.entries()) {
+    await assert.rejects(
+      exportWordPress({
+        origin: state.origin,
+        routes,
+        publicOrigin,
+        output: path.join(state.directory, `invalid-${index}`),
+      }),
+      /Redirect/,
+    );
+  }
+  assert.equal(state.requests.length, 0);
+});
+
 test('exports eight app families and eighteen verified links while keeping Feedback out of search', async (t) => {
   const { intakeUrlForRoute, normalizeIntakePolicy } =
     await import('./wordpress-intakes.mjs');

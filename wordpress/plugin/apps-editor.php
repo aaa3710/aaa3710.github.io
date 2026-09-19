@@ -19,6 +19,22 @@ function apps_partner($id) {
     $page = get_page_by_path(trim(apps_pair_route(apps_route($id)), '/'));
     return $page ? $page->ID : 0;
 }
+// Retain old entry URLs without keeping two editable public copies.
+function apps_redirect_target($id) {
+    $route = get_post_meta($id, '_apps_redirect_to', true);
+    if (!$route || !preg_match('~^/apps/(?:[a-z0-9-]+/)+$~', $route)) return '';
+    $target = get_page_by_path(trim($route, '/'));
+    if (!$target || $target->post_status !== 'publish' || $target->post_password || get_post_meta($target->ID, '_apps_redirect_to', true)) return '';
+    return apps_english(apps_route($id)) === apps_english($route) ? $route : '';
+}
+add_action('template_redirect', function () {
+    if (!is_page()) return;
+    $target = apps_redirect_target(get_queried_object_id());
+    if ($target) {
+        wp_safe_redirect(home_url($target), 301);
+        exit;
+    }
+});
 function apps_nav_render($attributes) {
     $route = apps_route();
     $en = apps_english($route);
@@ -37,7 +53,10 @@ function apps_nav_render($attributes) {
     $parts = explode('/', trim(substr($route, strlen($base)), '/'));
     $slug = end($parts);
     $kind = count($parts) === 1 ? 'app' : $parts[0];
-    $labels = $en ? ['app' => 'Overview', 'support' => 'Support', 'privacy' => 'Privacy'] : ['app' => '紹介', 'support' => 'サポート', 'privacy' => 'プライバシー'];
+    $app = get_page_by_path(trim($base . $slug, '/'));
+    $integrated = $app && get_post_meta($app->ID, '_apps_feedback_tab', true);
+    $middle = $integrated ? 'feedback' : 'support';
+    $labels = $en ? ['app' => 'Overview', $middle => ($integrated ? 'Feedback' : 'Support'), 'privacy' => 'Privacy'] : ['app' => '紹介', $middle => ($integrated ? 'フィードバック' : 'サポート'), 'privacy' => 'プライバシー'];
     $html = '<nav class="app-navigation" aria-label="' . ($en ? 'App navigation' : 'このアプリのページ') . '">';
     foreach ($labels as $key => $label) {
         $url = $base . ($key === 'app' ? '' : $key . '/') . $slug . '/';
@@ -136,7 +155,7 @@ function apps_editor_page() {
     echo '<p>片方の言語を変更すると、もう片方に「確認が必要」と表示します。「ローカルで確認」で仕上がりを見たら、Codexに「現在のWordPressを公開して」と伝えてください。書き出しと公開はCodexが行います。保存だけでは一般公開されません。</p><table class="widefat striped"><thead><tr><th>ページ</th><th>日本語</th><th>English</th><th>日英の照合</th></tr></thead><tbody>';
     foreach (get_posts(['post_type' => 'page', 'post_status' => 'publish', 'numberposts' => -1, 'orderby' => 'menu_order title', 'order' => 'ASC']) as $page) {
         $route = apps_route($page->ID);
-        if (!str_starts_with($route, '/apps/') || apps_english($route)) continue;
+        if (!str_starts_with($route, '/apps/') || apps_english($route) || apps_redirect_target($page->ID)) continue;
         $partner = apps_partner($page->ID);
         echo '<tr><td>' . esc_html($page->post_title) . '</td>';
         foreach ([$page->ID, $partner] as $id) {
