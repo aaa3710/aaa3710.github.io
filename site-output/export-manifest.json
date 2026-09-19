@@ -398,8 +398,8 @@
     },
     {
       "path": "apps.html",
-      "bytes": 44731,
-      "sha256": "d90daa9ddb0799e11a56bf549acd63b67ed6349f9644bcf94d27376e295af482"
+      "bytes": 44682,
+      "sha256": "720918f80f2233ecb07ab1b843372707fa60b241ae9ef8ffb9f4ae58496ced64"
     },
     {
       "path": "apps/card-relay.html",
@@ -423,18 +423,18 @@
     },
     {
       "path": "apps/context-english.html",
-      "bytes": 49279,
-      "sha256": "35ccf5ea490630f84ae1219f199f572cc8d1d519a74a0283f73d84ce0cf7a409"
+      "bytes": 49142,
+      "sha256": "665846f7311e02db14fbb38fb977c74f3c34fa8a4330e03ed0087e29dfc9acab"
     },
     {
       "path": "apps/context-english/index.html",
-      "bytes": 49279,
-      "sha256": "35ccf5ea490630f84ae1219f199f572cc8d1d519a74a0283f73d84ce0cf7a409"
+      "bytes": 49142,
+      "sha256": "665846f7311e02db14fbb38fb977c74f3c34fa8a4330e03ed0087e29dfc9acab"
     },
     {
       "path": "apps/en.html",
-      "bytes": 40827,
-      "sha256": "3d5830c0500170e5a90b9b5840e2e7670ba530ac9713f89148060ec51210282a"
+      "bytes": 40818,
+      "sha256": "8d4ef2153583e9a2774ba286cd44ae4e0069e23874babac9375631711cba60a2"
     },
     {
       "path": "apps/en/card-relay.html",
@@ -458,13 +458,13 @@
     },
     {
       "path": "apps/en/context-english.html",
-      "bytes": 38299,
-      "sha256": "d7ac1045b42e72d0c6a4053adcf0d7f2b1eba3637cd0f5c40268dda126f0a01b"
+      "bytes": 38235,
+      "sha256": "d12652be1528ddd4d76c6f6f8f9813df7489050860889214279c7f0a266663ae"
     },
     {
       "path": "apps/en/context-english/index.html",
-      "bytes": 38299,
-      "sha256": "d7ac1045b42e72d0c6a4053adcf0d7f2b1eba3637cd0f5c40268dda126f0a01b"
+      "bytes": 38235,
+      "sha256": "d12652be1528ddd4d76c6f6f8f9813df7489050860889214279c7f0a266663ae"
     },
     {
       "path": "apps/en/feedback-import.html",
@@ -498,13 +498,13 @@
     },
     {
       "path": "apps/en/feedback/context-english.html",
-      "bytes": 41660,
-      "sha256": "ab9cd6edba19dbb75f11a9595b0fa1d913d3bf3e5c81457bd81c55ccc21b3d66"
+      "bytes": 41797,
+      "sha256": "13d100fe78024a7e27e77b6f71e502a7eba4ba62a5ab25cc392bd7db8f1c7104"
     },
     {
       "path": "apps/en/feedback/context-english/index.html",
-      "bytes": 41660,
-      "sha256": "ab9cd6edba19dbb75f11a9595b0fa1d913d3bf3e5c81457bd81c55ccc21b3d66"
+      "bytes": 41797,
+      "sha256": "13d100fe78024a7e27e77b6f71e502a7eba4ba62a5ab25cc392bd7db8f1c7104"
     },
     {
       "path": "apps/en/feedback/focus-exposure-calculator.html",
@@ -588,8 +588,8 @@
     },
     {
       "path": "apps/en/index.html",
-      "bytes": 40827,
-      "sha256": "3d5830c0500170e5a90b9b5840e2e7670ba530ac9713f89148060ec51210282a"
+      "bytes": 40818,
+      "sha256": "8d4ef2153583e9a2774ba286cd44ae4e0069e23874babac9375631711cba60a2"
     },
     {
       "path": "apps/en/location-logger.html",
@@ -623,13 +623,13 @@
     },
     {
       "path": "apps/en/privacy/context-english.html",
-      "bytes": 44869,
-      "sha256": "68b0f5e57038ba344f32874f20c2019a31e3e32eee2b9358a3212c32b4602cb1"
+      "bytes": 44815,
+      "sha256": "39c37189d1e7d294f0758439d28a6d5686db0f726c6aa55bf4351dd91425a3ed"
     },
     {
       "path": "apps/en/privacy/context-english/index.html",
-      "bytes": 44869,
-      "sha256": "68b0f5e57038ba344f32874f20c2019a31e3e32eee2b9358a3212c32b4602cb1"
+      "bytes": 44815,
+      "sha256": "39c37189d1e7d294f0758439d28a6d5686db0f726c6aa55bf4351dd91425a3ed"
     },
     {
       "path": "apps/en/privacy/focus-exposure-calculator.html",
@@ -713,13 +713,13 @@
     },
     {
       "path": "apps/en/support/context-english.html",
-      "bytes": 36428,
-      "sha256": "32f5802959e1e3a1ec40baef66376f496e726f30dce931136b5a66860d987db7"
+      "bytes": 36401,
+      "sha256": "95b4f23e12d08c1fd06f6f087f870e8191f54ccd71aa4b974b5e6bdb8057eff4"
     },
     {
       "path": "apps/en/support/context-english/index.html",
-      "bytes": 36428,
-      "sha256": "32f5802959e1e3a1ec40baef66376f496e726f30dce931136b5a66860d987db7"
+      "bytes": 36401,
+      "sha256": "95b4f23e12d08c1fd06f6f087f870e8191f54ccd71aa4b974b5e6bdb8057eff4"
     },
     {
       "path": "apps/en/support/focus-exposure-calculator.html",
@@ -843,13 +843,13 @@
     },
     {
       "path": "apps/feedback/context-english.html",
-      "bytes": 51061,
-      "sha256": "4bd685f0a6bd0a7c52c2da7434e54cfe2d8b38cdaf75d80939d6fec51d3da80d"
+      "bytes": 51471,
+      "sha256": "b5c369a0314500df00d69cd42fe2c5bd12f8967b1b6b08efd484683d1a372819"
     },
     {
       "path": "apps/feedback/context-english/index.html",
-      "bytes": 51061,
-      "sha256": "4bd685f0a6bd0a7c52c2da7434e54cfe2d8b38cdaf75d80939d6fec51d3da80d"
+      "bytes": 51471,
+      "sha256": "b5c369a0314500df00d69cd42fe2c5bd12f8967b1b6b08efd484683d1a372819"
     },
     {
       "path": "apps/feedback/focus-exposure-calculator.html",
@@ -933,8 +933,8 @@
     },
     {
       "path": "apps/index.html",
-      "bytes": 44731,
-      "sha256": "d90daa9ddb0799e11a56bf549acd63b67ed6349f9644bcf94d27376e295af482"
+      "bytes": 44682,
+      "sha256": "720918f80f2233ecb07ab1b843372707fa60b241ae9ef8ffb9f4ae58496ced64"
     },
     {
       "path": "apps/location-logger.html",
@@ -968,13 +968,13 @@
     },
     {
       "path": "apps/privacy/context-english.html",
-      "bytes": 71829,
-      "sha256": "682f30e8060e4e67752b6bccc0c976de0af5fafb86f860e7b0ffa69239c21bd5"
+      "bytes": 71695,
+      "sha256": "0c9d558e1234e39cf7715ac017a0348e21686086a64f4a1417ef5503fee119ab"
     },
     {
       "path": "apps/privacy/context-english/index.html",
-      "bytes": 71829,
-      "sha256": "682f30e8060e4e67752b6bccc0c976de0af5fafb86f860e7b0ffa69239c21bd5"
+      "bytes": 71695,
+      "sha256": "0c9d558e1234e39cf7715ac017a0348e21686086a64f4a1417ef5503fee119ab"
     },
     {
       "path": "apps/privacy/focus-exposure-calculator.html",
@@ -1058,13 +1058,13 @@
     },
     {
       "path": "apps/support/context-english.html",
-      "bytes": 44649,
-      "sha256": "22cd33eeaf25c61df7a2860effa2509843501e93865b0cef1697e52ae5237e6e"
+      "bytes": 44582,
+      "sha256": "1784b1b859661131b2947214db408f442bed4c3931e8e397016310ddd63913db"
     },
     {
       "path": "apps/support/context-english/index.html",
-      "bytes": 44649,
-      "sha256": "22cd33eeaf25c61df7a2860effa2509843501e93865b0cef1697e52ae5237e6e"
+      "bytes": 44582,
+      "sha256": "1784b1b859661131b2947214db408f442bed4c3931e8e397016310ddd63913db"
     },
     {
       "path": "apps/support/focus-exposure-calculator.html",
