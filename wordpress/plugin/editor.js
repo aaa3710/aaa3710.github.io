@@ -49,4 +49,45 @@
       return null;
     },
   });
+  blocks.registerBlockType('apps/store-link', {
+    apiVersion: 3,
+    title: 'App Storeへのボタン',
+    icon: 'external',
+    category: 'widgets',
+    attributes: {
+      kind: { type: 'string', default: 'app' },
+      url: { type: 'string', default: '' },
+      available: { type: 'boolean', default: false },
+    },
+    edit: function (props) {
+      return h(
+        'div',
+        editor.useBlockProps({ className: 'apps-store-link' }),
+        props.attributes.available
+          ? 'App Storeへのボタン（日英のページに合わせて表示）'
+          : 'App Storeの配信・一覧を準備中',
+        h(
+          editor.InspectorControls,
+          null,
+          h(
+            components.PanelBody,
+            { title: 'App Storeの掲載先' },
+            h(components.TextControl, {
+              label: 'App Store URL',
+              value: props.attributes.url || '',
+              onChange: (value) => props.setAttributes({ url: value }),
+            }),
+            h(components.ToggleControl, {
+              label: '公開ページへの到達を確認済み',
+              checked: !!props.attributes.available,
+              onChange: (value) => props.setAttributes({ available: value }),
+            }),
+          ),
+        ),
+      );
+    },
+    save: function () {
+      return null;
+    },
+  });
 })(wp.blocks, wp.element, wp.blockEditor, wp.components);

@@ -25,9 +25,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
 /*# sourceURL=/wp-includes/blocks/heading/style.min.css */
 </style>
-<style id="wp-block-details-inline-css">
-.wp-block-details{box-sizing:border-box}.wp-block-details summary{cursor:pointer}
-/*# sourceURL=/wp-includes/blocks/details/style.min.css */
+<style id="wp-block-separator-inline-css">
+@charset "UTF-8";.wp-block-separator{border:none;border-top:2px solid}:root :where(.wp-block-separator.is-style-dots){height:auto;line-height:1;text-align:center}:root :where(.wp-block-separator.is-style-dots):before{color:currentColor;content:"···";font-family:serif;font-size:1.5em;letter-spacing:2em;padding-left:2em}.wp-block-separator.is-style-dots{background:none!important;border:none!important}
+/*# sourceURL=/wp-includes/blocks/separator/style.min.css */
 </style>
 <style id="wp-block-post-content-inline-css">
 .wp-block-post-content{display:flow-root}
@@ -86,25 +86,34 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 </div>
 
-<nav class="app-navigation" aria-label="App navigation"><a href="/apps/en/focus-exposure-calculator/" aria-current="page">Overview</a><a href="/apps/en/support/focus-exposure-calculator/">Support</a><a href="/apps/en/privacy/focus-exposure-calculator/">Privacy</a></nav>
-
-<h1 class="wp-block-heading">Check focus and exposure before the shot.</h1>
 
 
-<p class="info-intro wp-block-paragraph">Choose a focus distance and aperture to see how much of the scene should appear acceptably sharp. Photo Yardstick is designed for quick checks before shooting with manual-focus cameras and lenses.</p>
-
-
-<p class="release-status wp-block-paragraph">Preparing for release on the App Store.</p>
-
-</header>
 
 
 <p class="policy-date wp-block-paragraph">iPhone · iOS 17 or later · Japanese and English · Initial release planned for Japan</p>
 
 
-<div class="wp-block-group info-sections is-layout-flow wp-block-group-is-layout-flow">
+<p class="release-status wp-block-paragraph">Preparing for release on the App Store.</p>
+
+<div class="wp-block-buttons apps-store-link"><div class="wp-block-button"><span class="wp-block-button__link wp-element-button" aria-disabled="true">App Store release in preparation</span></div></div>
+<nav class="app-navigation" aria-label="App navigation"><a href="/apps/en/focus-exposure-calculator/" aria-current="page">Overview</a><a href="/apps/en/support/focus-exposure-calculator/">Support</a><a href="/apps/en/privacy/focus-exposure-calculator/">Privacy</a></nav>
+
+<h1 class="wp-block-heading app-overview-title">Check focus and exposure before the shot.</h1>
+
+
+<p class="app-overview-lead wp-block-paragraph">Choose a focus distance and aperture to see how much of the scene should appear acceptably sharp. Photo Yardstick is designed for quick checks before shooting with manual-focus cameras and lenses.</p>
+
+</header>
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+
+<div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow">
 <section class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
-<h2 class="wp-block-heading">Focus range</h2>
+<h2 class="wp-block-heading">■ Focus range</h2>
 
 
 <p class="wp-block-paragraph">The near and far limits are shown first. This range is called depth of field. A curve then shows how blur grows beyond those limits, and comparison views show what changes with a different aperture or focus distance.</p>
@@ -113,7 +122,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 
 <section class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
-<h2 class="wp-block-heading">Sensor sizes</h2>
+<h2 class="wp-block-heading">■ Sensor sizes</h2>
 
 
 <p class="wp-block-paragraph">Representative formats from smartphones through medium format are drawn at one scale. Supported devices can also show physical size, with width, height, diagonal, and area comparisons.</p>
@@ -122,7 +131,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 
 <section class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
-<h2 class="wp-block-heading">Exposure settings</h2>
+<h2 class="wp-block-heading">■ Exposure settings</h2>
 
 
 <p class="wp-block-paragraph">Compare aperture, shutter speed, and ISO using familiar camera settings alongside the APEX exposure system. A separate tool calculates the exposure change caused by bellows extension in large-format and close-up photography.</p>
@@ -133,13 +142,15 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 
 <div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow">
-<h2 class="wp-block-heading">Use the calculation as a guide before the shot.</h2>
+<h2 class="wp-block-heading">■ Use the calculation as a guide before the shot.</h2>
 
 
 <p class="wp-block-paragraph">The final image also depends on lens behaviour, diffraction, camera shake, subject movement, and in-camera processing. For an important photograph, also check a test image, the camera display, and a light meter.</p>
 
 
-<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>Useful moments</summary>
+<div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow">
+<h2 class="wp-block-heading">■ Useful moments</h2>
+
 <section class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
 <h3 class="wp-block-heading">Before a quick street shot</h3>
 
@@ -166,32 +177,37 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 </section>
 
-</details>
+</div>
 
 
-<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>Why I made it</summary>
+<div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow">
+<h2 class="wp-block-heading">■ Why I made it</h2>
+
 <p class="wp-block-paragraph">Setting focus and aperture in advance can remove decisions while shooting, but calculating depth of field each time was slow. I began Photo Yardstick as a tool I wanted for myself: a quick way to check the range on an iPhone.</p>
 
-</details>
+</div>
 
 
-<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>Privacy</summary>
+<div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow">
+<h2 class="wp-block-heading">■ Privacy</h2>
+
 <p class="wp-block-paragraph">Calculations and settings stay on iPhone and are not sent automatically. There are no accounts, ads, analytics, or tracking. See Privacy for information about web pages you choose to open and TestFlight.</p>
 
 
 <p class="wp-block-paragraph"><a href="/apps/en/privacy/focus-exposure-calculator/">Privacy</a></p>
 
-</details>
+</div>
 
 </div>
 
 </article>
 
+
+
 </div>
 </main>
 
-<footer class="wp-block-template-part"><footer class="site-footer"><div><a class="site-mark" href="/apps/en/"><span class="site-mark-dot" aria-hidden="true"></span><span>Apps</span></a><p>Independent apps that began with something I wanted to use myself.</p></div><nav aria-label="Footer navigation"><a href="/apps/en/#apps">Apps</a><a href="/apps/en/contact/">Contact</a><a href="#top">Back to top ↑</a></nav></footer>
-</footer>
+<footer class="wp-block-template-part"><footer class="site-footer"><div><a class="site-mark" href="/apps/en/"><span class="site-mark-dot" aria-hidden="true"></span><span>Apps</span></a><p>Designed with real situations in mind, with care for how things look and work.</p></div><nav aria-label="Footer navigation"><a href="/apps/en/#apps">Apps</a><a href="/apps/en/contact/">Contact</a><a href="#top">Back to top ↑</a></nav></footer></footer>
 </div>
 
 

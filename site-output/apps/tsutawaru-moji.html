@@ -25,9 +25,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
 /*# sourceURL=/wp-includes/blocks/heading/style.min.css */
 </style>
-<style id="wp-block-details-inline-css">
-.wp-block-details{box-sizing:border-box}.wp-block-details summary{cursor:pointer}
-/*# sourceURL=/wp-includes/blocks/details/style.min.css */
+<style id="wp-block-quote-inline-css">
+.wp-block-quote{box-sizing:border-box;overflow-wrap:break-word}.wp-block-quote.is-large:where(:not(.is-style-plain)),.wp-block-quote.is-style-large:where(:not(.is-style-plain)){margin-bottom:1em;padding:0 1em}.wp-block-quote.is-large:where(:not(.is-style-plain)) p,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) p{font-size:1.5em;font-style:italic;line-height:1.6}.wp-block-quote.is-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-large:where(:not(.is-style-plain)) footer,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) footer{font-size:1.125em;text-align:right}.wp-block-quote>cite{display:block}
+/*# sourceURL=/wp-includes/blocks/quote/style.min.css */
+</style>
+<style id="wp-block-separator-inline-css">
+@charset "UTF-8";.wp-block-separator{border:none;border-top:2px solid}:root :where(.wp-block-separator.is-style-dots){height:auto;line-height:1;text-align:center}:root :where(.wp-block-separator.is-style-dots):before{color:currentColor;content:"···";font-family:serif;font-size:1.5em;letter-spacing:2em;padding-left:2em}.wp-block-separator.is-style-dots{background:none!important;border:none!important}
+/*# sourceURL=/wp-includes/blocks/separator/style.min.css */
 </style>
 <style id="wp-block-post-content-inline-css">
 .wp-block-post-content{display:flow-root}
@@ -57,9 +61,9 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 <link rel="alternate" hreflang="ja" href="https://aaa3710.github.io/apps/tsutawaru-moji/">
 <link rel="alternate" hreflang="en" href="https://aaa3710.github.io/apps/en/tsutawaru-moji/">
 <link rel="alternate" hreflang="x-default" href="https://aaa3710.github.io/apps/tsutawaru-moji/">
-<meta name="description" content="Apple Watch入力・近くのiPhoneとの共有 いずれも試験機能です。Watchの音声はペアリング済みiPhoneで文字起こしします。近距離共有は話す側1台から見る側最大7台へ文字だけを送り、双方で相手を確認します。各アプリを前面で使う必要があり、実機での最終確認は未完了です。 録音や共有の前に 参加者全員へ知">
+<meta name="description" content="聞こえにくい方との会話を支援するため、話した内容を文字で表示するアプリです。日常的に使いやすく、見やすい設計にこだわっています。">
 <meta property="og:title" content="伝わる文字">
-<meta property="og:description" content="Apple Watch入力・近くのiPhoneとの共有 いずれも試験機能です。Watchの音声はペアリング済みiPhoneで文字起こしします。近距離共有は話す側1台から見る側最大7台へ文字だけを送り、双方で相手を確認します。各アプリを前面で使う必要があり、実機での最終確認は未完了です。 録音や共有の前に 参加者全員へ知">
+<meta property="og:description" content="聞こえにくい方との会話を支援するため、話した内容を文字で表示するアプリです。日常的に使いやすく、見やすい設計にこだわっています。">
 <meta property="og:url" content="https://aaa3710.github.io/apps/tsutawaru-moji/">
 <link rel="canonical" href="https://aaa3710.github.io/apps/tsutawaru-moji/"><meta name="robots" content="index, follow"></head>
 
@@ -75,91 +79,189 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 <p class="back-link wp-block-paragraph"><a href="/apps/">アプリ一覧</a></p>
 
 
+
 <div class="wp-block-group app-page-identity is-layout-flow wp-block-group-is-layout-flow">
 <figure class="wp-block-image"><img decoding="async" src="/wp-content/uploads/2026/09/tsutawaru-moji-icon.png" alt=""></figure>
 
 
-<p class="wp-block-paragraph">伝わる文字</p>
 
+<p class="wp-block-paragraph"><span class="readable-unit">伝わる文字｜音声を</span><wbr><span class="readable-unit">文字起こし</span></p>
 </div>
 
-<nav class="app-navigation" aria-label="このアプリのページ"><a href="/apps/tsutawaru-moji/" aria-current="page">紹介</a><a href="/apps/support/tsutawaru-moji/">サポート</a><a href="/apps/privacy/tsutawaru-moji/">プライバシー</a></nav>
-
-<h1 class="wp-block-heading"><span class="readable-unit">話した</span><wbr><span class="readable-unit">言葉を、</span><wbr><span class="readable-unit">大きく</span><wbr><span class="readable-unit">見やすく。</span></h1>
 
 
-<p class="wp-block-paragraph"><span class="readable-unit">iPhone・iOS 17以降。</span><wbr><span class="readable-unit">日本語・英語対応。</span></p>
+<p class="wp-block-paragraph"><span class="readable-unit">iPhone／Apple Watchアプリ　iOS 17以降</span><wbr><span class="readable-unit">　日本語・英語対応</span></p>
 
 
-<p class="release-status wp-block-paragraph"><span class="readable-unit">一般配布を</span><wbr><span class="readable-unit">準備しています。</span><wbr><span class="readable-unit">まだ</span><wbr><span class="readable-unit">ダウンロードできません。</span></p>
 
+<p class="release-status wp-block-paragraph"><span class="readable-unit">バージョン1.0.1を</span><wbr><span class="readable-unit">準備中です。</span><wbr><span class="readable-unit">この</span><wbr><span class="readable-unit">ページの</span><wbr><span class="readable-unit">料金・</span><wbr><span class="readable-unit">無料利用枠は</span><wbr><span class="readable-unit">1.0.1の</span><wbr><span class="readable-unit">仕様です。</span><wbr><span class="readable-unit">現在、</span><wbr><span class="readable-unit">App Storeでの</span><wbr><span class="readable-unit">配信を</span><wbr><span class="readable-unit">停止しています。</span></p>
+
+
+
+
+<div class="wp-block-buttons apps-store-link"><div class="wp-block-button"><span class="wp-block-button__link wp-element-button" aria-disabled="true">App Store配信準備中</span></div></div>
+<nav class="app-navigation" aria-label="このアプリのページ"><a href="/apps/tsutawaru-moji/" aria-current="page">紹介</a><a href="/apps/feedback/tsutawaru-moji/">フィードバック</a><a href="/apps/privacy/tsutawaru-moji/">プライバシー</a></nav>
+
+
+<h1 class="wp-block-heading app-overview-title"><span class="readable-unit">話した</span><wbr><span class="readable-unit">言葉を、</span><wbr><span class="readable-unit">相手に</span><wbr><span class="readable-unit">大きく</span><wbr><span class="readable-unit">見やすく</span></h1>
+
+
+
+<p class="app-overview-lead wp-block-paragraph"><span class="readable-unit">聞こえにくい方との</span><wbr><span class="readable-unit">会話を</span><wbr><span class="readable-unit">支援する</span><wbr><span class="readable-unit">ため、</span><wbr><span class="readable-unit">話した</span><wbr><span class="readable-unit">内容を</span><wbr><span class="readable-unit">文字で</span><wbr><span class="readable-unit">表示する</span><wbr><span class="readable-unit">アプリです。</span><wbr><span class="readable-unit">日常的に</span><wbr><span class="readable-unit">使いやすく、</span><wbr><span class="readable-unit">見やすい</span><wbr><span class="readable-unit">設計に</span><wbr><span class="readable-unit">こだわり、</span><wbr><span class="readable-unit">認知的な</span><wbr><span class="readable-unit">負担を</span><wbr><span class="readable-unit">できる</span><wbr><span class="readable-unit">限り</span><wbr><span class="readable-unit">抑えています。</span></p>
 </header>
 
 
+
 <div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow">
-<p class="wp-block-paragraph"><span class="readable-unit">対面の</span><wbr><span class="readable-unit">会話を</span><wbr><span class="readable-unit">iPhoneの</span><wbr><span class="readable-unit">大きな</span><wbr><span class="readable-unit">文字で</span><wbr><span class="readable-unit">表示します。</span><wbr><span class="readable-unit">押している</span><wbr><span class="readable-unit">間だけ、</span><wbr><span class="readable-unit">または</span><wbr><span class="readable-unit">タップで</span><wbr><span class="readable-unit">開始・終了。</span><wbr><span class="readable-unit">文字の</span><wbr><span class="readable-unit">大きさや</span><wbr><span class="readable-unit">向きを、</span><wbr><span class="readable-unit">読む人に</span><wbr><span class="readable-unit">合わせられます。</span></p>
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p class="wp-block-paragraph"></p>
+</blockquote>
 
 
-<h2 class="wp-block-heading"><span class="readable-unit">まずは、</span><wbr><span class="readable-unit">iPhoneの</span><wbr><span class="readable-unit">中だけで。</span></h2>
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
 
 
-<p class="wp-block-paragraph"><span class="readable-unit">初期設定は</span><wbr><span class="readable-unit">端末内の</span><wbr><span class="readable-unit">文字起こしです。</span><wbr><span class="readable-unit">OpenAI APIキーや</span><wbr><span class="readable-unit">API料金は</span><wbr><span class="readable-unit">不要で、</span><wbr><span class="readable-unit">利用できない</span><wbr><span class="readable-unit">ときに</span><wbr><span class="readable-unit">外部方</span><wbr><span class="readable-unit">式へ</span><wbr><span class="readable-unit">自動で</span><wbr><span class="readable-unit">切り</span><wbr><span class="readable-unit">替えません。</span><wbr><span class="readable-unit">端末内認識の</span><wbr><span class="readable-unit">対応は</span><wbr><span class="readable-unit">機種と</span><wbr><span class="readable-unit">認識データに</span><wbr><span class="readable-unit">よって</span><wbr><span class="readable-unit">異なります。</span></p>
+
+<p class="wp-block-paragraph"></p>
 
 
-<h2 class="wp-block-heading"><span class="readable-unit">読み方を、</span><wbr><span class="readable-unit">自分に</span><wbr><span class="readable-unit">合わせる。</span></h2>
+
+<p class="wp-block-paragraph"><span class="readable-unit">家での</span><wbr><span class="readable-unit">会話にも、</span><wbr><span class="readable-unit">周囲に</span><wbr><span class="readable-unit">配慮して</span><wbr><span class="readable-unit">大きな</span><wbr><span class="readable-unit">声を</span><wbr><span class="readable-unit">出しにくい場所にも。</span><wbr><span class="readable-unit">目の前の</span><wbr><span class="readable-unit">相手に、</span><wbr><span class="readable-unit">無理なく</span><wbr><span class="readable-unit">言葉を</span><wbr><span class="readable-unit">伝える</span><wbr><span class="readable-unit">ための</span><wbr><span class="readable-unit">ツールです。</span></p>
 
 
-<p class="wp-block-paragraph"><span class="readable-unit">横書き・縦</span><wbr><span class="readable-unit">書き、</span><wbr><span class="readable-unit">スクロール・</span><wbr><span class="readable-unit">自動縮小を</span><wbr><span class="readable-unit">選べます。</span><wbr><span class="readable-unit">話す言語は</span><wbr><span class="readable-unit">表示言語と</span><wbr><span class="readable-unit">別に</span><wbr><span class="readable-unit">選べます。</span><wbr><span class="readable-unit">翻訳は</span><wbr><span class="readable-unit">行いません。</span><wbr><span class="readable-unit">確定した</span><wbr><span class="readable-unit">文章は</span><wbr><span class="readable-unit">iPhone内の</span><wbr><span class="readable-unit">履歴から</span><wbr><span class="readable-unit">読み返せ、</span><wbr><span class="readable-unit">個別または</span><wbr><span class="readable-unit">一括で</span><wbr><span class="readable-unit">削除できます。</span><wbr><span class="readable-unit">音声は</span><wbr><span class="readable-unit">履歴へ</span><wbr><span class="readable-unit">保存しません。</span></p>
+
+<h2 class="wp-block-heading"><span class="readable-unit">■ 相手に</span><wbr><span class="readable-unit">合わせて、</span><wbr><span class="readable-unit">読みやすく</span></h2>
 
 
-<h2 class="wp-block-heading"><span class="readable-unit">外部の</span><wbr><span class="readable-unit">文字起こしは、</span><wbr><span class="readable-unit">自分で</span><wbr><span class="readable-unit">選ぶ。</span></h2>
+
+<p class="wp-block-paragraph"><span class="readable-unit">文字の</span><wbr><span class="readable-unit">大きさは、</span><wbr><span class="readable-unit">読む方に</span><wbr><span class="readable-unit">合わせて</span><wbr><span class="readable-unit">調整できます。</span><wbr><span class="readable-unit">iPhoneを</span><wbr><span class="readable-unit">横向きに</span><wbr><span class="readable-unit">して</span><wbr><span class="readable-unit">文章を</span><wbr><span class="readable-unit">広く</span><wbr><span class="readable-unit">見せたり、</span><wbr><span class="readable-unit">縦書きに</span><wbr><span class="readable-unit">切り替えたりする</span><wbr><span class="readable-unit">ことも</span><wbr><span class="readable-unit">できます。</span></p>
 
 
-<p class="wp-block-paragraph"><span class="readable-unit">OpenAI API・ハイブリッドは</span><wbr><span class="readable-unit">任意です。</span><wbr><span class="readable-unit">説明に</span><wbr><span class="readable-unit">同意して</span><wbr><span class="readable-unit">選んだ</span><wbr><span class="readable-unit">場合だけ、</span><wbr><span class="readable-unit">録音終了後の</span><wbr><span class="readable-unit">音声を</span><wbr><span class="readable-unit">利用者自身の</span><wbr><span class="readable-unit">APIキーで</span><wbr><span class="readable-unit">OpenAIへ</span><wbr><span class="readable-unit">送ります。</span><wbr><span class="readable-unit">API料金と</span><wbr><span class="readable-unit">通信料は</span><wbr><span class="readable-unit">利用者負担で、</span><wbr><span class="readable-unit">ChatGPTの</span><wbr><span class="readable-unit">契約とは</span><wbr><span class="readable-unit">別です。</span></p>
+
+<p class="wp-block-paragraph"><span class="readable-unit">向かい</span><wbr><span class="readable-unit">合って</span><wbr><span class="readable-unit">話す</span><wbr><span class="readable-unit">ときは、</span><wbr><span class="readable-unit">右上の</span><wbr><span class="readable-unit">ボタンを</span><wbr><span class="readable-unit">押すだけで、</span><wbr><span class="readable-unit">文章を</span><wbr><span class="readable-unit">相手の</span><wbr><span class="readable-unit">向きへ回転。</span><wbr><span class="readable-unit">自分は</span><wbr><span class="readable-unit">手元で</span><wbr><span class="readable-unit">操作しながら、</span><wbr><span class="readable-unit">相手には</span><wbr><span class="readable-unit">読みやすい</span><wbr><span class="readable-unit">向きで</span><wbr><span class="readable-unit">見せられます。</span></p>
 
 
-<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary><span class="readable-unit">Apple Watch入力・</span><wbr><span class="readable-unit">近くの</span><wbr><span class="readable-unit">iPhoneとの</span><wbr><span class="readable-unit">共有</span></summary>
-<p class="wp-block-paragraph"><span class="readable-unit">いずれも</span><wbr><span class="readable-unit">試験機能です。</span><wbr><span class="readable-unit">Watchの</span><wbr><span class="readable-unit">音声は</span><wbr><span class="readable-unit">ペアリング済みiPhoneで</span><wbr><span class="readable-unit">文字起こしします。</span><wbr><span class="readable-unit">近距離共有は</span><wbr><span class="readable-unit">話す側1台から</span><wbr><span class="readable-unit">見る</span><wbr><span class="readable-unit">側最大7台へ</span><wbr><span class="readable-unit">文字だけを</span><wbr><span class="readable-unit">送り、</span><wbr><span class="readable-unit">双方で</span><wbr><span class="readable-unit">相手を</span><wbr><span class="readable-unit">確認します。</span><wbr><span class="readable-unit">各アプリを</span><wbr><span class="readable-unit">前面で</span><wbr><span class="readable-unit">使う</span><wbr><span class="readable-unit">必要が</span><wbr><span class="readable-unit">あり、</span><wbr><span class="readable-unit">実機での</span><wbr><span class="readable-unit">最終確認は</span><wbr><span class="readable-unit">未完了です。</span></p>
 
-</details>
+<h2 class="wp-block-heading"><span class="readable-unit">■ すぐに</span><wbr><span class="readable-unit">見せる</span><wbr><span class="readable-unit">ことも、</span><wbr><span class="readable-unit">話し終えてから</span><wbr><span class="readable-unit">見せる</span><wbr><span class="readable-unit">ことも</span></h2>
 
 
-<h2 class="wp-block-heading"><span class="readable-unit">録音や</span><wbr><span class="readable-unit">共有の</span><wbr><span class="readable-unit">前に</span></h2>
+
+<p class="wp-block-paragraph"><span class="readable-unit">話している</span><wbr><span class="readable-unit">そばから</span><wbr><span class="readable-unit">文字が</span><wbr><span class="readable-unit">出ると、</span><wbr><span class="readable-unit">会話の</span><wbr><span class="readable-unit">流れを</span><wbr><span class="readable-unit">追いやすくなります。</span><wbr><span class="readable-unit">一方で、</span><wbr><span class="readable-unit">認識途中の</span><wbr><span class="readable-unit">文字が</span><wbr><span class="readable-unit">次々と</span><wbr><span class="readable-unit">書き換わると、</span><wbr><span class="readable-unit">かえって</span><wbr><span class="readable-unit">読みづらい方もいます。</span></p>
 
 
-<p class="wp-block-paragraph"><span class="readable-unit">参加者全員</span><wbr><span class="readable-unit">へ</span><wbr><span class="readable-unit">知らせ、</span><wbr><span class="readable-unit">許可を</span><wbr><span class="readable-unit">得てください。</span><wbr><span class="readable-unit">自動文字起こしには</span><wbr><span class="readable-unit">誤りが</span><wbr><span class="readable-unit">あります。</span><wbr><span class="readable-unit">医療・緊急・契約などの</span><wbr><span class="readable-unit">重要な</span><wbr><span class="readable-unit">判断で、</span><wbr><span class="readable-unit">表示だけに</span><wbr><span class="readable-unit">頼らないでください。</span></p>
 
+<p class="wp-block-paragraph"><span class="readable-unit">その</span><wbr><span class="readable-unit">ため、</span><wbr><span class="readable-unit">話している</span><wbr><span class="readable-unit">途中から</span><wbr><span class="readable-unit">表示する</span><wbr><span class="readable-unit">方</span><wbr><span class="readable-unit">法に</span><wbr><span class="readable-unit">加えて、</span><wbr><span class="readable-unit">話し終えてから</span><wbr><span class="readable-unit">文章を</span><wbr><span class="readable-unit">まとめて</span><wbr><span class="readable-unit">見せる</span><wbr><span class="readable-unit">方</span><wbr><span class="readable-unit">法を</span><wbr><span class="readable-unit">用意しました。</span><wbr><span class="readable-unit">速さを</span><wbr><span class="readable-unit">優先したい</span><wbr><span class="readable-unit">ときも、</span><wbr><span class="readable-unit">落ち着いて</span><wbr><span class="readable-unit">読んで</span><wbr><span class="readable-unit">もらいたい</span><wbr><span class="readable-unit">ときも、</span><wbr><span class="readable-unit">相手に</span><wbr><span class="readable-unit">合わせて</span><wbr><span class="readable-unit">選べます。</span></p>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">話すときは、</span><wbr><span class="readable-unit">画面下の</span><wbr><span class="readable-unit">ボタンを</span><wbr><span class="readable-unit">押したままに</span><wbr><span class="readable-unit">して、</span><wbr><span class="readable-unit">終わったら</span><wbr><span class="readable-unit">指を</span><wbr><span class="readable-unit">離すだけ。</span><wbr><span class="readable-unit">押し続けるのが</span><wbr><span class="readable-unit">難しい</span><wbr><span class="readable-unit">場合は、</span><wbr><span class="readable-unit">タップで</span><wbr><span class="readable-unit">開始・終了する</span><wbr><span class="readable-unit">操作にも</span><wbr><span class="readable-unit">切り</span><wbr><span class="readable-unit">替えられます。</span></p>
+
+
+
+<h2 class="wp-block-heading"><span class="readable-unit">■ 質問である</span><wbr><span class="readable-unit">ことも、</span><wbr><span class="readable-unit">伝わりやすく</span></h2>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">声の</span><wbr><span class="readable-unit">調子では</span><wbr><span class="readable-unit">伝わっても、</span><wbr><span class="readable-unit">文字だけでは</span><wbr><span class="readable-unit">質問なのか</span><wbr><span class="readable-unit">分かりにくいことがあります。</span></p>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">そんな</span><wbr><span class="readable-unit">ときは、</span><wbr><span class="readable-unit">文末に</span><wbr><span class="readable-unit">「？」を</span><wbr><span class="readable-unit">付ける</span><wbr><span class="readable-unit">ボタンが</span><wbr><span class="readable-unit">役立ちます。</span><wbr><span class="readable-unit">普段の</span><wbr><span class="readable-unit">会話用と</span><wbr><span class="readable-unit">質問用で</span><wbr><span class="readable-unit">ボタンを</span><wbr><span class="readable-unit">使い分ければ、</span><wbr><span class="readable-unit">相手に</span><wbr><span class="readable-unit">尋ねている</span><wbr><span class="readable-unit">ことを</span><wbr><span class="readable-unit">文字でも</span><wbr><span class="readable-unit">伝えやすくなります。</span></p>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">ボタンは</span><wbr><span class="readable-unit">最大3つまで</span><wbr><span class="readable-unit">並べられ、</span><wbr><span class="readable-unit">それぞれに</span><wbr><span class="readable-unit">使いたい</span><wbr><span class="readable-unit">設定を</span><wbr><span class="readable-unit">割り当てられます。</span></p>
+
+
+
+<h2 class="wp-block-heading"><span class="readable-unit">■ 画面は</span><wbr><span class="readable-unit">相手の</span><wbr><span class="readable-unit">そばに、</span><wbr><span class="readable-unit">マイクは</span><wbr><span class="readable-unit">自分の</span><wbr><span class="readable-unit">そばに</span></h2>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">文字を</span><wbr><span class="readable-unit">読みやすい</span><wbr><span class="readable-unit">位置へ</span><wbr><span class="readable-unit">iPhoneを</span><wbr><span class="readable-unit">近づけると、</span><wbr><span class="readable-unit">今度は</span><wbr><span class="readable-unit">話し手の</span><wbr><span class="readable-unit">声を</span><wbr><span class="readable-unit">拾いにくくなる</span><wbr><span class="readable-unit">ことがあります。</span></p>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">Apple Watchを</span><wbr><span class="readable-unit">お持ちなら、</span><wbr><span class="readable-unit">手首の</span><wbr><span class="readable-unit">マイクに</span><wbr><span class="readable-unit">向かって</span><wbr><span class="readable-unit">話し、</span><wbr><span class="readable-unit">iPhoneに</span><wbr><span class="readable-unit">文字を</span><wbr><span class="readable-unit">表示できます。</span><wbr><span class="readable-unit">画面を</span><wbr><span class="readable-unit">相手の</span><wbr><span class="readable-unit">そばに</span><wbr><span class="readable-unit">置いたまま、</span><wbr><span class="readable-unit">手元で</span><wbr><span class="readable-unit">話せます。</span></p>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">近くに</span><wbr><span class="readable-unit">もう</span><wbr><span class="readable-unit">1台iPhoneが</span><wbr><span class="readable-unit">あれば、</span><wbr><span class="readable-unit">話す端末と</span><wbr><span class="readable-unit">読む端末を</span><wbr><span class="readable-unit">分ける</span><wbr><span class="readable-unit">ことも</span><wbr><span class="readable-unit">できます。</span><wbr><span class="readable-unit">自分の</span><wbr><span class="readable-unit">iPhoneに</span><wbr><span class="readable-unit">向かって</span><wbr><span class="readable-unit">話すと、</span><wbr><span class="readable-unit">相手の</span><wbr><span class="readable-unit">iPhoneにも</span><wbr><span class="readable-unit">文章が</span><wbr><span class="readable-unit">表示されます。</span></p>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">もちろん、</span><wbr><span class="readable-unit">iPhoneが</span><wbr><span class="readable-unit">1台だけでも</span><wbr><span class="readable-unit">使えます。</span><wbr><span class="readable-unit">まずは</span><wbr><span class="readable-unit">手元の</span><wbr><span class="readable-unit">1台で、</span><wbr><span class="readable-unit">いつもの</span><wbr><span class="readable-unit">会話から</span><wbr><span class="readable-unit">始められます。</span></p>
+
+
+
+<h2 class="wp-block-heading">────────────<br><span class="readable-unit">料金や</span><wbr><span class="readable-unit">認識方</span><wbr><span class="readable-unit">式を</span><wbr><span class="readable-unit">詳しく</span><wbr><span class="readable-unit">知りたい方</span><wbr><span class="readable-unit">へ</span><br>────────────</h2>
+
+
+
+<h2 class="wp-block-heading"><span class="readable-unit">■ 無料で</span><wbr><span class="readable-unit">使える</span><wbr><span class="readable-unit">範囲と、</span><wbr><span class="readable-unit">100円の</span><wbr><span class="readable-unit">買い</span><wbr><span class="readable-unit">切り</span></h2>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">端末内で</span><wbr><span class="readable-unit">処理する</span><wbr><span class="readable-unit">基本の</span><wbr><span class="readable-unit">文字起こしは、</span><wbr><span class="readable-unit">回数制限なく</span><wbr><span class="readable-unit">無料で</span><wbr><span class="readable-unit">使えます。</span><wbr><span class="readable-unit">入力ボタンは</span><wbr><span class="readable-unit">1つまたは</span><wbr><span class="readable-unit">2つで、</span><wbr><span class="readable-unit">話している</span><wbr><span class="readable-unit">途中から</span><wbr><span class="readable-unit">文字を</span><wbr><span class="readable-unit">表示できます。</span><wbr><span class="readable-unit">文字の</span><wbr><span class="readable-unit">大きさ・</span><wbr><span class="readable-unit">向きの</span><wbr><span class="readable-unit">調整、</span><wbr><span class="readable-unit">対面</span><wbr><span class="readable-unit">表示、</span><wbr><span class="readable-unit">履歴も</span><wbr><span class="readable-unit">無料です。</span></p>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">次の</span><wbr><span class="readable-unit">追加機能も、</span><wbr><span class="readable-unit">毎週</span><wbr><span class="readable-unit">50回まで</span><wbr><span class="readable-unit">無料で</span><wbr><span class="readable-unit">試せます。</span></p>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">・</span><wbr><span class="readable-unit">入力ボタンを</span><wbr><span class="readable-unit">3つに</span><wbr><span class="readable-unit">する</span><br><span class="readable-unit">・文末に</span><wbr><span class="readable-unit">「？」を</span><wbr><span class="readable-unit">付ける</span><br><span class="readable-unit">・話し終えてから</span><wbr><span class="readable-unit">まとめて</span><wbr><span class="readable-unit">表示する</span><br><span class="readable-unit">・Apple Watchとの</span><wbr><span class="readable-unit">連携</span><br><span class="readable-unit">・</span><wbr><span class="readable-unit">ご自身の</span><wbr><span class="readable-unit">APIキーを</span><wbr><span class="readable-unit">使った</span><wbr><span class="readable-unit">文字起こし</span><br><span class="readable-unit">・近くの</span><wbr><span class="readable-unit">iPhoneとの</span><wbr><span class="readable-unit">文章共有</span></p>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">利用枠は、</span><wbr><span class="readable-unit">これらの</span><wbr><span class="readable-unit">機能すべてで</span><wbr><span class="readable-unit">共通です。</span><wbr><span class="readable-unit">対象機能を</span><wbr><span class="readable-unit">使って</span><wbr><span class="readable-unit">文字起こしする</span><wbr><span class="readable-unit">たびに</span><wbr><span class="readable-unit">1回分を</span><wbr><span class="readable-unit">消費し、</span><wbr><span class="readable-unit">複数の</span><wbr><span class="readable-unit">機能を</span><wbr><span class="readable-unit">同時に</span><wbr><span class="readable-unit">使っても</span><wbr><span class="readable-unit">合計1回分です。</span><wbr><span class="readable-unit">設定を</span><wbr><span class="readable-unit">選ぶだけでは</span><wbr><span class="readable-unit">消費しません。</span><wbr><span class="readable-unit">毎週</span><wbr><span class="readable-unit">日曜日の</span><wbr><span class="readable-unit">午前0時に</span><wbr><span class="readable-unit">リセットされます。</span></p>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">50回を</span><wbr><span class="readable-unit">使い</span><wbr><span class="readable-unit">切っても、</span><wbr><span class="readable-unit">対象機能を</span><wbr><span class="readable-unit">使わない</span><wbr><span class="readable-unit">基本の</span><wbr><span class="readable-unit">文字起こしは</span><wbr><span class="readable-unit">続けられます。</span></p>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">アプリ内で</span><wbr><span class="readable-unit">100円の</span><wbr><span class="readable-unit">買い</span><wbr><span class="readable-unit">切り購入を</span><wbr><span class="readable-unit">すると、</span><wbr><span class="readable-unit">週間の</span><wbr><span class="readable-unit">回数制限なく、</span><wbr><span class="readable-unit">すべての機能を</span><wbr><span class="readable-unit">使えます。</span><wbr><span class="readable-unit">月額料金や、</span><wbr><span class="readable-unit">機能ごとの</span><wbr><span class="readable-unit">追加購入は</span><wbr><span class="readable-unit">ありません。</span></p>
+
+
+
+<h2 class="wp-block-heading"><span class="readable-unit">■ 別の</span><wbr><span class="readable-unit">音声認識を</span><wbr><span class="readable-unit">使いたい</span><wbr><span class="readable-unit">場合</span></h2>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">標準の</span><wbr><span class="readable-unit">文字起こしは、</span><wbr><span class="readable-unit">音声を</span><wbr><span class="readable-unit">端末外へ</span><wbr><span class="readable-unit">送らずに</span><wbr><span class="readable-unit">処理します。</span><wbr><span class="readable-unit">端末内の</span><wbr><span class="readable-unit">文字起こしでは</span><wbr><span class="readable-unit">精度に</span><wbr><span class="readable-unit">不安を</span><wbr><span class="readable-unit">感じた</span><wbr><span class="readable-unit">場合など</span><wbr><span class="readable-unit">必要に</span><wbr><span class="readable-unit">応じて、</span><wbr><span class="readable-unit">OpenAI APIを</span><wbr><span class="readable-unit">使う方</span><wbr><span class="readable-unit">式も</span><wbr><span class="readable-unit">選べます。</span></p>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">OpenAI API方</span><wbr><span class="readable-unit">式では、</span><wbr><span class="readable-unit">録音終了後に</span><wbr><span class="readable-unit">音声を</span><wbr><span class="readable-unit">送信し、</span><wbr><span class="readable-unit">処理が</span><wbr><span class="readable-unit">終わると</span><wbr><span class="readable-unit">結果を</span><wbr><span class="readable-unit">表示します。</span><wbr><span class="readable-unit">ハイブリッド方</span><wbr><span class="readable-unit">式では、</span><wbr><span class="readable-unit">話している</span><wbr><span class="readable-unit">間は</span><wbr><span class="readable-unit">端末内の</span><wbr><span class="readable-unit">認識結果を</span><wbr><span class="readable-unit">見せ、</span><wbr><span class="readable-unit">録音終了後に</span><wbr><span class="readable-unit">OpenAIの</span><wbr><span class="readable-unit">結果</span><wbr><span class="readable-unit">へ</span><wbr><span class="readable-unit">置き換えます。</span></p>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">利用には、</span><wbr><span class="readable-unit">ご自身の</span><wbr><span class="readable-unit">OpenAI APIキーと</span><wbr><span class="readable-unit">インターネット接続が</span><wbr><span class="readable-unit">必要です。</span><wbr><span class="readable-unit">OpenAIの</span><wbr><span class="readable-unit">利用料金は</span><wbr><span class="readable-unit">100円の</span><wbr><span class="readable-unit">買い</span><wbr><span class="readable-unit">切りに</span><wbr><span class="readable-unit">含まれず、</span><wbr><span class="readable-unit">週50回の</span><wbr><span class="readable-unit">無料枠で</span><wbr><span class="readable-unit">使う</span><wbr><span class="readable-unit">場合も</span><wbr><span class="readable-unit">OpenAIに</span><wbr><span class="readable-unit">対して</span><wbr><span class="readable-unit">別途かかります。</span></p>
+
+
+
+<h2 class="wp-block-heading"><span class="readable-unit">■ ご利用上の</span><wbr><span class="readable-unit">条件</span></h2>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">Apple Watchとの</span><wbr><span class="readable-unit">連携中は、</span><wbr><span class="readable-unit">iPhoneと</span><wbr><span class="readable-unit">Watchの</span><wbr><span class="readable-unit">両方で</span><wbr><span class="readable-unit">アプリを</span><wbr><span class="readable-unit">開いておく</span><wbr><span class="readable-unit">必要が</span><wbr><span class="readable-unit">あります。</span><wbr><span class="readable-unit">近くの</span><wbr><span class="readable-unit">iPhoneとの</span><wbr><span class="readable-unit">共有は、</span><wbr><span class="readable-unit">送信側1台から</span><wbr><span class="readable-unit">受信側最大7台まで</span><wbr><span class="readable-unit">対応し、</span><wbr><span class="readable-unit">各端末で</span><wbr><span class="readable-unit">アプリを</span><wbr><span class="readable-unit">開いて</span><wbr><span class="readable-unit">利用します。</span></p>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">端末内の</span><wbr><span class="readable-unit">文字起こしは、</span><wbr><span class="readable-unit">機種や</span><wbr><span class="readable-unit">言語、</span><wbr><span class="readable-unit">認識データの</span><wbr><span class="readable-unit">準備状況に</span><wbr><span class="readable-unit">よって</span><wbr><span class="readable-unit">利用できない</span><wbr><span class="readable-unit">場合が</span><wbr><span class="readable-unit">あります。</span></p>
+
+
+
+<p class="wp-block-paragraph"><span class="readable-unit">文字起こしには</span><wbr><span class="readable-unit">誤りが</span><wbr><span class="readable-unit">含まれる</span><wbr><span class="readable-unit">ことがある</span><wbr><span class="readable-unit">ため、</span><wbr><span class="readable-unit">大切な</span><wbr><span class="readable-unit">内容は</span><wbr><span class="readable-unit">相手と</span><wbr><span class="readable-unit">確認しながら</span><wbr><span class="readable-unit">ご利用ください。</span></p>
 </div>
-
-
-<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary><span class="readable-unit">無料で</span><wbr><span class="readable-unit">使える</span><wbr><span class="readable-unit">範囲と</span><wbr><span class="readable-unit">買い</span><wbr><span class="readable-unit">切り</span></summary>
-
-<p class="wp-block-paragraph"><span class="readable-unit">公開予定版では、</span><wbr><span class="readable-unit">iPhoneでの</span><wbr><span class="readable-unit">文字起こし・</span><wbr><span class="readable-unit">大きな</span><wbr><span class="readable-unit">文字・</span><wbr><span class="readable-unit">対面表示・Watch入力・文字起こしの</span><wbr><span class="readable-unit">各方</span><wbr><span class="readable-unit">式と、</span><wbr><span class="readable-unit">別端末からの</span><wbr><span class="readable-unit">文章の</span><wbr><span class="readable-unit">受信・</span><wbr><span class="readable-unit">表示を</span><wbr><span class="readable-unit">無料で</span><wbr><span class="readable-unit">使えます。</span></p>
-
-
-<p class="wp-block-paragraph"><span class="readable-unit">近距離文章共有を</span><wbr><span class="readable-unit">開始して</span><wbr><span class="readable-unit">別端末へ</span><wbr><span class="readable-unit">配信する</span><wbr><span class="readable-unit">送信側だけ、</span><wbr><span class="readable-unit">一度の</span><wbr><span class="readable-unit">アプリ内購入が</span><wbr><span class="readable-unit">必要です。</span><wbr><span class="readable-unit">対応する</span><wbr><span class="readable-unit">範囲で</span><wbr><span class="readable-unit">見る</span><wbr><span class="readable-unit">側1〜7台への</span><wbr><span class="readable-unit">共有を</span><wbr><span class="readable-unit">まとめて</span><wbr><span class="readable-unit">開放し、</span><wbr><span class="readable-unit">受信側には</span><wbr><span class="readable-unit">購入を</span><wbr><span class="readable-unit">求めません。</span><wbr><span class="readable-unit">定期購入は</span><wbr><span class="readable-unit">なく、</span><wbr><span class="readable-unit">購入は</span><wbr><span class="readable-unit">復元できます。</span><wbr><span class="readable-unit">価格は</span><wbr><span class="readable-unit">購入画面で</span><wbr><span class="readable-unit">確認してください。</span><wbr><span class="readable-unit">任意の</span><wbr><span class="readable-unit">OpenAI API利用料は、</span><wbr><span class="readable-unit">この</span><wbr><span class="readable-unit">買い</span><wbr><span class="readable-unit">切りと</span><wbr><span class="readable-unit">別です。</span></p>
-
-</details>
-
-
-<div class="wp-block-group info-contact is-layout-flow wp-block-group-is-layout-flow">
-<p class="wp-block-paragraph"><a href="/apps/support/tsutawaru-moji/">サポート</a></p>
-
-
-<p class="wp-block-paragraph"><a href="/apps/privacy/tsutawaru-moji/">プライバシーポリシー</a></p>
-
-
-<p class="wp-block-paragraph"><a href="/apps/contact/"><span class="readable-unit">共通の</span><wbr><span class="readable-unit">お問い</span><wbr><span class="readable-unit">合わせ</span></a></p>
-
-</div>
-
 </article>
-
 </div>
 </main>
 
-<footer class="wp-block-template-part"><footer class="site-footer"><div><a class="site-mark" href="/apps/"><span class="site-mark-dot" aria-hidden="true"></span><span>Apps</span></a><p>自分で使いたいと思ったところから、ひとつずつ作っています。</p></div><nav aria-label="フッターナビゲーション"><a href="/apps/#apps">アプリ</a><a href="/apps/contact/">お問い合わせ</a><a href="#top">先頭へ ↑</a></nav></footer>
-</footer>
+<footer class="wp-block-template-part"><footer class="site-footer"><div><a class="site-mark" href="/apps/"><span class="site-mark-dot" aria-hidden="true"></span><span>Apps</span></a><p>実際に使う場面を考えて、表示や操作を工夫しています。</p></div><nav aria-label="フッターナビゲーション"><a href="/apps/#apps">アプリ</a><a href="/apps/contact/">お問い合わせ</a><a href="#top">先頭へ ↑</a></nav></footer></footer>
 </div>
 
 

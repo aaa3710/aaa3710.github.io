@@ -88,6 +88,26 @@
   font-size: 14px;
 }
 
+.apps-store-link {
+  margin-block: 16px 24px;
+}
+.wp-block-post-content > .apps-store-link {
+  width: min(var(--content-width), calc(100% - 40px));
+  margin-inline: auto;
+  margin-block: 0 28px;
+}
+.apps-store-link .wp-block-button__link {
+  display: inline-block;
+  min-height: 44px;
+  border-radius: 8px;
+  padding: 12px 18px;
+  line-height: 1.5;
+}
+.apps-store-link [aria-disabled='true'] {
+  background: var(--muted);
+  color: var(--muted-foreground);
+}
+
 /* Preserve the owner's compact introduction while keeping a main heading. */
 .info-page .app-page-header h1.app-overview-title {
   margin: 1rem 0 0;

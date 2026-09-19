@@ -25,9 +25,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
 /*# sourceURL=/wp-includes/blocks/heading/style.min.css */
 </style>
-<style id="wp-block-details-inline-css">
-.wp-block-details{box-sizing:border-box}.wp-block-details summary{cursor:pointer}
-/*# sourceURL=/wp-includes/blocks/details/style.min.css */
+<style id="wp-block-quote-inline-css">
+.wp-block-quote{box-sizing:border-box;overflow-wrap:break-word}.wp-block-quote.is-large:where(:not(.is-style-plain)),.wp-block-quote.is-style-large:where(:not(.is-style-plain)){margin-bottom:1em;padding:0 1em}.wp-block-quote.is-large:where(:not(.is-style-plain)) p,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) p{font-size:1.5em;font-style:italic;line-height:1.6}.wp-block-quote.is-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-large:where(:not(.is-style-plain)) footer,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) footer{font-size:1.125em;text-align:right}.wp-block-quote>cite{display:block}
+/*# sourceURL=/wp-includes/blocks/quote/style.min.css */
+</style>
+<style id="wp-block-separator-inline-css">
+@charset "UTF-8";.wp-block-separator{border:none;border-top:2px solid}:root :where(.wp-block-separator.is-style-dots){height:auto;line-height:1;text-align:center}:root :where(.wp-block-separator.is-style-dots):before{color:currentColor;content:"···";font-family:serif;font-size:1.5em;letter-spacing:2em;padding-left:2em}.wp-block-separator.is-style-dots{background:none!important;border:none!important}
+/*# sourceURL=/wp-includes/blocks/separator/style.min.css */
 </style>
 <style id="wp-block-post-content-inline-css">
 .wp-block-post-content{display:flow-root}
@@ -57,9 +61,9 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 <link rel="alternate" hreflang="ja" href="https://aaa3710.github.io/apps/tsutawaru-moji/">
 <link rel="alternate" hreflang="en" href="https://aaa3710.github.io/apps/en/tsutawaru-moji/">
 <link rel="alternate" hreflang="x-default" href="https://aaa3710.github.io/apps/tsutawaru-moji/">
-<meta name="description" content="Apple Watch input and sharing with nearby iPhones Both are experimental. Watch audio is transcribed on the paired iPhone. Nearby sharing sends text only from on">
+<meta name="description" content="Display speech as text to support conversations with people who have difficulty hearing, with everyday controls and an easy-to-read display.">
 <meta property="og:title" content="Tsutawaru Moji">
-<meta property="og:description" content="Apple Watch input and sharing with nearby iPhones Both are experimental. Watch audio is transcribed on the paired iPhone. Nearby sharing sends text only from on">
+<meta property="og:description" content="Display speech as text to support conversations with people who have difficulty hearing, with everyday controls and an easy-to-read display.">
 <meta property="og:url" content="https://aaa3710.github.io/apps/en/tsutawaru-moji/">
 <link rel="canonical" href="https://aaa3710.github.io/apps/en/tsutawaru-moji/"><meta name="robots" content="index, follow"></head>
 
@@ -75,91 +79,189 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 <p class="back-link wp-block-paragraph"><a href="/apps/en/">Apps</a></p>
 
 
+
 <div class="wp-block-group app-page-identity is-layout-flow wp-block-group-is-layout-flow">
 <figure class="wp-block-image"><img decoding="async" src="/wp-content/uploads/2026/09/tsutawaru-moji-icon.png" alt=""></figure>
 
 
-<p class="wp-block-paragraph">Tsutawaru Moji</p>
 
+<p class="wp-block-paragraph">Tsutawaru Moji | Speech to text</p>
 </div>
 
-<nav class="app-navigation" aria-label="App navigation"><a href="/apps/en/tsutawaru-moji/" aria-current="page">Overview</a><a href="/apps/en/support/tsutawaru-moji/">Support</a><a href="/apps/en/privacy/tsutawaru-moji/">Privacy</a></nav>
-
-<h1 class="wp-block-heading">Make conversations easier to read.</h1>
 
 
-<p class="wp-block-paragraph">iPhone · iOS 17 or later · Japanese and English</p>
+<p class="wp-block-paragraph">iPhone / Apple Watch app · iOS 17 or later · Japanese and English</p>
 
 
-<p class="release-status wp-block-paragraph">Public distribution is being prepared. The app is not available to download yet.</p>
 
+<p class="release-status wp-block-paragraph">Version 1.0.1 is in preparation. The pricing and free allowance described on this page are planned for version 1.0.1. The app is currently unavailable on the App Store.</p>
+
+
+
+
+<div class="wp-block-buttons apps-store-link"><div class="wp-block-button"><span class="wp-block-button__link wp-element-button" aria-disabled="true">App Store release in preparation</span></div></div>
+<nav class="app-navigation" aria-label="App navigation"><a href="/apps/en/tsutawaru-moji/" aria-current="page">Overview</a><a href="/apps/en/feedback/tsutawaru-moji/">Feedback</a><a href="/apps/en/privacy/tsutawaru-moji/">Privacy</a></nav>
+
+
+<h1 class="wp-block-heading app-overview-title">Make your words large and easy for the other person to read</h1>
+
+
+
+<p class="app-overview-lead wp-block-paragraph">An app that displays speech as text to support conversations with people who have difficulty hearing. Its everyday controls and readable display are designed to keep the mental effort of using it as low as possible.</p>
 </header>
 
 
+
 <div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow">
-<p class="wp-block-paragraph">Display face-to-face conversations as large text on iPhone. Hold to record, or tap to start and stop. Adjust text size and orientation to suit the person reading.</p>
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p class="wp-block-paragraph"></p>
+</blockquote>
 
 
-<h2 class="wp-block-heading">Start on your iPhone.</h2>
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
 
 
-<p class="wp-block-paragraph">On-device transcription is the default. It needs no OpenAI API key or API charge, and never automatically switches to an external service when unavailable. On-device support depends on your device and recognition data.</p>
+
+<p class="wp-block-paragraph"></p>
 
 
-<h2 class="wp-block-heading">Make the text comfortable to read.</h2>
+
+<p class="wp-block-paragraph">Use it for conversations at home, or in places where you need to keep your voice down. It helps you communicate comfortably with the person in front of you.</p>
 
 
-<p class="wp-block-paragraph">Choose horizontal or vertical text, scrolling or automatic fitting. Choose the spoken language separately from the interface language. The app does not translate. Revisit completed text in local history, and delete individual entries or all entries. Audio is not stored in history.</p>
+
+<h2 class="wp-block-heading">■ Make the text comfortable to read</h2>
 
 
-<h2 class="wp-block-heading">Choose whether to use an external service.</h2>
+
+<p class="wp-block-paragraph">Adjust the text size to suit the reader. Turn your iPhone sideways to show text across a wider screen, or switch to vertical writing.</p>
 
 
-<p class="wp-block-paragraph">OpenAI API and Hybrid are optional. Only after you choose and consent to one of these modes does the app send recorded audio to OpenAI after recording ends, using your own API key. API charges and network costs are your responsibility, separate from any ChatGPT subscription.</p>
+
+<p class="wp-block-paragraph">When you are facing each other, tap the button at the top right to rotate the text toward the other person. You can keep operating the phone while they read it the right way up.</p>
 
 
-<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>Apple Watch input and sharing with nearby iPhones</summary>
-<p class="wp-block-paragraph">Both are experimental. Watch audio is transcribed on the paired iPhone. Nearby sharing sends text only from one speaking iPhone to up to seven viewing iPhones after both sides verify the connection. Each app must stay in the foreground. Final physical-device verification is not yet complete.</p>
 
-</details>
+<h2 class="wp-block-heading">■ Show words as you speak, or after you finish</h2>
 
 
-<h2 class="wp-block-heading">Before recording or sharing</h2>
+
+<p class="wp-block-paragraph">Seeing words appear as you speak can make a conversation easier to follow. For some readers, though, text that keeps changing while speech is being recognized can be harder to read.</p>
 
 
-<p class="wp-block-paragraph">Tell every participant and obtain permission. Automatic transcription can be wrong. Do not rely on the display alone for medical, emergency, contractual, or other critical decisions.</p>
 
+<p class="wp-block-paragraph">You can therefore choose to show text as you speak or display the complete sentence after you finish. Choose what suits the other person, whether speed or a calmer reading experience matters more.</p>
+
+
+
+<p class="wp-block-paragraph">To speak, hold the button at the bottom of the screen and release it when you finish. If holding a button is difficult, you can switch to tapping to start and stop.</p>
+
+
+
+<h2 class="wp-block-heading">■ Make questions easier to recognize</h2>
+
+
+
+<p class="wp-block-paragraph">Your tone of voice may make a question clear, but the same words in text may not.</p>
+
+
+
+<p class="wp-block-paragraph">A button that adds a question mark can help. Use separate buttons for ordinary speech and questions to make it easier for the reader to tell when you are asking something.</p>
+
+
+
+<p class="wp-block-paragraph">You can arrange up to three buttons and assign your preferred settings to each one.</p>
+
+
+
+<h2 class="wp-block-heading">■ Keep the screen near the reader and the microphone near you</h2>
+
+
+
+<p class="wp-block-paragraph">Moving the iPhone closer to the reader can make it harder for the microphone to pick up the speaker’s voice.</p>
+
+
+
+<p class="wp-block-paragraph">If you have an Apple Watch, you can speak into the microphone on your wrist and display the text on your iPhone. Leave the screen near the reader while speaking into your watch.</p>
+
+
+
+<p class="wp-block-paragraph">With another iPhone nearby, you can also use separate devices for speaking and reading. Speak into your iPhone and the text appears on the other person’s iPhone too.</p>
+
+
+
+<p class="wp-block-paragraph">You can also use the app with just one iPhone. Start with the phone you already have and an everyday conversation.</p>
+
+
+
+<h2 class="wp-block-heading">────────────<br>More about pricing and speech recognition<br>────────────</h2>
+
+
+
+<h2 class="wp-block-heading">■ Free features and a ¥100 one-time purchase</h2>
+
+
+
+<p class="wp-block-paragraph">Basic on-device transcription is free with no usage limit. Use one or two input buttons and display text as you speak. Adjusting text size and orientation, face-to-face display, and history are also free.</p>
+
+
+
+<p class="wp-block-paragraph">You can also try the following extra features free up to 50 times each week.</p>
+
+
+
+<p class="wp-block-paragraph">· Use three input buttons<br>· Add a question mark<br>· Display the complete text after you finish speaking<br>· Connect an Apple Watch<br>· Transcribe using your own API key<br>· Share text with nearby iPhones</p>
+
+
+
+<p class="wp-block-paragraph">All of these features share one allowance. Each transcription that uses an eligible feature counts as one use, even if several features are used together. Choosing a setting does not use the allowance. It resets every Sunday at midnight.</p>
+
+
+
+<p class="wp-block-paragraph">After all 50 uses have been used, you can still continue basic transcription without these extra features.</p>
+
+
+
+<p class="wp-block-paragraph">A ¥100 one-time in-app purchase gives you access to all features without the weekly usage limit. There is no monthly fee and no separate purchase for each feature.</p>
+
+
+
+<h2 class="wp-block-heading">■ If you want to use another speech recognition service</h2>
+
+
+
+<p class="wp-block-paragraph">Standard transcription processes speech without sending audio off your device. If you are concerned about the accuracy of on-device transcription, you can choose a mode that uses the OpenAI API.</p>
+
+
+
+<p class="wp-block-paragraph">In OpenAI API mode, audio is sent after recording ends and the result appears when processing is complete. In Hybrid mode, on-device results appear as you speak and are replaced by OpenAI’s result after recording ends.</p>
+
+
+
+<p class="wp-block-paragraph">You need your own OpenAI API key and an internet connection. OpenAI usage charges are separate from the ¥100 purchase and also apply when you use the free allowance of 50 uses per week.</p>
+
+
+
+<h2 class="wp-block-heading">■ Conditions of use</h2>
+
+
+
+<p class="wp-block-paragraph">When using Apple Watch, the app must remain open on both your iPhone and Watch. Nearby iPhone sharing supports one sending device and up to seven receiving devices, with the app open on each device.</p>
+
+
+
+<p class="wp-block-paragraph">On-device transcription may be unavailable depending on the device, language, and whether recognition data is ready.</p>
+
+
+
+<p class="wp-block-paragraph">Transcription can contain errors. Confirm important information with the other person as you use the app.</p>
 </div>
-
-
-<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>Free features and one-time purchase</summary>
-
-<p class="wp-block-paragraph">The planned release includes iPhone transcription, large text, face-to-face display, Watch input, every transcription mode, and receiving and displaying text from another device at no charge.</p>
-
-
-<p class="wp-block-paragraph">Only the sender that starts nearby text sharing needs a one-time in-app purchase. It unlocks sharing with one to seven supported viewing devices together; receivers do not need to purchase. There is no subscription, and purchases can be restored. Check the price on the purchase screen. Optional OpenAI API charges are separate from this purchase.</p>
-
-</details>
-
-
-<div class="wp-block-group info-contact is-layout-flow wp-block-group-is-layout-flow">
-<p class="wp-block-paragraph"><a href="/apps/en/support/tsutawaru-moji/">Support</a></p>
-
-
-<p class="wp-block-paragraph"><a href="/apps/en/privacy/tsutawaru-moji/">Privacy Policy</a></p>
-
-
-<p class="wp-block-paragraph"><a href="/apps/en/contact/">Contact</a></p>
-
-</div>
-
 </article>
-
 </div>
 </main>
 
-<footer class="wp-block-template-part"><footer class="site-footer"><div><a class="site-mark" href="/apps/en/"><span class="site-mark-dot" aria-hidden="true"></span><span>Apps</span></a><p>Independent apps that began with something I wanted to use myself.</p></div><nav aria-label="Footer navigation"><a href="/apps/en/#apps">Apps</a><a href="/apps/en/contact/">Contact</a><a href="#top">Back to top ↑</a></nav></footer>
-</footer>
+<footer class="wp-block-template-part"><footer class="site-footer"><div><a class="site-mark" href="/apps/en/"><span class="site-mark-dot" aria-hidden="true"></span><span>Apps</span></a><p>Designed with real situations in mind, with care for how things look and work.</p></div><nav aria-label="Footer navigation"><a href="/apps/en/#apps">Apps</a><a href="/apps/en/contact/">Contact</a><a href="#top">Back to top ↑</a></nav></footer></footer>
 </div>
 
 

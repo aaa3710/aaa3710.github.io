@@ -25,9 +25,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
 /*# sourceURL=/wp-includes/blocks/heading/style.min.css */
 </style>
-<style id="wp-block-details-inline-css">
-.wp-block-details{box-sizing:border-box}.wp-block-details summary{cursor:pointer}
-/*# sourceURL=/wp-includes/blocks/details/style.min.css */
+<style id="wp-block-separator-inline-css">
+@charset "UTF-8";.wp-block-separator{border:none;border-top:2px solid}:root :where(.wp-block-separator.is-style-dots){height:auto;line-height:1;text-align:center}:root :where(.wp-block-separator.is-style-dots):before{color:currentColor;content:"···";font-family:serif;font-size:1.5em;letter-spacing:2em;padding-left:2em}.wp-block-separator.is-style-dots{background:none!important;border:none!important}
+/*# sourceURL=/wp-includes/blocks/separator/style.min.css */
 </style>
 <style id="wp-block-post-content-inline-css">
 .wp-block-post-content{display:flow-root}
@@ -86,25 +86,34 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 </div>
 
-<nav class="app-navigation" aria-label="このアプリのページ"><a href="/apps/focus-exposure-calculator/" aria-current="page">紹介</a><a href="/apps/support/focus-exposure-calculator/">サポート</a><a href="/apps/privacy/focus-exposure-calculator/">プライバシー</a></nav>
-
-<h1 class="wp-block-heading"><span class="readable-unit">ピントと</span><wbr><span class="readable-unit">露出を、</span><wbr><span class="readable-unit">撮る</span><wbr><span class="readable-unit">前に</span><wbr><span class="readable-unit">確かめる。</span></h1>
 
 
-<p class="info-intro wp-block-paragraph"><span class="readable-unit">ピントを</span><wbr><span class="readable-unit">置く</span><wbr><span class="readable-unit">距離と</span><wbr><span class="readable-unit">絞りから、</span><wbr><span class="readable-unit">どの</span><wbr><span class="readable-unit">範囲まで</span><wbr><span class="readable-unit">合って</span><wbr><span class="readable-unit">見えるかを</span><wbr><span class="readable-unit">確かめる</span><wbr><span class="readable-unit">iPhoneアプリです。</span><wbr><span class="readable-unit">マニュアルフォーカスの</span><wbr><span class="readable-unit">カメラや</span><wbr><span class="readable-unit">レンズで、</span><wbr><span class="readable-unit">撮影前の</span><wbr><span class="readable-unit">計算を</span><wbr><span class="readable-unit">手早く</span><wbr><span class="readable-unit">済ませたい</span><wbr><span class="readable-unit">ときに</span><wbr><span class="readable-unit">使えます。</span></p>
-
-
-<p class="release-status wp-block-paragraph"><span class="readable-unit">App Storeでの</span><wbr><span class="readable-unit">公開を</span><wbr><span class="readable-unit">準備中です。</span></p>
-
-</header>
 
 
 <p class="policy-date wp-block-paragraph"><span class="readable-unit">iPhone・iOS 17以降</span><wbr><span class="readable-unit"> ／ 日本語・英語 ／ 初回配信予定地域：日本</span></p>
 
 
-<div class="wp-block-group info-sections is-layout-flow wp-block-group-is-layout-flow">
+<p class="release-status wp-block-paragraph"><span class="readable-unit">App Storeでの</span><wbr><span class="readable-unit">公開を</span><wbr><span class="readable-unit">準備中です。</span></p>
+
+<div class="wp-block-buttons apps-store-link"><div class="wp-block-button"><span class="wp-block-button__link wp-element-button" aria-disabled="true">App Store配信準備中</span></div></div>
+<nav class="app-navigation" aria-label="このアプリのページ"><a href="/apps/focus-exposure-calculator/" aria-current="page">紹介</a><a href="/apps/support/focus-exposure-calculator/">サポート</a><a href="/apps/privacy/focus-exposure-calculator/">プライバシー</a></nav>
+
+<h1 class="wp-block-heading app-overview-title"><span class="readable-unit">ピントと</span><wbr><span class="readable-unit">露出を、</span><wbr><span class="readable-unit">撮る</span><wbr><span class="readable-unit">前に</span><wbr><span class="readable-unit">確かめる。</span></h1>
+
+
+<p class="app-overview-lead wp-block-paragraph"><span class="readable-unit">ピントを</span><wbr><span class="readable-unit">置く</span><wbr><span class="readable-unit">距離と</span><wbr><span class="readable-unit">絞りから、</span><wbr><span class="readable-unit">どの</span><wbr><span class="readable-unit">範囲まで</span><wbr><span class="readable-unit">合って</span><wbr><span class="readable-unit">見えるかを</span><wbr><span class="readable-unit">確かめる</span><wbr><span class="readable-unit">iPhoneアプリです。</span><wbr><span class="readable-unit">マニュアルフォーカスの</span><wbr><span class="readable-unit">カメラや</span><wbr><span class="readable-unit">レンズで、</span><wbr><span class="readable-unit">撮影前の</span><wbr><span class="readable-unit">計算を</span><wbr><span class="readable-unit">手早く</span><wbr><span class="readable-unit">済ませたい</span><wbr><span class="readable-unit">ときに</span><wbr><span class="readable-unit">使えます。</span></p>
+
+</header>
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+
+<div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow">
 <section class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
-<h2 class="wp-block-heading"><span class="readable-unit">ピントの</span><wbr><span class="readable-unit">範囲</span></h2>
+<h2 class="wp-block-heading"><span class="readable-unit">■ ピントの</span><wbr><span class="readable-unit">範囲</span></h2>
 
 
 <p class="wp-block-paragraph"><span class="readable-unit">手前と</span><wbr><span class="readable-unit">奥の</span><wbr><span class="readable-unit">境界を</span><wbr><span class="readable-unit">大きく</span><wbr><span class="readable-unit">表示します。</span><wbr><span class="readable-unit">この</span><wbr><span class="readable-unit">範囲は</span><wbr><span class="readable-unit">「被写界深度」と</span><wbr><span class="readable-unit">呼ばれます。</span><wbr><span class="readable-unit">境界の</span><wbr><span class="readable-unit">外では、</span><wbr><span class="readable-unit">ぼけが</span><wbr><span class="readable-unit">どのように</span><wbr><span class="readable-unit">増えるかを</span><wbr><span class="readable-unit">曲線で</span><wbr><span class="readable-unit">確認でき、</span><wbr><span class="readable-unit">絞りや</span><wbr><span class="readable-unit">ピント位置を</span><wbr><span class="readable-unit">変えた</span><wbr><span class="readable-unit">場合も</span><wbr><span class="readable-unit">比べられます。</span></p>
@@ -113,7 +122,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 
 <section class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
-<h2 class="wp-block-heading">センサーサイズ</h2>
+<h2 class="wp-block-heading">■ センサーサイズ</h2>
 
 
 <p class="wp-block-paragraph"><span class="readable-unit">スマートフォンから</span><wbr><span class="readable-unit">中判まで、</span><wbr><span class="readable-unit">代表的な</span><wbr><span class="readable-unit">センサーの</span><wbr><span class="readable-unit">大きさを</span><wbr><span class="readable-unit">同じ</span><wbr><span class="readable-unit">縮尺で</span><wbr><span class="readable-unit">並べます。</span><wbr><span class="readable-unit">対応端末では</span><wbr><span class="readable-unit">実寸表示も</span><wbr><span class="readable-unit">利用でき、</span><wbr><span class="readable-unit">幅、</span><wbr><span class="readable-unit">高さ、</span><wbr><span class="readable-unit">対角線、</span><wbr><span class="readable-unit">面積の</span><wbr><span class="readable-unit">違いも</span><wbr><span class="readable-unit">比べられます。</span></p>
@@ -122,7 +131,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 
 <section class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
-<h2 class="wp-block-heading"><span class="readable-unit">露出の</span><wbr><span class="readable-unit">組み合わせ</span></h2>
+<h2 class="wp-block-heading"><span class="readable-unit">■ 露出の</span><wbr><span class="readable-unit">組み合わせ</span></h2>
 
 
 <p class="wp-block-paragraph"><span class="readable-unit">絞り・シャッター速度・ISOの</span><wbr><span class="readable-unit">関係を、</span><wbr><span class="readable-unit">いつもの</span><wbr><span class="readable-unit">カメラの</span><wbr><span class="readable-unit">設定値と、</span><wbr><span class="readable-unit">露出を</span><wbr><span class="readable-unit">計算する</span><wbr><span class="readable-unit">APEXと</span><wbr><span class="readable-unit">いう</span><wbr><span class="readable-unit">仕組みの</span><wbr><span class="readable-unit">両方で</span><wbr><span class="readable-unit">確認できます。</span><wbr><span class="readable-unit">大判カメラや</span><wbr><span class="readable-unit">接写で</span><wbr><span class="readable-unit">必要に</span><wbr><span class="readable-unit">なる、</span><wbr><span class="readable-unit">蛇腹の</span><wbr><span class="readable-unit">長さに</span><wbr><span class="readable-unit">よる</span><wbr><span class="readable-unit">露出補正も</span><wbr><span class="readable-unit">別の</span><wbr><span class="readable-unit">画面で</span><wbr><span class="readable-unit">計算できます。</span></p>
@@ -133,13 +142,15 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 
 <div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow">
-<h2 class="wp-block-heading"><span class="readable-unit">撮影前の</span><wbr><span class="readable-unit">目安と</span><wbr><span class="readable-unit">してお使いください。</span></h2>
+<h2 class="wp-block-heading"><span class="readable-unit">■ 撮影前の</span><wbr><span class="readable-unit">目安と</span><wbr><span class="readable-unit">してお使いください。</span></h2>
 
 
 <p class="wp-block-paragraph"><span class="readable-unit">実際の</span><wbr><span class="readable-unit">写りは、</span><wbr><span class="readable-unit">レンズの</span><wbr><span class="readable-unit">特性、</span><wbr><span class="readable-unit">回折、</span><wbr><span class="readable-unit">手ぶれ、</span><wbr><span class="readable-unit">被写体の</span><wbr><span class="readable-unit">動き、</span><wbr><span class="readable-unit">カメラ内の</span><wbr><span class="readable-unit">画像処理などでも</span><wbr><span class="readable-unit">変わります。</span><wbr><span class="readable-unit">大切な</span><wbr><span class="readable-unit">撮影では、</span><wbr><span class="readable-unit">試し撮りや</span><wbr><span class="readable-unit">カメラの</span><wbr><span class="readable-unit">表示、</span><wbr><span class="readable-unit">露出計でも</span><wbr><span class="readable-unit">確認してください。</span></p>
 
 
-<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary><span class="readable-unit">こんな</span><wbr><span class="readable-unit">ときに</span></summary>
+<div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow">
+<h2 class="wp-block-heading"><span class="readable-unit">■ こんな</span><wbr><span class="readable-unit">ときに</span></h2>
+
 <section class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
 <h3 class="wp-block-heading"><span class="readable-unit">スナップの</span><wbr><span class="readable-unit">前に</span></h3>
 
@@ -166,32 +177,37 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 </section>
 
-</details>
+</div>
 
 
-<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary><span class="readable-unit">この</span><wbr><span class="readable-unit">アプリを</span><wbr><span class="readable-unit">作った</span><wbr><span class="readable-unit">理由</span></summary>
+<div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow">
+<h2 class="wp-block-heading"><span class="readable-unit">■ この</span><wbr><span class="readable-unit">アプリを</span><wbr><span class="readable-unit">作った</span><wbr><span class="readable-unit">理由</span></h2>
+
 <p class="wp-block-paragraph"><span class="readable-unit">ピント位置と</span><wbr><span class="readable-unit">絞りを</span><wbr><span class="readable-unit">先に</span><wbr><span class="readable-unit">決めて</span><wbr><span class="readable-unit">おけば、</span><wbr><span class="readable-unit">撮影中に</span><wbr><span class="readable-unit">考える</span><wbr><span class="readable-unit">ことを</span><wbr><span class="readable-unit">減らせます。</span><wbr><span class="readable-unit">ただ、</span><wbr><span class="readable-unit">そのたびに</span><wbr><span class="readable-unit">被写界深度を</span><wbr><span class="readable-unit">手計算するのは</span><wbr><span class="readable-unit">面倒でした。</span><wbr><span class="readable-unit">そこで、</span><wbr><span class="readable-unit">iPhoneですぐに</span><wbr><span class="readable-unit">範囲を</span><wbr><span class="readable-unit">確認できる、</span><wbr><span class="readable-unit">自分でも</span><wbr><span class="readable-unit">使いたい</span><wbr><span class="readable-unit">道具と</span><wbr><span class="readable-unit">して</span><wbr><span class="readable-unit">「撮影のものさし」を</span><wbr><span class="readable-unit">作り</span><wbr><span class="readable-unit">始めました。</span></p>
 
-</details>
+</div>
 
 
-<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>プライバシー</summary>
+<div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow">
+<h2 class="wp-block-heading">■ プライバシー</h2>
+
 <p class="wp-block-paragraph"><span class="readable-unit">計算値と</span><wbr><span class="readable-unit">設定は</span><wbr><span class="readable-unit">iPhone内に</span><wbr><span class="readable-unit">保存され、</span><wbr><span class="readable-unit">自動送信されません。</span><wbr><span class="readable-unit">アカウント、</span><wbr><span class="readable-unit">広告、</span><wbr><span class="readable-unit">解析、</span><wbr><span class="readable-unit">追跡は</span><wbr><span class="readable-unit">ありません。</span><wbr><span class="readable-unit">自分で</span><wbr><span class="readable-unit">開く</span><wbr><span class="readable-unit">Webページや</span><wbr><span class="readable-unit">TestFlightでの</span><wbr><span class="readable-unit">取扱いは、</span><wbr><span class="readable-unit">プライバシーの</span><wbr><span class="readable-unit">ページを</span><wbr><span class="readable-unit">ご確認ください。</span></p>
 
 
 <p class="wp-block-paragraph"><a href="/apps/privacy/focus-exposure-calculator/">プライバシー</a></p>
 
-</details>
+</div>
 
 </div>
 
 </article>
 
+
+
 </div>
 </main>
 
-<footer class="wp-block-template-part"><footer class="site-footer"><div><a class="site-mark" href="/apps/"><span class="site-mark-dot" aria-hidden="true"></span><span>Apps</span></a><p>自分で使いたいと思ったところから、ひとつずつ作っています。</p></div><nav aria-label="フッターナビゲーション"><a href="/apps/#apps">アプリ</a><a href="/apps/contact/">お問い合わせ</a><a href="#top">先頭へ ↑</a></nav></footer>
-</footer>
+<footer class="wp-block-template-part"><footer class="site-footer"><div><a class="site-mark" href="/apps/"><span class="site-mark-dot" aria-hidden="true"></span><span>Apps</span></a><p>実際に使う場面を考えて、表示や操作を工夫しています。</p></div><nav aria-label="フッターナビゲーション"><a href="/apps/#apps">アプリ</a><a href="/apps/contact/">お問い合わせ</a><a href="#top">先頭へ ↑</a></nav></footer></footer>
 </div>
 
 

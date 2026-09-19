@@ -15,6 +15,22 @@ function apps_english($route = '') { return str_starts_with($route ?: apps_route
 function apps_pair_route($route) {
     return apps_english($route) ? '/apps/' . substr($route, 9) : '/apps/en/' . substr($route, 6);
 }
+// Keep an unpublished destination visible without sending visitors to a missing page.
+function apps_store_link_render($attributes) {
+    $en = apps_english();
+    $developer = ($attributes['kind'] ?? 'app') === 'developer';
+    $url = $attributes['url'] ?? '';
+    $path = $developer ? 'developer' : 'app';
+    $valid = is_string($url) && preg_match('~^https://apps\.apple\.com/(?:[a-z]{2}/)?' . $path . '/(?:[^/?#]+/)?id[0-9]+(?:\?l=[a-zA-Z-]+)?$~', $url);
+    $ready = !empty($attributes['available']) && $valid;
+    $label = $developer
+        ? ($en ? 'View all apps on the App Store' : 'App Storeのアプリ一覧')
+        : ($en ? 'View on the App Store' : 'App Storeで見る');
+    $button = $ready
+        ? '<a class="wp-block-button__link wp-element-button" href="' . esc_url($url) . '">' . esc_html($label) . '</a>'
+        : '<span class="wp-block-button__link wp-element-button" aria-disabled="true">' . esc_html($developer ? ($en ? 'App Store listing in preparation' : 'App Storeの一覧を準備中') : ($en ? 'App Store release in preparation' : 'App Store配信準備中')) . '</span>';
+    return '<div class="wp-block-buttons apps-store-link"><div class="wp-block-button">' . $button . '</div></div>';
+}
 function apps_partner($id) {
     $page = get_page_by_path(trim(apps_pair_route(apps_route($id)), '/'));
     return $page ? $page->ID : 0;
@@ -72,6 +88,12 @@ add_action('init', function () {
         'attributes' => ['area' => ['type' => 'string', 'default' => 'app'], 'captionJa' => ['type' => 'string'], 'captionEn' => ['type' => 'string']],
         'editor_script' => 'apps-editor-blocks',
         'render_callback' => 'apps_nav_render',
+    ]);
+    register_block_type('apps/store-link', [
+        'api_version' => 3,
+        'attributes' => ['kind' => ['type' => 'string', 'default' => 'app'], 'url' => ['type' => 'string', 'default' => ''], 'available' => ['type' => 'boolean', 'default' => false]],
+        'editor_script' => 'apps-editor-blocks',
+        'render_callback' => 'apps_store_link_render',
     ]);
 });
 add_filter('language_attributes', function ($attributes) {

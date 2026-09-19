@@ -1,4 +1,6 @@
-# このプロジェクトで毎回守る前提
+# アプリ管理内のWeb作業で守る前提
+
+- 旧アプリ認知は2026-09-20に管理へ統合済み。このdirectoryは同一projectのWeb原本・公開用repoであり、別projectへ相談を回さない。本人意思・原稿入力案の入口は親directoryのREADME/OWNER_INTENTを使う。
 
 - アプリ公開・運営に関する本人の意思は[本人の意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md)を唯一の内容正本とする。意思に関わる判断・本人への再質問・引継ぎ前に現在値を読み、新しい意思や訂正を受けたら[参照・更新手順](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/SKILL.md#本人の意思を参照更新する)に従って更新する。本文をこのAGENTSへ複製せず、未反映を完了扱いしない。
 
@@ -8,7 +10,7 @@
 - 最終的には現在までに制作した全アプリを扱う。数を固定せず、新しいアプリが増えたら一覧へ追加する。
 - アプリ一覧 `/apps/`（英語 `/apps/en/`）は全アプリの入口とし、一つのアプリだけをサイト全体のように見せない。ヘッダーへアプリ名を列挙せず、一覧から探せる構造にする。
 - 撮影計算アプリの採用名・サブタイトル・Bundle IDは管理のOWNER_INTENTと本体の現行metadataを参照する。現行公開面へ反映し、内部履歴・素材名・安定URL識別子を無差別な一括置換で壊さない。ほかのアプリは、公開可能な機能と現行画面が確定するまで名前と準備状況だけに留め、推測で説明を増やさない。
-- 担当は[担当境界の正本](/Users/minatosuzuki/work_local/アプリ開発共通事項/README.md#関連projectとの責任境界)、命名は[本人の命名方針](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md#全アプリ共通の命名方針)に従う。公開表現・構成・素材計画はこのrepoの担当とし、機能事実・実画面の証拠は各アプリの正本へ戻る。既存原稿・素材の保存場所と担当は区別し、別repoの正本を変更する時は[project間の連携手順](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/references/project-coordination.md)でactive編集との競合を先に確認する。原稿の並行正本を作らない。
+- 担当は[担当境界の正本](/Users/minatosuzuki/work_local/アプリ開発共通事項/README.md#関連projectとの責任境界)、命名は[本人の命名方針](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md#全アプリ共通の命名方針)に従う。公開表現・構成・素材計画は管理project内のこのdirectoryで担当とし、機能事実・実画面の証拠は各アプリの正本へ戻る。既存原稿・素材の保存場所と担当は区別し、別repoの正本を変更する時は[project間の連携手順](/Users/minatosuzuki/work_local/アプリ開発共通事項/スキル/app-design-philosophy/references/project-coordination.md)でactive編集との競合を先に確認する。原稿の並行正本を作らない。
 - 共通する制作姿勢は「使う人の判断を減らす」「普段は浅く、必要時だけ深く」「限界や未確認点を隠さない」。これを誇大な売り文句ではなく、ページ構造と操作体験で示す。
 - 一般向けの見出しは利用場面と得られる変化から始める。APEX、錯乱円、テスト件数など、説明のない専門用語や開発工程を大見出しにしない。
 - 人へ見せる変更の最後に、制作時の会話を知らない初見の読者として、自然な日英、情報の順序、390px前後とデスクトップ幅、主要導線、実素材との一致を独立して確認する。

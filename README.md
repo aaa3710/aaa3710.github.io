@@ -1,5 +1,7 @@
 # Apps website
 
+2026-09-20に旧アプリ認知をアプリ管理の `website/` へ統合しました。作業入口・本人意思・リリース原稿/入力案は [アプリ管理](../README.md)へ一本化しています。既存のGitHub Pages用Git履歴と非公開WordPress原本は保持しています。
+
 個人制作アプリを見つけ、内容を誤解せずに紹介・サポートへ進める日英対応サイトです。公開サイトはGitHub Pages、Webの編集原本はこのMacのWordPress Studioです。
 
 ## 編集する
