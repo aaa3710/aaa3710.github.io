@@ -511,6 +511,19 @@ for (const locale of locales) {
     if (kind === 'contact' || kind === 'feedback') {
       const iframeTags = tags(html, 'iframe');
       if (formReadiness[kind]) {
+        const descriptions = [
+          'description',
+          'og:description',
+          'twitter:description',
+        ].flatMap((name) => metaValues(metaTags, name));
+        check(
+          !descriptions.some((text) =>
+            /準備中|送信できません|being prepared|cannot be sent yet/i.test(
+              text,
+            ),
+          ),
+          `${routePath}: active intake has an obsolete unavailable description`,
+        );
         if (!wordpressIntakes)
           check(
             html.includes(

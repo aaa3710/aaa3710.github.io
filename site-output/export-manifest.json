@@ -413,13 +413,13 @@
     },
     {
       "path": "apps/contact.html",
-      "bytes": 29819,
-      "sha256": "3401e1f53cfb59e3e54e95ba3f37d84bdabb230feb22b23add08805011b02dab"
+      "bytes": 30175,
+      "sha256": "7713175236659264fa3e49376f3e5c19c98372c7417fd217b7c14ccfa427ffeb"
     },
     {
       "path": "apps/contact/index.html",
-      "bytes": 29819,
-      "sha256": "3401e1f53cfb59e3e54e95ba3f37d84bdabb230feb22b23add08805011b02dab"
+      "bytes": 30175,
+      "sha256": "7713175236659264fa3e49376f3e5c19c98372c7417fd217b7c14ccfa427ffeb"
     },
     {
       "path": "apps/context-english.html",
@@ -448,13 +448,13 @@
     },
     {
       "path": "apps/en/contact.html",
-      "bytes": 25896,
-      "sha256": "c7e3ea9742b3405024e793ac2305a737af86885dfd7cca099ad1457035e582c6"
+      "bytes": 25972,
+      "sha256": "10d46a25cd6e177afefb9614f48e829bf00879856e373140958faf6577ab2ea2"
     },
     {
       "path": "apps/en/contact/index.html",
-      "bytes": 25896,
-      "sha256": "c7e3ea9742b3405024e793ac2305a737af86885dfd7cca099ad1457035e582c6"
+      "bytes": 25972,
+      "sha256": "10d46a25cd6e177afefb9614f48e829bf00879856e373140958faf6577ab2ea2"
     },
     {
       "path": "apps/en/context-english.html",
@@ -508,13 +508,13 @@
     },
     {
       "path": "apps/en/feedback/focus-exposure-calculator.html",
-      "bytes": 34462,
-      "sha256": "a93e0ec35c5b038aff595857c3c4cc01d69f90fb38b54986bc474838f582f8cb"
+      "bytes": 34542,
+      "sha256": "6c722c141f0a7e58f3082c1cc01ac2846ddae3bf744405f7e4afe087a6636981"
     },
     {
       "path": "apps/en/feedback/focus-exposure-calculator/index.html",
-      "bytes": 34462,
-      "sha256": "a93e0ec35c5b038aff595857c3c4cc01d69f90fb38b54986bc474838f582f8cb"
+      "bytes": 34542,
+      "sha256": "6c722c141f0a7e58f3082c1cc01ac2846ddae3bf744405f7e4afe087a6636981"
     },
     {
       "path": "apps/en/feedback/location-logger.html",
@@ -603,13 +603,13 @@
     },
     {
       "path": "apps/en/mastery-steps.html",
-      "bytes": 38410,
-      "sha256": "c6a93d8fd70aea4764afdb3af9ea5fd7116b9f9beed30539b1d45f4e31821593"
+      "bytes": 38505,
+      "sha256": "73d89bfc472eb5f7579df1c60c3c90b47cce162745ba8888943e99e0845b18bf"
     },
     {
       "path": "apps/en/mastery-steps/index.html",
-      "bytes": 38410,
-      "sha256": "c6a93d8fd70aea4764afdb3af9ea5fd7116b9f9beed30539b1d45f4e31821593"
+      "bytes": 38505,
+      "sha256": "73d89bfc472eb5f7579df1c60c3c90b47cce162745ba8888943e99e0845b18bf"
     },
     {
       "path": "apps/en/privacy/card-relay.html",
@@ -623,13 +623,13 @@
     },
     {
       "path": "apps/en/privacy/context-english.html",
-      "bytes": 44815,
-      "sha256": "39c37189d1e7d294f0758439d28a6d5686db0f726c6aa55bf4351dd91425a3ed"
+      "bytes": 44945,
+      "sha256": "3500f516df4fe2373a26cc4b3c1c9a0a4aa17933367776857910520119283645"
     },
     {
       "path": "apps/en/privacy/context-english/index.html",
-      "bytes": 44815,
-      "sha256": "39c37189d1e7d294f0758439d28a6d5686db0f726c6aa55bf4351dd91425a3ed"
+      "bytes": 44945,
+      "sha256": "3500f516df4fe2373a26cc4b3c1c9a0a4aa17933367776857910520119283645"
     },
     {
       "path": "apps/en/privacy/focus-exposure-calculator.html",
@@ -653,13 +653,13 @@
     },
     {
       "path": "apps/en/privacy/mastery-steps.html",
-      "bytes": 43642,
-      "sha256": "2dfb8f06eebb42347a7d22bb74beab1da2d1d848104195ab18f99fcc933e4483"
+      "bytes": 44058,
+      "sha256": "aa591c26a7eb5f772d4b7f77244fb7159fba81024d8f526c17b6c9c4993e04f0"
     },
     {
       "path": "apps/en/privacy/mastery-steps/index.html",
-      "bytes": 43642,
-      "sha256": "2dfb8f06eebb42347a7d22bb74beab1da2d1d848104195ab18f99fcc933e4483"
+      "bytes": 44058,
+      "sha256": "aa591c26a7eb5f772d4b7f77244fb7159fba81024d8f526c17b6c9c4993e04f0"
     },
     {
       "path": "apps/en/privacy/spatial-fold.html",
@@ -713,13 +713,13 @@
     },
     {
       "path": "apps/en/support/context-english.html",
-      "bytes": 36401,
-      "sha256": "95b4f23e12d08c1fd06f6f087f870e8191f54ccd71aa4b974b5e6bdb8057eff4"
+      "bytes": 36600,
+      "sha256": "aa10827eddfd5b971531188f61b81746ceb447ad1726a18716586ee424a96200"
     },
     {
       "path": "apps/en/support/context-english/index.html",
-      "bytes": 36401,
-      "sha256": "95b4f23e12d08c1fd06f6f087f870e8191f54ccd71aa4b974b5e6bdb8057eff4"
+      "bytes": 36600,
+      "sha256": "aa10827eddfd5b971531188f61b81746ceb447ad1726a18716586ee424a96200"
     },
     {
       "path": "apps/en/support/focus-exposure-calculator.html",
@@ -743,13 +743,13 @@
     },
     {
       "path": "apps/en/support/mastery-steps.html",
-      "bytes": 39339,
-      "sha256": "a99232d1abef96520797d3a5fcf69730a62f64415e7ba8a535e15ce87d39d891"
+      "bytes": 39302,
+      "sha256": "12cf9f2c91cdfe2b6dab2b6eec8f8c20f1c7cf7e9686f33243a08c53b5af310a"
     },
     {
       "path": "apps/en/support/mastery-steps/index.html",
-      "bytes": 39339,
-      "sha256": "a99232d1abef96520797d3a5fcf69730a62f64415e7ba8a535e15ce87d39d891"
+      "bytes": 39302,
+      "sha256": "12cf9f2c91cdfe2b6dab2b6eec8f8c20f1c7cf7e9686f33243a08c53b5af310a"
     },
     {
       "path": "apps/en/support/spatial-fold.html",
@@ -853,13 +853,13 @@
     },
     {
       "path": "apps/feedback/focus-exposure-calculator.html",
-      "bytes": 37342,
-      "sha256": "0b0e504147a4a3200b25172749802bfa56dd4e5777e96016c88a509b45277876"
+      "bytes": 37438,
+      "sha256": "44aa11c2dc6bdf85d4718da5b1a5de43bedc530c2f08f87edef33b5efe2ee1ad"
     },
     {
       "path": "apps/feedback/focus-exposure-calculator/index.html",
-      "bytes": 37342,
-      "sha256": "0b0e504147a4a3200b25172749802bfa56dd4e5777e96016c88a509b45277876"
+      "bytes": 37438,
+      "sha256": "44aa11c2dc6bdf85d4718da5b1a5de43bedc530c2f08f87edef33b5efe2ee1ad"
     },
     {
       "path": "apps/feedback/location-logger.html",
@@ -948,13 +948,13 @@
     },
     {
       "path": "apps/mastery-steps.html",
-      "bytes": 50729,
-      "sha256": "1b25529c0fc715b0a18266a8721244e2c2384019b1e868ee4084a3e6813795c5"
+      "bytes": 51223,
+      "sha256": "54eafeb0a567425caa051a803fbe5a119674aeae0c70d555bd4249916c7b3661"
     },
     {
       "path": "apps/mastery-steps/index.html",
-      "bytes": 50729,
-      "sha256": "1b25529c0fc715b0a18266a8721244e2c2384019b1e868ee4084a3e6813795c5"
+      "bytes": 51223,
+      "sha256": "54eafeb0a567425caa051a803fbe5a119674aeae0c70d555bd4249916c7b3661"
     },
     {
       "path": "apps/privacy/card-relay.html",
@@ -968,13 +968,13 @@
     },
     {
       "path": "apps/privacy/context-english.html",
-      "bytes": 71695,
-      "sha256": "0c9d558e1234e39cf7715ac017a0348e21686086a64f4a1417ef5503fee119ab"
+      "bytes": 71848,
+      "sha256": "1fe28fbf978b4c409193ba510aca1dee4ce6be7ba3dfaa6c1f28992d13bcc7f9"
     },
     {
       "path": "apps/privacy/context-english/index.html",
-      "bytes": 71695,
-      "sha256": "0c9d558e1234e39cf7715ac017a0348e21686086a64f4a1417ef5503fee119ab"
+      "bytes": 71848,
+      "sha256": "1fe28fbf978b4c409193ba510aca1dee4ce6be7ba3dfaa6c1f28992d13bcc7f9"
     },
     {
       "path": "apps/privacy/focus-exposure-calculator.html",
@@ -998,13 +998,13 @@
     },
     {
       "path": "apps/privacy/mastery-steps.html",
-      "bytes": 67309,
-      "sha256": "1c2156eab46cf58b47de49cff3338e9d5bbe30c6e0906ed0a0195ae86260b255"
+      "bytes": 69575,
+      "sha256": "15efe2bfad78a5af0f1745b3b7b7311e4f08704bef22094b3d6d54ed966e44e7"
     },
     {
       "path": "apps/privacy/mastery-steps/index.html",
-      "bytes": 67309,
-      "sha256": "1c2156eab46cf58b47de49cff3338e9d5bbe30c6e0906ed0a0195ae86260b255"
+      "bytes": 69575,
+      "sha256": "15efe2bfad78a5af0f1745b3b7b7311e4f08704bef22094b3d6d54ed966e44e7"
     },
     {
       "path": "apps/privacy/spatial-fold.html",
@@ -1058,13 +1058,13 @@
     },
     {
       "path": "apps/support/context-english.html",
-      "bytes": 44582,
-      "sha256": "1784b1b859661131b2947214db408f442bed4c3931e8e397016310ddd63913db"
+      "bytes": 44830,
+      "sha256": "c95b1b93c5b70ac78318d6065ae89a69da47d0d91f72e1eef3db07db4db5104e"
     },
     {
       "path": "apps/support/context-english/index.html",
-      "bytes": 44582,
-      "sha256": "1784b1b859661131b2947214db408f442bed4c3931e8e397016310ddd63913db"
+      "bytes": 44830,
+      "sha256": "c95b1b93c5b70ac78318d6065ae89a69da47d0d91f72e1eef3db07db4db5104e"
     },
     {
       "path": "apps/support/focus-exposure-calculator.html",
@@ -1088,13 +1088,13 @@
     },
     {
       "path": "apps/support/mastery-steps.html",
-      "bytes": 56643,
-      "sha256": "26bc63db96f0690799b77bc7cb30469a4b79554804d5269d0d0fefec740b095e"
+      "bytes": 56651,
+      "sha256": "40f4d046b5f14e1cdaa060b522fe903d5d6050c43105d284feec3abbbbd720d5"
     },
     {
       "path": "apps/support/mastery-steps/index.html",
-      "bytes": 56643,
-      "sha256": "26bc63db96f0690799b77bc7cb30469a4b79554804d5269d0d0fefec740b095e"
+      "bytes": 56651,
+      "sha256": "40f4d046b5f14e1cdaa060b522fe903d5d6050c43105d284feec3abbbbd720d5"
     },
     {
       "path": "apps/support/spatial-fold.html",
