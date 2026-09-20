@@ -10,4 +10,4 @@
 
 WordPress16ページの保存前一致検査・保存後全文読戻し成功。原本のバックアップは非公開の`work/wordpress/backups/20260920-latest-public-copy-before.json`。390px幅の道の記録と英文アプリ、通常幅1150pxの道の記録を目視確認し、横はみ出しなし。表示幅は確認後に解除。
 
-採用候補は`work/wordpress/exports/2026-09-20T00-58-53Z`。全68必須ページ・113経路・226 HTML・3552検査、WordPress原本と242ファイル一致。公開結果はPROJECT_CONTEXTへ記録する。
+採用候補は`work/wordpress/exports/2026-09-20T00-58-53Z`。全68必須ページ・113経路・226 HTML・3552検査、WordPress原本と242ファイル一致。公開完了。配信commit `ccaff123b1eb4942605fe94db42edff54bdd9558`、[Actions 35480338253](https://github.com/aaa3710/aaa3710.github.io/actions/runs/35480338253)はbuild／deploy成功。変更26ページ＋新アイコン1件が全件HTTP200・候補とバイト一致。 公開先の照合は26ページと画像の全27件で成功。

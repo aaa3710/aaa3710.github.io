@@ -1,5 +1,11 @@
 # アプリ管理のWeb制作
 
+## 開発中アプリの最新状態の公開同期（2026-09-20）
+
+公開完了。配信commit `ccaff123b1eb4942605fe94db42edff54bdd9558`、[Actions 35480338253](https://github.com/aaa3710/aaa3710.github.io/actions/runs/35480338253)はbuild／deploy成功。変更26ページ＋新アイコン1件が全件HTTP200・候補とバイト一致。
+
+[今回の変更・照合](wordpress/current-state-sync-2026-09-20.md)。原本242ファイル一致、53テスト・format・lint・build・3552検査成功。新アイコン、確定した無料枠、端末内キャッシュ、正式名称と配布準備表示を日英で同期した。以降の古い未公開・確認待ちは当時の履歴。
+
 ## フォーム改名完了・App IDからのリンク接続（2026-09-20 後続）
 
 公開完了: commit `c506489c9d2d87296a479b4af0678cf817f4015b`、[Actions 35479496426](https://github.com/aaa3710/aaa3710.github.io/actions/runs/35479496426)成功。変更8ページは全件HTTP200・候補と完全一致。
