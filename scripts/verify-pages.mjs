@@ -681,12 +681,21 @@ for (const locale of locales) {
       !/<iframe|<form\b|<input|<textarea/.test(html),
       `${routePath}: unconfirmed input UI present`,
     );
+    // The owner requested direct links built from the confirmed Apple app ID.
+    // This permits only this app's exact link on its overview, not other URLs.
+    const confirmedStoreUrl =
+      'https://apps.apple.com/jp/app/id6808933286' +
+      (locale === 'en' ? '?l=en' : '');
+    const unverifiedLinks =
+      kind === 'app'
+        ? raw.replaceAll(`href="${confirmedStoreUrl}"`, 'href=""')
+        : raw;
     check(
       !(
         intakeReady
           ? /mailto:|apps\.apple\.com/
           : /docs\.google\.com\/forms|forms\.gle|mailto:|apps\.apple\.com/
-      ).test(raw),
+      ).test(unverifiedLinks),
       `${routePath}: unverified form, email or Store URL`,
     );
     check(

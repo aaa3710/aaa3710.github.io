@@ -498,13 +498,13 @@
     },
     {
       "path": "apps/en/feedback/context-english.html",
-      "bytes": 41797,
-      "sha256": "13d100fe78024a7e27e77b6f71e502a7eba4ba62a5ab25cc392bd7db8f1c7104"
+      "bytes": 41624,
+      "sha256": "223d2a04f2d1b676b82d4139f3ecceba8c4b27da5fd60c45b650f62a581c82df"
     },
     {
       "path": "apps/en/feedback/context-english/index.html",
-      "bytes": 41797,
-      "sha256": "13d100fe78024a7e27e77b6f71e502a7eba4ba62a5ab25cc392bd7db8f1c7104"
+      "bytes": 41624,
+      "sha256": "223d2a04f2d1b676b82d4139f3ecceba8c4b27da5fd60c45b650f62a581c82df"
     },
     {
       "path": "apps/en/feedback/focus-exposure-calculator.html",
@@ -568,13 +568,13 @@
     },
     {
       "path": "apps/en/focus-exposure-calculator.html",
-      "bytes": 38743,
-      "sha256": "7cf8e73d0bcf9b5d8e60fe0eb4ec07adda0e0a3fd4f4bacb86da0285082b65c2"
+      "bytes": 38760,
+      "sha256": "bff2ea52c82a5e5f061c4dcba7bc75acbeb6969ce08afcdaa3434608e2c6b145"
     },
     {
       "path": "apps/en/focus-exposure-calculator/index.html",
-      "bytes": 38743,
-      "sha256": "7cf8e73d0bcf9b5d8e60fe0eb4ec07adda0e0a3fd4f4bacb86da0285082b65c2"
+      "bytes": 38760,
+      "sha256": "bff2ea52c82a5e5f061c4dcba7bc75acbeb6969ce08afcdaa3434608e2c6b145"
     },
     {
       "path": "apps/en/genome-notebook.html",
@@ -793,23 +793,23 @@
     },
     {
       "path": "apps/en/tsutawaru-moji.html",
-      "bytes": 41677,
-      "sha256": "b0e88f03bcf670ff3e1a7bd1a6203a937d4b0d0491907ab532c475a1e09792c4"
+      "bytes": 41694,
+      "sha256": "3fb8e08a090331f4e5b9cfb0ccaafe5c97f0ab664912da633a467c6a9b91fc32"
     },
     {
       "path": "apps/en/tsutawaru-moji/index.html",
-      "bytes": 41677,
-      "sha256": "b0e88f03bcf670ff3e1a7bd1a6203a937d4b0d0491907ab532c475a1e09792c4"
+      "bytes": 41694,
+      "sha256": "3fb8e08a090331f4e5b9cfb0ccaafe5c97f0ab664912da633a467c6a9b91fc32"
     },
     {
       "path": "apps/en/wrist-morse.html",
-      "bytes": 36885,
-      "sha256": "8ba06afbe0ad342b2319ced736d5c8466d6d2b9026f605374231542484f5a278"
+      "bytes": 36902,
+      "sha256": "4a92b580c955cb95c82fef1f5f9cb7551a652b4ac082e60f49a7755ae702b468"
     },
     {
       "path": "apps/en/wrist-morse/index.html",
-      "bytes": 36885,
-      "sha256": "8ba06afbe0ad342b2319ced736d5c8466d6d2b9026f605374231542484f5a278"
+      "bytes": 36902,
+      "sha256": "4a92b580c955cb95c82fef1f5f9cb7551a652b4ac082e60f49a7755ae702b468"
     },
     {
       "path": "apps/feedback-import.html",
@@ -843,13 +843,13 @@
     },
     {
       "path": "apps/feedback/context-english.html",
-      "bytes": 51471,
-      "sha256": "b5c369a0314500df00d69cd42fe2c5bd12f8967b1b6b08efd484683d1a372819"
+      "bytes": 50945,
+      "sha256": "55123f60df277bae6327a4df18b2675634b456bf0e5fd2218ef03b03ffca33a5"
     },
     {
       "path": "apps/feedback/context-english/index.html",
-      "bytes": 51471,
-      "sha256": "b5c369a0314500df00d69cd42fe2c5bd12f8967b1b6b08efd484683d1a372819"
+      "bytes": 50945,
+      "sha256": "55123f60df277bae6327a4df18b2675634b456bf0e5fd2218ef03b03ffca33a5"
     },
     {
       "path": "apps/feedback/focus-exposure-calculator.html",
@@ -913,13 +913,13 @@
     },
     {
       "path": "apps/focus-exposure-calculator.html",
-      "bytes": 47248,
-      "sha256": "12d08f4440890eb1abc7ee0aaa6301f5df1a4758e14dd9cfb864617bace59c79"
+      "bytes": 47265,
+      "sha256": "9d51fbcf095eb5591de6ef13ac944dd38b42b98f591bdf6f5e801cbd20804e81"
     },
     {
       "path": "apps/focus-exposure-calculator/index.html",
-      "bytes": 47248,
-      "sha256": "12d08f4440890eb1abc7ee0aaa6301f5df1a4758e14dd9cfb864617bace59c79"
+      "bytes": 47265,
+      "sha256": "9d51fbcf095eb5591de6ef13ac944dd38b42b98f591bdf6f5e801cbd20804e81"
     },
     {
       "path": "apps/genome-notebook.html",
@@ -1138,23 +1138,23 @@
     },
     {
       "path": "apps/tsutawaru-moji.html",
-      "bytes": 60364,
-      "sha256": "9835b54070722b7e41b6d0cf43b6d70b477b02b825c91549a9c6c9471d969fc8"
+      "bytes": 60381,
+      "sha256": "15d92e838f4c0bed50ada9e55b760890c360d94bc4eae704bc3bc866a5b95855"
     },
     {
       "path": "apps/tsutawaru-moji/index.html",
-      "bytes": 60364,
-      "sha256": "9835b54070722b7e41b6d0cf43b6d70b477b02b825c91549a9c6c9471d969fc8"
+      "bytes": 60381,
+      "sha256": "15d92e838f4c0bed50ada9e55b760890c360d94bc4eae704bc3bc866a5b95855"
     },
     {
       "path": "apps/wrist-morse.html",
-      "bytes": 43691,
-      "sha256": "8b3ccbca4faecf0a6385ccb485edc40ade2f4db67f338e351ae7447335be6060"
+      "bytes": 43708,
+      "sha256": "be530cee5182203fe6ce5a99bd17679b2407e245fa97f33c89b16eed8fe8592a"
     },
     {
       "path": "apps/wrist-morse/index.html",
-      "bytes": 43691,
-      "sha256": "8b3ccbca4faecf0a6385ccb485edc40ade2f4db67f338e351ae7447335be6060"
+      "bytes": 43708,
+      "sha256": "be530cee5182203fe6ce5a99bd17679b2407e245fa97f33c89b16eed8fe8592a"
     },
     {
       "path": "contact.html",
