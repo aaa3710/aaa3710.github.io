@@ -937,7 +937,7 @@ for (const locale of locales) {
             // Accept only the verified release icon or the historical site mark.
             // Exact hashes keep unrelated captures and unverified images blocked.
             if (
-              !/^\/wp-content\/uploads\/\d{4}\/\d{2}\/location-logger-(?:site-mark\.svg|release-icon\.png)$/.test(
+              !/^\/wp-content\/uploads\/\d{4}\/\d{2}\/location-logger-(?:site-mark\.svg|selected-20260920\.png)$/.test(
                 image.src ?? '',
               )
             )
@@ -948,8 +948,8 @@ for (const locale of locales) {
               createHash('sha256')
                 .update(await readFile(file))
                 .digest('hex') ===
-              (image.src.endsWith('release-icon.png')
-                ? '7f1390ad19c830176d6fe466ca254759df6e68bcf4fbee86a1d0a0b17ec6419c'
+              (image.src.endsWith('selected-20260920.png')
+                ? 'b1d384102bc6385a28b6e56cd287f75e3433d92193ba09c1d7d09875e5764768'
                 : '9077b5953d9d80cce8be851780f22f63893e44031c80646cc604f53d8c15d85c')
             );
           }),

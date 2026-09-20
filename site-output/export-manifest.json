@@ -398,18 +398,18 @@
     },
     {
       "path": "apps.html",
-      "bytes": 44682,
-      "sha256": "720918f80f2233ecb07ab1b843372707fa60b241ae9ef8ffb9f4ae58496ced64"
+      "bytes": 44687,
+      "sha256": "2935e3f0c14c9820a9c723f51c8c21b21345a555b151da41a73bc58b3472420e"
     },
     {
       "path": "apps/card-relay.html",
       "bytes": 43157,
-      "sha256": "5069a7ad1c214c1afe06d198629c4974851d0ef3257690c01820f9ca09876a68"
+      "sha256": "2202fc382dba116b3a929820d9e8b5e862ba02144d5d1738b5c8155b920f1921"
     },
     {
       "path": "apps/card-relay/index.html",
       "bytes": 43157,
-      "sha256": "5069a7ad1c214c1afe06d198629c4974851d0ef3257690c01820f9ca09876a68"
+      "sha256": "2202fc382dba116b3a929820d9e8b5e862ba02144d5d1738b5c8155b920f1921"
     },
     {
       "path": "apps/contact.html",
@@ -423,28 +423,28 @@
     },
     {
       "path": "apps/context-english.html",
-      "bytes": 49142,
-      "sha256": "665846f7311e02db14fbb38fb977c74f3c34fa8a4330e03ed0087e29dfc9acab"
+      "bytes": 49361,
+      "sha256": "31f2a193f694ae347cd93a3047ff1c01f77a7a44ae871010bcc01d64f1402266"
     },
     {
       "path": "apps/context-english/index.html",
-      "bytes": 49142,
-      "sha256": "665846f7311e02db14fbb38fb977c74f3c34fa8a4330e03ed0087e29dfc9acab"
+      "bytes": 49361,
+      "sha256": "31f2a193f694ae347cd93a3047ff1c01f77a7a44ae871010bcc01d64f1402266"
     },
     {
       "path": "apps/en.html",
-      "bytes": 40818,
-      "sha256": "8d4ef2153583e9a2774ba286cd44ae4e0069e23874babac9375631711cba60a2"
+      "bytes": 40823,
+      "sha256": "999cc7c30b3e28bcb08b759e4b8ee1d73f97b4f072c598c3c0f368eab2ee5690"
     },
     {
       "path": "apps/en/card-relay.html",
-      "bytes": 36775,
-      "sha256": "4d321d2e5239d36b4a49374e50148d031df270ab06cebf157978caa89b8aaec6"
+      "bytes": 36765,
+      "sha256": "31d09bc59e52b154c3d2e3c00739c00f69b9c946208d8b4a3ed2cf3dacbb89b4"
     },
     {
       "path": "apps/en/card-relay/index.html",
-      "bytes": 36775,
-      "sha256": "4d321d2e5239d36b4a49374e50148d031df270ab06cebf157978caa89b8aaec6"
+      "bytes": 36765,
+      "sha256": "31d09bc59e52b154c3d2e3c00739c00f69b9c946208d8b4a3ed2cf3dacbb89b4"
     },
     {
       "path": "apps/en/contact.html",
@@ -458,13 +458,13 @@
     },
     {
       "path": "apps/en/context-english.html",
-      "bytes": 38235,
-      "sha256": "d12652be1528ddd4d76c6f6f8f9813df7489050860889214279c7f0a266663ae"
+      "bytes": 38270,
+      "sha256": "55df2abca7c80507b8f992cf07e0daeb038cd335640ae871cffb6e00fbd7c387"
     },
     {
       "path": "apps/en/context-english/index.html",
-      "bytes": 38235,
-      "sha256": "d12652be1528ddd4d76c6f6f8f9813df7489050860889214279c7f0a266663ae"
+      "bytes": 38270,
+      "sha256": "55df2abca7c80507b8f992cf07e0daeb038cd335640ae871cffb6e00fbd7c387"
     },
     {
       "path": "apps/en/feedback-import.html",
@@ -518,13 +518,13 @@
     },
     {
       "path": "apps/en/feedback/location-logger.html",
-      "bytes": 41632,
-      "sha256": "4f7dc6f120deb16146544a16b5e9312a661c2b438f911768ea1f49edfaf6c97b"
+      "bytes": 41637,
+      "sha256": "0e8ac0086363177c7e6d7dfb0b165669cb9499f69ed8b4b2bb1e2d45e980b479"
     },
     {
       "path": "apps/en/feedback/location-logger/index.html",
-      "bytes": 41632,
-      "sha256": "4f7dc6f120deb16146544a16b5e9312a661c2b438f911768ea1f49edfaf6c97b"
+      "bytes": 41637,
+      "sha256": "0e8ac0086363177c7e6d7dfb0b165669cb9499f69ed8b4b2bb1e2d45e980b479"
     },
     {
       "path": "apps/en/feedback/mastery-steps.html",
@@ -578,48 +578,48 @@
     },
     {
       "path": "apps/en/genome-notebook.html",
-      "bytes": 24654,
-      "sha256": "b64f64ecf148f9b592c07a8149d56c6b21da7f11d8efc698333caa76070a0f0b"
+      "bytes": 24644,
+      "sha256": "109b5d3b350fc24707e2a6b282e7a3d229bc9cc66d1d7a3094a16a2ac028091a"
     },
     {
       "path": "apps/en/genome-notebook/index.html",
-      "bytes": 24654,
-      "sha256": "b64f64ecf148f9b592c07a8149d56c6b21da7f11d8efc698333caa76070a0f0b"
+      "bytes": 24644,
+      "sha256": "109b5d3b350fc24707e2a6b282e7a3d229bc9cc66d1d7a3094a16a2ac028091a"
     },
     {
       "path": "apps/en/index.html",
-      "bytes": 40818,
-      "sha256": "8d4ef2153583e9a2774ba286cd44ae4e0069e23874babac9375631711cba60a2"
+      "bytes": 40823,
+      "sha256": "999cc7c30b3e28bcb08b759e4b8ee1d73f97b4f072c598c3c0f368eab2ee5690"
     },
     {
       "path": "apps/en/location-logger.html",
-      "bytes": 40274,
-      "sha256": "398fd74d21b2eec8a3734602f74fe341faae4899448d901680eda759fcd2b17f"
+      "bytes": 40269,
+      "sha256": "e7a2aa20ac073dd734ea43533ae469861bf2d65369019f78c52b6294bfd9fad9"
     },
     {
       "path": "apps/en/location-logger/index.html",
-      "bytes": 40274,
-      "sha256": "398fd74d21b2eec8a3734602f74fe341faae4899448d901680eda759fcd2b17f"
+      "bytes": 40269,
+      "sha256": "e7a2aa20ac073dd734ea43533ae469861bf2d65369019f78c52b6294bfd9fad9"
     },
     {
       "path": "apps/en/mastery-steps.html",
-      "bytes": 38420,
-      "sha256": "916e0caa2ecf78c5952c62e471264df976137e51e750b0875d2d8fbc791acbac"
+      "bytes": 38410,
+      "sha256": "c6a93d8fd70aea4764afdb3af9ea5fd7116b9f9beed30539b1d45f4e31821593"
     },
     {
       "path": "apps/en/mastery-steps/index.html",
-      "bytes": 38420,
-      "sha256": "916e0caa2ecf78c5952c62e471264df976137e51e750b0875d2d8fbc791acbac"
+      "bytes": 38410,
+      "sha256": "c6a93d8fd70aea4764afdb3af9ea5fd7116b9f9beed30539b1d45f4e31821593"
     },
     {
       "path": "apps/en/privacy/card-relay.html",
-      "bytes": 45143,
-      "sha256": "5bcd2ed5e3479dafc15be216bd17a2de260f1faa6fd30914b7b6038096a6ebda"
+      "bytes": 45372,
+      "sha256": "cb429812b432704d5d9af50e006d142caae50d3cd4766b78208361cc2fa5dadf"
     },
     {
       "path": "apps/en/privacy/card-relay/index.html",
-      "bytes": 45143,
-      "sha256": "5bcd2ed5e3479dafc15be216bd17a2de260f1faa6fd30914b7b6038096a6ebda"
+      "bytes": 45372,
+      "sha256": "cb429812b432704d5d9af50e006d142caae50d3cd4766b78208361cc2fa5dadf"
     },
     {
       "path": "apps/en/privacy/context-english.html",
@@ -643,13 +643,13 @@
     },
     {
       "path": "apps/en/privacy/location-logger.html",
-      "bytes": 51614,
-      "sha256": "c7916c864622d83465ed7778d304976e92fb3d41cdb45aa4fc4df71bc313b1e2"
+      "bytes": 51619,
+      "sha256": "3a94efab36a240a7e176b0b462b1935e181fb1e3b9fad8228a8ef9cfd4307177"
     },
     {
       "path": "apps/en/privacy/location-logger/index.html",
-      "bytes": 51614,
-      "sha256": "c7916c864622d83465ed7778d304976e92fb3d41cdb45aa4fc4df71bc313b1e2"
+      "bytes": 51619,
+      "sha256": "3a94efab36a240a7e176b0b462b1935e181fb1e3b9fad8228a8ef9cfd4307177"
     },
     {
       "path": "apps/en/privacy/mastery-steps.html",
@@ -693,13 +693,13 @@
     },
     {
       "path": "apps/en/spatial-fold.html",
-      "bytes": 37228,
-      "sha256": "8efe53bd6c4935d91f567bd1c20c27bae35d4be793dda8995ba425e6873e0ca2"
+      "bytes": 37218,
+      "sha256": "dc7551a5c9f5887340792c62b7536ce3ec2942ba443f02b58474cfcd85e81ed7"
     },
     {
       "path": "apps/en/spatial-fold/index.html",
-      "bytes": 37228,
-      "sha256": "8efe53bd6c4935d91f567bd1c20c27bae35d4be793dda8995ba425e6873e0ca2"
+      "bytes": 37218,
+      "sha256": "dc7551a5c9f5887340792c62b7536ce3ec2942ba443f02b58474cfcd85e81ed7"
     },
     {
       "path": "apps/en/support/card-relay.html",
@@ -733,13 +733,13 @@
     },
     {
       "path": "apps/en/support/location-logger.html",
-      "bytes": 38816,
-      "sha256": "d7bcf0697e1250c574343233b5a9d237e1ef5511c594b48f5974d63bb9c7511c"
+      "bytes": 38821,
+      "sha256": "97ff4a56c4d83a95904d26c24954328db100b69b7e16bf81f720d9808341d0ab"
     },
     {
       "path": "apps/en/support/location-logger/index.html",
-      "bytes": 38816,
-      "sha256": "d7bcf0697e1250c574343233b5a9d237e1ef5511c594b48f5974d63bb9c7511c"
+      "bytes": 38821,
+      "sha256": "97ff4a56c4d83a95904d26c24954328db100b69b7e16bf81f720d9808341d0ab"
     },
     {
       "path": "apps/en/support/mastery-steps.html",
@@ -783,23 +783,23 @@
     },
     {
       "path": "apps/en/task-rail.html",
-      "bytes": 24588,
-      "sha256": "9df8265a7e016f16f3d008f342d33278c5fa01f0c43ac5a17197436183c72d4f"
+      "bytes": 24578,
+      "sha256": "3249f317112d85913f9e3244e8a2113d69f5331187682c4108933e45e19c368b"
     },
     {
       "path": "apps/en/task-rail/index.html",
-      "bytes": 24588,
-      "sha256": "9df8265a7e016f16f3d008f342d33278c5fa01f0c43ac5a17197436183c72d4f"
+      "bytes": 24578,
+      "sha256": "3249f317112d85913f9e3244e8a2113d69f5331187682c4108933e45e19c368b"
     },
     {
       "path": "apps/en/tsutawaru-moji.html",
-      "bytes": 41694,
-      "sha256": "3fb8e08a090331f4e5b9cfb0ccaafe5c97f0ab664912da633a467c6a9b91fc32"
+      "bytes": 41989,
+      "sha256": "8a581d658d7c18cb10dcf2302ce4e6cb89c53dacac6270b95ebb92375457d231"
     },
     {
       "path": "apps/en/tsutawaru-moji/index.html",
-      "bytes": 41694,
-      "sha256": "3fb8e08a090331f4e5b9cfb0ccaafe5c97f0ab664912da633a467c6a9b91fc32"
+      "bytes": 41989,
+      "sha256": "8a581d658d7c18cb10dcf2302ce4e6cb89c53dacac6270b95ebb92375457d231"
     },
     {
       "path": "apps/en/wrist-morse.html",
@@ -863,13 +863,13 @@
     },
     {
       "path": "apps/feedback/location-logger.html",
-      "bytes": 50870,
-      "sha256": "495701c9bd5e82425e2d152e07f8373cc2d277e74c4a9e099a69c765f9758cec"
+      "bytes": 50875,
+      "sha256": "e6d6c88acbf2d9018b9397ea1fc1c496d796a7fe46dac7a65b525a4997baa655"
     },
     {
       "path": "apps/feedback/location-logger/index.html",
-      "bytes": 50870,
-      "sha256": "495701c9bd5e82425e2d152e07f8373cc2d277e74c4a9e099a69c765f9758cec"
+      "bytes": 50875,
+      "sha256": "e6d6c88acbf2d9018b9397ea1fc1c496d796a7fe46dac7a65b525a4997baa655"
     },
     {
       "path": "apps/feedback/mastery-steps.html",
@@ -924,47 +924,47 @@
     {
       "path": "apps/genome-notebook.html",
       "bytes": 24963,
-      "sha256": "108187f4de6b45573a51bfc656025a77c28309ed8aba57b5c19e011a330b8d72"
+      "sha256": "3176e138f9295f943cdd462e4235f695bcb2856f194315e40f7d197c5498a67e"
     },
     {
       "path": "apps/genome-notebook/index.html",
       "bytes": 24963,
-      "sha256": "108187f4de6b45573a51bfc656025a77c28309ed8aba57b5c19e011a330b8d72"
+      "sha256": "3176e138f9295f943cdd462e4235f695bcb2856f194315e40f7d197c5498a67e"
     },
     {
       "path": "apps/index.html",
-      "bytes": 44682,
-      "sha256": "720918f80f2233ecb07ab1b843372707fa60b241ae9ef8ffb9f4ae58496ced64"
+      "bytes": 44687,
+      "sha256": "2935e3f0c14c9820a9c723f51c8c21b21345a555b151da41a73bc58b3472420e"
     },
     {
       "path": "apps/location-logger.html",
-      "bytes": 64313,
-      "sha256": "e54ec0efbba0c54274c07af6033d2d4bf55173c1d8855d0a5e15c29475178046"
+      "bytes": 64318,
+      "sha256": "de1667fe01c427fcbc64351f1e8c553d0585496b03b675b92c1b2da8ecf7ce2d"
     },
     {
       "path": "apps/location-logger/index.html",
-      "bytes": 64313,
-      "sha256": "e54ec0efbba0c54274c07af6033d2d4bf55173c1d8855d0a5e15c29475178046"
+      "bytes": 64318,
+      "sha256": "de1667fe01c427fcbc64351f1e8c553d0585496b03b675b92c1b2da8ecf7ce2d"
     },
     {
       "path": "apps/mastery-steps.html",
       "bytes": 50729,
-      "sha256": "9c3c96a59b6ac21798c8c15f130b94d07bd708db70d398774eae7a6b4bc53317"
+      "sha256": "1b25529c0fc715b0a18266a8721244e2c2384019b1e868ee4084a3e6813795c5"
     },
     {
       "path": "apps/mastery-steps/index.html",
       "bytes": 50729,
-      "sha256": "9c3c96a59b6ac21798c8c15f130b94d07bd708db70d398774eae7a6b4bc53317"
+      "sha256": "1b25529c0fc715b0a18266a8721244e2c2384019b1e868ee4084a3e6813795c5"
     },
     {
       "path": "apps/privacy/card-relay.html",
-      "bytes": 72302,
-      "sha256": "5a64fe8e379f364f842c044924d32668049baaf8055f46fb2548ee38b76aa84e"
+      "bytes": 73466,
+      "sha256": "87ad8a39da2845a73d5ff6b5db115ea4a420a674d9bc569806bed2c1e9bbd7f4"
     },
     {
       "path": "apps/privacy/card-relay/index.html",
-      "bytes": 72302,
-      "sha256": "5a64fe8e379f364f842c044924d32668049baaf8055f46fb2548ee38b76aa84e"
+      "bytes": 73466,
+      "sha256": "87ad8a39da2845a73d5ff6b5db115ea4a420a674d9bc569806bed2c1e9bbd7f4"
     },
     {
       "path": "apps/privacy/context-english.html",
@@ -988,13 +988,13 @@
     },
     {
       "path": "apps/privacy/location-logger.html",
-      "bytes": 95724,
-      "sha256": "471da058944079a9136ec59820e6d236f4b5d843d8914b53568d6b2cb8375b80"
+      "bytes": 95729,
+      "sha256": "e3705dddbe223ca2618234b6b6beb8eb4b3af46de8407ac8007f0422f0b8e169"
     },
     {
       "path": "apps/privacy/location-logger/index.html",
-      "bytes": 95724,
-      "sha256": "471da058944079a9136ec59820e6d236f4b5d843d8914b53568d6b2cb8375b80"
+      "bytes": 95729,
+      "sha256": "e3705dddbe223ca2618234b6b6beb8eb4b3af46de8407ac8007f0422f0b8e169"
     },
     {
       "path": "apps/privacy/mastery-steps.html",
@@ -1039,12 +1039,12 @@
     {
       "path": "apps/spatial-fold.html",
       "bytes": 45034,
-      "sha256": "a6a5e5f6deedbefd93cc0df831b3528e0c6515090dbb6e2950d7e040f5acba79"
+      "sha256": "f56e8fc956a857e7212676b1023c3ec460fec3a3322d9904022a6348e96c6379"
     },
     {
       "path": "apps/spatial-fold/index.html",
       "bytes": 45034,
-      "sha256": "a6a5e5f6deedbefd93cc0df831b3528e0c6515090dbb6e2950d7e040f5acba79"
+      "sha256": "f56e8fc956a857e7212676b1023c3ec460fec3a3322d9904022a6348e96c6379"
     },
     {
       "path": "apps/support/card-relay.html",
@@ -1078,13 +1078,13 @@
     },
     {
       "path": "apps/support/location-logger.html",
-      "bytes": 50770,
-      "sha256": "6f370f4a067a9cd95ce4f5473f7b1efc47c4c30441e27141374cd0ccb21af8f6"
+      "bytes": 50775,
+      "sha256": "0c353e6800e9b1d7221a4968130bebb19c10918e90675d4e2edd05298da08a63"
     },
     {
       "path": "apps/support/location-logger/index.html",
-      "bytes": 50770,
-      "sha256": "6f370f4a067a9cd95ce4f5473f7b1efc47c4c30441e27141374cd0ccb21af8f6"
+      "bytes": 50775,
+      "sha256": "0c353e6800e9b1d7221a4968130bebb19c10918e90675d4e2edd05298da08a63"
     },
     {
       "path": "apps/support/mastery-steps.html",
@@ -1129,22 +1129,22 @@
     {
       "path": "apps/task-rail.html",
       "bytes": 24897,
-      "sha256": "3684454782fca2851fa6ec38e14fb55a5a8523648b65a53628ffe2adb987881d"
+      "sha256": "ba1d456a2d8988f5e32e7e8a55a37bca9bae8e07954d3d49ce7c41cc5248a645"
     },
     {
       "path": "apps/task-rail/index.html",
       "bytes": 24897,
-      "sha256": "3684454782fca2851fa6ec38e14fb55a5a8523648b65a53628ffe2adb987881d"
+      "sha256": "ba1d456a2d8988f5e32e7e8a55a37bca9bae8e07954d3d49ce7c41cc5248a645"
     },
     {
       "path": "apps/tsutawaru-moji.html",
-      "bytes": 60381,
-      "sha256": "15d92e838f4c0bed50ada9e55b760890c360d94bc4eae704bc3bc866a5b95855"
+      "bytes": 62053,
+      "sha256": "8464ea16d00eedc86ba3bc8c1806c2a565fc059ad253f276e77dbbf310865733"
     },
     {
       "path": "apps/tsutawaru-moji/index.html",
-      "bytes": 60381,
-      "sha256": "15d92e838f4c0bed50ada9e55b760890c360d94bc4eae704bc3bc866a5b95855"
+      "bytes": 62053,
+      "sha256": "8464ea16d00eedc86ba3bc8c1806c2a565fc059ad253f276e77dbbf310865733"
     },
     {
       "path": "apps/wrist-morse.html",
@@ -1572,9 +1572,9 @@
       "sha256": "467028c8afa78388590e5390dae9e14c81100be2f5acd166a6dbb4ccdaebc0ab"
     },
     {
-      "path": "wp-content/uploads/2026/09/location-logger-release-icon.png",
-      "bytes": 804573,
-      "sha256": "7f1390ad19c830176d6fe466ca254759df6e68bcf4fbee86a1d0a0b17ec6419c"
+      "path": "wp-content/uploads/2026/09/location-logger-selected-20260920.png",
+      "bytes": 773975,
+      "sha256": "b1d384102bc6385a28b6e56cd287f75e3433d92193ba09c1d7d09875e5764768"
     },
     {
       "path": "wp-content/uploads/2026/09/mastery-steps-current-icon.png",

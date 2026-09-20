@@ -92,7 +92,7 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 <h1 class="wp-block-heading">Privacy Policy</h1>
 
 
-<p class="wp-block-paragraph">Updated: September 13, 2026</p>
+<p class="wp-block-paragraph">Updated: September 20, 2026</p>
 
 </header>
 
@@ -122,7 +122,7 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 </ul>
 
 
-<p class="wp-block-paragraph">Source presets retain folder permissions and import settings. Imported Photo Walk data stays within the playback session and is not written back to photo or location-record files. SQLite input is read from a private temporary copy that is removed after reading; the original database and companion files remain unchanged.</p>
+<p class="wp-block-paragraph">Source presets retain folder permissions and import settings. Imported data is not written back to photo or location-record files. To speed up subsequent reads, parsed location records and a time index are stored in the app’s local Caches directory. This disposable cache is limited to two million points and a 512 MiB database, is excluded from OS backups, and is reused only after checking access to and changes in the originals. SQLite input is read from a private temporary copy that is removed after reading; the original database and companion files remain unchanged.</p>
 
 
 <h2 class="wp-block-heading">Limited external-service boundaries</h2>
@@ -143,7 +143,7 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 <h2 class="wp-block-heading">User control and deletion</h2>
 
 
-<p class="wp-block-paragraph">Users can inspect, move, and delete their files in Finder. The developer holds no remote copy, so local app files remain under your control. Removal of settings, history, and diagnostics in the app’s local area follows macOS app-data management. Removing Save &amp; Replay Photos does not automatically delete photos, XMP sidecars, derivative files, or exported videos in a destination selected by the user.</p>
+<p class="wp-block-paragraph">You can inspect, move and delete files in Finder. The developer holds no remote copy. Settings, history, diagnostics and the location-record cache may remain on the Mac after the app is removed; you can remove them through macOS app-data management. Removing the app does not automatically delete photos, XMP sidecars, derivative files or exported videos in destinations you selected.</p>
 
 
 <h2 class="wp-block-heading">Website and inquiries</h2>

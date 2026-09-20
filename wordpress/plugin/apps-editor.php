@@ -28,7 +28,7 @@ function apps_store_link_render($attributes) {
         : ($en ? 'View on the App Store' : 'App Storeで見る');
     $button = $ready
         ? '<a class="wp-block-button__link wp-element-button" href="' . esc_url($url) . '">' . esc_html($label) . '</a>'
-        : '<span class="wp-block-button__link wp-element-button" aria-disabled="true">' . esc_html($developer ? ($en ? 'App Store listing in preparation' : 'App Storeの一覧を準備中') : ($en ? 'App Store release in preparation' : 'App Store配信準備中')) . '</span>';
+        : '<span class="wp-block-button__link wp-element-button" aria-disabled="true">' . esc_html($developer ? ($en ? 'App Store listing in preparation' : 'App Storeの一覧を準備中') : ($en ? 'Release in preparation' : 'アプリ配布準備中')) . '</span>';
     return '<div class="wp-block-buttons apps-store-link"><div class="wp-block-button">' . $button . '</div></div>';
 }
 function apps_partner($id) {

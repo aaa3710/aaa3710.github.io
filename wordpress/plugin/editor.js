@@ -78,7 +78,7 @@
               onChange: (value) => props.setAttributes({ url: value }),
             }),
             h(components.ToggleControl, {
-              label: '公開ページへの到達を確認済み',
+              label: '公開用のApp Store URLを設定済み',
               checked: !!props.attributes.available,
               onChange: (value) => props.setAttributes({ available: value }),
             }),
