@@ -48,7 +48,7 @@ const result = await exportWordPress({
 });
 const check = spawnSync(
   process.execPath,
-  [path.join(root, 'scripts/verify-pages.mjs')],
+  [path.join(root, 'scripts/verify-pages.mjs'), '--feedback-unified'],
   {
     cwd: root,
     env: {

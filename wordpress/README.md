@@ -65,11 +65,13 @@ Webの文章・配置はWordPressが原本です。機能事実・実画面・�
 
 今回の実績と素材の照合は [2026-09-16の編集記録](format-sync-2026-09-16.md)を参照する。
 
-### 伝わる文字のフィードバック統合
+### 全アプリのフィードバック統合
 
-2026-09-19の本人指定により、このアプリだけ紹介／フィードバック／プライバシーの3タブを使います。正規の問い合わせ入口は既存の `/apps/feedback/tsutawaru-moji/`（英語 `/apps/en/feedback/tsutawaru-moji/`）。旧Supportは日英それぞれへ直接転送し、専用フォームと共通Contactの用途分離、フォームの正規回答者URL、Feedbackのnoindexを維持します。本文は通常どおりWordPressの該当Feedbackページを編集します。
+2026-09-21の本人依頼により、8アプリの日英は紹介／フィードバック／プライバシーの3タブへ統一します。正規入口は `/apps/feedback/<slug>/`（英語 `/apps/en/feedback/<slug>/`）。App Storeの「サポートURL」もこの値を使います。旧Supportと旧root直下aliasは同じ言語のFeedbackへ直接転送し、提出済みの伝わる文字Feedback URLを保持します。
 
-原本では紹介ページの `_apps_feedback_tab=1` と旧Supportページの `_apps_redirect_to` によって接続します。プラグインはローカルで301転送し、静的書き出しは同じ言語の公開済みページへのHTML転送を作ります。転送先不存在・外部URL・多段転送・循環・別言語・検索対象としての転送は書き出しを停止します。詳細と保存状態は[統合記録](tsutawaru-feedback-integration-2026-09-19.md)を参照してください。一般公開は別の明示指示で行います。
+原本の紹介ページ `_apps_feedback_tab=1` と旧Supportの `_apps_redirect_to` が設定正本です。本文は既存Feedbackページで編集し、旧Supportの保存済み本文は復元用に保持します。専用フォームと共通Contactの分離・noindexを維持します。通常表示は送信と問い合わせ、既存の使い方は任意に開く補足です。WordPressでは301、GitHub Pagesでは即時HTML転送と手動リンクになります。
+
+[今回の保存・検証・公開状態](feedback-unification-2026-09-21.md)を参照してください。[9月19日の単独適用](tsutawaru-feedback-integration-2026-09-19.md)は履歴です。一般公開は既存の明示指示方式で行います。
 
 ## Codexが「公開して」と依頼された時
 

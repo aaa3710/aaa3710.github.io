@@ -1,0 +1,340 @@
+{
+  "date": "2026-09-21",
+  "source_objects": 131,
+  "planned_pages": 64,
+  "content_changes": 42,
+  "metadata_changes": 32,
+  "intakes_unchanged": true,
+  "unplanned_changes": [],
+  "support_bodies_preserved": true,
+  "changed_pages": [
+    {
+      "id": 168,
+      "path": "/apps/support/mastery-steps/",
+      "sha256": "82790015f4fb790ac0981c8bba256edff1c2778c20873f88321e6d2e43ddb4ca"
+    },
+    {
+      "id": 169,
+      "path": "/apps/privacy/mastery-steps/",
+      "sha256": "2dcb31a048a03745ab0efd085a881dcac8a305f5e56db3d9e4ddc8cb99907e64"
+    },
+    {
+      "id": 170,
+      "path": "/apps/feedback/mastery-steps/",
+      "sha256": "95765cd91dbed75faaa7279a1e4eb4b9e2261bf283acc6a549444d85f991bf2a"
+    },
+    {
+      "id": 172,
+      "path": "/apps/en/support/mastery-steps/",
+      "sha256": "cf488bdf1ae744b1c374292eed72a08c57134245c816a94ad3c7b6dc01bcea9a"
+    },
+    {
+      "id": 173,
+      "path": "/apps/en/privacy/mastery-steps/",
+      "sha256": "b59eb99b37bf3475c6efce0a4fa1e29a3dcb6741373d2458d74ce9393dbfcc63"
+    },
+    {
+      "id": 174,
+      "path": "/apps/en/feedback/mastery-steps/",
+      "sha256": "92d46003d7c9ef004d376aac82eb5dc363aacf22bc25b6968145efba6f56ea66"
+    },
+    {
+      "id": 176,
+      "path": "/apps/support/spatial-fold/",
+      "sha256": "cc881c4471cbd5a27e5c127c84dd5b9348e9a69f1c46c4881c12fa9bb782470d"
+    },
+    {
+      "id": 177,
+      "path": "/apps/privacy/spatial-fold/",
+      "sha256": "6156cfb024b449405802d86233a7d34513140446dfeb04801666d50ceb6b0879"
+    },
+    {
+      "id": 178,
+      "path": "/apps/feedback/spatial-fold/",
+      "sha256": "af5448c9d20b25ebe4b6063452c249aea40fa5a10a92587693ed9d4ecaefbe45"
+    },
+    {
+      "id": 180,
+      "path": "/apps/en/support/spatial-fold/",
+      "sha256": "c049e3222d0f4c2cf7e52ff5779e0be20734b168ff950b2a72a5385bd2b6fde9"
+    },
+    {
+      "id": 181,
+      "path": "/apps/en/privacy/spatial-fold/",
+      "sha256": "59ef5bf41db24d35d94fc21282e7141a238b2416efda117718a8750577063058"
+    },
+    {
+      "id": 182,
+      "path": "/apps/en/feedback/spatial-fold/",
+      "sha256": "1828b17447fcc68a1006375356bb5c3454fe44c8596e5bc97aad483501aeb34b"
+    },
+    {
+      "id": 256,
+      "path": "/apps/privacy/card-relay/",
+      "sha256": "af7965216e4242de7b9e930d273da343bb5e076e7b09a0293729e112b927c370"
+    },
+    {
+      "id": 257,
+      "path": "/apps/support/card-relay/",
+      "sha256": "f6be8b3409733c331d4f789f5997960c9a4d20fc6d9e8d5355dc8cb80e0e1791"
+    },
+    {
+      "id": 258,
+      "path": "/apps/feedback/card-relay/",
+      "sha256": "bda82223444545718bc9f14b235551dd885aaef9bdd5ad94dc7e92956509d1b4"
+    },
+    {
+      "id": 260,
+      "path": "/apps/en/privacy/card-relay/",
+      "sha256": "28a792bf79a7d5f5244e3691c38e68695867a223079558ceecdc90639de5eef7"
+    },
+    {
+      "id": 261,
+      "path": "/apps/en/support/card-relay/",
+      "sha256": "77300b9b4d40d35cb8557c996a867750f8de8bf5aa6a822f60f76db0a9d89f9a"
+    },
+    {
+      "id": 262,
+      "path": "/apps/en/feedback/card-relay/",
+      "sha256": "4f56518344d1a0bcee17cddd6921e5f15464cd066db4bab48a558395de7b5e53"
+    },
+    {
+      "id": 263,
+      "path": "/apps/context-english/",
+      "sha256": "c091ab1dfa812a79ded990847dc0fbe5dab987f7a74334a83d54a3806f0e0f18"
+    },
+    {
+      "id": 264,
+      "path": "/apps/support/context-english/",
+      "sha256": "acb2a4b6ccc73878fa7ca200698f9854242a410a907575d315c972c7d6fdc9b4"
+    },
+    {
+      "id": 265,
+      "path": "/apps/privacy/context-english/",
+      "sha256": "07c31fddba102d1a51124bafacf3dfdda9d194a19a4e8471575339f3dac74fea"
+    },
+    {
+      "id": 266,
+      "path": "/apps/feedback/context-english/",
+      "sha256": "71e10ae98fdac912a0f0b45fb3c1556813da664d0854818cbed7e8842b40c38b"
+    },
+    {
+      "id": 267,
+      "path": "/apps/en/context-english/",
+      "sha256": "a1584a03a72ac67c018bc5b1086d3bcff9b089bb0a26db4799c99612f2e9607f"
+    },
+    {
+      "id": 268,
+      "path": "/apps/en/support/context-english/",
+      "sha256": "8016faa72b75214c2a68a28d14097a009cc6a6753241c912b2d0c5705561b116"
+    },
+    {
+      "id": 269,
+      "path": "/apps/en/privacy/context-english/",
+      "sha256": "1f0cb6c88c6a32ae334c1dac2fa3199748f3f4d1676e2f4a6245b2b1082ed33f"
+    },
+    {
+      "id": 270,
+      "path": "/apps/en/feedback/context-english/",
+      "sha256": "f25c784733a973eb80285ae98f9433c2a50b4504ac18d6fd619b3975f9af0769"
+    },
+    {
+      "id": 129,
+      "path": "/apps/support/wrist-morse/",
+      "sha256": "f62eeacb802576e356c31384ad351d7583c958a847a9eb01514d47ddd63ded8f"
+    },
+    {
+      "id": 130,
+      "path": "/apps/privacy/wrist-morse/",
+      "sha256": "2cba67365f914fcbd46f5afbdbb20b7954912d40d2a611c1f20a6384ee5590f2"
+    },
+    {
+      "id": 131,
+      "path": "/apps/feedback/wrist-morse/",
+      "sha256": "626452c357841fb42f72a564da6343ea54aa106bcff93ac324ad76a5c6a5bd08"
+    },
+    {
+      "id": 134,
+      "path": "/apps/en/support/wrist-morse/",
+      "sha256": "b012b60f6f8e98e84b6236524e619a427192876a392fd22d9d90ec835e73c5bc"
+    },
+    {
+      "id": 135,
+      "path": "/apps/en/privacy/wrist-morse/",
+      "sha256": "437c36e6e02538613d8705d646ca80b861ede31a83209d396a122607ed4f9a9f"
+    },
+    {
+      "id": 136,
+      "path": "/apps/en/feedback/wrist-morse/",
+      "sha256": "89e5747ce9eb0698254658e56bf47e25a75f43fed35759458377ba898bbf15d7"
+    },
+    {
+      "id": 7,
+      "path": "/apps/card-relay/",
+      "sha256": "c2f1bf4d68531040cff673f7d97a4829e5bce44f04883f06e611434c0033cb5c"
+    },
+    {
+      "id": 9,
+      "path": "/apps/contact/",
+      "sha256": "9e9a3514090d378e0d001a25eeae8ef90ae6de50a450a12b9a5050f7ca89ad6f"
+    },
+    {
+      "id": 13,
+      "path": "/apps/focus-exposure-calculator/",
+      "sha256": "0ef486fc5d22ad706de57fc9e47f622089d3f26a588c0e13e07c8a4ccde93949"
+    },
+    {
+      "id": 17,
+      "path": "/apps/location-logger/",
+      "sha256": "a473bf3588483d6471f0b0370f0110b3af4c62df0eb8719380b0a8bc544fcdc2"
+    },
+    {
+      "id": 19,
+      "path": "/apps/mastery-steps/",
+      "sha256": "a0a8502cd44d4f85bfca943ec0ce35f51ec8c0b548834a8b96981ff056e05416"
+    },
+    {
+      "id": 21,
+      "path": "/apps/spatial-fold/",
+      "sha256": "50b6d0a8a51030f96ab555f45a7f6666c12aac92cd77ec2b27647405015e5638"
+    },
+    {
+      "id": 25,
+      "path": "/apps/tsutawaru-moji/",
+      "sha256": "90d9a909bb834b0834df6533d6176d6e6a8822471f89912af47a8965f510f9f0"
+    },
+    {
+      "id": 27,
+      "path": "/apps/wrist-morse/",
+      "sha256": "a5c2a9e419453c65b939b916e9da58d204278e0766dd69740628a0eb5bd152c4"
+    },
+    {
+      "id": 29,
+      "path": "/apps/en/card-relay/",
+      "sha256": "30a686e2d27d1683bc40cc6888d71c8df3229b15c5b78196b7eea0a8e22e2d39"
+    },
+    {
+      "id": 31,
+      "path": "/apps/en/contact/",
+      "sha256": "300cce6da663d4b21773fead1020b9ed57750fcaf370d122574c8e9748a820ed"
+    },
+    {
+      "id": 33,
+      "path": "/apps/en/focus-exposure-calculator/",
+      "sha256": "979a82312fd2e64e086088dea2e9a12321c1b567e4fc3faf253e9e50070a3976"
+    },
+    {
+      "id": 37,
+      "path": "/apps/en/location-logger/",
+      "sha256": "13bed388378ec733767bb301cdd8bad3a9e10ecad7a5cabedd93252dabd24217"
+    },
+    {
+      "id": 39,
+      "path": "/apps/en/mastery-steps/",
+      "sha256": "8cde9e4a45ca44f05d179ea597946a08692f57872d184e8097cb5c386cf1cb5d"
+    },
+    {
+      "id": 41,
+      "path": "/apps/en/spatial-fold/",
+      "sha256": "919b6ee8f49b9bc021dc841ae0ede8d230849da437bc2978028f62b9b32efd28"
+    },
+    {
+      "id": 45,
+      "path": "/apps/en/tsutawaru-moji/",
+      "sha256": "7544204184964095adf8cf73334186269a584940646fccb228a10bc33d60cc24"
+    },
+    {
+      "id": 47,
+      "path": "/apps/en/wrist-morse/",
+      "sha256": "d4defb10aee72705222229c3b66874d8c1210bdccdfbfa3b7ac39b06a994d7a5"
+    },
+    {
+      "id": 50,
+      "path": "/apps/feedback/focus-exposure-calculator/",
+      "sha256": "73ab002bce697d00e6aef70be0252c5519cfbc4f72db17de5d283dcbf9463769"
+    },
+    {
+      "id": 52,
+      "path": "/apps/feedback/location-logger/",
+      "sha256": "db61e1f74304afafc81804d702053cb7ff3252ef07a3aa88ad864c6b0991d6c0"
+    },
+    {
+      "id": 54,
+      "path": "/apps/feedback/tsutawaru-moji/",
+      "sha256": "68d16f67bb81a64eb9333f32c2a7cf108e7a49978d3b4314a63e9e8e0e240bc7"
+    },
+    {
+      "id": 57,
+      "path": "/apps/privacy/focus-exposure-calculator/",
+      "sha256": "5832594f38dc206cac046de111fc7a5d7513fbc1dea4d0bd389437eca5571791"
+    },
+    {
+      "id": 59,
+      "path": "/apps/privacy/location-logger/",
+      "sha256": "5e7a5d677e35e3422b73b455257f152af8701a78088d2c819d620c7ae93bb5b8"
+    },
+    {
+      "id": 64,
+      "path": "/apps/support/focus-exposure-calculator/",
+      "sha256": "55e4f5c080c8e0275e03f9ce6dc7ffb8183077560524866e1ac15cc490922c54"
+    },
+    {
+      "id": 66,
+      "path": "/apps/support/location-logger/",
+      "sha256": "ef9bdedf9d855c14e6d6c34ddf871c08566aafec065c960fb5e67a6cb6afaf7d"
+    },
+    {
+      "id": 68,
+      "path": "/apps/support/tsutawaru-moji/",
+      "sha256": "25098f92ae9e1878751a0cb4495db2568c6fabb1c0ed44c784d526129f11d75e"
+    },
+    {
+      "id": 71,
+      "path": "/apps/en/feedback/focus-exposure-calculator/",
+      "sha256": "5776a7f06fcc8275254c0e3caee215dd9055159a1122477ee6d957853897c97a"
+    },
+    {
+      "id": 73,
+      "path": "/apps/en/feedback/location-logger/",
+      "sha256": "a01585b7a074af7ab0ba735d8c4a85baf0a5909df3798f20f67e9edc1554fedd"
+    },
+    {
+      "id": 75,
+      "path": "/apps/en/feedback/tsutawaru-moji/",
+      "sha256": "a1dbe054d18b48d918612ea4ee060626d2f39a7725e24def6d3bdf64657f44b9"
+    },
+    {
+      "id": 78,
+      "path": "/apps/en/privacy/focus-exposure-calculator/",
+      "sha256": "79119bd9edd3adecb69ea5449123a32ef304596546e6d44f62edabebc84aafbd"
+    },
+    {
+      "id": 80,
+      "path": "/apps/en/privacy/location-logger/",
+      "sha256": "bed51c788da448b74c2f12c10744938ec40e3f524a08d01a53feff37d728587f"
+    },
+    {
+      "id": 85,
+      "path": "/apps/en/support/focus-exposure-calculator/",
+      "sha256": "699e7b3c73c12f49efa50d54a84ba32010a5757e25d9f2c2568d65e2ca1046d8"
+    },
+    {
+      "id": 87,
+      "path": "/apps/en/support/location-logger/",
+      "sha256": "930a01b917194bc3781a049a0b4fa87709b5e546d6c24a75780be8080a9de624"
+    },
+    {
+      "id": 89,
+      "path": "/apps/en/support/tsutawaru-moji/",
+      "sha256": "af5b5b5188a10019c4c8415fbabbbc0e00fd5dfbcc4344e1f7b445b4588edfa4"
+    }
+  ],
+  "export": "work/wordpress/exports/2026-09-21T05-38-25Z",
+  "required_pages": 68,
+  "generated_routes": 113,
+  "static_assertions": 3280,
+  "web_tests": 53,
+  "layout_checks": 32,
+  "layout_failures": 0,
+  "remote_publish_performed": false
+}

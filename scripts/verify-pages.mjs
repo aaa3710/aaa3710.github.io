@@ -41,6 +41,14 @@ const tsutawaruFeedbackIntegrated = Boolean(
       entry.redirect === '/apps/feedback/tsutawaru-moji/',
   ),
 );
+function feedbackIntegrated(appSlug, locale = 'ja') {
+  const prefix = locale === 'en' ? '/apps/en/' : '/apps/';
+  return snapshotManifest?.routes?.some(
+    (entry) =>
+      entry.path === `${prefix}support/${appSlug}/` &&
+      entry.redirect === `${prefix}feedback/${appSlug}/`,
+  );
+}
 // Preserve verification of historical three-app artifacts while requiring the
 // complete bilingual family whenever Morse has an indexable introduction.
 const morsePublished = Boolean(
@@ -397,6 +405,7 @@ for (const locale of locales) {
     check(present, `${routePath}: prepared index.html is missing`);
     if (!present) continue;
     requiredPages += 1;
+    if (redirects.has(routePath)) continue;
 
     const html = markupOnly(await readFile(file, 'utf8'));
     const anchors = tags(html, 'a');
@@ -467,11 +476,13 @@ for (const locale of locales) {
           `${routePath}: navigation ${index + 1} has no Contact link`,
         );
       check(
-        !navLinks.some(
-          (anchor) =>
-            anchor['aria-label'] !== 'Language / 言語' &&
-            /\/(?:en\/)?feedback\//.test(normalizedLink(anchor.href) ?? ''),
-        ),
+        (feedbackIntegrated(slug, locale) &&
+          /class="app-navigation"/.test(navigation[index][0])) ||
+          !navLinks.some(
+            (anchor) =>
+              anchor['aria-label'] !== 'Language / 言語' &&
+              /\/(?:en\/)?feedback\//.test(normalizedLink(anchor.href) ?? ''),
+          ),
         `${routePath}: ordinary navigation links to app-specific Feedback`,
       );
     }
@@ -498,12 +509,20 @@ for (const locale of locales) {
     }
     if (kind === 'contact') {
       check(
-        linksTo(anchors, route(locale, 'support')),
+        linksTo(
+          anchors,
+          route(
+            locale,
+            feedbackIntegrated(slug, locale) ? 'feedback' : 'support',
+          ),
+        ),
         `${routePath}: Contact has no app Support link`,
       );
       check(
-        !locales.some((targetLocale) =>
-          linksTo(anchors, route(targetLocale, 'feedback')),
+        !locales.some(
+          (targetLocale) =>
+            !feedbackIntegrated(slug, targetLocale) &&
+            linksTo(anchors, route(targetLocale, 'feedback')),
         ),
         `${routePath}: Contact links directly to app Feedback`,
       );
@@ -835,6 +854,7 @@ for (const locale of locales) {
     check(present, `${routePath}: missing LocationLogger page`);
     if (!present) continue;
     requiredPages += 1;
+    if (redirects.has(routePath)) continue;
     const raw = await readFile(pageFile(routePath), 'utf8');
     const html = markupOnly(raw);
     const anchors = tags(html, 'a');
@@ -1026,7 +1046,9 @@ for (const locale of locales) {
       );
     if (kind === 'app')
       check(
-        !linksTo(anchors, appPath('feedback')),
+        feedbackIntegrated('location-logger', locale)
+          ? linksTo(anchors, appPath('feedback'))
+          : !linksTo(anchors, appPath('feedback')),
         `${routePath}: introduction must route feedback via Support`,
       );
     for (const anchor of anchors) {
@@ -1043,11 +1065,18 @@ for (const locale of locales) {
     'a',
   );
   check(
-    linksTo(contact, appPath('support')),
+    linksTo(
+      contact,
+      appPath(
+        feedbackIntegrated('location-logger', locale) ? 'feedback' : 'support',
+      ),
+    ),
     `${prefix}/contact/: LocationLogger support missing`,
   );
   check(
-    !linksTo(contact, appPath('feedback')),
+    feedbackIntegrated('location-logger', locale)
+      ? !linksTo(contact, appPath('support'))
+      : !linksTo(contact, appPath('feedback')),
     `${prefix}/contact/: direct LocationLogger Feedback link`,
   );
   const home = tags(
@@ -1073,6 +1102,7 @@ if (morsePublished) {
       check(present, `${routePath}: missing Morse in Motion page`);
       if (!present) continue;
       requiredPages += 1;
+      if (redirects.has(routePath)) continue;
       const html = markupOnly(await readFile(pageFile(routePath), 'utf8'));
       const anchors = tags(html, 'a');
       const links = tags(html, 'link');
@@ -1163,6 +1193,7 @@ for (const appSlug of additionalPublishedApps) {
       check(present, `${appRoute}: published app family page missing`);
       if (!present) continue;
       requiredPages += 1;
+      if (redirects.has(appRoute)) continue;
       const html = markupOnly(await readFile(pageFile(appRoute), 'utf8'));
       const links = tags(html, 'link');
       const robots = metaValues(tags(html, 'meta'), 'robots');
@@ -1207,6 +1238,42 @@ for (const appSlug of additionalPublishedApps) {
   }
 }
 
+// A fresh export must not silently restore per-app Support/Feedback exceptions.
+if (process.argv.includes('--feedback-unified')) {
+  for (const appSlug of [
+    slug,
+    'tsutawaru-moji',
+    'location-logger',
+    'wrist-morse',
+    ...additionalPublishedApps,
+  ]) {
+    for (const locale of locales) {
+      const prefix = locale === 'en' ? '/apps/en/' : '/apps/';
+      check(
+        feedbackIntegrated(appSlug, locale),
+        `${prefix}${appSlug}: Feedback integration missing`,
+      );
+      const feedbackRoute = `${prefix}feedback/${appSlug}/`;
+      const html = markupOnly(await readFile(pageFile(feedbackRoute), 'utf8'));
+      const anchors = tags(html, 'a');
+      check(
+        linksTo(anchors, `${prefix}contact/`),
+        `${feedbackRoute}: separate Contact missing`,
+      );
+      check(
+        linksTo(anchors, `${prefix}privacy/${appSlug}/`),
+        `${feedbackRoute}: Privacy missing`,
+      );
+      check(
+        anchors.filter((a) =>
+          a.href?.startsWith('https://docs.google.com/forms/'),
+        ).length === 1,
+        `${feedbackRoute}: expected exactly one verified feedback form`,
+      );
+    }
+  }
+}
+
 // Every app exposes three sections; integrated Feedback replaces Support.
 for (const locale of locales) {
   const prefix = locale === 'ja' ? '/apps' : '/apps/en';
@@ -1227,8 +1294,7 @@ for (const locale of locales) {
           /<nav\b[^>]*class="app-navigation"[^>]*>([\s\S]*?)<\/nav>/,
         )?.[1] ?? '';
       const navLinks = tags(nav, 'a');
-      const integrated =
-        appSlug === 'tsutawaru-moji' && tsutawaruFeedbackIntegrated;
+      const integrated = feedbackIntegrated(appSlug, locale);
       const expected = [
         'app',
         integrated ? 'feedback' : 'support',
@@ -1263,7 +1329,11 @@ if (await exists(sitemapFile)) {
   );
   const expected = locales.flatMap((locale) =>
     kinds
-      .filter((kind) => kind !== 'feedback')
+      .filter(
+        (kind) =>
+          kind !== 'feedback' &&
+          !(kind === 'support' && feedbackIntegrated(slug, locale)),
+      )
       .map((kind) => absoluteUrl(route(locale, kind))),
   );
   expected.push(...tsutawaruIndexable);

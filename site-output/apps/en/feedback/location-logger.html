@@ -37,6 +37,10 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 .wp-block-details{box-sizing:border-box}.wp-block-details summary{cursor:pointer}
 /*# sourceURL=/wp-includes/blocks/details/style.min.css */
 </style>
+<style id="wp-block-list-inline-css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=/wp-includes/blocks/list/style.min.css */
+</style>
 <style id="wp-block-post-content-inline-css">
 .wp-block-post-content{display:flow-root}
 /*# sourceURL=/wp-includes/blocks/post-content/style.min.css */
@@ -61,9 +65,9 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 /*# sourceURL=apps-wordpress-inline-css */
 </style>
 
-<meta name="description" content="Use this page to describe a problem or suggestion for this app in your own words. The dedicated form connection is being checked. This page will show its availa">
+<meta name="description" content="Send feedback about LocationLogger. For business or privacy requests, use the separate Contact form.">
 <meta property="og:title" content="LocationLogger | Feedback">
-<meta property="og:description" content="Use this page to describe a problem or suggestion for this app in your own words. The dedicated form connection is being checked. This page will show its availa">
+<meta property="og:description" content="Send feedback about LocationLogger. For business or privacy requests, use the separate Contact form.">
 <meta property="og:url" content="https://aaa3710.github.io/apps/en/feedback/location-logger/">
 <meta name="robots" content="noindex, nofollow"></head>
 
@@ -87,7 +91,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 </div>
 
-<nav class="app-navigation" aria-label="App navigation"><a href="/apps/en/location-logger/">Overview</a><a href="/apps/en/support/location-logger/">Support</a><a href="/apps/en/privacy/location-logger/">Privacy</a></nav>
+<nav class="app-navigation" aria-label="App navigation"><a href="/apps/en/location-logger/">Overview</a><a href="/apps/en/feedback/location-logger/" aria-current="page">Feedback</a><a href="/apps/en/privacy/location-logger/">Privacy</a></nav>
 
 <h1 class="wp-block-heading">Feedback</h1>
 
@@ -136,19 +140,92 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 </div>
 
-<div class="wp-block-group info-contact is-layout-flow wp-block-group-is-layout-flow">
-<p class="wp-block-paragraph"><a href="/apps/en/location-logger/">Overview</a></p>
+
+<div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow">
+<h2 class="wp-block-heading">Other inquiries</h2>
 
 
-<p class="wp-block-paragraph"><a href="/apps/en/support/location-logger/">Support</a></p>
-
-
-<p class="wp-block-paragraph"><a href="/apps/en/privacy/location-logger/">Privacy Policy</a></p>
-
-
-<p class="wp-block-paragraph"><a href="/apps/en/contact/">Contact</a></p>
+<p class="wp-block-paragraph">For business, operational matters, or privacy requests, use the <a href="/apps/en/contact/">general contact form</a>. Contact details are optional if you would like a reply. Replies to ordinary inquiries are not guaranteed, but privacy requests based on legal rights are handled in accordance with applicable law.</p>
 
 </div>
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>Usage notes and troubleshooting</summary>
+<div class="wp-block-group public-document-body is-layout-flow wp-block-group-is-layout-flow">
+<ul class="wp-block-list">
+<li>Background recording: For the intended background behavior, review Always location access, Precise Location, and Background App Refresh on your iPhone. The operating system ultimately controls delivery, so an update at every configured second is not guaranteed.</li>
+
+
+<li>Apple Watch transfer: “Waiting on Watch” is the number of transfer items in the latest state reported by the Watch, not a count of places. “Checking” means the state has not arrived yet, not zero. The count falls by acknowledged batch and can rise while new items are recorded. “Request Import Now” tries the immediate route when reachable while preserving the same operating-system-managed background transfer. If no response arrives, “Resend Import Request” sends the same request again. Open “Apple Watch Sync” from the main screen for detailed status and guidance. You do not need to keep both apps open, but the operating system controls background delivery and cannot provide a guaranteed completion time. Watch originals are deleted only after iPhone commit and acknowledgement. Check the latest batch confirmation and Watch state time together.</li>
+
+
+<li>Automatic destination: Select the folder again, then check device lock state, free space, and File Provider connectivity. A failed export does not delete the canonical internal SQLite records.</li>
+
+
+<li>Automation: Add a LocationLogger export action in Apple’s Shortcuts app and configure an automation trigger. Authentication is required on the iPhone performing the export. If it is locked or the operating system does not run the action, unlock and try again or export manually in the app.</li>
+
+
+<li>Preservation: Internal location records and recovery files are excluded from operating-system backups. Export records you need to preserve before replacing a device or in case it fails.</li>
+
+
+<li>Deletion: This version has no in-app bulk deletion control. Turn recording off, then delete the app from both iPhone and Apple Watch. Offload App retains data. Manage exports, earlier folders, and operating-system backups separately at their destinations.</li>
+
+</ul>
+
+</div>
+
+
+<div class="wp-block-group public-document-body is-layout-flow wp-block-group-is-layout-flow">
+
+<p class="wp-block-paragraph">Individual replies are generally not provided. We aim to use helpful reports to make improvements within about one month, but cannot promise action on every report or a deadline. Describe the difficulty with the app without sending actual locations, addresses, travel history, exports, personal information, or credentials. App Store reviews are not the primary channel for bug reports.</p>
+
+
+</div>
+
+
+<div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow">
+<p class="wp-block-paragraph">LocationLogger stores locations actually delivered to your iPhone and Apple Watch in app-private storage. The developer has no server, advertising, analytics, or tracking feature that receives your location. Watch records transfer to your own paired iPhone, and exported files move under the control of the destination you choose.</p>
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>Common checks</summary>
+<div class="wp-block-group public-document-body is-layout-flow wp-block-group-is-layout-flow">
+<ul class="wp-block-list">
+<li>Background recording: For the intended background behavior, review Always location access, Precise Location, and Background App Refresh on your iPhone. The operating system ultimately controls delivery, so an update at every configured second is not guaranteed.</li>
+
+
+<li>Apple Watch transfer: “Waiting on Watch” is the number of transfer items in the latest state reported by the Watch, not a count of places. “Checking” means the state has not arrived yet, not zero. The count falls by acknowledged batch and can rise while new items are recorded. “Request Import Now” tries the immediate route when reachable while preserving the same operating-system-managed background transfer. If no response arrives, “Resend Import Request” sends the same request again. Open “Apple Watch Sync” from the main screen for detailed status and guidance. You do not need to keep both apps open, but the operating system controls background delivery and cannot provide a guaranteed completion time. Watch originals are deleted only after iPhone commit and acknowledgement. Check the latest batch confirmation and Watch state time together.</li>
+
+
+<li>Automatic destination: Select the folder again, then check device lock state, free space, and File Provider connectivity. A failed export does not delete the canonical internal SQLite records.</li>
+
+
+<li>Automation: Add a LocationLogger export action in Apple’s Shortcuts app and configure an automation trigger. Authentication is required on the iPhone performing the export. If it is locked or the operating system does not run the action, unlock and try again or export manually in the app.</li>
+
+
+<li>Preservation: Internal location records and recovery files are excluded from operating-system backups. Export records you need to preserve before replacing a device or in case it fails.</li>
+
+
+<li>Deletion: This version has no in-app bulk deletion control. Turn recording off, then delete the app from both iPhone and Apple Watch. Offload App retains data. Manage exports, earlier folders, and operating-system backups separately at their destinations.</li>
+
+</ul>
+
+</div>
+
+</details>
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>Privacy and contact</summary>
+<div class="wp-block-group public-document-body is-layout-flow wp-block-group-is-layout-flow">
+
+<p class="wp-block-paragraph">Individual replies are generally not provided. We aim to use helpful reports to make improvements within about one month, but cannot promise action on every report or a deadline. Describe the difficulty with the app without sending actual locations, addresses, travel history, exports, personal information, or credentials. App Store reviews are not the primary channel for bug reports.</p>
+
+
+</div>
+
+</details>
+
+</div>
+</details>
 
 </article>
 

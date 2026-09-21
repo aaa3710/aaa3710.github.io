@@ -29,7 +29,7 @@ WordPressへ移したWebの文章と配置はWordPressで編集します。`app/
 
 ## 表示と問い合わせの境界
 
-全アプリの紹介・サポート・プライバシーを同じ順序と共通デザインで案内します。今回公開する8アプリは日英の紹介・Support・Privacy・Feedbackを整備しています。公開見送りの遺伝子解析とTaskRailは名前と準備状態のみです。日本語は意味のまとまりで折り返し、長文の詳細は開閉して読めます。実画面との一致が未確認の旧画像は保持し、画面には掲載していません。
+全8アプリの日英は紹介・フィードバック・プライバシーを同じ順序と共通デザインで案内します。旧SupportはFeedbackへの互換転送に統一します（公開状態は下記の統一記録）。公開見送りの遺伝子解析とTaskRailは名前と準備状態のみです。日本語は意味のまとまりで折り返し、長文の詳細は開閉して読めます。実画面との一致が未確認の旧画像は保持し、画面には掲載していません。
 
 対象8アプリの日英Feedback16件と共通Contact日英2件は、実フォーム・保存先・送受信の確認と本人の開始承認を経て受付を有効にしています。サイトへの接続・公開反映の最終確認結果は [PROJECT_CONTEXT](PROJECT_CONTEXT.md) を参照してください。実回答のAI整理・定期実行は開始していません。専用Feedbackは匿名の自由記述1欄、共通Contactは用件と任意の返信先という区別を維持します。Feedbackはサイトマップへ載せず `noindex, nofollow` とします。
 
@@ -57,7 +57,7 @@ npm run dev
 | ------------------- | ------------------------ | --------------------------- |
 | アプリ一覧          | `/apps/`                 | `/apps/en/`                 |
 | 紹介                | `/apps/<slug>/`          | `/apps/en/<slug>/`          |
-| Support             | `/apps/support/<slug>/`  | `/apps/en/support/<slug>/`  |
+| 旧Support（Feedbackへ転送） | `/apps/support/<slug>/` | `/apps/en/support/<slug>/` |
 | Privacy             | `/apps/privacy/<slug>/`  | `/apps/en/privacy/<slug>/`  |
 | Feedback            | `/apps/feedback/<slug>/` | `/apps/en/feedback/<slug>/` |
 | アプリ運営のContact | `/apps/contact/`         | `/apps/en/contact/`         |
@@ -66,6 +66,8 @@ npm run dev
 
 アプリの機能事実・プライバシーの内容正本は各アプリ、Webの文章・配置の編集原本はWordPress、公開URLと移行の検証記録は[URL移行記録](app-store/url-migration-2026-09-05.md)で管理します。過去の公開検証記録は当時の証拠として保持します。
 
+App Storeの「サポートURL」にはFeedbackのURLを使用します。全8アプリの日英統一と旧Support転送の保存・公開状態は[今回の記録](wordpress/feedback-unification-2026-09-21.md)を参照します。
+
 ## 公開URL
 
 以下は共通階層への移行後の公開済みURLです。公開・転送の検証結果は[移行記録](app-store/url-migration-2026-09-05.md)を参照します。旧 `focus-map` と旧共通Feedbackは引き続き404とします。
@@ -73,7 +75,7 @@ npm run dev
 | 用途      | 日本語                                                               | English                                                                 |
 | --------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | Marketing | `https://aaa3710.github.io/apps/focus-exposure-calculator/`          | `https://aaa3710.github.io/apps/en/focus-exposure-calculator/`          |
-| Support   | `https://aaa3710.github.io/apps/support/focus-exposure-calculator/`  | `https://aaa3710.github.io/apps/en/support/focus-exposure-calculator/`  |
+| 旧Support（互換入口） | `https://aaa3710.github.io/apps/support/focus-exposure-calculator/` | `https://aaa3710.github.io/apps/en/support/focus-exposure-calculator/` |
 | Privacy   | `https://aaa3710.github.io/apps/privacy/focus-exposure-calculator/`  | `https://aaa3710.github.io/apps/en/privacy/focus-exposure-calculator/`  |
 | Feedback  | `https://aaa3710.github.io/apps/feedback/focus-exposure-calculator/` | `https://aaa3710.github.io/apps/en/feedback/focus-exposure-calculator/` |
 | Contact   | `https://aaa3710.github.io/apps/contact/`                            | `https://aaa3710.github.io/apps/en/contact/`                            |

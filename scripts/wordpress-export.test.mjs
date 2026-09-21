@@ -440,51 +440,75 @@ test('new bilingual utility pages do not create nonexistent legacy aliases', asy
 });
 
 test('integrated Feedback keeps old Support entries as direct redirects without copying forms', async (t) => {
-  const routes = ['ja', 'en'].flatMap((lang) => {
-    const prefix = lang === 'en' ? '/apps/en' : '/apps';
-    return [
-      {
-        path: `${prefix}/support/tsutawaru-moji/`,
-        lang,
-        indexable: false,
-        redirect: `${prefix}/feedback/tsutawaru-moji/`,
-      },
-      { path: `${prefix}/feedback/tsutawaru-moji/`, lang, indexable: false },
-    ];
-  });
+  const slugs = [
+    'focus-exposure-calculator',
+    'tsutawaru-moji',
+    'location-logger',
+    'wrist-morse',
+    'mastery-steps',
+    'spatial-fold',
+    'card-relay',
+    'context-english',
+  ];
+  const routes = slugs.flatMap((slug) =>
+    ['ja', 'en'].flatMap((lang) => {
+      const prefix = lang === 'en' ? '/apps/en' : '/apps';
+      return [
+        {
+          path: `${prefix}/support/${slug}/`,
+          lang,
+          indexable: false,
+          redirect: `${prefix}/feedback/${slug}/`,
+        },
+        { path: `${prefix}/feedback/${slug}/`, lang, indexable: false },
+      ];
+    }),
+  );
   const state = await fixture(t, (request, response) => {
     const prefix = request.url.startsWith('/apps/en/') ? '/apps/en' : '/apps';
+    const slug = request.url.split('/').filter(Boolean).at(-1);
     response.writeHead(200, { 'Content-Type': 'text/html' });
     response.end(
-      `<!doctype html><html><head><title>Feedback</title></head><body><h1>Feedback</h1><a href="${prefix}/support/tsutawaru-moji/#contact">Contact</a></body></html>`,
+      `<!doctype html><html><head><title>Feedback</title></head><body><h1>Feedback</h1><a href="${prefix}/support/${slug}/#contact">Contact</a></body></html>`,
     );
   });
   const output = path.join(state.directory, 'integrated');
   await exportWordPress({ origin: state.origin, routes, publicOrigin, output });
-  assert.equal(state.requests.length, 2);
+  assert.equal(state.requests.length, slugs.length * 2);
   assert(state.requests.every(({ url }) => url.includes('/feedback/')));
-  for (const lang of ['ja', 'en']) {
-    const prefix = lang === 'en' ? '/apps/en' : '/apps';
-    const destination = `${prefix}/feedback/tsutawaru-moji/`;
-    for (const route of [
-      `${prefix}/support/tsutawaru-moji/`,
-      `${lang === 'en' ? '/en' : ''}/support/tsutawaru-moji/`,
-    ]) {
+  for (const slug of slugs)
+    for (const lang of ['ja', 'en']) {
+      const prefix = lang === 'en' ? '/apps/en' : '/apps';
+      const destination = `${prefix}/feedback/${slug}/`;
+      for (const route of [
+        `${prefix}/support/${slug}/`,
+        `${lang === 'en' ? '/en' : ''}/support/${slug}/`,
+      ]) {
+        if (
+          !route.startsWith('/apps/') &&
+          ![
+            'focus-exposure-calculator',
+            'tsutawaru-moji',
+            'location-logger',
+            'wrist-morse',
+          ].includes(slug)
+        )
+          continue;
+        const html = await readFile(
+          path.join(output, route, 'index.html'),
+          'utf8',
+        );
+        assert(html.includes(`content="0;url=${destination}"`));
+        assert(html.includes('noindex, nofollow'));
+        assert(!html.includes('docs.google.com'));
+      }
       const html = await readFile(
-        path.join(output, route, 'index.html'),
+        path.join(output, destination, 'index.html'),
         'utf8',
       );
-      assert(html.includes(`content="0;url=${destination}"`));
-      assert(html.includes('noindex, nofollow'));
-      assert(!html.includes('docs.google.com'));
+      assert(html.includes(`href="${destination}#contact"`));
+      assert(!html.includes('/support/'));
     }
-    const html = await readFile(
-      path.join(output, destination, 'index.html'),
-      'utf8',
-    );
-    assert(html.includes(`href="${destination}#contact"`));
-    assert(!html.includes('/support/'));
-  }
   assert.doesNotMatch(
     await readFile(path.join(output, 'sitemap.xml'), 'utf8'),
     /support|feedback/,
