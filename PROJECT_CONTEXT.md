@@ -1,6 +1,8 @@
 # アプリ管理のWeb制作
 
-最新: [2026-09-21 全8アプリのFeedback統一](wordpress/feedback-unification-2026-09-21.md)。原本保存・日英・直接転送・登録入力案との照合済み、一般公開は未配信。以下の旧Support経由・個別適用は当時の履歴として読む。
+最新: [2026-09-21 全8アプリのFeedback統一](wordpress/feedback-unification-2026-09-21.md)。原本保存・日英・直接転送・登録入力案との照合済み、2026-09-21に一般公開・実URL照合まで完了。以下の旧Support経由・個別適用は当時の履歴として読む。
+
+本人の明示承認後、Web commit `772028b03e22ac3b603cd0a2a24e5600c8fd9f22` を通常push。[Actions](https://github.com/aaa3710/aaa3710.github.io/actions/runs/35566335474) のbuild・deploy成功。公開対象241ファイル（配信用marker `.nojekyll` を除く）はすべてHTTP 200・承認済み候補とバイト一致。撮影のものさしの旧SupportからFeedbackへのブラウザ転送も確認。
 
 ## 課金対象の選択時表示と料金説明（2026-09-21）
 

@@ -1,6 +1,6 @@
 # 全8アプリのフィードバック入口統一 — 2026-09-21
 
-**WordPress原本・登録入力案・ローカル配信候補へ反映済み。GitHub Pagesへのpush・一般公開は未実施。** 本人意思は管理のOWNER_INTENT、要求照合は[管理監査](../../publishing/audits/2026-09-21-feedback-url-consistency.md)を参照する。
+**WordPress原本・登録入力案・GitHub Pagesへ反映済み。2026-09-21に公開完了。** 本人意思は管理のOWNER_INTENT、要求照合は[管理監査](../../publishing/audits/2026-09-21-feedback-url-consistency.md)を参照する。
 
 全8アプリの日英を紹介／フィードバック／プライバシーの3タブへ統一。正規入口とASCのサポートURLは既存の `/apps/feedback/<slug>/`、英語は `/apps/en/feedback/<slug>/`。審査提出済みの伝わる文字URLを保持する。旧Supportは同じ言語のFeedbackへの直接転送で保持し、root直下の既存aliasも途中ページを挟まない。WordPressでは301、静的配信では即時HTML転送・手動リンク・noindex/nofollowとなる。
 
@@ -25,3 +25,9 @@
 ## 公開直前
 
 既存方針は「修正依頼では原本保存まで、明示的な公開指示後に現在原本を公開」。今回の未push候補には、今回の統一だけでなく原本へ既に保存された道の記録の料金説明等も含む。公開指示時は現在の原本・この候補・remoteの差分を確認し、原本照合後に通常push、Actionsと実URLで配信を確認する。旧URLを削除しない。Forms設定・回答・Apple審査を変更しない。
+
+## 公開結果
+
+本人の明示承認後、Web commit `772028b03e22ac3b603cd0a2a24e5600c8fd9f22` を通常push。[Actions](https://github.com/aaa3710/aaa3710.github.io/actions/runs/35566335474) のbuild・deploy成功。公開対象241ファイル（配信用marker `.nojekyll` を除く）はすべてHTTP 200・承認済み候補とバイト一致。撮影のものさしの旧SupportからFeedbackへのブラウザ転送も確認。
+
+公開直前にformat・lint・全53テスト・build・3280検査が成功。原本242ファイル一致。回帰試験の複製fixtureが統合済みSupportの転送metadataを落としていた不備を修正し、検査条件を維持した。

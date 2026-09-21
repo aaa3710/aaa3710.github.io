@@ -336,5 +336,13 @@
   "web_tests": 53,
   "layout_checks": 32,
   "layout_failures": 0,
-  "remote_publish_performed": false
+  "remote_publish_performed": true,
+  "publication": {
+    "commit": "772028b03e22ac3b603cd0a2a24e5600c8fd9f22",
+    "actions_url": "https://github.com/aaa3710/aaa3710.github.io/actions/runs/35566335474",
+    "build": "success",
+    "deploy": "success",
+    "matching_public_files": 241,
+    "deployment_marker_excluded": ".nojekyll"
+  }
 }
