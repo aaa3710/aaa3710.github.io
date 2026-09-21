@@ -53,14 +53,14 @@ npm run dev
 
 本人の希望は[意思の正本](/Users/minatosuzuki/work_local/アプリ管理/OWNER_INTENT.md#アプリ関連Webページの共通階層)を参照します。今後の趣味・記事などに大元を使えるよう、アプリの紹介・Support・Privacy・Feedback・運営のContactを共通階層へ揃えました。英語も必ず `/apps/` から始まります。
 
-| 用途                | 日本語                   | English                     |
-| ------------------- | ------------------------ | --------------------------- |
-| アプリ一覧          | `/apps/`                 | `/apps/en/`                 |
-| 紹介                | `/apps/<slug>/`          | `/apps/en/<slug>/`          |
-| 旧Support（Feedbackへ転送） | `/apps/support/<slug>/` | `/apps/en/support/<slug>/` |
-| Privacy             | `/apps/privacy/<slug>/`  | `/apps/en/privacy/<slug>/`  |
-| Feedback            | `/apps/feedback/<slug>/` | `/apps/en/feedback/<slug>/` |
-| アプリ運営のContact | `/apps/contact/`         | `/apps/en/contact/`         |
+| 用途                        | 日本語                   | English                     |
+| --------------------------- | ------------------------ | --------------------------- |
+| アプリ一覧                  | `/apps/`                 | `/apps/en/`                 |
+| 紹介                        | `/apps/<slug>/`          | `/apps/en/<slug>/`          |
+| 旧Support（Feedbackへ転送） | `/apps/support/<slug>/`  | `/apps/en/support/<slug>/`  |
+| Privacy                     | `/apps/privacy/<slug>/`  | `/apps/en/privacy/<slug>/`  |
+| Feedback                    | `/apps/feedback/<slug>/` | `/apps/en/feedback/<slug>/` |
+| アプリ運営のContact         | `/apps/contact/`         | `/apps/en/contact/`         |
 
 大元 `/` と `/en/` は当面アプリ一覧へ案内します。旧URL31件は、固定の新URLへの即時HTML転送と手動リンクを持ち、`noindex, nofollow` とします。HTTP 301ではありません。廃止済みの `focus-map` と旧共通Feedbackは復活させません。転送もWordPressからの静的書き出しに含め、確認版と本番に同じファイルを使います。
 
@@ -72,10 +72,10 @@ App Storeの「サポートURL」にはFeedbackのURLを使用します。全8�
 
 以下は共通階層への移行後の公開済みURLです。公開・転送の検証結果は[移行記録](app-store/url-migration-2026-09-05.md)を参照します。旧 `focus-map` と旧共通Feedbackは引き続き404とします。
 
-| 用途      | 日本語                                                               | English                                                                 |
-| --------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| Marketing | `https://aaa3710.github.io/apps/focus-exposure-calculator/`          | `https://aaa3710.github.io/apps/en/focus-exposure-calculator/`          |
-| 旧Support（互換入口） | `https://aaa3710.github.io/apps/support/focus-exposure-calculator/` | `https://aaa3710.github.io/apps/en/support/focus-exposure-calculator/` |
-| Privacy   | `https://aaa3710.github.io/apps/privacy/focus-exposure-calculator/`  | `https://aaa3710.github.io/apps/en/privacy/focus-exposure-calculator/`  |
-| Feedback  | `https://aaa3710.github.io/apps/feedback/focus-exposure-calculator/` | `https://aaa3710.github.io/apps/en/feedback/focus-exposure-calculator/` |
-| Contact   | `https://aaa3710.github.io/apps/contact/`                            | `https://aaa3710.github.io/apps/en/contact/`                            |
+| 用途                  | 日本語                                                               | English                                                                 |
+| --------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Marketing             | `https://aaa3710.github.io/apps/focus-exposure-calculator/`          | `https://aaa3710.github.io/apps/en/focus-exposure-calculator/`          |
+| 旧Support（互換入口） | `https://aaa3710.github.io/apps/support/focus-exposure-calculator/`  | `https://aaa3710.github.io/apps/en/support/focus-exposure-calculator/`  |
+| Privacy               | `https://aaa3710.github.io/apps/privacy/focus-exposure-calculator/`  | `https://aaa3710.github.io/apps/en/privacy/focus-exposure-calculator/`  |
+| Feedback              | `https://aaa3710.github.io/apps/feedback/focus-exposure-calculator/` | `https://aaa3710.github.io/apps/en/feedback/focus-exposure-calculator/` |
+| Contact               | `https://aaa3710.github.io/apps/contact/`                            | `https://aaa3710.github.io/apps/en/contact/`                            |

@@ -393,9 +393,19 @@ test('new published app families require both languages, Feedback privacy and ma
           (entry) => entry.path !== route,
         );
         manifest.routes.push({
+          ...manifest.routes.find(
+            (entry) => entry.path === `/${prefix}${section}location-logger/`,
+          ),
           path: route,
           lang: language,
-          indexable: section !== 'feedback/',
+          ...(section === 'support/' &&
+          manifest.routes.some(
+            (entry) =>
+              entry.path === `/${prefix}support/location-logger/` &&
+              entry.redirect,
+          )
+            ? { redirect: `/${prefix}feedback/${app}/`, indexable: false }
+            : { indexable: section !== 'feedback/' }),
         });
       }
     }
