@@ -49,6 +49,64 @@ function feedbackIntegrated(appSlug, locale = 'ja') {
       entry.redirect === `${prefix}feedback/${appSlug}/`,
   );
 }
+// Current public display is based on the owner's 2026-09-28 direct report.
+// Keep each approved version label and exact existing App Store ID aligned.
+const ownerReportedPublicApps = {
+  'focus-exposure-calculator': {
+    ja: ['App Storeで公開中。', 'https://apps.apple.com/jp/app/id6809372435'],
+    en: [
+      'Available on the App Store.',
+      'https://apps.apple.com/jp/app/id6809372435?l=en',
+    ],
+  },
+  'location-logger': {
+    ja: [
+      'バージョン1.0.0をApp Storeで公開中です。',
+      'https://apps.apple.com/jp/app/id6815019530',
+    ],
+    en: [
+      'Version 1.0.0 is available on the App Store.',
+      'https://apps.apple.com/jp/app/id6815019530?l=en',
+    ],
+  },
+  'mastery-steps': {
+    ja: [
+      'バージョン1.0.1をApp Storeで公開中です。',
+      'https://apps.apple.com/jp/app/id6814689520',
+    ],
+    en: [
+      'Version 1.0.1 is available on the App Store.',
+      'https://apps.apple.com/jp/app/id6814689520?l=en',
+    ],
+  },
+  'spatial-fold': {
+    ja: ['App Storeで公開中。', 'https://apps.apple.com/jp/app/id6814689957'],
+    en: [
+      'Available on the App Store.',
+      'https://apps.apple.com/jp/app/id6814689957?l=en',
+    ],
+  },
+  'tsutawaru-moji': {
+    ja: [
+      'バージョン1.0.2をApp Storeで公開中です。',
+      'https://apps.apple.com/jp/app/id6808933286',
+    ],
+    en: [
+      'Version 1.0.2 is available on the App Store.',
+      'https://apps.apple.com/jp/app/id6808933286?l=en',
+    ],
+  },
+  'wrist-morse': {
+    ja: [
+      'バージョン1.0.0をApp Storeで公開中です。',
+      'https://apps.apple.com/jp/app/id6809402370',
+    ],
+    en: [
+      'Version 1.0.0 is available on the App Store.',
+      'https://apps.apple.com/jp/app/id6809402370?l=en',
+    ],
+  },
+};
 // Preserve verification of historical three-app artifacts while requiring the
 // complete bilingual family whenever Morse has an indexable introduction.
 const morsePublished = Boolean(
@@ -681,8 +739,8 @@ for (const locale of locales) {
         decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
           tsutawaruFeedbackIntegrated
             ? locale === 'ja'
-              ? 'バージョン1.0.1を準備中です'
-              : 'Version 1.0.1 is in preparation'
+              ? 'バージョン1.0.2をApp Storeで公開中です'
+              : 'Version 1.0.2 is available on the App Store'
             : locale === 'ja'
               ? 'まだダウンロードできません'
               : 'not available to download yet',
@@ -890,10 +948,10 @@ for (const locale of locales) {
       check(
         decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
           locale === 'ja'
-            ? 'まだダウンロードできません'
-            : 'not available to download yet',
+            ? 'バージョン1.0.0をApp Storeで公開中です'
+            : 'Version 1.0.0 is available on the App Store',
         ),
-        `${routePath}: unreleased app status missing`,
+        `${routePath}: current user-reported release status missing`,
       );
     if (kind === 'feedback')
       check(
@@ -959,8 +1017,17 @@ for (const locale of locales) {
         `${routePath}: unverified form URL present`,
       );
     }
+    // The owner directly authorized the reported 1.0.0 public status and its
+    // existing Apple ID link. Permit only that exact URL on the app page.
+    const locationLoggerStoreUrl =
+      'https://apps.apple.com/jp/app/id6815019530' +
+      (locale === 'en' ? '?l=en' : '');
+    const unverifiedLocationLinks =
+      kind === 'app'
+        ? raw.replaceAll(`href="${locationLoggerStoreUrl}"`, 'href=""')
+        : raw;
     check(
-      !/mailto:|apps\.apple\.com/.test(raw),
+      !/mailto:|apps\.apple\.com/.test(unverifiedLocationLinks),
       `${routePath}: unverified email or Store URL`,
     );
     check(
@@ -1317,6 +1384,28 @@ for (const locale of locales) {
         `${appRoute}: current section marker differs`,
       );
     }
+  }
+}
+
+for (const [appSlug, localized] of Object.entries(ownerReportedPublicApps)) {
+  for (const locale of locales) {
+    const routePath = `${locale === 'en' ? '/apps/en' : '/apps'}/${appSlug}/`;
+    const file = pageFile(routePath);
+    if (!(await exists(file))) continue;
+    const html = markupOnly(await readFile(file, 'utf8'));
+    const visibleText = decodeHtml(html.replace(/<[^>]*>/g, ''));
+    const [status, expectedStoreUrl] = localized[locale];
+    const storeLinks = tags(html, 'a').filter((anchor) =>
+      anchor.href?.startsWith('https://apps.apple.com/'),
+    );
+    check(
+      visibleText.includes(status),
+      `${routePath}: owner-reported App Store status differs`,
+    );
+    check(
+      storeLinks.length === 1 && storeLinks[0].href === expectedStoreUrl,
+      `${routePath}: App Store link differs from its confirmed Apple ID`,
+    );
   }
 }
 

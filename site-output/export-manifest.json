@@ -412,8 +412,8 @@
     },
     {
       "path": "apps.html",
-      "bytes": 44687,
-      "sha256": "2935e3f0c14c9820a9c723f51c8c21b21345a555b151da41a73bc58b3472420e"
+      "bytes": 45174,
+      "sha256": "52e02528b5e577c2493c1750b2ffa09aae7c997218a2c5ff02e30d14f48de0f8"
     },
     {
       "path": "apps/card-relay.html",
@@ -447,8 +447,8 @@
     },
     {
       "path": "apps/en.html",
-      "bytes": 40823,
-      "sha256": "999cc7c30b3e28bcb08b759e4b8ee1d73f97b4f072c598c3c0f368eab2ee5690"
+      "bytes": 40737,
+      "sha256": "d205a8050b803d8dfa853a5a61845c25981c3bb614c2afddec93aa89def69188"
     },
     {
       "path": "apps/en/card-relay.html",
@@ -582,13 +582,13 @@
     },
     {
       "path": "apps/en/focus-exposure-calculator.html",
-      "bytes": 38762,
-      "sha256": "5dd88a7aa0178d491cae41db57d9a9b6b4d6bd1ba240bd14af22df188da4073b"
+      "bytes": 38750,
+      "sha256": "4b902c566d36ac7182e5489e907de2063a160aa082eee4d9b9d7d129e141b669"
     },
     {
       "path": "apps/en/focus-exposure-calculator/index.html",
-      "bytes": 38762,
-      "sha256": "5dd88a7aa0178d491cae41db57d9a9b6b4d6bd1ba240bd14af22df188da4073b"
+      "bytes": 38750,
+      "sha256": "4b902c566d36ac7182e5489e907de2063a160aa082eee4d9b9d7d129e141b669"
     },
     {
       "path": "apps/en/genome-notebook.html",
@@ -602,28 +602,28 @@
     },
     {
       "path": "apps/en/index.html",
-      "bytes": 40823,
-      "sha256": "999cc7c30b3e28bcb08b759e4b8ee1d73f97b4f072c598c3c0f368eab2ee5690"
+      "bytes": 40737,
+      "sha256": "d205a8050b803d8dfa853a5a61845c25981c3bb614c2afddec93aa89def69188"
     },
     {
       "path": "apps/en/location-logger.html",
-      "bytes": 40280,
-      "sha256": "effec185cd0b52012cb7529d63e0ed343684f3eb0b7349083b77041a0620cbcb"
+      "bytes": 40271,
+      "sha256": "71807b60f095aedfa468d9a159ee61e010597273a43ef3f7a403eac66a171714"
     },
     {
       "path": "apps/en/location-logger/index.html",
-      "bytes": 40280,
-      "sha256": "effec185cd0b52012cb7529d63e0ed343684f3eb0b7349083b77041a0620cbcb"
+      "bytes": 40271,
+      "sha256": "71807b60f095aedfa468d9a159ee61e010597273a43ef3f7a403eac66a171714"
     },
     {
       "path": "apps/en/mastery-steps.html",
-      "bytes": 38509,
-      "sha256": "6fbe518a61efa7c43a70ac4c8787ba4bb1b85c9fd454b5c65aae1c681989d3b2"
+      "bytes": 38500,
+      "sha256": "1eda177639605baa2ecf02e115166869a07b0aa4ae738f789211268d3470ef44"
     },
     {
       "path": "apps/en/mastery-steps/index.html",
-      "bytes": 38509,
-      "sha256": "6fbe518a61efa7c43a70ac4c8787ba4bb1b85c9fd454b5c65aae1c681989d3b2"
+      "bytes": 38500,
+      "sha256": "1eda177639605baa2ecf02e115166869a07b0aa4ae738f789211268d3470ef44"
     },
     {
       "path": "apps/en/privacy/card-relay.html",
@@ -707,13 +707,13 @@
     },
     {
       "path": "apps/en/spatial-fold.html",
-      "bytes": 37222,
-      "sha256": "6b6a2d9bb0630c0448d5c9da0d4ba0f19ee164a55ffe2e9ee8ca12cced5195bb"
+      "bytes": 37196,
+      "sha256": "aa4f7c821e19c805125ee0a960bb38c202425393c1c68fbfdb1c03eda899cd23"
     },
     {
       "path": "apps/en/spatial-fold/index.html",
-      "bytes": 37222,
-      "sha256": "6b6a2d9bb0630c0448d5c9da0d4ba0f19ee164a55ffe2e9ee8ca12cced5195bb"
+      "bytes": 37196,
+      "sha256": "aa4f7c821e19c805125ee0a960bb38c202425393c1c68fbfdb1c03eda899cd23"
     },
     {
       "path": "apps/en/support/card-relay.html",
@@ -807,23 +807,23 @@
     },
     {
       "path": "apps/en/tsutawaru-moji.html",
-      "bytes": 41989,
-      "sha256": "8a581d658d7c18cb10dcf2302ce4e6cb89c53dacac6270b95ebb92375457d231"
+      "bytes": 41942,
+      "sha256": "ed1900966f27353004154a1425dc692d49817138f92b604f57f6ad3b8afa4867"
     },
     {
       "path": "apps/en/tsutawaru-moji/index.html",
-      "bytes": 41989,
-      "sha256": "8a581d658d7c18cb10dcf2302ce4e6cb89c53dacac6270b95ebb92375457d231"
+      "bytes": 41942,
+      "sha256": "ed1900966f27353004154a1425dc692d49817138f92b604f57f6ad3b8afa4867"
     },
     {
       "path": "apps/en/wrist-morse.html",
-      "bytes": 36906,
-      "sha256": "cf83327e8fd5a3ca75aff05bd9e84eb5854190b3768d74dfe8d50071ab96a20a"
+      "bytes": 36870,
+      "sha256": "945592217b06f8ab27633a6f7a71e752e22866f670d198a96d166a26f2471f93"
     },
     {
       "path": "apps/en/wrist-morse/index.html",
-      "bytes": 36906,
-      "sha256": "cf83327e8fd5a3ca75aff05bd9e84eb5854190b3768d74dfe8d50071ab96a20a"
+      "bytes": 36870,
+      "sha256": "945592217b06f8ab27633a6f7a71e752e22866f670d198a96d166a26f2471f93"
     },
     {
       "path": "apps/feedback-import.html",
@@ -927,13 +927,13 @@
     },
     {
       "path": "apps/focus-exposure-calculator.html",
-      "bytes": 47275,
-      "sha256": "29177720c1f98a87f17babb186a0f410ea3d26e8e7c2718ee142dbd46b2d7b2d"
+      "bytes": 47217,
+      "sha256": "c9d52aa519c2eeb7b4680884adf00b519a3b23a772e024933894fb926e04d9db"
     },
     {
       "path": "apps/focus-exposure-calculator/index.html",
-      "bytes": 47275,
-      "sha256": "29177720c1f98a87f17babb186a0f410ea3d26e8e7c2718ee142dbd46b2d7b2d"
+      "bytes": 47217,
+      "sha256": "c9d52aa519c2eeb7b4680884adf00b519a3b23a772e024933894fb926e04d9db"
     },
     {
       "path": "apps/genome-notebook.html",
@@ -947,28 +947,28 @@
     },
     {
       "path": "apps/index.html",
-      "bytes": 44687,
-      "sha256": "2935e3f0c14c9820a9c723f51c8c21b21345a555b151da41a73bc58b3472420e"
+      "bytes": 45174,
+      "sha256": "52e02528b5e577c2493c1750b2ffa09aae7c997218a2c5ff02e30d14f48de0f8"
     },
     {
       "path": "apps/location-logger.html",
-      "bytes": 64645,
-      "sha256": "a5d9831ff2f2bd2db4c682e5fe8007f8a9657ea320a1d992c82d9a7b1e3060bb"
+      "bytes": 64594,
+      "sha256": "fec2915f7646cbbd0dbba0d3604c606442b0c41fcd8f0e706e769a399406a625"
     },
     {
       "path": "apps/location-logger/index.html",
-      "bytes": 64645,
-      "sha256": "a5d9831ff2f2bd2db4c682e5fe8007f8a9657ea320a1d992c82d9a7b1e3060bb"
+      "bytes": 64594,
+      "sha256": "fec2915f7646cbbd0dbba0d3604c606442b0c41fcd8f0e706e769a399406a625"
     },
     {
       "path": "apps/mastery-steps.html",
-      "bytes": 51243,
-      "sha256": "5562f916ec0e478612be86a1ed1c5b57a2800ae707278ac964b64aae25938aa0"
+      "bytes": 51192,
+      "sha256": "eb82ae41c709f6008fa054ad29098e0eea437fcfffea11e3a354ed42e58e1864"
     },
     {
       "path": "apps/mastery-steps/index.html",
-      "bytes": 51243,
-      "sha256": "5562f916ec0e478612be86a1ed1c5b57a2800ae707278ac964b64aae25938aa0"
+      "bytes": 51192,
+      "sha256": "eb82ae41c709f6008fa054ad29098e0eea437fcfffea11e3a354ed42e58e1864"
     },
     {
       "path": "apps/privacy/card-relay.html",
@@ -1052,13 +1052,13 @@
     },
     {
       "path": "apps/spatial-fold.html",
-      "bytes": 45054,
-      "sha256": "d47e007d6ddf57a956ad0cb0f9091bf54a03083520e8421d768c484f5cf058eb"
+      "bytes": 44934,
+      "sha256": "0f83ef86eb31c58002b62f6b3a4aa5511fd10fda58e819ea46811dc97e24f795"
     },
     {
       "path": "apps/spatial-fold/index.html",
-      "bytes": 45054,
-      "sha256": "d47e007d6ddf57a956ad0cb0f9091bf54a03083520e8421d768c484f5cf058eb"
+      "bytes": 44934,
+      "sha256": "0f83ef86eb31c58002b62f6b3a4aa5511fd10fda58e819ea46811dc97e24f795"
     },
     {
       "path": "apps/support/card-relay.html",
@@ -1152,23 +1152,23 @@
     },
     {
       "path": "apps/tsutawaru-moji.html",
-      "bytes": 62053,
-      "sha256": "8464ea16d00eedc86ba3bc8c1806c2a565fc059ad253f276e77dbbf310865733"
+      "bytes": 61940,
+      "sha256": "d4dbde19dccfc879ce4a3f032e9c6fe444226bb4ca31d5af52785f0f81494104"
     },
     {
       "path": "apps/tsutawaru-moji/index.html",
-      "bytes": 62053,
-      "sha256": "8464ea16d00eedc86ba3bc8c1806c2a565fc059ad253f276e77dbbf310865733"
+      "bytes": 61940,
+      "sha256": "d4dbde19dccfc879ce4a3f032e9c6fe444226bb4ca31d5af52785f0f81494104"
     },
     {
       "path": "apps/wrist-morse.html",
-      "bytes": 43738,
-      "sha256": "85b5ac0a4985ab8e5c66d1623ad01f0fa618919a038e6946fde3ac8499159bf4"
+      "bytes": 43670,
+      "sha256": "dc9813325030ebd4fbacdce7b2e4e7c40c40c221c2743b6dcb2c3d3a2c859589"
     },
     {
       "path": "apps/wrist-morse/index.html",
-      "bytes": 43738,
-      "sha256": "85b5ac0a4985ab8e5c66d1623ad01f0fa618919a038e6946fde3ac8499159bf4"
+      "bytes": 43670,
+      "sha256": "dc9813325030ebd4fbacdce7b2e4e7c40c40c221c2743b6dcb2c3d3a2c859589"
     },
     {
       "path": "contact.html",

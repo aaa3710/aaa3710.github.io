@@ -381,6 +381,37 @@ test('new published app families require both languages, Feedback privacy and ma
           'utf8',
         );
         html = html.replaceAll('location-logger', app);
+        if (section === '' && ['mastery-steps', 'spatial-fold'].includes(app)) {
+          const release = {
+            'mastery-steps': {
+              version: '1.0.1',
+              id: '6814689520',
+              ja: 'バージョン1.0.1をApp Storeで公開中です。',
+              en: 'Version 1.0.1 is available on the App Store.',
+            },
+            'spatial-fold': {
+              id: '6814689957',
+              ja: 'App Storeで公開中。',
+              en: 'Available on the App Store.',
+            },
+          }[app];
+          const status = language === 'ja' ? release.ja : release.en;
+          html = html.replace(
+            /<p class="release-status(?: [^"]*)?">[\s\S]*?<\/p>/,
+            `<p class="release-status">${status}</p>`,
+          );
+          if (release.version) {
+            html = html.replace(
+              'バージョン1.0.0',
+              `バージョン${release.version}`,
+            );
+            html = html.replace('Version 1.0.0', `Version ${release.version}`);
+          }
+          html = html.replaceAll(
+            'https://apps.apple.com/jp/app/id6815019530',
+            `https://apps.apple.com/jp/app/id${release.id}`,
+          );
+        }
         if (section === 'feedback/') {
           html = html.replace(
             '</main>',
