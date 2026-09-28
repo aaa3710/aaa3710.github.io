@@ -1,5 +1,9 @@
 # アプリ管理のWeb制作
 
+## 未公開の原本差分 — 2026-09-29 感じるモールスのアイコン
+
+本人のアイコン刷新指示を受け、WordPress原本の `wrist-morse-icon.png` と既存の150/300/768px派生画像を、本体 `1.0.0 (4)` 候補と同じ赤土色背景・触覚リズム図案へ置換した。本文・URL・配布状態は変更していない。`work/wordpress/site/` は非公開WordPress原本としてGit追跡対象外。`site-output/` と一般公開サイトは旧アイコンのままで、今回のApple審査却下・本体build未検証とは別に扱う。Webを公開する際は原本の現在値から書き出し、差分検査と表示確認を行う。
+
 ## 最新 — 2026-09-28 習慣のステップの無料枠説明
 
 本人の保存・一般公開承認を受け、WordPress原本の習慣のステップ日英紹介で旧「入れ替え」説明を修正。無料の同時稼働は3件、アーカイブ済みのプログラムを無料で再開するには先に稼働中の一つをアーカイブして枠を空けること、買い切りで件数上限が解除されることを示した。編集前バックアップ、原本への保存・読み戻し、書き出し候補 `2026-09-28T13-01-09Z` との242ファイル一致、日英デスクトップ・390px確認、format・lint・53テスト・build・ページ検証まで完了。Web commit `1d091ef` をpushし、[Actions 36425979416](https://github.com/aaa3710/aaa3710.github.io/actions/runs/36425979416) のbuild・deploy成功と[日](https://aaa3710.github.io/apps/mastery-steps/)・[英](https://aaa3710.github.io/apps/en/mastery-steps/)の実表示を確認。[詳細](../publishing/audits/2026-09-28-free-tier-purchase-path.md#後続のweb保存一般公開--2026-09-28)。アプリ本体の新しい版の配布は別。
