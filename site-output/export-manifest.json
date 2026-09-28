@@ -617,13 +617,13 @@
     },
     {
       "path": "apps/en/mastery-steps.html",
-      "bytes": 38500,
-      "sha256": "1eda177639605baa2ecf02e115166869a07b0aa4ae738f789211268d3470ef44"
+      "bytes": 38563,
+      "sha256": "390b81732ca92a0e1c99fd3275d8948a0624dbf810deb5708cc42abd7202bc81"
     },
     {
       "path": "apps/en/mastery-steps/index.html",
-      "bytes": 38500,
-      "sha256": "1eda177639605baa2ecf02e115166869a07b0aa4ae738f789211268d3470ef44"
+      "bytes": 38563,
+      "sha256": "390b81732ca92a0e1c99fd3275d8948a0624dbf810deb5708cc42abd7202bc81"
     },
     {
       "path": "apps/en/privacy/card-relay.html",
@@ -962,13 +962,13 @@
     },
     {
       "path": "apps/mastery-steps.html",
-      "bytes": 51192,
-      "sha256": "eb82ae41c709f6008fa054ad29098e0eea437fcfffea11e3a354ed42e58e1864"
+      "bytes": 51519,
+      "sha256": "9ceea75cd1ffb394ca77927081224315277f8d745acb73de60cd8afd942f0def"
     },
     {
       "path": "apps/mastery-steps/index.html",
-      "bytes": 51192,
-      "sha256": "eb82ae41c709f6008fa054ad29098e0eea437fcfffea11e3a354ed42e58e1864"
+      "bytes": 51519,
+      "sha256": "9ceea75cd1ffb394ca77927081224315277f8d745acb73de60cd8afd942f0def"
     },
     {
       "path": "apps/privacy/card-relay.html",
