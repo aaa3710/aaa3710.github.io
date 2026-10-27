@@ -61,9 +61,9 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 <link rel="alternate" hreflang="ja" href="https://aaa3710.github.io/apps/privacy/location-logger/">
 <link rel="alternate" hreflang="en" href="https://aaa3710.github.io/apps/en/privacy/location-logger/">
 <link rel="alternate" hreflang="x-default" href="https://aaa3710.github.io/apps/privacy/location-logger/">
-<meta name="description" content="Last updated: September 13, 2026 LocationLogger helps you manage your own location records on your devices. The developer does not operate a server, account sys">
+<meta name="description" content="How LocationLogger handles local records, optional external backups, activity data, Apple services and contact.">
 <meta property="og:title" content="LocationLogger | Privacy Policy">
-<meta property="og:description" content="Last updated: September 13, 2026 LocationLogger helps you manage your own location records on your devices. The developer does not operate a server, account sys">
+<meta property="og:description" content="How LocationLogger handles local records, optional external backups, activity data, Apple services and contact.">
 <meta property="og:url" content="https://aaa3710.github.io/apps/en/privacy/location-logger/">
 <link rel="canonical" href="https://aaa3710.github.io/apps/en/privacy/location-logger/"><meta name="robots" content="index, follow"></head>
 
@@ -92,46 +92,50 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 <h1 class="wp-block-heading">Privacy Policy</h1>
 
 
-<p class="wp-block-paragraph">Updated: September 20, 2026</p>
+<p class="wp-block-paragraph">Updated: October 27, 2026</p>
 
 </header>
 
-
-<div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow">
-<p class="wp-block-paragraph">Last updated: September 20, 2026</p>
-
-
-<p class="wp-block-paragraph">LocationLogger helps you manage your own location records on your devices. The developer does not operate a server, account system, advertising SDK, analytics SDK, or tracking feature that receives your location data.</p>
-
-
-<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>Data stored</summary>
-<div class="wp-block-group public-document-body is-layout-flow wp-block-group-is-layout-flow">
-<ul class="wp-block-list">
-<li>Locations delivered to your iPhone or Apple Watch, including acquisition time, accuracy, speed, altitude, and course when available</li>
-
-
-<li>Locations, timestamps, and available attributes imported from a location record file you select, plus management information such as its import name, date range, and record count</li>
-
-
-<li>On-device settings needed for saving, recovery, and synchronization, plus coordinate-free diagnostics such as state transitions, battery state, and MetricKit aggregates</li>
-
-
-<li>Export presets and a reference to the destination you select</li>
-
-
-<li>The center coordinates and radius of quiet locations, and quiet times you configure</li>
-
-</ul>
-
-
+<div class="wp-block-group public-document is-layout-flow wp-block-group-is-layout-flow"><p class="wp-block-paragraph">LocationLogger helps you manage your own location records on your devices. The developer does not operate a server, account system, advertising SDK, analytics SDK, or tracking feature that receives your location data.</p>
+<h2 class="wp-block-heading">Data stored</h2>
+<ul class="wp-block-list"><li>Locations delivered to your iPhone or Apple Watch, including acquisition time, accuracy, speed, altitude, and course when available</li><li>Locations, timestamps, and available attributes imported from a location record file you select, plus management information such as its import name, date range, and record count</li><li>On-device settings needed for saving, recovery, and synchronization, plus coordinate-free diagnostics such as state transitions, battery state, and MetricKit aggregates</li><li>OS activity flags, start times, confidence, steps, walking distance, floors, and separately interpreted display intervals, when you enable activity saving</li><li>First-use date, map visits, successful video saves, and the last rating request date, without locations or travel history</li><li>Display and export presets, and a reference to the destination you select</li><li>The number of weekly allowance uses and the start of the week, without locations or travel history</li><li>Location information and quiet times you configure</li></ul>
 <p class="wp-block-paragraph">This data is stored in app-private storage on your iPhone or Apple Watch. Location records from Apple Watch are transferred to your own paired iPhone using Apple’s Watch Connectivity. They are not sent to the developer.</p>
+<p class="wp-block-paragraph">Records remain on your devices until deleted. Turning recording off or revoking location permission stops new recording; it does not erase earlier records. Internal records and recovery files are marked as excluded from operating-system backups. Export records you need to preserve before replacing a device or in case it fails. App settings may be included in operating-system backups. Backup storage, retention, and deletion depend on Apple or the backup method you choose.</p>
+<h2 class="wp-block-heading">External backups for accidental deletion</h2>
+<p class="wp-block-paragraph">In the menu, open Back Up and Restore Records and choose a folder that remains after deleting the app, such as one in iCloud Drive. The app then saves location and imported history and activity originals outside its container. Changes trigger an update when at least 15 minutes have passed since the last attempt; Back Up Now is also available. No developer server is used. A chosen cloud provider handles storage and synchronization. Files include places, times, activity, and internal recording, diagnostic and transfer-management information, so avoid shared folders. Restoring app display settings or purchase status is not supported.</p>
+<p class="wp-block-paragraph">Check the last successful save time. Initial folder selection and a successful save are required. Records added after that success, records during insufficient storage, connection failures or OS interruptions, and Watch originals not yet delivered to iPhone may not be protected. The app cannot guarantee completion of the provider’s cloud sync.</p>
+<p class="wp-block-paragraph">After reinstalling, select an .llbackup file from LocationLogger Backups in the same menu. Restore adds records while keeping existing ones and avoids duplicates. Import-deletion records still present on the destination are respected. This does not guarantee that a deletion survives removal of those on-device deletion records with the app or selection of an older external copy. Stopping backups or deleting the app does not remove external files; manage them in Files when complete deletion is intended.</p>
+<h2 class="wp-block-heading">Activity and pedometer data</h2>
+<p class="wp-block-paragraph">If you enable Save Activity Data and grant Motion &amp; Fitness permission, the app retrieves activity estimates and pedometer data provided by Core Motion on this iPhone. This works independently of location recording. When the app resumes, it retrieves up to seven days of available OS history. The independent walking, running, cycling, automotive, stationary, and unknown flags and confidence are retained separately from interpreted display intervals. Missing periods and unsupported values are not filled with measured zeros.</p>
+<p class="wp-block-paragraph">Activity data is saved and processed on the device. It is not sent to the developer or analytics services. This feature does not retrieve Apple Watch activity history or automatically assign iPhone activity to Watch or imported traces. Turning saving off retains earlier activity data. You can export originals and interpreted intervals as a separate JSON file from activity settings and save or share it with the system share sheet. This file contains activity times and pedometer data, so check the destination. History maintained by iOS itself is not erased by this app’s deletion operations.</p>
+<h2 class="wp-block-heading">Apple maps and place-name lookup</h2>
+<p class="wp-block-paragraph">When a current-location, route, or place-search map is displayed, Apple’s MapKit may retrieve map data needed for the visible area. This is an Apple map-display function; it does not send your location records to the developer.</p>
+<p class="wp-block-paragraph">Address Display sends the latitude and longitude of the location on screen to Apple’s place-name lookup service to find its address. They are not sent to the developer. The feature is off by default separately on iPhone and Apple Watch. A location is sent only after the user reviews which information is sent, its recipient, and its purpose, and enables the feature. The user can turn it off at any time. An Apple map of the lookup location appears with the address and may retrieve the map data it needs. Even when enabled, LocationLogger does not look up every background record or store resolved addresses in the internal database, exports, or diagnostics. Addresses are held briefly in memory and discarded when the feature is disabled. The address omits its country and postal code. If it cannot be resolved, the module shows that status.</p>
+<h2 class="wp-block-heading">Finding past visits by place</h2>
+<p class="wp-block-paragraph">The app searches on your device for recorded locations and timestamps inside an area you draw or a municipality you select. Japanese municipality names and boundaries are bundled with the app. Looking up municipality candidates and their areas does not require an external request.</p>
+<p class="wp-block-paragraph">Using the Search button for place and facility names or submitting a search from the text field sends the place or facility name you entered to Apple’s MapKit. Typing alone does not trigger this external search. Selecting a suggestion asks Apple to locate that suggestion. The request does not include your saved location records or recorded route extent. Displaying search results on a map may retrieve map data as described above.</p>
+<p class="wp-block-paragraph">The timestamps of matching records are saved in a temporary SQLite file on your device. This file is excluded from operating-system backups and deleted when the search result is discarded or released. Searching does not alter the original location records or send them to the developer.</p>
+<h2 class="wp-block-heading">Exports</h2>
+<p class="wp-block-paragraph">LocationLogger creates CSV, GPX, GeoJSON, LocationLogger JSON, or another selected file when you request an export or run a Shortcuts action you configured. Shortcuts require authentication on the iPhone performing the export. If you select iCloud Drive or another cloud provider in Files, the exported file moves into that provider’s storage. LocationLogger does not send it to the developer. Files include locations and times that may reveal routes or places such as your home, and are not encrypted by the app. Review the recipient and subsequent actions in your shortcut.</p>
+<p class="wp-block-paragraph">When you export a route video, the app creates a temporary video on your device from the selected locations, timestamps, and Apple map images. MapKit may retrieve map data while preparing images and following the route. The app does not read existing photos or videos or import audio.</p>
+<p class="wp-block-paragraph">Videos are saved to Photos only after you grant permission to add to the photo library. The app does not read existing photos or videos. If saving fails, the finished temporary video is retained for retry while the same screen and selection remain valid. After a successful save, the temporary video is also retained so you can play the saved video from that screen. Temporary video files are removed when no longer needed, such as after settings change, when you leave the screen, or when a new video is prepared. Cleanup waits for any Photos write or playback already using the file to finish. Saved videos may sync to the cloud according to your photo-library settings, including iCloud Photos. Manage saved videos in your photo library.</p>
+<h2 class="wp-block-heading">Location record imports</h2>
+<p class="wp-block-paragraph">The app reads only the CSV, GPX, GeoJSON, JSON, KML, KMZ, or GeoPackage file you explicitly select and imports history with identifiable timestamps and locations into its private storage. It uses protected temporary files during processing and removes them afterward. The original file is not changed. The app does not sign in to your Google account or send or retrieve history through Google. If you select a file stored in the cloud through Files, downloading it follows that provider’s features and settings.</p>
+<h2 class="wp-block-heading">Permissions</h2>
+<p class="wp-block-paragraph">Motion &amp; Fitness permission is used to save and display activity and pedometer data when you enable that feature. Location permission is used to record locations on your device. Background App Refresh is used to continue background recording when iOS allows it. Saving to Photos uses add-only photo-library permission. You can change permissions in iPhone or Apple Watch Settings.</p>
+<h2 class="wp-block-heading">Deletion</h2>
+<p class="wp-block-paragraph">You can delete imported history by import batch from Import Data in the menu or Route History. The original file and records measured by iPhone and Apple Watch in this app remain unchanged. The app also retains an on-device deletion record so that deleted imported history does not return from its internal recovery backups.</p>
+<p class="wp-block-paragraph">There is no in-app control for deleting all records measured by your devices. Turn recording off on both devices, then delete the app from both iPhone and Apple Watch using the operating system. On iPhone, choose Delete App; Offload App retains its data. Removing the app from one device does not guarantee deletion from the other. Delete exported files and files in earlier LocationLogger folders separately in Files or the receiving app, and manage operating-system backups separately in their backup settings. The developer cannot remotely erase records on your devices or destinations.</p>
+<h2 class="wp-block-heading">Contact</h2>
+<p class="wp-block-paragraph">Feedback intake and AI-assisted organization are being prepared. The in-app submission entry remains hidden until intake has been verified. The app does not automatically send, attach, or prefill location records, settings, exports, diagnostics, or device information into a feedback form.</p>
+<p class="wp-block-paragraph">After intake opens, text you voluntarily submit to this app’s dedicated Google Form will be used to improve the app. Google processing, AI organization, retention, and necessary individual handling will be explained before you choose to submit. Keeping location records away from the developer is separate from handling a report you choose to send. Do not include actual locations, addresses, travel history, other people’s information, secrets, or credentials.</p>
+<p class="wp-block-paragraph">Business, administrative, reply-needed, and privacy requests use a separate common contact channel. This channel is also being prepared and will be linked from the support page when intake opens.</p>
+<h2 class="wp-block-heading">In-app purchase</h2>
+<p class="wp-block-paragraph">Apple StoreKit handles the one-time purchase that removes weekly allowance limits, and restoration of that purchase. The app checks verified entitlements and product pricing. The developer has no server that receives payment details or Apple Account credentials. Location records are not sent to verify purchases.</p>
+<p class="wp-block-paragraph">The free weekly allowance is managed using the number of uses and the start of the week saved in settings on this device. Only successful eligible preset additions and video saves count as uses. Location records are not sent to manage the allowance.</p>
+<h2 class="wp-block-heading">Apple rating requests</h2>
+<p class="wp-block-paragraph">The app counts elapsed use, map visits, and successful video saves on the device. When its conditions are met, it requests Apple’s standard rating prompt after you leave Route History. These counters and your location records are not sent to the developer. Apple controls whether the prompt appears and handles the rating.</p></div>
 
-
-<p class="wp-block-paragraph">Records remain on your devices until deleted. Turning recording off or revoking location permission stops new recording; it does not erase earlier records. Internal records and recovery files are marked as excluded from operating-system backups. Export records you need to preserve before replacing a device or in case it fails. Settings, including quiet locations, may be included in operating-system backups. Backup storage, retention, and deletion depend on Apple or the backup method you choose.</p>
-
-</div>
-
-</details>
 
 
 <details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>Apple maps and place-name lookup</summary>
@@ -285,33 +289,30 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 
 <p class="wp-block-paragraph"><a href="https://policies.google.com/privacy?hl=en">Google Privacy Policy</a> · <a href="https://policies.google.com/terms?hl=en">Google Terms of Service</a> · <a href="https://policies.google.com/terms/information-requests?hl=en">Google: requests for information</a> · <a href="https://www.globalcbpr.org/about/membership/">Global CBPR Forum members</a> · <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a></p>
 
+</article></div>
+<!-- /wp:post-content -->
+<!-- wp:paragraph -->
+<p>Keeping location records away from the developer is separate from handling a report you choose to send. The app does not automatically attach location records, pause places, export files, diagnostics or device information to a report.</p>
+<!-- /wp:paragraph -->
+<!-- wp:group {"tagName":"div","className":"info-contact","layout":{"type":"default"}} -->
+<div class="wp-block-group info-contact"><!-- wp:paragraph -->
+<p><a href="/apps/en/location-logger/">Overview</a></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p><a href="/apps/en/feedback/location-logger/">Feedback</a></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p><a href="/apps/en/contact/">Contact</a></p>
+<!-- /wp:paragraph -->
 </div>
+<!-- /wp:group -->
 
+<!-- /wp:group -->
+</main></div>
 
-<p class="wp-block-paragraph">Keeping location records away from the developer is separate from handling a report you choose to send. The app does not automatically attach location records, pause places, export files, diagnostics or device information to a report.</p>
-
-
-<div class="wp-block-group info-contact is-layout-flow wp-block-group-is-layout-flow">
-<p class="wp-block-paragraph"><a href="/apps/en/location-logger/">Overview</a></p>
-
-
-<p class="wp-block-paragraph"><a href="/apps/en/feedback/location-logger/">Feedback</a></p>
-
-
-<p class="wp-block-paragraph"><a href="/apps/en/feedback/location-logger/">Feedback</a></p>
-
-
-<p class="wp-block-paragraph"><a href="/apps/en/contact/">Contact</a></p>
-
-</div>
-
-</article>
-
-</div>
-</main>
 
 <footer class="wp-block-template-part"><footer class="site-footer"><div><a class="site-mark" href="/apps/en/"><span class="site-mark-dot" aria-hidden="true"></span><span>Apps</span></a><p>Designed with real situations in mind, with care for how things look and work.</p></div><nav aria-label="Footer navigation"><a href="/apps/en/#apps">Apps</a><a href="/apps/en/contact/">Contact</a><a href="#top">Back to top ↑</a></nav></footer></footer>
-</div>
+
 
 
 </body></html>

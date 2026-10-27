@@ -657,13 +657,13 @@
     },
     {
       "path": "apps/en/privacy/location-logger.html",
-      "bytes": 51623,
-      "sha256": "f0c3858a692f5960a6da7d6374f761c5eb972a663989cb3323ae95a1cb23d18a"
+      "bytes": 63033,
+      "sha256": "67270e89c757cc1a4e6c4e7616a47cb43a65bd2ae3e8eb3156d7caa9b1a01262"
     },
     {
       "path": "apps/en/privacy/location-logger/index.html",
-      "bytes": 51623,
-      "sha256": "f0c3858a692f5960a6da7d6374f761c5eb972a663989cb3323ae95a1cb23d18a"
+      "bytes": 63033,
+      "sha256": "67270e89c757cc1a4e6c4e7616a47cb43a65bd2ae3e8eb3156d7caa9b1a01262"
     },
     {
       "path": "apps/en/privacy/mastery-steps.html",
@@ -1002,13 +1002,13 @@
     },
     {
       "path": "apps/privacy/location-logger.html",
-      "bytes": 95749,
-      "sha256": "be96a559827484c70642f20187bf9cad04847f5762cb180c740c6a61e2c37a19"
+      "bytes": 142703,
+      "sha256": "507dcffbc58c45c4cbe78b19c98d6a5fc8264a58f387f666adc5c54528c917a9"
     },
     {
       "path": "apps/privacy/location-logger/index.html",
-      "bytes": 95749,
-      "sha256": "be96a559827484c70642f20187bf9cad04847f5762cb180c740c6a61e2c37a19"
+      "bytes": 142703,
+      "sha256": "507dcffbc58c45c4cbe78b19c98d6a5fc8264a58f387f666adc5c54528c917a9"
     },
     {
       "path": "apps/privacy/mastery-steps.html",
