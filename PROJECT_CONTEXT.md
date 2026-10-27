@@ -6,6 +6,8 @@
 
 WordPress書き出し `2026-10-27T08-05-27Z` と採用ファイル242件が一致。日英のdesktop/390px表示、format・lint・53テスト・build・68ページ/113ルートの検査が成功。通常Git接続はDNS失敗となったため、通信設定を変更せず、認証済みGitHub接続から現在HEADとの一致を確認して公開経路を準備。一般公開の結果は以下へ追記する。WordPress DBと編集用認証情報は配信対象外。
 
+公開commit `271ff2ee9204e9a14fe592a6d71c2e3f7b6f4537` を通常pushし、[Actions 40473440388](https://github.com/aaa3710/aaa3710.github.io/actions/runs/40473440388)のbuild・deploy成功を確認。公開された日英紹介はHTTP 200で、WordPress由来の各HTMLとbyte単位で一致した。日本語SHA256 `b0982e417dc337988cec5f65ad5e0e6dc1164eb2cd4cbff48f4ad503de8444fc`、英語 `29b6ac759f764e0b2d5231293bf2f53e0c46c0cfe99424507a82c2a44f6ea8f6`。通常DNSの回復確認後に正規Git経路を使えたため、代替APIによるリモート変更は行っていない。実行中の新しいバックアップ機能は、この公開原稿へ未検証の提供済み機能として追加していない。
+
 ## 感じるモールスのアイコン公開候補 — 2026-09-29
 
 本人の採用と公開許可を受け、WordPress原本の `wrist-morse-icon.png` と既存の150/300/768px派生画像を、本体 `1.0.0 (4)` と同じ赤土色背景・触覚リズム図案へ置換した。本文・URL・配布状態は変更していない。`work/wordpress/site/` は非公開WordPress原本としてGit追跡対象外。正規書き出し候補 `2026-09-28T23-58-52Z` は68ページ・113ルート・226 HTML・3304検査に成功し、直前の配信物242件との差分はこのアイコン1件だけ。WordPressとの242件一致、format・lint・53テスト・build・ページ検証を通して `site-output/` へ採用した。公開commit `6255c07a51c80360897c7d93f81008639b1eb0e8` を通常pushし、[Actions 36501382832](https://github.com/aaa3710/aaa3710.github.io/actions/runs/36501382832)のbuild・deploy成功を確認。公開アイコンのSHA-256 `ed66c34e6bf4743f67d52de99fdca2406ad6ad31328f4f3273c8b30fce93bdd1` は本体原本と一致し、[日本語](https://aaa3710.github.io/apps/wrist-morse/)・[英語](https://aaa3710.github.io/apps/en/wrist-morse/)の紹介はHTTP 200。Appleの再審査結果とは別。
