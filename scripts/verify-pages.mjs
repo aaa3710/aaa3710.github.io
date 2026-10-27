@@ -61,11 +61,11 @@ const ownerReportedPublicApps = {
   },
   'location-logger': {
     ja: [
-      'バージョン1.0.0をApp Storeで公開中です。',
+      'バージョン1.0.5をApp Storeで公開中です。',
       'https://apps.apple.com/jp/app/id6815019530',
     ],
     en: [
-      'Version 1.0.0 is available on the App Store.',
+      'Version 1.0.5 is available on the App Store.',
       'https://apps.apple.com/jp/app/id6815019530?l=en',
     ],
   },
@@ -948,8 +948,8 @@ for (const locale of locales) {
       check(
         decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
           locale === 'ja'
-            ? 'バージョン1.0.0をApp Storeで公開中です'
-            : 'Version 1.0.0 is available on the App Store',
+            ? 'バージョン1.0.5をApp Storeで公開中です'
+            : 'Version 1.0.5 is available on the App Store',
         ),
         `${routePath}: current user-reported release status missing`,
       );
