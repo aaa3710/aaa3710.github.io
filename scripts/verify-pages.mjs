@@ -901,6 +901,12 @@ for (const locale of locales) {
   );
 }
 
+const locationLoggerRelease = JSON.parse(
+  await readFile(
+    path.join(root, 'wordpress/location-logger-release-state.json'),
+    'utf8',
+  ),
+);
 const locationLoggerIndexable = [];
 for (const locale of locales) {
   const prefix = locale === 'en' ? '/apps/en' : '/apps';
@@ -944,12 +950,29 @@ for (const locale of locales) {
       linksTo(anchors, `${prefix}/contact/`),
       `${routePath}: common Contact missing`,
     );
+    if (kind === 'app' || kind === 'privacy') {
+      const text = decodeHtml(html.replace(/<[^>]*>/g, ''));
+      if (!locationLoggerRelease.features.activity)
+        check(
+          !/活動データ|活動原本|活動ごと|歩数|モーションとフィットネス|activity modules|activity saving|activity and pedometer|Motion & Fitness|Apple rating requests/i.test(
+            text,
+          ),
+          `${routePath}: unreleased activity feature described as available`,
+        );
+      if (!locationLoggerRelease.features.externalBackup)
+        check(
+          !/記録のバックアップと復元|誤削除に備える外部バックアップ|\.llbackup|Back Up and Restore Records|External backups for accidental deletion/i.test(
+            text,
+          ),
+          `${routePath}: unreleased external backup described as available`,
+        );
+    }
     if (kind === 'app')
       check(
         decodeHtml(html.replace(/<[^>]*>/g, '')).includes(
           locale === 'ja'
-            ? 'バージョン1.0.5をApp Storeで公開中です'
-            : 'Version 1.0.5 is available on the App Store',
+            ? `バージョン${locationLoggerRelease.publicVersion}をApp Storeで公開中です`
+            : `Version ${locationLoggerRelease.publicVersion} is available on the App Store`,
         ),
         `${routePath}: current user-reported release status missing`,
       );

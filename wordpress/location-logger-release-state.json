@@ -1,0 +1,10 @@
+{
+  "publicVersion": "1.0.5",
+  "releasedSource": "dc5c33f",
+  "storeReleaseDate": "2026-10-22T18:12:46Z",
+  "checkedOn": "2026-10-28",
+  "features": {
+    "activity": false,
+    "externalBackup": false
+  }
+}
